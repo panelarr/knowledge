@@ -22,7 +22,7 @@ Every agent session working on Panelarr: where it works, what goal it holds and 
 | `panelarr-source-api` | `source-api` (not created yet; [module](../modules/source-api/README.md)) | — | — | — | idle | — |
 | `panelarr-meta` | `meta` (not created yet; [module](../modules/meta/README.md)) | — | — | — | idle | — |
 | `panelarr-source-mihon` | `source-mihon` (not created yet; [module](../modules/source-mihon/README.md)) | — | — | — | idle | — |
-| `panelarr-mihon-source` | `mihon-source` (`../mihon-source`, `panelarr/mihon-source`; [module](../modules/mihon-source/README.md)) | — (the clone itself) | `<type>/<scope>-<slug>` | [GOAL-0001](goals/GOAL-0001-mihon-source-v0-run-mihon-extensions-over-the-source-api.md) | working | 2026-10-11: started; slice 1 (scaffold) on `chore/repo-scaffold` |
+| `panelarr-mihon-source` | `mihon-source` (`../mihon-source`, `panelarr/mihon-source`; [module](../modules/mihon-source/README.md)) | — (the clone itself) | `<type>/<scope>-<slug>` | [GOAL-0001](goals/GOAL-0001-mihon-source-v0-run-mihon-extensions-over-the-source-api.md) | working | 2026-10-11: slice 1 done (`16ad730`); slice 2 on `feat/api-protos-auth` |
 | `panelarr-source-local` | `source-local` (not created yet; [module](../modules/source-local/README.md)) | — | — | — | idle | — |
 | `panelarr-deploy` | `deploy` (not created yet; [module](../modules/deploy/README.md)) | — | — | — | idle | — |
 
