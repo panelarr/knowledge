@@ -2,8 +2,8 @@
 title: meta overview
 status: proposed
 tags: [module, meta, metadata, go]
-related: [contracts/metadata-plugin.md, modules/meta-mangabaka/overview.md, research/mangabaka.md, research/metadata-providers.md, architecture/search.md, decisions/ADR-0022-postgresql-only.md, decisions/ADR-0023-sqlc-pgx-goose-data-layer.md]
-inputs: [IN-0002, IN-0003, IN-0009]
+related: [contracts/metadata-plugin.md, contracts/metadata-schema.md, modules/meta-mangabaka/overview.md, research/mangabaka.md, research/metadata-providers.md, architecture/search.md, decisions/ADR-0022-postgresql-only.md, decisions/ADR-0023-sqlc-pgx-goose-data-layer.md]
+inputs: [IN-0002, IN-0003, IN-0009, IN-0010]
 updated: 2026-10-11
 ---
 
@@ -11,7 +11,7 @@ updated: 2026-10-11
 
 ## Summary
 
-An optional Go **metadata service**, the **Seerr-style** part of Panelarr: it provides metadata information, browsing and search to the library and the rest of the app (IN-0009 §2). It hosts **metadata plugins**, ingests their records into its own Postgres DB, cross-references external IDs, and serves **Browse / Search / Get** over the whole catalogue, not only what is in a library. Later: matching source series to metadata, and external search engines. It runs standalone (`panelarr/meta`, usable by other projects) or embedded in server (default still open, [Q-0006](../../questions/README.md)). With meta absent, server falls back to source-provided metadata.
+An optional Go **metadata service**, the **Seerr-style** part of Panelarr: it provides metadata information, browsing and search to the library and the rest of the app (IN-0009 §2). It hosts **metadata plugins**, ingests their records into its own Postgres DB, cross-references external IDs, merges providers into one **Entry** per item ([schema](../../contracts/metadata-schema.md)), and serves **Browse / Search / Get** over the whole catalogue, not only what is in a library. Later: matching source series to metadata, and external search engines. It runs standalone (`panelarr/meta`, usable by other projects) or embedded in server (default still open, [Q-0006](../../questions/README.md)). With meta absent, server falls back to source-provided metadata.
 
 ## Repos
 - **`meta`**: the `panelarr.metadata.v1` and `panelarr.meta.v1` protos, the Go plugin SDK (`plugin.Serve`, managed via go-plugin or standalone `--listen`), the meta service.
@@ -30,7 +30,7 @@ Plugins declare which they support: `lookup` (API), `scrape`, `dump` (snapshot d
 | `meta-comicvine` | `lookup` (API key) | Western comics |
 
 ## Internals
-- **Store:** PostgreSQL ([ADR-0022](../../decisions/ADR-0022-postgresql-only.md)) with sqlc + pgx + goose ([ADR-0023](../../decisions/ADR-0023-sqlc-pgx-goose-data-layer.md)). Tables: works, titles, people, tags, covers, external_ids, provider_records (raw JSONB), merges/redirects, sync_runs, characters (later).
+- **Store:** PostgreSQL ([ADR-0022](../../decisions/ADR-0022-postgresql-only.md)) with sqlc + pgx + goose ([ADR-0023](../../decisions/ADR-0023-sqlc-pgx-goose-data-layer.md)). Shaped by the [entry schema](../../contracts/metadata-schema.md): provider_entries (as received, raw JSONB), entries (merged view) with titles, descriptions, credits, company credits, tag assignments, relations, adaptations, items, images, links, external IDs; shared persons, companies and tags; field locks; merges/redirects; sync_runs.
 - **Ingest:** consumes a plugin's `Sync` stream; upserts in batches, committing at each checkpoint; applies merges as redirects; after a full dump, marks unseen records removed; records each sync run (counts, errors, cursor). Bulk loads may use `COPY` into staging tables.
 - **Sync scheduler:** dump and delta runs on the hoster's schedule, plus manual runs from `MetaAdmin`.
 - **API:** `Browse` (filters + sort, Seerr-style discovery), `Search`, `Get`, `LookupExternal`; gRPC + HTTP/JSON + OpenAPI. Every record carries attribution.

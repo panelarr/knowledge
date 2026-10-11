@@ -2,8 +2,8 @@
 title: Metadata plugin contract and meta API
 status: draft
 tags: [contract, metadata]
-related: [modules/meta/overview.md, modules/meta-mangabaka/overview.md, architecture/plugins.md, research/mangabaka.md, research/metadata-providers.md]
-inputs: [IN-0002, IN-0003, IN-0007, IN-0009]
+related: [contracts/metadata-schema.md, modules/meta/overview.md, modules/meta-mangabaka/overview.md, architecture/plugins.md, research/mangabaka.md, research/metadata-providers.md]
+inputs: [IN-0002, IN-0003, IN-0007, IN-0009, IN-0010]
 updated: 2026-10-11
 ---
 
@@ -27,14 +27,14 @@ The owner listed "API/Scrape/Dump downloads and etc" (IN-0009 §1). The keeper's
 | `delta` | Stream only the changes since a cursor | meta, more often than dumps | "updated since" API endpoints |
 
 - A plugin declares in `GetInfo` the types it supports, its limits per type, and the common services it can use. The list is open, so new types can be added without breaking v1.
-- Provider specifics stay in the plugin: URLs, auth, checksums, decompression and file formats. meta only sees normalized records.
+- Provider specifics stay in the plugin: URLs, auth, checksums, decompression and file formats. meta only sees records in the [entry schema](metadata-schema.md).
 
 ## Metadata plugin sketch
 ```proto
 service MetadataPlugin {
   rpc GetInfo(Empty) returns (PluginInfo);            // id, version, ingestion types + limits, capabilities (characters, people, …), common services it can use
-  rpc Search(MetaSearchRequest) returns (MetaSeriesList); // lookup / scrape
-  rpc Get(ExternalRef) returns (MetaSeries);           // lookup / scrape: normalized record + raw extras
+  rpc Search(MetaSearchRequest) returns (ProviderEntryList); // lookup / scrape
+  rpc Get(ExternalRef) returns (ProviderEntry);         // lookup / scrape: schema record + raw original
   rpc Sync(SyncRequest) returns (stream SyncEvent);    // dump / delta: mode, optional cursor
   rpc GetSettingsSchema(Empty) returns (SettingsSchema); // what config it expects (IN-0007)
   rpc GetSettings(Empty) returns (Settings);
@@ -45,7 +45,7 @@ service MetadataPlugin {
 message SyncEvent {
   oneof event {
     SyncStarted started = 1;   // snapshot id/date, expected record count if known
-    MetaSeries upsert = 2;     // a normalized record
+    ProviderEntry upsert = 2;  // one record in the entry schema
     ExternalRef removed = 3;   // gone from the provider
     Merge merge = 4;           // provider merged id A into id B (MangaBaka merged_with)
     Checkpoint checkpoint = 5; // cursor; meta commits everything before it
@@ -57,10 +57,10 @@ message SyncEvent {
 ## meta service sketch (consumed by server and web)
 ```proto
 service Meta {
-  rpc Browse(BrowseRequest) returns (WorkPage);                // Seerr-style discovery: filters (genre, tag, type, status, year, content rating, language) + sort (popularity, rating, updated, year)
+  rpc Browse(BrowseRequest) returns (EntryPage);                // Seerr-style discovery: filters (genre, tag, type, status, year, content rating, language) + sort (popularity, rating, updated, year)
   rpc Search(SearchRequest) returns (SearchResponse);          // titles in every language and alt title, people
-  rpc Get(MetaId) returns (Work);                              // details: titles, people, description, covers (+blurhash), tags, status, relations, links, attribution
-  rpc LookupExternal(ExternalRef) returns (Work);              // e.g. anilist:30013 → meta work
+  rpc Get(EntryId) returns (Entry);                            // details: titles, people, description, covers (+blurhash), tags, status, relations, links, attribution
+  rpc LookupExternal(ExternalRef) returns (Entry);             // e.g. anilist:30013 → meta entry
   rpc Match(MatchRequest) returns (MatchResponse);             // later: titles, authors, year, lang, source hints → candidates + confidence
 }
 
@@ -72,7 +72,7 @@ service MetaAdmin {
 ```
 
 ## Design notes
-- **Normalized record:** titles[] (lang, kind, primary), people[] (role), description(s), genres/tags (with spoiler/explicit flags), status, year, type, content rating, covers (+ blurhash), external IDs map, characters[] (optional), relations, links.
+- **Record shape:** the [entry schema](metadata-schema.md) (IN-0010). Plugins send `ProviderEntry`s; meta stores them as received and builds merged `Entry`s with per-field provider priority and manual locks.
 - **Merges:** honour MangaBaka `merged_with`. meta keeps redirects so old IDs still resolve.
 - **Snapshots:** after a full `dump` sync, records the provider no longer has are marked removed, not deleted, so links keep working.
 - **Attribution:** every record carries provider attribution, and web shows it. Licences such as MangaBaka's CC BY-NC-SA mean the hoster downloads the data; Panelarr never ships it ([scope](../product/scope.md)).

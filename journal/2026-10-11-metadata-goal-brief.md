@@ -1,13 +1,14 @@
 # 2026-10-11: metadata goal brief
 
 - **Participants:** @aurimasniekis, panelarr-knowledge
-- **Inputs:** IN-0009
+- **Inputs:** IN-0009, IN-0010
 
 ## Discussed
 
 - The owner suggested ("maybe") defining the metadata provider protocol with several ingestion types (API, scrape, dump downloads, …), then starting with MangaBaka's SQLite dump feeding the metadata DB (IN-0009 §1).
 - Answers: one repo per plugin; scope end to end, with meta as the Seerr-style service for metadata, browsing and search; ent + Atlas (IN-0009 §2). Then goose for migrations ("maybe", §3), then "just do postgres solo" (§4). Asked about scope, the owner chose Postgres-only for the whole app, and with it sqlc + pgx + goose (§5).
 - Meanwhile `panelarr-mihon-source` REPORTed slice 1 done (recorded in GOAL-0001; see the mihon-source journal entry).
+- The owner shared their schema ideas for meta's items and asked for a more generic version that other providers can fill too (IN-0010).
 
 ## Changed in the KB
 
@@ -17,6 +18,7 @@
 - [meta overview](../modules/meta/overview.md) rewritten; new module [meta-mangabaka](../modules/meta-mangabaka/overview.md); modules index, scope (Seerr-style discovery), roadmap (meta pulled forward).
 - Postgres-only reflected in AGENTS.md, principles, architecture overview, deployment, storage layout, search, ADR-0017 (proposed), server and deploy modules.
 - [GOAL-0002](../agents/goals/GOAL-0002-meta-v0-metadata-protocol-meta-service-and-mangabaka-dump-in.md) (`proposed`) for `panelarr-meta`; repos `meta` and `meta-mangabaka` registered; board updated.
+- [Entry schema](../contracts/metadata-schema.md) (`proposed`): ProviderEntry as received + merged Entry with per-field provider priority and manual locks; one credits list, genres as tags, image variants, raw values next to enums, the owner's enum lists. Contract, meta overview and GOAL-0002 now use it; meta's catalogue item is an **Entry**, separate from server's Work.
 
 ## Decided
 
