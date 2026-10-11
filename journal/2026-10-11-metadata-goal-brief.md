@@ -24,6 +24,7 @@
 - GOAL-0002 slice 3 REPORTed: DB layer merged; working assumptions (merge on write, linking rule, name-only sharing) recorded in the schema doc.
 - GOAL-0002 slice 4 REPORTed: MangaBaka dump ingestion merged in meta-mangabaka; no data committed (checked).
 - GOAL-0002 slice 7 REPORTed (API lookup) with the real-dump fixes; the owner's real-dump run gave the first real numbers (research/mangabaka.md).
+- GOAL-0002 slice 5 REPORTed: ingest end to end; projected full MangaBaka import ≈ 8–9 min, ≈ 4–5 GB.
 
 ## Decided
 
