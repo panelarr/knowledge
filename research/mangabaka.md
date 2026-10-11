@@ -18,7 +18,7 @@ MangaBaka is an aggregated manga metadata database. It publishes **nightly dumps
 ## Dumps
 - **URL:** `https://api.mangabaka.org/v1/database/series[.full].{json,jsonl,sqlite}.{tar.gz,zst}`, each with a `.sha1`.
 - **Variants:** *default*, and *full* (adds raw upstream responses in `*_response` fields).
-- **Size (measured 2026-10-11, default variant):** about 396 MB as `.sqlite.zst`, 3.4 GB decompressed; 564,040 series rows, of which 258,029 are merged into others and 306,008 active. Reading and mapping them all took about 1.5 minutes on the owner's machine.
+- **Size (measured 2026-10-11, default variant):** about 396 MB as `.sqlite.zst`, 3.4 GB decompressed; 564,040 series rows, of which 258,029 are merged into others and 306,008 active. Reading and mapping them all took about 1.5 minutes on the owner's machine. **Full import into meta (measured 2026-10-11, IN-0029):** 13m23s for 564,155 records (402,155 changed after a resumed run, 258,068 merges), **306,084 active entries**, **meta database 6.6 GB** (the synthetic projection said 4–5 GB; raw JSONB is the likely difference). The first attempt failed when Docker Desktop's disk filled. Plan disk for about 7 GB of database plus about 4 GB of dump files.
 - **Freshness:** built nightly at 00:00 UTC. Each series refreshes every 1–7 days; the whole database weekly. Sizes aren't published.
 - **Schema stability:** no 1.0 promise; changes are "likely additive". Code defensively.
 - **Licence:** MangaBaka's own data is CC BY-NC-SA 4.0. Third-party data stays under each provider's terms. Attribution is expected, and commercial use needs an arrangement.
