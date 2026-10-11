@@ -1,6 +1,6 @@
 ---
 title: "ADR-0004: Support SQLite, PostgreSQL and MySQL/MariaDB"
-status: accepted
+status: superseded
 tags: [database, server]
 related: [modules/server/overview.md, decisions/ADR-0018-ent-atlas-data-layer.md]
 inputs: [IN-0003]
@@ -10,6 +10,7 @@ updated: 2026-10-11
 # ADR-0004: SQLite, PostgreSQL and MySQL/MariaDB
 
 - **Date:** 2026-10-11 · **Deciders:** author
+- **Superseded by:** [ADR-0022](ADR-0022-postgresql-only.md) on 2026-10-11 (Postgres only; IN-0009 §5).
 
 ## Context
 The author wants a choice of databases: "sqlite/postgres/mysql (optional but if possible and not too difficult)" (IN-0003 §1).

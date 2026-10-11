@@ -1,6 +1,6 @@
 # Module: meta
 
-Go metadata service + metadata-plugin contract/SDK; matching and metadata search. Repo `~/Projects/Panelarr/meta` · image `panelarr/meta` · session `panelarr-meta`.
+Go metadata service (Seerr-style browse, search, details) + metadata-plugin contract/SDK; ingestion, later matching. Repo `~/Projects/Panelarr/meta` · image `panelarr/meta` · session `panelarr-meta`.
 
 | Doc | Holds | Status |
 |---|---|---|

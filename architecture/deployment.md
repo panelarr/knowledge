@@ -21,19 +21,19 @@ Docker-first, *arr*-style: images `panelarr/<repo>` ([ADR-0008](../decisions/ADR
 | `panelarr/meta` | standalone meta service | optional |
 | `panelarr/mihon-source` | JVM tool for Mihon extensions (+ optional Chromium variant `:<ver>-webview`, [Q-0002](../questions/README.md)) | optional |
 | `panelarr/source-mihon`, `panelarr/source-local`, `panelarr/meta-*` | plugin in standalone/remote mode | optional (managed binaries are the default) |
-| third-party | typesense, meilisearch, flaresolverr/byparr, gluetun, postgres, mysql | optional |
+| `postgres` | PostgreSQL, the only database ([ADR-0022](../decisions/ADR-0022-postgresql-only.md)) | **yes** |
+| third-party | typesense, meilisearch, flaresolverr/byparr, gluetun | optional |
 
 ## Compose profiles (deploy repo)
 
 ```mermaid
 flowchart LR
-    S[server<br/>always]
+    S[server + postgres<br/>always]
     S -.-> P1[profile: mihon<br/>mihon-source]
     S -.-> P2[profile: meta<br/>meta]
     S -.-> P3[profile: search-typesense / search-meilisearch]
     S -.-> P4[profile: flaresolverr / byparr]
     S -.-> P5[profile: vpn<br/>gluetun ×N]
-    S -.-> P6[profile: postgres / mysql]
 ```
 
 Example: `docker compose --profile mihon --profile flaresolverr --profile search-typesense up -d`

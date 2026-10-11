@@ -21,7 +21,7 @@ flowchart TB
 
     subgraph core [Required]
         S["server (Go)<br/>users · library · jobs · files · trackers<br/>plugin host · search · web (go:embed)"]
-        DB[(SQLite default<br/>or Postgres / MySQL)]
+        DB[(PostgreSQL)]
         FS[("/data/library<br/>CBZ + ComicInfo.xml")]
         S --- DB
         S --- FS

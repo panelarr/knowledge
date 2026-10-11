@@ -7,10 +7,11 @@ One folder per code repo ([ADR-0002](../decisions/ADR-0002-split-repositories.md
 | server | Go | Core *arr* app, plugin host, REST API | [server/](server/README.md) |
 | web | TS | SPA/PWA reader and admin | [web/](web/README.md) |
 | source-api | Go | Source contract, SDK, conformance, plugin kit | [source-api/](source-api/README.md) |
-| meta | Go | Metadata service + plugin contract | [meta/](meta/README.md) |
+| meta | Go | Metadata service (Seerr-style browse/search) + plugin contract and SDK | [meta/](meta/README.md) |
 | source-mihon | Go | Mihon stores, trust, orchestration | [source-mihon/](source-mihon/README.md) |
 | mihon-source | Kotlin | Mihon extensions over source-api, minimal admin, stores | [mihon-source/](mihon-source/README.md) |
+| meta-mangabaka | Go | Metadata plugin: MangaBaka dump + API | [meta-mangabaka/](meta-mangabaka/README.md) |
 | source-local | Go | User's own files as a source | [source-local/](source-local/README.md) |
 | deploy | YAML | Compose, Unraid, AIO | [deploy/](deploy/README.md) |
 
-Metadata plugins (`meta-mangabaka`, `meta-anilist`, …) are documented under [meta](meta/overview.md) until their repo layout is decided ([Q-0017](../questions/README.md)).
+Metadata plugins get one repo each (Q-0017, IN-0009). [meta-mangabaka](meta-mangabaka/README.md) is the first; the others are listed under [meta](meta/overview.md) until they start.

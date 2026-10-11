@@ -19,7 +19,7 @@ The public repo for **running Panelarr**:
 
 ## Contents (planned)
 ```
-compose.yaml           server + profiles: mihon, meta, search-typesense, search-meilisearch, flaresolverr, byparr, vpn, postgres, mysql
+compose.yaml           server + postgres, plus profiles: mihon, meta, search-typesense, search-meilisearch, flaresolverr, byparr, vpn
 .env.example
 unraid/                panelarr-server.xml, panelarr-mihon-source.xml, panelarr-meta.xml, …
 aio/                   Dockerfile (later)

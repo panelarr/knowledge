@@ -265,6 +265,36 @@
         "architecture/networking.md",
         "architecture/repo-standard.md"
       ]
+    },
+    {
+      "name": "meta",
+      "path": "../meta",
+      "forge": "github",
+      "slug": "panelarr/meta",
+      "visibility": "public",
+      "session": "panelarr-meta",
+      "default_branch": "main",
+      "module": "modules/meta/overview.md",
+      "docs": [
+        "contracts/metadata-plugin.md",
+        "architecture/search.md",
+        "architecture/plugins.md",
+        "architecture/repo-standard.md"
+      ]
+    },
+    {
+      "name": "meta-mangabaka",
+      "path": "../meta-mangabaka",
+      "forge": "github",
+      "slug": "panelarr/meta-mangabaka",
+      "visibility": "public",
+      "session": "panelarr-meta",
+      "default_branch": "main",
+      "module": "modules/meta-mangabaka/overview.md",
+      "docs": [
+        "contracts/metadata-plugin.md",
+        "research/mangabaka.md"
+      ]
     }
   ],
   "authority": {

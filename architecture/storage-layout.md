@@ -15,7 +15,6 @@ Two volumes, like other *arr* apps: **`/config`** (DB, plugins, caches, settings
 
 ```
 /config/
-  panelarr.db                 # SQLite (if used)
   plugins/<id>/<version>/     # managed plugin binaries + data dir
   cache/covers/  cache/pages/ # rebuildable
   search/                     # embedded index (if Bleve), rebuildable

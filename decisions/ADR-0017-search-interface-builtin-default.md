@@ -13,7 +13,7 @@ updated: 2026-10-11
 
 ## Decision (proposed)
 - server and meta use a `SearchIndex` interface. **The DB is the source of truth**; the index is rebuildable.
-- **Default backend:** the database's own full-text (SQLite FTS5 with trigram, Postgres `tsvector` + `pg_trgm`, MySQL ngram FULLTEXT). No extra container.
+- **Default backend:** PostgreSQL's own full-text (`tsvector` + `pg_trgm`; Postgres is the only database since [ADR-0022](ADR-0022-postgresql-only.md)). No extra container.
 - **First external adapter: Typesense** (the author's suggestion). **Meilisearch** is the candidate second adapter (strong CJK).
 - **Bleve** (embedded) is to be evaluated ([Q-0022](../questions/README.md)).
 - Switching backend triggers a background full re-index job.

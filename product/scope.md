@@ -3,7 +3,7 @@ title: Scope
 status: draft
 tags: [product, scope]
 related: [planning/roadmap.md, architecture/overview.md]
-inputs: [IN-0002, IN-0003]
+inputs: [IN-0002, IN-0003, IN-0009]
 updated: 2026-10-11
 ---
 
@@ -22,7 +22,7 @@ What Panelarr does, roughly grouped by milestone ([roadmap](../planning/roadmap.
 | Library | Per-user library and categories. A Work maps to several source series. Chapter de-duplication and preferred scanlator/source |
 | Acquisition | Update checks, auto-download rules, shared download queue with retries and per-source limits, CBZ + ComicInfo |
 | Local files | source-local for the user's CBZ/CBR/CB7/CBT/folders; optional "adopt into library" |
-| Metadata | meta service with plugins (MangaBaka, AniList, …); matching with confidence; manual fix |
+| Metadata | meta service with plugins (MangaBaka, AniList, …) and ingestion types (API, scrape, dump, …); **Seerr-style discovery**: browse, search and details across the whole metadata catalogue, not only the library (IN-0009); matching with confidence; manual fix |
 | Search | Built-in DB search; optional Typesense/Meilisearch |
 | Reader | PWA: paged / long strip / double page, RTL/LTR, zoom, preloading, progress sync, offline chapters |
 | Trackers | AniList, MAL, Kitsu, MangaUpdates, Shikimori, Bangumi, MangaBaka, webhook. Per user |

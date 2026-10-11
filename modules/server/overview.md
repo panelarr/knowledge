@@ -30,15 +30,15 @@ internal/network/        profiles, assignment, push to plugins
 internal/search/         SearchIndex + backends (dbfts, typesense, meilisearch)
 internal/meta/           meta client (remote) or embedded meta
 internal/trackers/       Tracker interface + implementations
-internal/store/          ent schema, Atlas migrations (sqlite/postgres/mysql)
+internal/store/          goose SQL migrations, sqlc queries, pgx pool
 web/                     go:embed of the web dist (pulled from web releases)
 ```
 
 ## Key technical choices (proposed)
-- **DB:** ent + Atlas ([ADR-0018](../../decisions/ADR-0018-ent-atlas-data-layer.md), [Q-0001](../../questions/README.md)); `modernc.org/sqlite`. CI runs against all dialects.
+- **DB:** PostgreSQL only ([ADR-0022](../../decisions/ADR-0022-postgresql-only.md)) with sqlc + pgx + goose ([ADR-0023](../../decisions/ADR-0023-sqlc-pgx-goose-data-layer.md)). CI runs against a real Postgres.
 - **HTTP:** chi or stdlib `net/http` routing. Server stubs come from OpenAPI via `oapi-codegen` (suggestion).
 - **Plugins:** `hashicorp/go-plugin`. ConnectRPC clients for remote endpoints ([Q-0020](../../questions/README.md)).
-- **Jobs:** in-house queue on the DB (`SELECT … FOR UPDATE SKIP LOCKED` on Postgres/MySQL, a single-writer worker on SQLite), or a library such as river (Postgres-only, which conflicts with multi-DB). Leaning in-house.
+- **Jobs:** a queue on Postgres: in-house (`SELECT … FOR UPDATE SKIP LOCKED`) or a library such as river, now that Postgres is the only database (open, suggestion: try river first).
 - **Images:** an image proxy for un-downloaded pages; cover thumbnails cached in `/config/cache`.
 
 ## Configuration
@@ -48,4 +48,4 @@ Env and flags, *arr*-style: `PANELARR_DB` (DSN), `PANELARR_DATA`, `PANELARR_CONF
 Not started (M2). Repo not created yet.
 
 ## Open questions
-[Q-0001](../../questions/README.md), [Q-0004](../../questions/README.md), [Q-0006](../../questions/README.md), [Q-0011](../../questions/README.md), [Q-0021](../../questions/README.md), [Q-0025](../../questions/README.md).
+[Q-0004](../../questions/README.md), [Q-0006](../../questions/README.md), [Q-0021](../../questions/README.md), [Q-0025](../../questions/README.md).

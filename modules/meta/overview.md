@@ -2,8 +2,8 @@
 title: meta overview
 status: proposed
 tags: [module, meta, metadata, go]
-related: [contracts/metadata-plugin.md, research/mangabaka.md, research/metadata-providers.md, architecture/search.md]
-inputs: [IN-0002, IN-0003]
+related: [contracts/metadata-plugin.md, modules/meta-mangabaka/overview.md, research/mangabaka.md, research/metadata-providers.md, architecture/search.md, decisions/ADR-0022-postgresql-only.md, decisions/ADR-0023-sqlc-pgx-goose-data-layer.md]
+inputs: [IN-0002, IN-0003, IN-0009]
 updated: 2026-10-11
 ---
 
@@ -11,27 +11,36 @@ updated: 2026-10-11
 
 ## Summary
 
-An optional Go **metadata service**. It hosts **metadata plugins**, aggregates their records into a local DB, cross-references external IDs, **matches** source series to metadata, and provides metadata search. It runs standalone (`panelarr/meta`, usable by other projects) or embedded in server (default still open, [Q-0006](../../questions/README.md)). With meta absent, server falls back to source-provided metadata.
+An optional Go **metadata service**, the **Seerr-style** part of Panelarr: it provides metadata information, browsing and search to the library and the rest of the app (IN-0009 §2). It hosts **metadata plugins**, ingests their records into its own Postgres DB, cross-references external IDs, and serves **Browse / Search / Get** over the whole catalogue, not only what is in a library. Later: matching source series to metadata, and external search engines. It runs standalone (`panelarr/meta`, usable by other projects) or embedded in server (default still open, [Q-0006](../../questions/README.md)). With meta absent, server falls back to source-provided metadata.
+
+## Repos
+- **`meta`**: the `panelarr.metadata.v1` and `panelarr.meta.v1` protos, the Go plugin SDK (`plugin.Serve`, managed via go-plugin or standalone `--listen`), the meta service.
+- **One repo per plugin** (Q-0017, IN-0009 §2): [`meta-mangabaka`](../meta-mangabaka/overview.md) first, later `meta-anilist`, …
+
+## Ingestion types
+Plugins declare which they support: `lookup` (API), `scrape`, `dump` (snapshot download), `delta` (changes since a cursor). The list stays open ([contract](../../contracts/metadata-plugin.md), IN-0009 §1).
 
 ## Metadata plugins (none bundled, [ADR-0009](../../decisions/ADR-0009-plugins-not-bundled.md))
-| Plugin | Mode | Notes |
+| Plugin | Ingestion | Notes |
 |---|---|---|
-| `meta-mangabaka` | `BulkSync` from the nightly dump (SQLite/JSONL, zstd) + API for freshness | Backbone and ID cross-reference. CC BY-NC-SA: hoster-downloaded, attributed ([research](../../research/mangabaka.md)) |
-| `meta-anilist` | GraphQL search/get | Characters, staff, relations |
-| `meta-mal`, `meta-mangaupdates`, `meta-kitsu` | API search/get | |
-| `meta-mangadex` | API | Not in MangaBaka's ID map |
-| `meta-comicvine` | API key | Western comics |
+| `meta-mangabaka` | `dump` from the nightly SQLite dump (zstd) + `lookup` via the API for freshness | Backbone and ID cross-reference. CC BY-NC-SA: hoster-downloaded, attributed ([research](../../research/mangabaka.md)) |
+| `meta-anilist` | `lookup` (GraphQL) | Characters, staff, relations |
+| `meta-mal`, `meta-mangaupdates`, `meta-kitsu` | `lookup` | |
+| `meta-mangadex` | `lookup` | Not in MangaBaka's ID map |
+| `meta-comicvine` | `lookup` (API key) | Western comics |
 
 ## Internals
-- **Store:** its own DB (SQLite/Postgres/MySQL, as [ADR-0004](../../decisions/ADR-0004-database-portability.md)). Tables: works, titles, people, tags, characters, external_ids, provider_records (raw JSON), merges.
-- **Sync scheduler:** dump imports on the hoster's schedule; incremental diff by provider ID; merge redirects.
-- **Matcher:**
+- **Store:** PostgreSQL ([ADR-0022](../../decisions/ADR-0022-postgresql-only.md)) with sqlc + pgx + goose ([ADR-0023](../../decisions/ADR-0023-sqlc-pgx-goose-data-layer.md)). Tables: works, titles, people, tags, covers, external_ids, provider_records (raw JSONB), merges/redirects, sync_runs, characters (later).
+- **Ingest:** consumes a plugin's `Sync` stream; upserts in batches, committing at each checkpoint; applies merges as redirects; after a full dump, marks unseen records removed; records each sync run (counts, errors, cursor). Bulk loads may use `COPY` into staging tables.
+- **Sync scheduler:** dump and delta runs on the hoster's schedule, plus manual runs from `MetaAdmin`.
+- **API:** `Browse` (filters + sort, Seerr-style discovery), `Search`, `Get`, `LookupExternal`; gRPC + HTTP/JSON + OpenAPI. Every record carries attribution.
+- **Search:** Postgres FTS + `pg_trgm` behind the `SearchIndex` interface, so Typesense/Meilisearch can plug in later ([search](../../architecture/search.md)).
+- **Matcher (later):**
   - normalize titles (case, punctuation, width, romanization variants), compare against every title and language;
   - add an author overlap score, year proximity and type;
   - external IDs from sources (where given) short-circuit matching;
   - output candidates with a confidence score. server auto-links above a threshold, otherwise asks a curator.
-- **Search:** the same `SearchIndex` abstraction as server ([search](../../architecture/search.md)).
-- **Rate limits:** each plugin declares its limits and meta enforces them.
+- **Rate limits:** each plugin declares its limits per ingestion type and meta enforces them.
 
 ## Implementation status
-Not started (M3).
+Not started. [GOAL-0002](../../agents/goals/GOAL-0002-meta-v0-metadata-protocol-meta-service-and-mangabaka-dump-in.md) is briefed (proposed) for `panelarr-meta`, pulled forward from M3 to run alongside M1 (IN-0009).

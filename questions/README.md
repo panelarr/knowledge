@@ -8,7 +8,6 @@ Everything we don't know yet. IDs are stable and never reused. When a question i
 
 | ID | Question | Area | Pri | Raised in |
 |---|---|---|---|---|
-| Q-0001 | Go data layer: ent + Atlas vs bun vs sqlc + goose for SQLite/Postgres/MySQL? *Leaning ent + Atlas ([ADR-0018](../decisions/ADR-0018-ent-atlas-data-layer.md)).* | server, meta | P1 | [server](../modules/server/overview.md) |
 | Q-0002 | WebView engine for WebView-only Mihon sources: KCEF/JCEF in-process (Suwayomi) vs a headless Chromium sidecar over CDP? Or skip those sources at first? | mihon-source | P2 | [mihon-source](../modules/mihon-source/overview.md) |
 | Q-0004 | Tracker OAuth on self-hosted instances (different redirect URI each time): per-instance client registration, PIN/copy-token flows, or a relay? | server, trackers | P2 | [trackers](../architecture/trackers.md) |
 | Q-0005 | Default ports for server, meta, mihon-source and plugins. Avoid clashes with other *arr* apps (8989, 7878, 8686, 9696, …). | deploy | P3 | [deployment](../architecture/deployment.md) |
@@ -17,13 +16,11 @@ Everything we don't know yet. IDs are stable and never reused. When a question i
 | Q-0008 | Web UI component kit and styling (e.g. shadcn/ui + Tailwind, Mantine, Park UI)? | web | P2 | [web](../modules/web/overview.md) |
 | Q-0009 | Which other extension ecosystems might get source plugins later (Paperback, Aidoku, Kotatsu…)? | sources | P3 | [plugins](../architecture/plugins.md) |
 | Q-0010 | Code-session git autonomy: may code sessions commit and merge on branches themselves, or only on request? Who may merge to main and push? *For GOAL-0001 only: commit on its own branches, never push or merge; the owner pushes and merges (IN-0005 §2).* | process | P1 | [session protocol](../meta/session-protocol.md) |
-| Q-0011 | Is MySQL/MariaDB support worth its cost? Review after the first migrations and FTS work. | server | P3 | [ADR-0004](../decisions/ADR-0004-database-portability.md) |
 | Q-0012 | Licence per public repo (the KB itself was set up as MIT tooling + CC BY 4.0 docs by the template default; confirm): GPL-3.0 (like the *arrs) vs AGPL vs MPL-2.0 vs Apache-2.0. Plugin SDKs may want a permissive licence; mihon-source no longer reuses Suwayomi code (Q-0003), so it has no inherited constraint; it ships without a `LICENSE` until this is answered. | legal | P1 | [repo standard](../architecture/repo-standard.md) |
 | Q-0013 | Is the GitHub org **panelarr** available? Is Docker Hub org `panelarr` secured? | repos | P1 | [repo standard](../architecture/repo-standard.md) |
 | Q-0014 | Docker Hub only, or also mirror to ghcr.io/panelarr? | deploy | P3 | [repo standard](../architecture/repo-standard.md) |
 | Q-0015 | Central docs site (a `docs` repo with Starlight/Docusaurus on GitHub Pages) vs per-repo `docs/` only? | repos | P2 | [repo standard](../architecture/repo-standard.md) |
 | Q-0016 | Legal and ToS stance and wording: no bundled extensions or plugins; hosters add indexes; disclaimers; DMCA contact. | legal | P2 | [principles](../product/principles.md) |
-| Q-0017 | Plugin repo layout: one repo per plugin (`meta-anilist`, …) or a `plugins` monorepo per kind? | repos | P2 | [plugins](../architecture/plugins.md) |
 | Q-0018 | When to support PDF and EPUB in source-local (PDF needs a rasterizer, which may require cgo)? | source-local | P3 | [source-local](../modules/source-local/overview.md) |
 | Q-0019 | Rules for inferring series, volume and chapter from file and folder names when there is no ComicInfo. | source-local | P2 | [formats](../research/comic-archive-formats.md) |
 | Q-0020 | RPC stack: ConnectRPC (Go) + gRPC-JSON transcoding on the JVM (Armeria? grpc-kotlin + Ktor?) and OpenAPI generation from protos. Is gRPC the primary wire for remote plugins, with JSON optional? | contracts | P1 | [ADR-0012](../decisions/ADR-0012-protobuf-grpc-contracts.md) |
@@ -40,6 +37,10 @@ Everything we don't know yet. IDs are stable and never reused. When a question i
 
 | ID | Question | Answer |
 |---|---|---|
+| Q-0001 | Go data layer? | First ent + Atlas (IN-0009 §2), then, once Postgres became the only database, **sqlc + pgx + goose** (IN-0009 §5). See [ADR-0023](../decisions/ADR-0023-sqlc-pgx-goose-data-layer.md) |
+| Q-0011 | Is MySQL/MariaDB support worth its cost? | No: PostgreSQL is the only database (IN-0009 §5). See [ADR-0022](../decisions/ADR-0022-postgresql-only.md) |
+| Q-0032 | How are migrations applied at runtime? | goose: plain SQL migrations embedded in the binary, applied at startup (IN-0009 §5). See [ADR-0023](../decisions/ADR-0023-sqlc-pgx-goose-data-layer.md) |
+| Q-0017 | Plugin repo layout: one repo per plugin or a monorepo per kind? | One repo per plugin, e.g. `meta-mangabaka`; protos and the SDK live in the host module's repo (`meta`) (IN-0009 §2). See [modules](../modules/README.md) |
 | Q-0026 | Is source-mihon a pass-through plugin plus store manager, or only a store/trust library? | source-mihon is the Panelarr-side plugin. Like every plugin, it tells the main app **what config it expects** (extension repos/stores and other settings) and **which common services it can use**; the main app manages that config. Store parsing location: Q-0031 (IN-0007 §1). See [plugins](../architecture/plugins.md#common-plugin-surface-all-kinds) |
 | Q-0030 | How does mihon-source pick up config from the Panelarr side, and which wins over the local admin? | In the Panelarr stack, config comes from the main app through source-mihon. The mihon-source admin is for people who run mihon-source **standalone**, without the Panelarr stack (IN-0007 §1). See [mihon-source](../modules/mihon-source/overview.md) |
 | Q-0003 | Can we reuse Suwayomi's AndroidCompat? | No reuse: mihon-source writes its own Android shims and studies Suwayomi's approach only, copying no code (IN-0005 §2). The licence check is no longer needed for mihon-source. See [mihon-source](../modules/mihon-source/overview.md) |

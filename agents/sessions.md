@@ -20,7 +20,7 @@ Every agent session working on Panelarr: where it works, what goal it holds and 
 | `panelarr-server` | `server` (not created yet; [module](../modules/server/README.md)) | — | — | — | idle | — |
 | `panelarr-web` | `web` (not created yet; [module](../modules/web/README.md)) | — | — | — | idle | — |
 | `panelarr-source-api` | `source-api` (not created yet; [module](../modules/source-api/README.md)) | — | — | — | idle | — |
-| `panelarr-meta` | `meta` (not created yet; [module](../modules/meta/README.md)) | — | — | — | idle | — |
+| `panelarr-meta` | `meta` + `meta-mangabaka` (`../meta`, `../meta-mangabaka`, to be created by the owner; [meta](../modules/meta/README.md), [meta-mangabaka](../modules/meta-mangabaka/README.md)) | — (the clones) | `<type>/<scope>-<slug>` | [GOAL-0002](goals/GOAL-0002-meta-v0-metadata-protocol-meta-service-and-mangabaka-dump-in.md) (proposed) | idle | — |
 | `panelarr-source-mihon` | `source-mihon` (not created yet; [module](../modules/source-mihon/README.md)) | — | — | — | idle | — |
 | `panelarr-mihon-source` | `mihon-source` (`../mihon-source`, `panelarr/mihon-source`; [module](../modules/mihon-source/README.md)) | — (the clone itself) | `<type>/<scope>-<slug>` | [GOAL-0001](goals/GOAL-0001-mihon-source-v0-run-mihon-extensions-over-the-source-api.md) | working | 2026-10-11: slice 1 done (`16ad730`); slice 2 on `feat/api-protos-auth` |
 | `panelarr-source-local` | `source-local` (not created yet; [module](../modules/source-local/README.md)) | — | — | — | idle | — |
@@ -32,7 +32,8 @@ States: `idle` · `briefed` · `working` · `blocked` · `review` · `done`.
 
 <!-- When sessions run in parallel: which paths each owns, so they don't edit each other's files. -->
 
-- `panelarr-mihon-source`: the whole `mihon-source` repo. If it starts a frontend sub-agent (optional, IN-0008), that sub-agent owns only `admin/`, in its own worktree on `feat/admin-…`, and reports through the session. Its `proto/` tree is a temporary home for `panelarr.source.v1` until `source-api` exists (IN-0005 §2).
+- `panelarr-mihon-source`: the whole `mihon-source` repo. Its `proto/` tree is a temporary home for `panelarr.source.v1` until `source-api` exists (IN-0005 §2). If it starts a frontend sub-agent (optional, IN-0008), that sub-agent owns only `admin/`, in its own worktree on `feat/admin-…`, and reports through the session.
+- `panelarr-meta`: the whole `meta` and `meta-mangabaka` repos.
 
 ## Worktrees
 

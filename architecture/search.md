@@ -41,10 +41,7 @@ type SearchIndex interface {
 ```
 
 ## Backends
-1. **Built-in** (per DB):
-   - SQLite **FTS5 + trigram tokenizer**, which also works for CJK substrings;
-   - Postgres `tsvector` + **`pg_trgm`** similarity;
-   - MySQL FULLTEXT with the **ngram** parser.
+1. **Built-in:** Postgres `tsvector` + **`pg_trgm`** similarity (trigrams also cover CJK substrings). Postgres is the only database ([ADR-0022](../decisions/ADR-0022-postgresql-only.md)).
 2. **Typesense:** a collection per doc type, typo tolerance, facets, synonyms (e.g. romanization variants).
 3. **Meilisearch:** a candidate; strong CJK tokenization.
 4. **Bleve** (embedded): evaluate ([Q-0022](../questions/README.md)).

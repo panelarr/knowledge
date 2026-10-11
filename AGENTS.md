@@ -40,7 +40,7 @@ This is not a code repo. It is the project's single source of truth (vision, des
 
 ## Panelarr specifics
 
-- **Opt-in and composable** is the core principle ([principles](product/principles.md)). The server runs alone; meta, search engines, solvers, proxies, databases other than SQLite and every plugin are optional. Never quietly make one mandatory.
+- **Opt-in and composable** is the core principle ([principles](product/principles.md)). The server runs alone with only PostgreSQL beside it ([ADR-0022](decisions/ADR-0022-postgresql-only.md)); meta, search engines, solvers, proxies and every plugin are optional. Never quietly make one mandatory.
 - **Public KB** ([ADR-0020](decisions/ADR-0020-public-kb-with-aliases.md)): write sensitive names only as aliases, never say where extensions or content can be obtained, and never mention the owner's other projects.
 - Research marks anything not checked against a primary source **[unverified]**.
 
