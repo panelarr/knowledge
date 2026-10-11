@@ -10,3 +10,5 @@ Briefs for coding sessions: objective, context to read, how to work, constraints
 | [GOAL-0004](GOAL-0004-meta-duplicates-find-similar-entries-optional-model-review.md) | meta duplicates: find similar entries, optional model review | `panelarr-meta` | accepted |
 | [GOAL-0005](GOAL-0005-mihon-source-v0-1-follow-ups.md) | mihon-source v0.1 follow-ups (icons, metrics, hardening, checker, dates, store refresh, ResolveUrl, cache) | `panelarr-mihon-source` | accepted |
 | [GOAL-0006](GOAL-0006-meta-search-engines-typesense-then-meilisearch.md) | meta search engines: Typesense then Meilisearch (FEAT-0001) | `panelarr-meta` | accepted |
+| [GOAL-0007](GOAL-0007-mihon-source-jobs-page.md) | mihon-source jobs page (FEAT-0002) | `panelarr-mihon-source` | proposed |
+| [GOAL-0008](GOAL-0008-meta-jobs-page.md) | meta jobs page (FEAT-0002) | `panelarr-meta` | proposed |

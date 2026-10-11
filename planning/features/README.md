@@ -5,3 +5,4 @@ Scoped units of product value, each with **acceptance criteria** that QA tests a
 | ID | Feature | Milestone | Status |
 |---|---|---|---|
 | [FEAT-0001](FEAT-0001-meta-search-engine-integrations.md) | meta search engine integrations (Typesense, then Meilisearch; optional) | M3 | accepted |
+| [FEAT-0002](FEAT-0002-jobs-page-in-every-admin.md) | Jobs page in every admin (runs, statuses, Run now) | — | proposed |
