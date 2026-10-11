@@ -5,3 +5,4 @@ Go metadata service (Seerr-style browse, search, details) + metadata-plugin cont
 | Doc | Holds | Status |
 |---|---|---|
 | [overview.md](overview.md) | Role, boundaries, internals, config, status | proposed |
+| [search-engines.md](search-engines.md) | Design: optional search engines (outbox change feed, atomic rebuild, document shape, fallback) | draft |

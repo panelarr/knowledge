@@ -1,7 +1,7 @@
 # 2026-10-11: metadata goal brief
 
 - **Participants:** @aurimasniekis, panelarr-knowledge
-- **Inputs:** IN-0009, IN-0010, IN-0011, IN-0012, IN-0013, IN-0014, IN-0015, IN-0016, IN-0017, IN-0018, IN-0019, IN-0020, IN-0021, IN-0022
+- **Inputs:** IN-0009, IN-0010, IN-0011, IN-0012, IN-0013, IN-0014, IN-0015, IN-0016, IN-0017, IN-0018, IN-0019, IN-0020, IN-0021, IN-0022, IN-0023
 
 ## Discussed
 
@@ -45,6 +45,9 @@
 
 - Owner (IN-0021): confirmed GOAL-0003's go; asked to scope meta's search engine integrations (research running).
 - Owner (IN-0022): a duplicate finder for meta, our own comparison first and an optional model judge, with results for the user to review. Shaped as [GOAL-0004](../agents/goals/GOAL-0004-meta-duplicates-find-similar-entries-optional-model-review.md) (`proposed`); Q-0035 (which model APIs), Q-0036 (sending provider data to a model).
+
+- Search engine scoping (IN-0021): research refreshed with sources ([search engines](../research/search-engines.md)); [FEAT-0001](../planning/features/FEAT-0001-meta-search-engine-integrations.md) (`proposed`, ACs) and a design ([meta search engines](../modules/meta/search-engines.md)): transactional outbox, atomic rebuild swap, per-language fields, Browse on Postgres, fallback; Typesense first, then Meilisearch. Q-0037 (Postgres-extension backends).
+- Owner (IN-0023): links for the decision models and Q-0036 answer; [decision models](../research/decision-models.md) researched; Q-0035, Q-0036 answered; GOAL-0004's model judge specified.
 
 ## New open questions
 

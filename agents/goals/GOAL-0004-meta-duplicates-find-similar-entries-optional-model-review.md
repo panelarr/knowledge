@@ -2,8 +2,8 @@
 title: "GOAL-0004: meta duplicates: find similar entries, optional model review"
 status: proposed
 tags: [goal, agents, meta, matching, duplicates]
-related: [modules/meta/overview.md, contracts/metadata-schema.md, agents/goals/GOAL-0003-meta-admin-clients-integrations-and-admin-ui.md, architecture/search.md]
-inputs: [IN-0022]
+related: [research/decision-models.md, modules/meta/overview.md, contracts/metadata-schema.md, agents/goals/GOAL-0003-meta-admin-clients-integrations-and-admin-ui.md, architecture/search.md]
+inputs: [IN-0022, IN-0023]
 repos: [meta]
 session: "panelarr-meta"
 features: []
@@ -29,22 +29,22 @@ The brief a coding session works from. A short paste-in version points here: *"W
 Find entries in meta that are **probably the same work** but aren't linked, and give the user a list to review (IN-0022). It runs in two stages:
 
 1. **Candidates (always):** meta's own comparison finds the most similar pairs.
-2. **Model review (optional, configurable):** the top candidates go to a model API, which judges "same work or not", with a confidence and a short reason.
+2. **Model review (optional, configurable):** the top candidates go to a **decision model** API, which returns the probability that they are the same work (and whether they are only related), with a confidence.
 
 The hoster chooses whether stage 1 alone is enough ("just first is enough for user to compare") or whether stage 2 runs too.
 
 ## Design sketch (for the session to refine)
 
 - **Candidate generation:** block by normalized title keys (all languages and romanizations) and trigram similarity on titles; score with title similarity, author/artist overlap (normalized names), year proximity, type, original language, and shared or conflicting external IDs. A conflicting ID from the same provider is a strong "different". Skip pairs a provider already says are distinct (same-provider rule) and pairs already dismissed. Keep it set-based in Postgres; it must handle about 300k entries incrementally (new or changed entries since the last run), not all pairs.
-- **Model judge (optional):** an adapter for a model API configured by base URL, model name and key ([Q-0035](../../questions/README.md); suggestion: OpenAI-compatible chat completions with structured JSON output). Send only the fields needed (titles, people, year, type, short description). Cap batch size, rate and cost per run; cache verdicts by the pair's content hash, so unchanged pairs aren't re-asked. Off by default; enabled per hoster, who accepts sending data to that provider ([Q-0036](../../questions/README.md)).
-- **Review list:** stored candidates with scores, signals, the model verdict if any, and status (open, confirmed, dismissed). API in `MetaAdminService` (list, get, confirm, dismiss, run now) and a page in the GOAL-0003 admin UI showing both entries side by side. **Confirm** links them: a manual link that merges into one entry, with redirects, reusing meta's merge path. **Dismiss** records "distinct" so the pair never comes back. Nothing is merged without a human.
+- **Model judge (optional):** a `DecisionJudge` interface with two adapters ([decision models](../../research/decision-models.md), Q-0035): **OpenAI Decisions** (`POST /v1/decisions`, `gpt-6-luna`; `input` + `questions[]`, `predicate`), and a **state + questions-map** adapter for **TypeSafe** (`/v1/systemone`, `jev-latest`) and **Cloudflare Workers AI Clef** (`@cf/cloudflare/clef`; `state` + `questions{}`, `noul`/`choice`/`score`). Each is configured by base URL, model and key. Ask a yes/no "same work?" plus a `choice` of same work / related work (sequel, spin-off, adaptation, edition) / different. The state is a compact JSON of both entries; covers go in as images where supported (OpenAI, Clef). Store probabilities and confidence. These models give **no written reason**. Cap tokens per run, back off on 429/529, cache verdicts by the pair's content hash. Off by default; sending provider data is fine for the owner's personal, non-commercial use (Q-0036).
+- **Review list:** stored candidates with scores, signals, the model's probabilities if any, and status (open, confirmed, dismissed). API in `MetaAdminService` (list, get, confirm, dismiss, run now) and a page in the GOAL-0003 admin UI showing both entries side by side. **Confirm** links them: a manual link that merges into one entry, with redirects, reusing meta's merge path. **Dismiss** records "distinct" so the pair never comes back. Nothing is merged without a human.
 - **Jobs:** a scheduled, configurable job (cron, thresholds, model on or off, max pairs per run), visible in sync-run-style history.
 - **Reuse:** the same candidate scoring is what later matches source series (from server) to entries ("Matcher (later)").
 
 ## When something isn't decided
 
 - `ASK:` the keeper; then `PROPOSE:` a working assumption, built cheap to change.
-- Open: [Q-0035](../../questions/README.md) (which model APIs), [Q-0036](../../questions/README.md) (sending provider data to a model).
+- Answered: Q-0035 (the three decision-model APIs), Q-0036 (sending data is fine for personal, non-commercial use).
 
 ## Constraints
 
@@ -56,12 +56,13 @@ The hoster chooses whether stage 1 alone is enough ("just first is enough for us
 ## Definition of Done
 
 - [ ] Incremental candidate generation with scores and signals; scale test on synthetic data at about 300k entries
-- [ ] Optional model judge behind one adapter interface; batching, rate and cost caps, verdict cache; fully off by default
+- [ ] Optional decision-model judge: one interface, OpenAI Decisions adapter plus state/questions adapter (TypeSafe, Clef), tested against mock servers; token caps, back-off, verdict cache; fully off by default
 - [ ] Review list API (list, confirm, dismiss, run now); confirm merges through meta's merge path with redirects; dismiss is remembered
-- [ ] Admin UI page (side by side, signals, model reason) in the GOAL-0003 admin
+- [ ] Admin UI page (side by side, signals, model probabilities) in the GOAL-0003 admin
 - [ ] Configurable schedule and thresholds; docs; `make check` green; leak-check clean
 - [ ] `DONE:` with evidence per box
 
 ## History
 
 - 2026-10-11: brief written from IN-0022 (`proposed`).
+- 2026-10-11: model judge specified against the three decision-model APIs the owner linked; Q-0035 and Q-0036 answered (IN-0023).
