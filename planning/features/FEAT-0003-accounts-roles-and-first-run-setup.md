@@ -47,7 +47,8 @@ A hoster opens Panelarr for the first time and creates the admin account. A wiza
 
 | Repo | Goal | PR/MR | State |
 |---|---|---|---|
-| server, web | — | — | — |
+| server | [GOAL-0010](../../agents/goals/GOAL-0010-server-v0-accounts-add-and-match-chapters-reader-api-downloa.md) slices 1–2 | — | done (`4aadeec`, `7643a8a`) |
+| web | [GOAL-0011](../../agents/goals/GOAL-0011-web-v0-panelarr-app-for-the-first-slice.md) slice 1 | — | done (`150a90f`) |
 
 ## Open questions
 
