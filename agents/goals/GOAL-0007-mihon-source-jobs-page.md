@@ -16,7 +16,7 @@ The brief a coding session works from. A short paste-in version points here: *"W
 
 ## Status
 
-`accepted`: dispatched to `panelarr-mihon-source` on 2026-10-11 (owner's go, IN-0033).
+`accepted`, **Done 2026-10-11** (verified; [test report](../../qa/reports/goal-0007-mihon-source-jobs-done-verification.md)). Dispatched on 2026-10-11 (owner's go, IN-0033).
 
 ## Context
 
@@ -38,12 +38,13 @@ files under `/data` with retention (e.g. last 100 runs per job).
 
 ## Definition of Done
 
-- [ ] FEAT-0002 AC1–AC7 met for mihon-source, with test evidence
-- [ ] Same job/run API shape as the other admin (or agreed via the keeper)
-- [ ] Docs updated; `make check` green; leak-check clean
-- [ ] `DONE:` with evidence per AC
+- [x] FEAT-0002 AC1–AC7 met for mihon-source, with test evidence
+- [x] Same job/run API shape as the other admin (or agreed via the keeper)
+- [x] Docs updated; `make check` green; leak-check clean
+- [x] `DONE:` with evidence per AC
 
 ## History
 
 - 2026-10-11: brief written from IN-0032 (`proposed`).
 - 2026-10-11: owner's go (IN-0033): `accepted`, dispatched.
+- 2026-10-11: **DONE received and verified** (`898723f`: 152 JUnit + 81 Vitest). Jobs `store-refresh` and `source-health`, history in `data/jobs/` (last 100). Additive extras: `JobParam.choices`, an ErrorInfo on 409. Behaviour change: scheduled health checks run as rounds per interval.

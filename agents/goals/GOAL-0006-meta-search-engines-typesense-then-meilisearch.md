@@ -62,3 +62,4 @@ Implement FEAT-0001: optional Typesense, then Meilisearch, behind `search.Index`
 - 2026-10-11: written from FEAT-0001 after the owner accepted it (IN-0025); queued after GOAL-0003 and GOAL-0004.
 - 2026-10-11: owner approved GOAL-0004 and GOAL-0006 and kept the order: GOAL-0003 → GOAL-0004 → GOAL-0006 (IN-0026).
 - 2026-10-11: owner swapped the order (IN-0034): GOAL-0008 → **GOAL-0006** → GOAL-0004.
+- 2026-10-11: owner allowed pulling the Typesense and Meilisearch images for engine tests and one benchmark each (IN-0035). Engine tests run in CI as a separate job; opt-in locally (`META_TEST_ENGINES=1`). Session design choices accepted: thin REST clients, an outbox of entry_id+seq, `search-rebuild`/`search-indexer` jobs, tag-key facet values.

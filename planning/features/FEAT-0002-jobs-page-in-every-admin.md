@@ -57,7 +57,7 @@ Each admin has a **Jobs** page. It lists every background job with its schedule,
 
 | Repo | Goal | PR/MR | State |
 |---|---|---|---|
-| mihon-source | [GOAL-0007](../../agents/goals/GOAL-0007-mihon-source-jobs-page.md) | — | in progress |
+| mihon-source | [GOAL-0007](../../agents/goals/GOAL-0007-mihon-source-jobs-page.md) | — | done (`898723f`) |
 | meta | [GOAL-0008](../../agents/goals/GOAL-0008-meta-jobs-page.md) | — | done (`743e687`) |
 
 ## Open questions

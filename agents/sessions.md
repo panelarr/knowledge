@@ -22,7 +22,7 @@ Every agent session working on Panelarr: where it works, what goal it holds and 
 | `panelarr-source-api` | `source-api` (not created yet; [module](../modules/source-api/README.md)) | — | — | — | idle | — |
 | `panelarr-meta` | `meta` + `meta-mangabaka` (`../meta`, `../meta-mangabaka`, `panelarr/meta`, `panelarr/meta-mangabaka`; [meta](../modules/meta/README.md), [meta-mangabaka](../modules/meta-mangabaka/README.md)) | — (the clones) | `<type>/<scope>-<slug>` | [GOAL-0006](goals/GOAL-0006-meta-search-engines-typesense-then-meilisearch.md) | working | 2026-10-11: GOAL-0008 done and verified; GOAL-0006 started; then GOAL-0004 |
 | `panelarr-source-mihon` | `source-mihon` (not created yet; [module](../modules/source-mihon/README.md)) | — | — | — | idle | — |
-| `panelarr-mihon-source` | `mihon-source` (`../mihon-source`, `panelarr/mihon-source`; [module](../modules/mihon-source/README.md)) | — (the clone itself) | `<type>/<scope>-<slug>` | [GOAL-0007](goals/GOAL-0007-mihon-source-jobs-page.md) | working | 2026-10-11: GOAL-0007 (jobs page) dispatched |
+| `panelarr-mihon-source` | `mihon-source` (`../mihon-source`, `panelarr/mihon-source`; [module](../modules/mihon-source/README.md)) | — (the clone itself) | `<type>/<scope>-<slug>` | [GOAL-0007](goals/GOAL-0007-mihon-source-jobs-page.md) | idle | 2026-10-11: GOAL-0007 done and verified (`898723f`) |
 | `panelarr-source-local` | `source-local` (not created yet; [module](../modules/source-local/README.md)) | — | — | — | idle | — |
 | `panelarr-deploy` | `deploy` (not created yet; [module](../modules/deploy/README.md)) | — | — | — | idle | — |
 

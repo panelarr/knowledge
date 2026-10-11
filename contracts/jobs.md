@@ -89,3 +89,4 @@ message JobAlreadyRunning { string current_run_id = 1; } // google.rpc error det
 
 - 2026-10-11: from the meta session building GOAL-0008: no `:` in job IDs (dotted `sync.<provider>.<kind>`), prefixed enum values (buf lint), `JobParam.default`, `int` param type, typed `status` filter, a `JobAlreadyRunning` error detail.
 - 2026-10-11: as built in meta (`743e687`): a scheduled run that finds its job busy is recorded as `SKIPPED` (trigger schedule); `:run`/`:cancel` accept an empty body. mihon-source should match.
+- 2026-10-11: as built in mihon-source (`898723f`): `JobParam.choices = 6` (allowed values; the UI shows checkboxes for a string_list with choices) and, on the 409, an ErrorInfo (reason `ALREADY_RUNNING`, metadata `current_run_id`) next to `JobAlreadyRunning`. meta to copy. Note: Armeria's transcoding passes `a:b` through to the handler (vanguard 404s); the ID rule still applies everywhere.
