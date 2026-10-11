@@ -3,7 +3,7 @@ title: meta overview
 status: proposed
 tags: [module, meta, metadata, go]
 related: [contracts/metadata-plugin.md, contracts/metadata-schema.md, modules/meta-mangabaka/overview.md, research/mangabaka.md, research/metadata-providers.md, architecture/search.md, decisions/ADR-0022-postgresql-only.md, decisions/ADR-0023-sqlc-pgx-goose-data-layer.md]
-inputs: [IN-0002, IN-0003, IN-0009, IN-0010, IN-0015, IN-0017, IN-0020]
+inputs: [IN-0002, IN-0003, IN-0009, IN-0010, IN-0015, IN-0017, IN-0020, IN-0022]
 updated: 2026-10-11
 ---
 
@@ -41,6 +41,7 @@ Plugins declare which they support: `lookup` (API), `scrape`, `dump` (snapshot d
   - external IDs from sources (where given) short-circuit matching;
   - output candidates with a confidence score. server auto-links above a threshold, otherwise asks a curator.
 - **Rate limits:** each plugin declares its limits per ingestion type and meta enforces them.
+- **Duplicates (proposed, IN-0022, [GOAL-0004](../../agents/goals/GOAL-0004-meta-duplicates-find-similar-entries-optional-model-review.md)):** a configurable job finds entries that are probably the same work but weren't linked, first with meta's own comparison (titles, people, year, type, external IDs), then **optionally** asks a model API to judge the best candidates ([Q-0035](../../questions/README.md), [Q-0036](../../questions/README.md)). Results go to a review list; a curator confirms (link or merge) or dismisses. Nothing merges automatically. The same candidate logic later serves matching source series to entries.
 - **Admin (proposed, IN-0020, [GOAL-0003](../../agents/goals/GOAL-0003-meta-admin-clients-integrations-and-admin-ui.md)):** a minimal admin UI like mihon-source's. **Clients** with scoped API keys (replacing the fixed `api_keys` list). **Integrations:** solvers (FlareSolverr/Byparr) and network profiles (proxies, VPN containers such as gluetun), assigned per provider and handed to plugins that declare the `network_profile` common service. Also providers and sync runs (status, run now, schedules), and browse/search for checking the catalogue (suggestion). Who owns profiles in the full stack: [Q-0034](../../questions/README.md).
 
 ## Implementation status

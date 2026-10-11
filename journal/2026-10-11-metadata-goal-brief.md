@@ -1,7 +1,7 @@
 # 2026-10-11: metadata goal brief
 
 - **Participants:** @aurimasniekis, panelarr-knowledge
-- **Inputs:** IN-0009, IN-0010, IN-0011, IN-0012, IN-0013, IN-0014, IN-0015, IN-0016, IN-0017, IN-0018, IN-0019, IN-0020
+- **Inputs:** IN-0009, IN-0010, IN-0011, IN-0012, IN-0013, IN-0014, IN-0015, IN-0016, IN-0017, IN-0018, IN-0019, IN-0020, IN-0021, IN-0022
 
 ## Discussed
 
@@ -42,6 +42,9 @@
 - GOAL-0001 verified by the keeper: pass with issues ([test report](../qa/reports/goal-0001-mihon-source-v0-done-verification.md)).
 
 - **GOAL-0002 done:** the keeper verified it on clean clones ([test report](../qa/reports/goal-0002-meta-v0-done-verification.md)); DoD ticked; board idle; GOAL-0003 waits for the owner.
+
+- Owner (IN-0021): confirmed GOAL-0003's go; asked to scope meta's search engine integrations (research running).
+- Owner (IN-0022): a duplicate finder for meta, our own comparison first and an optional model judge, with results for the user to review. Shaped as [GOAL-0004](../agents/goals/GOAL-0004-meta-duplicates-find-similar-entries-optional-model-review.md) (`proposed`); Q-0035 (which model APIs), Q-0036 (sending provider data to a model).
 
 ## New open questions
 
