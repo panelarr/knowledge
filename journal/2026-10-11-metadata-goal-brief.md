@@ -25,6 +25,7 @@
 - GOAL-0002 slice 4 REPORTed: MangaBaka dump ingestion merged in meta-mangabaka; no data committed (checked).
 - GOAL-0002 slice 7 REPORTed (API lookup) with the real-dump fixes; the owner's real-dump run gave the first real numbers (research/mangabaka.md).
 - GOAL-0002 slice 5 REPORTed: ingest end to end; projected full MangaBaka import ≈ 8–9 min, ≈ 4–5 GB.
+- GOAL-0002 slice 6 (meta API) and meta-mangabaka slice 8 REPORTed and merged; only meta's slice 8 remains before DONE.
 
 ## Decided
 
