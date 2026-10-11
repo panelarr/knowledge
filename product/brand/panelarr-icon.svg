@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Panelarr">
+  <title>Panelarr</title>
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="#E0457B"/>
+  <g fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1.5" stroke-linejoin="round">
+    <path d="M13 13 H51 V27.6 L13 31.4 Z"/>
+    <path d="M13 36.4 L29.6 34.7 L25.4 51 H13 Z"/>
+    <path d="M34.4 34.2 L51 32.6 V51 H30.2 Z"/>
+  </g>
+</svg>
