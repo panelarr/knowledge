@@ -3,7 +3,7 @@ title: "GOAL-0004: meta duplicates: find similar entries, optional model review"
 status: accepted
 tags: [goal, agents, meta, matching, duplicates]
 related: [research/decision-models.md, modules/meta/overview.md, contracts/metadata-schema.md, agents/goals/GOAL-0003-meta-admin-clients-integrations-and-admin-ui.md, architecture/search.md]
-inputs: [IN-0022, IN-0023, IN-0024]
+inputs: [IN-0022, IN-0023, IN-0024, IN-0034]
 repos: [meta]
 session: "panelarr-meta"
 features: []
@@ -71,3 +71,4 @@ The hoster chooses whether stage 1 alone is enough ("just first is enough for us
 - 2026-10-11: GOAL-0003 verified; GOAL-0004 starts now for `panelarr-meta`.
 - 2026-10-11: ASK/PROPOSE from the session: the brief's "skip same-provider pairs" would skip everything with MangaBaka alone. The keeper clarified its own wording and accepted the proposal as a working assumption (see Design sketch).
 - 2026-10-11: now runs after GOAL-0008 (jobs page), so its duplicate-finder job uses the shared job model.
+- 2026-10-11: owner swapped the order (IN-0034): now after GOAL-0006 (search engines); order GOAL-0008 → GOAL-0006 → GOAL-0004. Candidate generation may use the search engine when one is configured, but must work on Postgres alone.

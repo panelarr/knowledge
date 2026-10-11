@@ -3,7 +3,7 @@ title: "GOAL-0006: meta search engines: Typesense then Meilisearch"
 status: accepted
 tags: [goal, agents, meta, search]
 related: [planning/features/FEAT-0001-meta-search-engine-integrations.md, modules/meta/search-engines.md, research/search-engines.md, architecture/search.md]
-inputs: [IN-0017, IN-0018, IN-0021, IN-0025]
+inputs: [IN-0017, IN-0018, IN-0021, IN-0025, IN-0034]
 repos: [meta]
 session: "panelarr-meta"
 features: [FEAT-0001]
@@ -16,7 +16,7 @@ The brief a coding session works from. A short paste-in version points here: *"W
 
 ## Status
 
-`accepted` (FEAT-0001 accepted by the owner, IN-0025). **Queued for `panelarr-meta` after GOAL-0003 and GOAL-0004**, unless the owner reorders.
+`accepted` (FEAT-0001 accepted by the owner, IN-0025). **Queued for `panelarr-meta` right after GOAL-0008 (jobs), before GOAL-0004** (owner swapped the order, IN-0034). Register the search rebuild/indexer as jobs (FEAT-0002).
 
 ## Context
 
@@ -61,3 +61,4 @@ Implement FEAT-0001: optional Typesense, then Meilisearch, behind `search.Index`
 
 - 2026-10-11: written from FEAT-0001 after the owner accepted it (IN-0025); queued after GOAL-0003 and GOAL-0004.
 - 2026-10-11: owner approved GOAL-0004 and GOAL-0006 and kept the order: GOAL-0003 → GOAL-0004 → GOAL-0006 (IN-0026).
+- 2026-10-11: owner swapped the order (IN-0034): GOAL-0008 → **GOAL-0006** → GOAL-0004.

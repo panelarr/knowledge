@@ -59,7 +59,7 @@ A hoster who wants better catalogue search adds a Typesense or Meilisearch conta
 
 | Repo | Goal | PR/MR | State |
 |---|---|---|---|
-| meta | [GOAL-0006](../../agents/goals/GOAL-0006-meta-search-engines-typesense-then-meilisearch.md) | — | queued after GOAL-0003, GOAL-0004 |
+| meta | [GOAL-0006](../../agents/goals/GOAL-0006-meta-search-engines-typesense-then-meilisearch.md) | — | queued after GOAL-0008 (before GOAL-0004) |
 
 ## Open questions
 
