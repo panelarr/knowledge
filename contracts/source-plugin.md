@@ -39,6 +39,7 @@ service SourcePlugin {
 - `SourcePluginService` (buf STANDARD naming, Request/Response per RPC) with every RPC above plus `GetSource`.
 - `PluginInfo` carries `config_schema` (JSON Schema as a Struct) and `common_services` (`NETWORK_PROFILE`, `SOLVER`) per Q-0026/Q-0030, plus contracts, capabilities and limits.
 - Search filter values are sparse `FilterValue{path, value}` keyed by **position**, because Mihon filters have no stable keys.
+- `Source.health` (`SourceHealth`: OK / FAILING + reason, latency, checked_at, checks_disabled) from mihon-source's self-check (ADR-0027, GOAL-0005).
 - `FetchImage` streams metadata first, then chunks. `ErrorReason` enum; `google.rpc.ErrorInfo.reason` carries the name without the prefix.
 
 ## Design notes
