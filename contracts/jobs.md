@@ -84,6 +84,7 @@ message JobAlreadyRunning { string current_run_id = 1; } // google.rpc error det
 - **Metrics** (ADR-0027): `<svc>_job_runs_total{job,status,trigger}`, `<svc>_job_duration_seconds{job}`, `<svc>_job_running{job}`.
 - **meta:** a provider sync is a job per provider and ingestion kind (`sync.<provider>.<kind>`, param `force`); the existing sync-run API keeps working (map it onto job runs).
 - **Parameterised jobs** declare `params`; the UI renders a small form before "Run now".
+- **Scheduled runs use the params' defaults**, so a job's configured selection (e.g. languages, sample) shows as its params' defaults; the UI shows them as the schedule's selection ("Runs with …"). A manual run that leaves a param out gets its default.
 
 ## Changes
 
