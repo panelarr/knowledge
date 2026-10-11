@@ -38,6 +38,7 @@ service SourcePlugin {
 ## As built (in mihon-source, until source-api exists)
 - `SourcePluginService` (buf STANDARD naming, Request/Response per RPC) with every RPC above plus `GetSource`.
 - `PluginInfo` carries `config_schema` (JSON Schema as a Struct) and `common_services` (`NETWORK_PROFILE`, `SOLVER`) per Q-0026/Q-0030, plus contracts, capabilities and limits.
+- `GetSeriesRequest.refresh` / `ListChaptersRequest.refresh` (HTTP `?refresh=true`): bypass a plugin's result cache and replace the cached result, e.g. to check for new chapters now (mihon-source `db067fc`). Not part of the cache key.
 - `ResolveUrlResponse.best_effort`: plugins may resolve pasted URLs by searching sources without a native resolver and flag the answer as best effort (mihon-source, GOAL-0005).
 - Search filter values are sparse `FilterValue{path, value}` keyed by **position**, because Mihon filters have no stable keys.
 - `Source.health` (`SourceHealth`: OK / FAILING + reason, latency, checked_at, checks_disabled) from mihon-source's self-check (ADR-0027, GOAL-0005).
