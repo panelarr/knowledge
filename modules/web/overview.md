@@ -28,6 +28,13 @@ A SPA built with **Vite + React + TanStack Router, Query, Virtual, Pacer and Sto
 ## Separate client (IN-0041)
 - `web` is its own repo (ADR-0002) and only uses the public [server API](../../contracts/server-api.md); the server image embeds a pinned web release, and users may build or run their own client against the same API.
 
+## Working assumptions from the v0 plan (2026-10-11)
+- **Stack:** Vite, React 19, TypeScript, TanStack (Router, Query, Virtual, Pacer, Store), shadcn/ui on Tailwind v4, pnpm, a PWA (app shell only in v0), fonts self-hosted.
+- **API:** client generated from the server's spec (copied from server `main`); parts the server hasn't specced are drafted by web and sent through the keeper; the server owns the final shape.
+- **Defaults:** brand pink accent; font list in config.
+- **Embedding:** the server embeds a pinned web release at the root path in v0 (relative asset base, so a URL base can come later); web documents the embedding rules.
+- **Not in v0:** library categories, offline chapters, connected-service admin pages (IN-0039).
+
 ## Look and feel (IN-0037 §3)
 - **Fully responsive.** On phones it should look and feel like a **native mobile app**: bottom navigation, full-screen views, touch gestures, safe-area insets, installable PWA. On desktop it should look good too: sidebar navigation, wider grids, keyboard shortcuts.
 - **Theming (IN-0043):** several colour themes (light, dark, true-black/AMOLED and preset palettes), **custom colours** (accent and key surfaces, saved per user), and **font choice** for the UI. Built on CSS variables, which shadcn/ui's theming uses.

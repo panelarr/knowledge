@@ -1,11 +1,11 @@
 ---
 title: "GOAL-0011: web v0: Panelarr app for the first slice"
-status: draft
+status: accepted
 tags: [goal, agents]
 related: []
-repos: []
-session: ""
-features: []
+repos: [web]
+session: "panelarr-web"
+features: [FEAT-0003, FEAT-0004, FEAT-0005, FEAT-0006, FEAT-0007]
 updated: 2026-10-11
 ---
 
@@ -15,7 +15,7 @@ The brief a coding session works from. A short paste-in version points here: *"W
 
 ## Status
 
-<!-- draft → proposed (owner reviews the brief) → accepted (dispatched) → done/superseded. Keep a dated history below. -->
+`accepted` (2026-10-11): `panelarr-web` planned this goal from the accepted features and sent it as a PROPOSE (slices 0–10: scaffold, setup and login, users and plugins admin, catalogue, jobs and events, library and matching, work page, reader, downloads and storage, themes, PWA). The keeper reviewed it and gave the go; the plan lives in the session's message and its `PROGRESS.md`.
 
 ## Context
 
@@ -53,3 +53,4 @@ The brief a coding session works from. A short paste-in version points here: *"W
 - [ ] `DONE:` sent with evidence (commits, how to verify)
 
 ## History
+- 2026-10-11: plan PROPOSEd by `panelarr-web` and accepted by the keeper; its open items answered as working assumptions.
