@@ -1,9 +1,9 @@
 ---
 title: "FEAT-0001: meta search engine integrations"
-status: proposed
+status: accepted
 tags: [feature, meta, search]
 related: [modules/meta/search-engines.md, research/search-engines.md, architecture/search.md, decisions/ADR-0010-optional-search-engine.md, decisions/ADR-0017-search-interface-builtin-default.md]
-inputs: [IN-0003, IN-0017, IN-0018, IN-0021]
+inputs: [IN-0003, IN-0017, IN-0018, IN-0021, IN-0025]
 milestone: "M3"
 priority: P2
 updated: 2026-10-11
@@ -59,7 +59,7 @@ A hoster who wants better catalogue search adds a Typesense or Meilisearch conta
 
 | Repo | Goal | PR/MR | State |
 |---|---|---|---|
-| meta | not yet briefed | — | — |
+| meta | [GOAL-0006](../../agents/goals/GOAL-0006-meta-search-engines-typesense-then-meilisearch.md) | — | queued after GOAL-0003, GOAL-0004 |
 
 ## Open questions
 

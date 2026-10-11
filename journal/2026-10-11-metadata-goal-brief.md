@@ -51,6 +51,8 @@
 
 - Owner (IN-0024): every service gets configurable JSON logs, Prometheus metrics and health endpoints, and mihon-source gets per-source health with a self-check: [ADR-0027](../decisions/ADR-0027-observability-baseline-for-every-service.md); added to GOAL-0003 and GOAL-0005. GOAL-0004 go: accepted, queued after GOAL-0003.
 
+- Owner (IN-0025): confirmed GOAL-0005 and accepted FEAT-0001; [GOAL-0006](../agents/goals/GOAL-0006-meta-search-engines-typesense-then-meilisearch.md) briefed, queued for `panelarr-meta` after GOAL-0003 and GOAL-0004.
+
 ## New open questions
 
 - None new at first. The ingestion-type list is a draft for the session to refine.

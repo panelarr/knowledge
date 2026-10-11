@@ -1,9 +1,9 @@
 ---
 title: "GOAL-0005: mihon-source v0.1 follow-ups"
-status: proposed
+status: accepted
 tags: [goal, agents, mihon-source]
 related: [agents/goals/GOAL-0001-mihon-source-v0-run-mihon-extensions-over-the-source-api.md, modules/mihon-source/overview.md, contracts/source-plugin.md, contracts/mihon-source-api.md]
-inputs: [IN-0024]
+inputs: [IN-0024, IN-0025]
 repos: [mihon-source]
 session: "panelarr-mihon-source"
 features: []
@@ -16,7 +16,7 @@ The brief a coding session works from. A short paste-in version points here: *"W
 
 ## Status
 
-`proposed`. The owner gave this list to `panelarr-mihon-source` directly; the session reported it to the keeper on 2026-10-11, and the keeper recorded it here. It becomes `accepted` when the owner confirms it to the keeper. Work has started.
+`accepted` (owner confirmed, IN-0025). The owner gave this list to `panelarr-mihon-source` directly; work is in progress.
 
 ## Context
 
@@ -57,3 +57,4 @@ The owner's follow-up list for mihon-source, in this order:
 
 - 2026-10-11: recorded from `panelarr-mihon-source`'s REPORT of the owner's direct request (`proposed` until the owner confirms to the keeper).
 - 2026-10-11: items 9 (structured logs) and 10 (per-source health self-check) added from the owner (IN-0024, ADR-0027).
+- 2026-10-11: owner confirmed (IN-0025): `accepted`.
