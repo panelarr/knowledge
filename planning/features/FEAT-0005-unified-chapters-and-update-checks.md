@@ -1,9 +1,9 @@
 ---
 title: "FEAT-0005: Unified chapters and update checks"
-status: proposed
+status: accepted
 tags: [feature, server, web, m2]
 related: [decisions/ADR-0028-library-entry-per-work.md, architecture/domain-model.md]
-inputs: [IN-0037]
+inputs: [IN-0037, IN-0042]
 milestone: "M2"
 priority: P1
 updated: 2026-10-11

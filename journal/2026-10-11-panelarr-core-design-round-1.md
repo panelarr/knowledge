@@ -1,7 +1,7 @@
 # 2026-10-11: Panelarr core design round 1
 
 - **Participants:** @aurimasniekis, panelarr-knowledge
-- **Inputs:** IN-0037, IN-0038, IN-0039
+- **Inputs:** IN-0037, IN-0038, IN-0039, IN-0040, IN-0041, IN-0042
 
 ## Discussed
 
@@ -24,6 +24,8 @@
 
 - [GOAL-0009](../agents/goals/GOAL-0009-source-api-and-source-mihon-v0.md) (`proposed`): source-api (protos move there, Go SDK, conformance) + source-mihon (pass-through to mihon-source) for the mihon-source session.
 - Web and server docs: connected-service admin built into Panelarr (IN-0039).
+
+- First-slice features FEAT-0003–0007 drafted. The owner (IN-0042) added multiple storage endpoints for downloads (FEAT-0007, storage layout, Q-0041) and whole-platform backup and restore ([FEAT-0008](../planning/features/FEAT-0008-backup-and-restore-for-the-whole-platform.md), Q-0042); "everything else is fine". The frontend stays a separate repo with a public, versioned server API (IN-0041).
 
 ## Decided
 

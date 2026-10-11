@@ -1,9 +1,9 @@
 ---
 title: "FEAT-0003: Accounts, roles and first-run setup"
-status: proposed
+status: accepted
 tags: [feature, server, web, m2]
 related: [architecture/multi-user.md, decisions/ADR-0003-shared-store-per-user-libraries.md, decisions/ADR-0029-meta-required.md]
-inputs: [IN-0003, IN-0037, IN-0038]
+inputs: [IN-0003, IN-0037, IN-0038, IN-0042]
 milestone: "M2"
 priority: P1
 updated: 2026-10-11

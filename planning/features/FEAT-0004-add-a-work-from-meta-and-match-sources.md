@@ -1,9 +1,9 @@
 ---
 title: "FEAT-0004: Add a work from meta and match sources"
-status: proposed
+status: accepted
 tags: [feature, server, web, m2]
 related: [decisions/ADR-0028-library-entry-per-work.md, modules/meta/overview.md, contracts/source-plugin.md]
-inputs: [IN-0009, IN-0037]
+inputs: [IN-0009, IN-0037, IN-0042]
 milestone: "M2"
 priority: P1
 updated: 2026-10-11

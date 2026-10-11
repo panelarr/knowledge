@@ -1,9 +1,9 @@
 ---
 title: "FEAT-0006: Mobile-first reader"
-status: proposed
+status: accepted
 tags: [feature, server, web, m2]
 related: [modules/web/overview.md]
-inputs: [IN-0037]
+inputs: [IN-0037, IN-0042]
 milestone: "M2"
 priority: P1
 updated: 2026-10-11

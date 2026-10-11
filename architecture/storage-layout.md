@@ -11,6 +11,8 @@ updated: 2026-10-11
 
 ## Summary
 
+**Storage endpoints (IN-0042):** downloaded chapters are written through a storage interface with several backends: local filesystem (default; includes mounted network shares), remote filesystems and S3-compatible object storage ([Q-0041](../questions/README.md)). The tree below is the layout on a filesystem backend; object storage uses the same paths as keys.
+
 Two volumes, like other *arr* apps: **`/config`** (DB, plugins, caches, settings) and **`/data`** (library). Downloaded chapters are **CBZ + ComicInfo.xml** in a human-readable tree ([ADR-0015](../decisions/ADR-0015-cbz-comicinfo-storage.md), proposed). User folders read by source-local are mounted **read-only** and never modified.
 
 ```
