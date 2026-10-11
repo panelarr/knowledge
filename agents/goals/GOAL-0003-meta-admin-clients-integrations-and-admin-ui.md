@@ -62,3 +62,4 @@ Give meta a minimal admin like mihon-source's (IN-0020). It covers **API key cli
 ## History
 
 - 2026-10-11: brief written from IN-0020 (`proposed`); starts after GOAL-0002.
+- 2026-10-11: `panelarr-meta` reports that the owner said "go" directly in that session and has started slice 1. **Not confirmed by the owner to the keeper yet**, so the status stays `proposed` until the owner confirms.
