@@ -11,7 +11,7 @@ updated: 2026-10-11
 
 ## Summary
 
-The Go core and the only **required** component ([ADR-0011](../../decisions/ADR-0011-composable-opt-in-deployment.md)). It owns users, Works, per-user libraries, the job queue, files, the plugin host, network profiles, search and trackers. It serves the REST API and embeds the web build. On its own, with SQLite, built-in search and no plugins, it is a working, if empty, install.
+The Go core. Together with PostgreSQL and **meta** it forms the minimal install ([ADR-0022](../../decisions/ADR-0022-postgresql-only.md), [ADR-0029](../../decisions/ADR-0029-meta-required.md)). It owns users, Works, per-user libraries, the job queue, files, the plugin host, network profiles, search and trackers. It serves the REST API and embeds the web build.
 
 ## Owns / does not own
 - **Owns:** everything in the [domain model](../../architecture/domain-model.md); [multi-user](../../architecture/multi-user.md) enforcement; [plugin host](../../architecture/plugins.md); [network profiles](../../architecture/networking.md); [search](../../architecture/search.md) (library scope); [trackers](../../architecture/trackers.md); [storage](../../architecture/storage-layout.md).
@@ -43,7 +43,7 @@ web/                     go:embed of the web dist (pulled from web releases)
 - **Images:** an image proxy for un-downloaded pages; cover thumbnails cached in `/config/cache`.
 
 ## Configuration
-Env and flags, *arr*-style: `PANELARR_DB` (DSN), `PANELARR_DATA`, `PANELARR_CONFIG`, `PANELARR_BASE_URL`, `PANELARR_SEARCH_BACKEND`, `PANELARR_META_URL` (empty = embedded/off). Everything else lives in the UI and the DB.
+Env and flags, *arr*-style: `PANELARR_DB` (DSN), `PANELARR_DATA`, `PANELARR_CONFIG`, `PANELARR_BASE_URL`, `PANELARR_SEARCH_BACKEND`, `PANELARR_META_URL` and `PANELARR_META_KEY` (pre-fill the setup wizard; when set they win and show read-only; meta is required, ADR-0029). Everything else lives in the UI and the DB.
 
 ## Implementation status
 Not started (M2). Repo not created yet.

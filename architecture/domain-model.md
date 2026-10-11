@@ -42,14 +42,14 @@ erDiagram
 | **Plugin** | id, kind, version, mode (managed/remote), endpoint, settings, enabled | Installed by the admin |
 | **Source** | `plugin:sourceId`, name, lang, content rating, capabilities, profile_id, enabled | Synced from the plugin's `ListSources` |
 | **NetworkProfile** | see [networking](networking.md) | |
-| **Work** | id, display title, sort title, cover, status, content rating, meta_link | Canonical. **Created from a meta Entry** (ADR-0028); without meta, see [Q-0038](../questions/README.md) |
+| **Work** | id, display title, sort title, cover, status, content rating, meta_link | Canonical. **Created from a meta Entry** (ADR-0028); meta is required, so every Work has one ([ADR-0029](../decisions/ADR-0029-meta-required.md)) |
 | **MetaLink** | provider ids (mangabaka, anilist, mal, …), confidence, locked | From meta matching; manual override locks it |
 | **SourceSeries** | source_id, key (opaque plugin key), title, url, priority, preferred scanlators, last_checked | A Work has many; priority decides the preferred variant |
 | **SourceChapter** | source_series_id, key, number, volume, title, scanlator, lang, uploaded_at | Raw listing |
 | **Chapter** | work_id, number (decimal), volume, title, preferred_variant_id | Canonical. Variants are grouped by (number, volume) |
 | **ChapterFile** | chapter_id, path, pages, bytes, sha256, from_variant_id, created_at | One copy, shared |
 | **User** | id, name, password hash / OIDC subject, role, content-rating ceiling, quotas | |
-| **Permission grants** | user → plugins/sources allowed, may_add, may_download, may_manage_meta | |
+| **Permission grants** | user → plugins/sources allowed, `may_add`, `may_download`, `may_manage_matches` (fix match, pin variants, source priority; admins always) | Names settled in GOAL-0010 (U3) |
 | **LibraryEntry** | user_id, work_id, added_at, categories, auto-download rule override | Per user |
 | **Progress / History** | user_id, chapter_id, page, completed, updated_at | Per user; synced to trackers |
 | **TrackerAccount / TrackBinding** | per user; remote id, status, score, dates | |

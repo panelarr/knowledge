@@ -24,7 +24,7 @@ One install serves many people. **Content is shared; everything personal is per 
 ## Roles and permissions
 - **Admin:** everything, including plugins, profiles, users, storage and deletions.
 - **User:** by default may browse allowed sources, add to their own library, and read.
-- **Grants:** `may_download` (queue downloads), `may_add_works`, `may_manage_metadata` (fix matches), allowed plugins/sources, content-rating ceiling, quotas (max library size, downloads per day).
+- **Grants:** `may_download` (queue downloads), `may_add` (add works), `may_manage_matches` (fix matches, pin variants, set source priority), allowed plugins/sources, content-rating ceiling, quotas (max library size, downloads per day).
 - **Optional request flow** (later): users without `may_download` *request*, and an admin approves.
 
 ## Enforcement

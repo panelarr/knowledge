@@ -11,7 +11,7 @@ updated: 2026-10-11
 
 ## Summary
 
-Docker-first, *arr*-style: images `panelarr/<repo>` ([ADR-0008](../decisions/ADR-0008-public-repo-standard-and-images.md)). The minimal install is **only `panelarr/server`**. Everything else is added through **compose profiles** or extra Unraid templates ([ADR-0011](../decisions/ADR-0011-composable-opt-in-deployment.md)).
+Docker-first, *arr*-style: images `panelarr/<repo>` ([ADR-0008](../decisions/ADR-0008-public-repo-standard-and-images.md)). The minimal install is **`panelarr/server` + PostgreSQL + `panelarr/meta`** (with a metadata plugin) ([ADR-0029](../decisions/ADR-0029-meta-required.md)). Everything else is added through **compose profiles** or extra Unraid templates ([ADR-0011](../decisions/ADR-0011-composable-opt-in-deployment.md)).
 
 ## Images
 
