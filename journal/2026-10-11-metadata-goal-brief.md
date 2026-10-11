@@ -21,6 +21,7 @@
 - [Entry schema](../contracts/metadata-schema.md) (`proposed`): ProviderEntry as received + merged Entry with per-field provider priority and manual locks; one credits list, genres as tags, image variants, raw values next to enums, the owner's enum lists. Contract, meta overview and GOAL-0002 now use it; meta's catalogue item is an **Entry**, separate from server's Work.
 - GOAL-0002 slice 1 REPORTed and recorded; board `working`.
 - GOAL-0002 slice 2 REPORTed and recorded; the contracts got "as built" sections; ConnectRPC PROPOSE recorded on Q-0020.
+- GOAL-0002 slice 3 REPORTed: DB layer merged; working assumptions (merge on write, linking rule, name-only sharing) recorded in the schema doc.
 
 ## Decided
 
