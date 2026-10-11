@@ -16,7 +16,7 @@ The brief a coding session works from. A short paste-in version points here: *"W
 
 ## Status
 
-`accepted`: dispatched to `panelarr-meta` on 2026-10-11 (owner's go, IN-0033). **Runs before GOAL-0004**, so the duplicate finder registers as a job (keeper's ordering; the owner can swap it back).
+`accepted`, **Done 2026-10-11** (verified; [test report](../../qa/reports/goal-0008-meta-jobs-done-verification.md)). Dispatched on 2026-10-11 (owner's go, IN-0033). **Runs before GOAL-0004**, so the duplicate finder registers as a job (keeper's ordering; the owner can swap it back).
 
 ## Context
 
@@ -38,10 +38,10 @@ Postgres (`job_runs`), folding in or mapping the existing `sync_runs` while keep
 
 ## Definition of Done
 
-- [ ] FEAT-0002 AC1–AC7 met for meta, with test evidence
-- [ ] Same job/run API shape as the other admin (or agreed via the keeper)
-- [ ] Docs updated; `make check` green; leak-check clean
-- [ ] `DONE:` with evidence per AC
+- [x] FEAT-0002 AC1–AC7 met for meta, with test evidence
+- [x] Same job/run API shape as the other admin (or agreed via the keeper)
+- [x] Docs updated; `make check` green; leak-check clean
+- [x] `DONE:` with evidence per AC
 
 ## History
 
@@ -49,3 +49,4 @@ Postgres (`job_runs`), folding in or mapping the existing `sync_runs` while keep
 - 2026-10-11: owner's go (IN-0033): `accepted`, dispatched.
 - 2026-10-11: the session corrected the brief: no background stale refresh existed. stale-refresh is a new manual-only, capped job (working assumption).
 - 2026-10-11: PROPOSE accepted into contracts/jobs.md: no `:` in job IDs, prefixed enums, `JobParam.default`/`int`, typed status filter, `JobAlreadyRunning` detail.
+- 2026-10-11: **DONE received and verified** (meta `743e687`). Jobs: `sync.<provider>.<kind>` (on sync_runs), `rebuild-entries`, `stale-refresh` (manual by default; skipped with no lookup provider); jobs.Manager replaces the old scheduler; a cross-process advisory lock per job. Clean clones pass; DoD ticked ([test report](../../qa/reports/goal-0008-meta-jobs-done-verification.md)).

@@ -88,3 +88,4 @@ message JobAlreadyRunning { string current_run_id = 1; } // google.rpc error det
 ## Changes
 
 - 2026-10-11: from the meta session building GOAL-0008: no `:` in job IDs (dotted `sync.<provider>.<kind>`), prefixed enum values (buf lint), `JobParam.default`, `int` param type, typed `status` filter, a `JobAlreadyRunning` error detail.
+- 2026-10-11: as built in meta (`743e687`): a scheduled run that finds its job busy is recorded as `SKIPPED` (trigger schedule); `:run`/`:cancel` accept an empty body. mihon-source should match.
