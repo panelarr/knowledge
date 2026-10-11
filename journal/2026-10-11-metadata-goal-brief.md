@@ -1,7 +1,7 @@
 # 2026-10-11: metadata goal brief
 
 - **Participants:** @aurimasniekis, panelarr-knowledge
-- **Inputs:** IN-0009, IN-0010, IN-0011, IN-0012
+- **Inputs:** IN-0009, IN-0010, IN-0011, IN-0012, IN-0013
 
 ## Discussed
 
@@ -24,7 +24,7 @@
 
 - Owner (IN-0009 §2): one repo per metadata plugin; meta end to end as the Seerr-style metadata, browse and search service.
 - Owner (IN-0009 §5): PostgreSQL is the only database for the whole app; the Go data layer is sqlc + pgx + goose.
-- Owner (IN-0012): in compose, meta and the library share one Postgres server, each with its own database. Recorded in deployment, deploy, meta and GOAL-0002; sent to `panelarr-meta`.
+- Owner (IN-0012): in compose, meta and the library share one Postgres server, each with its own database. Recorded in deployment, deploy, meta and GOAL-0002; sent to `panelarr-meta`. Clarified right after: that's the production setup, dev doesn't matter (IN-0013).
 
 ## New open questions
 

@@ -3,7 +3,7 @@ title: Deployment
 status: proposed
 tags: [architecture, deployment, docker, unraid]
 related: [decisions/ADR-0011-composable-opt-in-deployment.md, modules/deploy/overview.md, architecture/repo-standard.md]
-inputs: [IN-0002, IN-0003, IN-0012]
+inputs: [IN-0002, IN-0003, IN-0012, IN-0013]
 updated: 2026-10-11
 ---
 
@@ -21,7 +21,7 @@ Docker-first, *arr*-style: images `panelarr/<repo>` ([ADR-0008](../decisions/ADR
 | `panelarr/meta` | standalone meta service | optional |
 | `panelarr/mihon-source` | JVM tool for Mihon extensions (+ optional Chromium variant `:<ver>-webview`, [Q-0002](../questions/README.md)) | optional |
 | `panelarr/source-mihon`, `panelarr/source-local`, `panelarr/meta-*` | plugin in standalone/remote mode | optional (managed binaries are the default) |
-| `postgres` | PostgreSQL, the only database ([ADR-0022](../decisions/ADR-0022-postgresql-only.md)). **One server, one database per service**: server (the library) and meta each get their own (IN-0012) | **yes** |
+| `postgres` | PostgreSQL, the only database ([ADR-0022](../decisions/ADR-0022-postgresql-only.md)). **Production setup: one server, one database per service**: server (the library) and meta each get their own (IN-0012). Dev setups may do whatever is convenient (IN-0013) | **yes** |
 | third-party | typesense, meilisearch, flaresolverr/byparr, gluetun | optional |
 
 ## Compose profiles (deploy repo)
