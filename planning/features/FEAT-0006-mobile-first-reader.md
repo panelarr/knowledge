@@ -3,7 +3,7 @@ title: "FEAT-0006: Mobile-first reader"
 status: accepted
 tags: [feature, server, web, m2]
 related: [modules/web/overview.md]
-inputs: [IN-0037, IN-0042]
+inputs: [IN-0037, IN-0042, IN-0043]
 milestone: "M2"
 priority: P1
 updated: 2026-10-11
@@ -22,14 +22,15 @@ Reading in Panelarr on a phone feels like a native manga app; on desktop it is c
 ## Scope
 
 - **In:**
-  - modes: paged LTR/RTL, vertical, long strip (webtoon), double page with spread detection;
+  - **reading and sliding modes like Suwayomi's reader, polished** (IN-0043): single page, double page (spread detection, offset for covers), continuous vertical, webtoon (no gaps), continuous horizontal LTR/RTL; page transitions and swipe behaviour per mode;
   - fit width/height/original, zoom (pinch, double tap, wheel);
   - tap zones and swipe; keyboard shortcuts;
   - preloading; next-chapter handoff;
   - progress saved per user and synced across devices;
   - **settings per source** with a global default and per-series override;
   - pages from the downloaded CBZ or proxied live from the source;
-  - installable PWA shell.
+  - installable PWA shell;
+  - **themes:** several colour themes, custom colours and fonts for the app (IN-0043), and reader background colour.
 - **Out:** offline chapters (M4), image filters (later).
 
 ## Acceptance criteria
@@ -40,6 +41,8 @@ Reading in Panelarr on a phone feels like a native manga app; on desktop it is c
 - [ ] AC4: Pages load from the CBZ when downloaded, otherwise proxied through the server from the source plugin (headers and network profile applied); the next pages are preloaded.
 - [ ] AC5: Progress (chapter, page) saves as you read and appears on another device; finishing a chapter marks it read.
 - [ ] AC6: Reaching the end offers the next chapter (unified list order) without leaving the reader.
+- [ ] AC7: The reader offers single page, double page (with spread detection and a cover offset), continuous vertical, webtoon and continuous horizontal (LTR/RTL), with smooth, configurable page transitions; each mode works with touch, mouse and keyboard.
+- [ ] AC8: Users pick from several colour themes (incl. dark and true-black), customise accent and key colours, and choose the UI font; choices are saved per user and apply across devices.
 
 ## Design notes
 
@@ -54,3 +57,4 @@ shadcn/ui + Tailwind ([Q-0008](../../questions/README.md)); [web](../../modules/
 ## Open questions
 
 - Per-series overrides: also per user? (suggestion: settings are per user).
+- Suwayomi's reader feature list is from the owner's experience; the web session should review it hands-on and list what to keep and what to polish.

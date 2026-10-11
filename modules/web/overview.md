@@ -30,6 +30,7 @@ A SPA built with **Vite + React + TanStack Router, Query, Virtual, Pacer and Sto
 
 ## Look and feel (IN-0037 §3)
 - **Fully responsive.** On phones it should look and feel like a **native mobile app**: bottom navigation, full-screen views, touch gestures, safe-area insets, installable PWA. On desktop it should look good too: sidebar navigation, wider grids, keyboard shortcuts.
+- **Theming (IN-0043):** several colour themes (light, dark, true-black/AMOLED and preset palettes), **custom colours** (accent and key surfaces, saved per user), and **font choice** for the UI. Built on CSS variables, which shadcn/ui's theming uses.
 - **Reader settings per source:** zoom level, fit, reading mode and direction, remembered **per source** (with a global default and a per-series override, suggestion), since sources differ in page sizes and formats.
 
 ## Screens
