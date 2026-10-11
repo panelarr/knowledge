@@ -53,4 +53,6 @@ curl -H "Authorization: Bearer $CLIENT_KEY" localhost:8902/v1/sources/123456789/
 ```
 
 ## Implementation status
-Not started (M1). [GOAL-0001](../../agents/goals/GOAL-0001-mihon-source-v0-run-mihon-extensions-over-the-source-api.md) is dispatched to `panelarr-mihon-source` (2026-10-11). **Slices 1–2 done:** scaffold (`chore/repo-scaffold`), then protos, API server and token auth (`feat/api-protos-auth` @ `2124d96`): GetInfo, Health and ListSources answer; other RPCs are UNIMPLEMENTED until their slice. Admin SPA started in parallel (`feat/admin-spa`). `main` has no commits until the owner merges. Until `source-api` exists, the `panelarr.source.v1` protos live in this repo's `proto/` and move later (IN-0005 §2).
+**Slices 1–8 merged** into local `main` (`a49f0ba`, not pushed; 100 JVM + 67 SPA tests). Extensions load (jar/APK, lib 1.4–1.6) behind our own Android shims; all of `source.v1` works, including streamed images; per-source networking with proxies and solvers; stores with signing-key pinning; clients and API keys; the admin web UI at `/`. A hand test against a real store and extension worked end to end. **Next:** slice 9, the multi-arch Docker image ([GOAL-0001](../../agents/goals/GOAL-0001-mihon-source-v0-run-mihon-extensions-over-the-source-api.md)).
+
+Known limits (as built): WebView-only sources report `needs_webview` and don't work (Q-0002); lib 1.5 is accepted although Mihon accepts only 1.4 and 1.6; snake_case query parameters aren't accepted.

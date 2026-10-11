@@ -23,6 +23,7 @@
 - Q-0026 and Q-0030 answered; Q-0031 opened. [Plugins](../architecture/plugins.md) common surface: plugins declare the config they expect and the common services they can use. Contracts, both Mihon module docs and GOAL-0001 updated. GOAL-0001 `accepted` and dispatched; board `briefed`.
 - GOAL-0001: optional "Parallel frontend" section (after slice 2, sub-agent owns `admin/` in its own worktree, API is the contract). Board: `working`; ownership note.
 - GOAL-0001: slices 1 and 2 REPORTed and recorded; Armeria PROPOSE recorded as a working assumption on Q-0020; contracts note what was built.
+- GOAL-0001 catch-up REPORT: slices 3–8 merged (`a49f0ba`); a second sub-agent was used for the shims, beyond the brief; a hand test against a real store worked.
 
 ## Decided
 

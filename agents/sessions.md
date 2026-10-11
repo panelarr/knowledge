@@ -22,7 +22,7 @@ Every agent session working on Panelarr: where it works, what goal it holds and 
 | `panelarr-source-api` | `source-api` (not created yet; [module](../modules/source-api/README.md)) | — | — | — | idle | — |
 | `panelarr-meta` | `meta` + `meta-mangabaka` (`../meta`, `../meta-mangabaka`, `panelarr/meta`, `panelarr/meta-mangabaka`; [meta](../modules/meta/README.md), [meta-mangabaka](../modules/meta-mangabaka/README.md)) | — (the clones) | `<type>/<scope>-<slug>` | [GOAL-0002](goals/GOAL-0002-meta-v0-metadata-protocol-meta-service-and-mangabaka-dump-in.md) | working | 2026-10-11: slice 3 done and merged (meta `e49bbce`); 2026-10-11: paused on a usage limit, then resumed; slice 6 WIP on `feat/api-catalog` (untested, not merged); slice 8 helper on meta-mangabaka `feat/image-and-docs` |
 | `panelarr-source-mihon` | `source-mihon` (not created yet; [module](../modules/source-mihon/README.md)) | — | — | — | idle | — |
-| `panelarr-mihon-source` | `mihon-source` (`../mihon-source`, `panelarr/mihon-source`; [module](../modules/mihon-source/README.md)) | — (the clone itself) | `<type>/<scope>-<slug>` | [GOAL-0001](goals/GOAL-0001-mihon-source-v0-run-mihon-extensions-over-the-source-api.md) | working | 2026-10-11: slice 2 done (`2124d96`); slice 3 on `feat/extension-loader`; frontend sub-agent on `feat/admin-spa` |
+| `panelarr-mihon-source` | `mihon-source` (`../mihon-source`, `panelarr/mihon-source`; [module](../modules/mihon-source/README.md)) | — (the clone itself) | `<type>/<scope>-<slug>` | [GOAL-0001](goals/GOAL-0001-mihon-source-v0-run-mihon-extensions-over-the-source-api.md) | working | 2026-10-11: slices 1–8 merged (`a49f0ba`); slice 9 on `feat/docker-image`; both sub-agents finished |
 | `panelarr-source-local` | `source-local` (not created yet; [module](../modules/source-local/README.md)) | — | — | — | idle | — |
 | `panelarr-deploy` | `deploy` (not created yet; [module](../modules/deploy/README.md)) | — | — | — | idle | — |
 
@@ -32,7 +32,7 @@ States: `idle` · `briefed` · `working` · `blocked` · `review` · `done`.
 
 <!-- When sessions run in parallel: which paths each owns, so they don't edit each other's files. -->
 
-- `panelarr-mihon-source`: the whole `mihon-source` repo. Its `proto/` tree is a temporary home for `panelarr.source.v1` until `source-api` exists (IN-0005 §2). If it starts a frontend sub-agent (optional, IN-0008), that sub-agent owns only `admin/`, in its own worktree on `feat/admin-…`, and reports through the session.
+- `panelarr-mihon-source`: the whole `mihon-source` repo. Its `proto/` tree is a temporary home for `panelarr.source.v1` until `source-api` exists (IN-0005 §2). Its sub-agents (frontend `admin/` on `feat/admin-spa`, IN-0008; compat shims `android-compat/` on `feat/android-compat-shims`, beyond the brief) are finished and merged; their worktrees can go when the owner agrees.
 - `panelarr-meta`: the whole `meta` and `meta-mangabaka` repos.
 
 ## Worktrees
