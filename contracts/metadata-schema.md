@@ -139,7 +139,7 @@ Every enum value travels with the provider's **raw string** (`raw_type`, `raw_ro
 - **Merge on write:** each provider-record change rebuilds the entry and its parts; reads never merge.
 - **Linking rule:** a provider record joins the entry that shares any of its external IDs, **except** two active records from the same provider are never joined (that provider says they are different works; guards against duplicates sharing an AniList ID).
 - **Name-only persons and companies** (no IDs) are shared by normalized name; ones with IDs stay separate even when names match. Known limit: namesakes without IDs collapse into one person.
-- **Tags** are shared by normalized name; genres are tags with `is_genre`.
+- ~~**Tags** are shared by normalized name; genres are tags with `is_genre`.~~ **Withdrawn (2026-10-11, IN-0028):** the owner's real import showed that sharing by name merges different taxonomy nodes. MangaBaka's `tags_v2` "Settings > Fantasy" became the *genre* "Fantasy" on series like Goodnight Punpun, and cards show genres by position, so wrong genres lead. Tag identity must include the provider's namespace/path (genres kept separate), and displayed genres follow the provider's genre list. Fix requested from `panelarr-meta`.
 - **Postgres 14+** documented (CI runs 18); only `pg_trgm` needed, title normalization happens in Go.
 
 ## Open (for the meta session to settle by REPORT)

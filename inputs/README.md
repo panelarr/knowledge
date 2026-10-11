@@ -31,3 +31,4 @@ The owner's raw words: messages, answers, idea dumps, transcripts, pasted conver
 | [IN-0025](IN-0025-confirm-goal-0005-and-accept-feat-0001.md) | Confirms GOAL-0005 and accepts FEAT-0001 | 2026-10-11 | GOAL-0005, FEAT-0001, GOAL-0006 |
 | [IN-0026](IN-0026-goal-0004-and-goal-0006-approved.md) | GOAL-0004 and GOAL-0006 approved; queue order kept (duplicates, then search engines) | 2026-10-11 | GOAL-0004, GOAL-0006 |
 | [IN-0027](IN-0027-gluetun-vpn-as-proxy-example-in-mihon-source-docs.md) | VPN via OpenVPN/WireGuard for mihon-source: document gluetun as a VPN-to-proxy container in mihon-source's docs | 2026-10-11 | GOAL-0005, architecture/networking.md |
+| [IN-0028](IN-0028-meta-admin-ui-feedback-layout-no-tag-search.md) | meta admin UI needs work (filter layout) and has no tag search; screenshot after the real import (306,084 entries) | 2026-10-11 | GOAL-0003, contracts/metadata-schema.md |
