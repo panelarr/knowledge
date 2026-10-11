@@ -48,7 +48,7 @@ Each admin has a **Jobs** page. It lists every background job with its schedule,
 
 ## Design notes
 
-- **Same API shape in both services** (`MihonJobsService` / `MetaJobsService` with identical messages), so a shared `panelarr.jobs.v1` can be extracted later without changing clients. *Suggestion.*
+- **Same API shape in both services:** the draft contract is [contracts/jobs.md](../../contracts/jobs.md) (`MihonJobsService` / `MetaJobsService` with identical messages and REST paths), so a shared `panelarr.jobs.v1` can be extracted later.
 - **meta:** fold the existing `sync_runs` into the job model, a sync being one job per provider and ingestion kind, or map it onto it. Keep the existing sync API working.
 - **mihon-source:** store history in files under `/data` with retention, like its other state.
 - Logs per run: keep the notices and warnings the job emits (bounded), not full logs.

@@ -22,7 +22,7 @@ The brief a coding session works from. A short paste-in version points here: *"W
 
 - Code: `~/Projects/Panelarr/mihon-source` · branches `<type>/<scope>-<slug>` · the same rules as its earlier goals (merge your own branches before the first release after `make check` passes, never push, leak-check, aliases).
 - **Read first:** [FEAT-0002](../../planning/features/FEAT-0002-jobs-page-in-every-admin.md). Its acceptance criteria are the DoD. Also [ADR-0027](../../decisions/ADR-0027-observability-baseline-for-every-service.md) (metrics).
-- **Match the other admin:** both services get identical job/run messages and the same Jobs page UX. If the other session has already built its side, copy its shapes; if not, ASK the keeper to coordinate the proto shape first.
+- **Match the other admin:** both services get identical job/run messages and the same Jobs page UX. Build against the draft shared contract [contracts/jobs.md](../../contracts/jobs.md); REPORT any change you make to it so the other admin copies it.
 
 ## Objective
 
