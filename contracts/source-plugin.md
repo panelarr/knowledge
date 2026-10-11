@@ -35,7 +35,7 @@ service SourcePlugin {
 }
 ```
 
-## As built (in mihon-source, until source-api exists)
+## As built (home: source-api since GOAL-0009; mihon-source vendors a pinned copy)
 - `SourcePluginService` (buf STANDARD naming, Request/Response per RPC) with every RPC above plus `GetSource`.
 - `PluginInfo` carries `config_schema` (JSON Schema as a Struct) and `common_services` (`NETWORK_PROFILE`, `SOLVER`) per Q-0026/Q-0030, plus contracts, capabilities and limits.
 - **Plugin-level config** (GOAL-0009 PROPOSE, accepted as a working assumption): `GetConfig` (`GET /v1/config`, values with `writeOnly` schema fields returned empty) and `SetConfig` (`PUT /v1/config`, validated against `PluginInfo.config_schema`, applied at runtime). The host calls SetConfig after start and on every admin save. Plugins without a config schema answer UNIMPLEMENTED. Standalone plugins may also read the same config from `--config`/`PLUGIN_CONFIG` at start. Per-source `GetSettings`/`SetSettings` are unchanged. Additive.
