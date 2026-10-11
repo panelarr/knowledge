@@ -31,4 +31,4 @@ The first metadata plugin (IN-0009 §1). It implements `panelarr.metadata.v1` wi
 MangaBaka data is CC BY-NC-SA 4.0. The plugin downloads it on the hoster's instruction; no dump or extract is ever committed, bundled or published. Tests use synthetic fixtures.
 
 ## Implementation status
-Not started. Part of [GOAL-0002](../../agents/goals/GOAL-0002-meta-v0-metadata-protocol-meta-service-and-mangabaka-dump-in.md).
+Scaffold merged into `main` (`ed0e201`, not pushed); uses the meta SDK through `replace => ../meta` until meta is tagged. Part of [GOAL-0002](../../agents/goals/GOAL-0002-meta-v0-metadata-protocol-meta-service-and-mangabaka-dump-in.md).
