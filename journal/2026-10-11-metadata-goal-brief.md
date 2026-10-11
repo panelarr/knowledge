@@ -53,6 +53,8 @@
 
 - Owner (IN-0025): confirmed GOAL-0005 and accepted FEAT-0001; [GOAL-0006](../agents/goals/GOAL-0006-meta-search-engines-typesense-then-meilisearch.md) briefed, queued for `panelarr-meta` after GOAL-0003 and GOAL-0004.
 
+- **GOAL-0003 done** (verified; [test report](../qa/reports/goal-0003-meta-admin-done-verification.md)); GOAL-0004 started.
+
 ## New open questions
 
 - None new at first. The ingestion-type list is a draft for the session to refine.

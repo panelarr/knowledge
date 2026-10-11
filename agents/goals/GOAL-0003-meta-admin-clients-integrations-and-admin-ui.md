@@ -16,7 +16,7 @@ The brief a coding session works from. A short paste-in version points here: *"W
 
 ## Status
 
-`accepted`: dispatched to `panelarr-meta` on 2026-10-11 (owner's go, IN-0021). Written from IN-0020.
+`accepted`, **Done 2026-10-11** (verified; [test report](../../qa/reports/goal-0003-meta-admin-done-verification.md)). Dispatched to `panelarr-meta` on 2026-10-11 (owner's go, IN-0021). Written from IN-0020.
 
 ## Context
 
@@ -53,13 +53,13 @@ Give meta a minimal admin like mihon-source's (IN-0020). It covers **API key cli
 
 ## Definition of Done
 
-- [ ] Clients: admin token plus scoped, hashed, rotatable client keys; a test proves a read key can't call admin APIs
-- [ ] Integrations: solvers, profiles, default, per-provider assignment; secrets encrypted and never returned; an unused solver is flagged or auto-wired
-- [ ] `SetNetworkProfile` in the plugin protocol; SDK HTTP client from a profile; meta-mangabaka downloads through a proxy in a test
-- [ ] Admin UI: clients, integrations, providers and sync runs, browse/search; tests; served at `/` with a strict CSP
-- [ ] Prometheus metrics and detailed health per ADR-0027
-- [ ] Docs and image updated; `make check` green; leak-check clean
-- [ ] `DONE:` with evidence per box
+- [x] Clients: admin token plus scoped, hashed, rotatable client keys; a test proves a read key can't call admin APIs
+- [x] Integrations: solvers, profiles, default, per-provider assignment; secrets encrypted and never returned; an unused solver is flagged or auto-wired
+- [x] `SetNetworkProfile` in the plugin protocol; SDK HTTP client from a profile; meta-mangabaka downloads through a proxy in a test
+- [x] Admin UI: clients, integrations, providers and sync runs, browse/search; tests; served at `/` with a strict CSP
+- [x] Prometheus metrics and detailed health per ADR-0027
+- [x] Docs and image updated; `make check` green; leak-check clean
+- [x] `DONE:` with evidence per box
 
 ## History
 
@@ -73,3 +73,4 @@ Give meta a minimal admin like mihon-source's (IN-0020). It covers **API key cli
 - 2026-10-11: REPORT: **slice 5 (observability) done**, merged (`b2aa7f4`), ahead of slice 4, which a parallel worker is building on `feat/admin-ui` in a separate worktree. Prometheus metrics off by default; when on, served on their own listener (default `:9464`, no auth, private port) or on the API port behind a new `metrics:read` scope. Metric families for sync runs and records, plugin calls and up-state, search duration, and API requests, with bounded labels. `MetaAdminService.GetHealth` (`/v1/admin/health`) reports database, search and per-provider status (overall OK / DEGRADED / DOWN). Logs carry `service` and `component`. Settled per service: these metric names, port 9464, the `metrics:read` scope.
 - 2026-10-11: REPORT: **slice 4 (admin UI) done**, merged (`7e7f4f2` by the worker, `565f302` health page and metrics scope; not pushed). React 19 + Vite + TanStack, same stack as mihon-source. Pages: admin-token login (no cookies); catalogue browse/search and entry detail; providers and sync runs with Run now; clients; integrations (unused-solver flag, "Use for all providers", write-only passwords, a search-engine placeholder); health with a status badge. mihon-source's UI bugs avoided from the start (tabs, flex table cells, error parsing). Embedded in the binary at `/` with a strict CSP; `img-src` allows `https:` for provider-hosted covers. Checked by hand against a temporary Postgres. The worker's worktree is removed. Next: slice 6 (image with the UI, compose, docs), then DONE.
 - 2026-10-11: **DONE received.** All 6 slices merged (meta `6604596` quick starts; meta-mangabaka `c662350`; nothing pushed), with evidence per DoD box (test names). The session checked by hand in compose: image 26.5 MB with the UI, all healthy, a profile pushed to the plugin container, GetHealth OK; torn down, nothing pruned. Decisions recorded: `api_keys` is a deprecated fallback; the API always needs a token; `data_dir`/`META_SECRET_KEY` hold the encryption key; `/data` volume; profiles travel in plaintext to plugins (security.md); `SetPushedProfile` is the Q-0034 hook. The keeper is verifying on clean clones.
+- 2026-10-11: **Done.** Keeper verification passed on clean clones of both repos (lint 0 issues, no vulnerabilities, 18 + 5 Go packages ok, 39 Vitest passed, no skips); DoD ticked ([test report](../../qa/reports/goal-0003-meta-admin-done-verification.md)).
