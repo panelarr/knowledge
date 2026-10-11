@@ -42,6 +42,7 @@ A user searches a title, sees meta's catalogue results (Seerr-style), opens one 
 
 - Matching logic overlaps meta's duplicate candidates (GOAL-0004); share the scoring approach.
 - Source search quality matters, and mihon-source's cache keeps repeated searches cheap.
+- Mihon sources return **one title per series** (no alternative titles in the extension model, [research](../../research/mihon-extensions.md)): the alternatives always come from meta. Native plugins may fill `Series.alt_titles` when they have them.
 
 ## Delivery
 

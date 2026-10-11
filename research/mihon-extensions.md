@@ -25,6 +25,10 @@ EXTREPO is a large community collection of Mihon extensions (Apache-2.0). Extens
 - **Host runtime expected by 1.6:** Kotlin 2.4, coroutines 1.10, kotlinx.serialization 1.7+, **OkHttp 5.4**, jsoup 1.22, Injekt 1.0.
 - **The collection builds with:** kotlinx.serialization (JSON, protobuf, json-okio), OkHttp 5.4 with brotli and zstd, jsoup, **QuickJS** (`zhanghai/quickjs-android`). There's no Rhino in the version catalog.
 
+## Titles
+- Mihon's `SManga` has **no alternative-titles field**: list results and details carry a single `title`. Some extensions put alternative names in the description text (not reliable). Reported by `panelarr-mihon-source`, 2026-10-11 **[unverified against the extensions-lib source in this KB]**.
+- So matching a Panelarr Work to Mihon sources must come from meta's side: search sources with meta's main and alternative titles, then score the source's single title against all of meta's titles ([ADR-0028](../decisions/ADR-0028-library-entry-per-work.md), FEAT-0004).
+
 ## Source IDs
 - MD5 of `"${name.lowercase()}/$lang/$versionId"`, first 8 bytes, sign bit masked. Confirmed in Suwayomi's copy.
 - `versionId` is bumped only when a site's URL scheme changes fundamentally. Renames pin `id` in Gradle.
