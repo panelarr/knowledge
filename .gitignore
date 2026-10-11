@@ -1,0 +1,19 @@
+.DS_Store
+*.swp
+.idea/
+.vscode/
+.obsidian/workspace*
+__pycache__/
+*.pyc
+ops/.state.json
+ops/cron.log
+/answers.json
+.kbtemplate/upstream/
+.kbtemplate/sync-plan.md
+.kb-aliases.env
+
+# Track the agent skills even when a global gitignore excludes .claude (local settings stay ignored)
+!/.claude/
+/.claude/*
+!/.claude/skills/
+!/.kbtemplate/baseline/.claude/

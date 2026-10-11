@@ -1,0 +1,286 @@
+{
+  "version": 1,
+  "initialized": true,
+  "project": {
+    "name": "Panelarr",
+    "slug": "panelarr",
+    "pitch": "A self-hosted, arr-style app for curating, downloading, managing and reading manga, manhwa, manhua and comics, with real multi-user support and opt-in plugins for sources and metadata.",
+    "owner": "@aurimasniekis",
+    "keeper_session": "panelarr-knowledge",
+    "language": "en"
+  },
+  "preset": "platform",
+  "mode": "agents",
+  "roles": {
+    "product_owner": true,
+    "project_manager": true,
+    "agent_manager": true,
+    "qa": true,
+    "docs_writer": true,
+    "support": true
+  },
+  "areas": [
+    {
+      "path": "product",
+      "holds": "Vision, principles, scope, personas",
+      "question": "Why and what are we building, for whom?",
+      "role": "domain"
+    },
+    {
+      "path": "architecture",
+      "holds": "Cross-repo design: overview, domain model, deployment, security, repo standard",
+      "question": "How do the pieces fit together?",
+      "role": "domain"
+    },
+    {
+      "path": "modules",
+      "holds": "One sub-folder per repo: role, boundaries, internals, implementation status",
+      "question": "How is each repo built and what does it own?",
+      "role": "domain"
+    },
+    {
+      "path": "contracts",
+      "holds": "The reasoning behind APIs, protocols and file formats between repos",
+      "question": "Why does each interface look the way it does?",
+      "role": "domain"
+    },
+    {
+      "path": "research",
+      "holds": "Facts about external projects, libraries, standards",
+      "question": "What exists out there, and what did we learn?",
+      "role": "domain"
+    },
+    {
+      "path": "planning",
+      "holds": "Roadmap, milestones, features with acceptance criteria, releases, status reports",
+      "question": "What gets delivered, and when?",
+      "role": "ops"
+    },
+    {
+      "path": "agents",
+      "holds": "Coding-session board, goal briefs, inbox for session messages",
+      "question": "Who is working on what?",
+      "role": "ops"
+    },
+    {
+      "path": "qa",
+      "holds": "Test plans, test reports, regression list",
+      "question": "Does it work, and how do we know?",
+      "role": "ops"
+    },
+    {
+      "path": "support",
+      "holds": "FAQ, known issues, reusable replies",
+      "question": "What do users ask, and what do we answer?",
+      "role": "ops"
+    },
+    {
+      "path": "ops",
+      "holds": "Forge digests and the outbox of drafted comments and reviews",
+      "question": "What's happening on the forges?",
+      "role": "ops"
+    },
+    {
+      "path": "playbooks",
+      "holds": "How the agent performs each role",
+      "question": "How does the agent do its job?",
+      "role": "ops"
+    },
+    {
+      "path": "decisions",
+      "holds": "Decision records (ADRs)",
+      "question": "What did we decide, and what did we reject?",
+      "role": "core"
+    },
+    {
+      "path": "questions",
+      "holds": "Open-question register",
+      "question": "What don't we know yet?",
+      "role": "core"
+    },
+    {
+      "path": "inputs",
+      "holds": "The owner's words, verbatim and immutable",
+      "question": "Where did an idea come from?",
+      "role": "core"
+    },
+    {
+      "path": "journal",
+      "holds": "One entry per working session",
+      "question": "What happened in each session?",
+      "role": "core"
+    },
+    {
+      "path": "meta",
+      "holds": "Conventions, commit convention, protocols, authority, glossary, templates",
+      "question": "How does this KB work?",
+      "role": "core"
+    }
+  ],
+  "statuses": [
+    "seed",
+    "draft",
+    "proposed",
+    "accepted",
+    "parked",
+    "rejected",
+    "superseded"
+  ],
+  "frontmatter_required": [
+    "title",
+    "status",
+    "updated"
+  ],
+  "ids": {
+    "ADR": {
+      "kind": "file",
+      "dir": "decisions",
+      "template": "decision.md",
+      "index": "decisions/README.md"
+    },
+    "Q": {
+      "kind": "register",
+      "dir": "questions",
+      "template": "question.md",
+      "index": "questions/README.md"
+    },
+    "IN": {
+      "kind": "file",
+      "dir": "inputs",
+      "template": "input.md",
+      "index": "inputs/README.md"
+    },
+    "FEAT": {
+      "kind": "file",
+      "dir": "planning/features",
+      "template": "feature.md",
+      "index": "planning/features/README.md"
+    },
+    "GOAL": {
+      "kind": "file",
+      "dir": "agents/goals",
+      "template": "goal.md",
+      "index": "agents/goals/README.md"
+    }
+  },
+  "non_knowledge": [
+    "inputs/",
+    "journal/",
+    "meta/templates/",
+    "agents/inbox/",
+    "ops/digests/",
+    "ops/outbox/"
+  ],
+  "unindexed": [
+    "meta/templates/",
+    "agents/inbox/",
+    "ops/digests/",
+    "ops/outbox/"
+  ],
+  "skip_dirs": [
+    ".git",
+    ".obsidian",
+    "node_modules",
+    "kits",
+    "ci",
+    ".github",
+    ".gitlab",
+    ".forgejo",
+    ".gitea",
+    ".claude",
+    "tools",
+    ".kbtemplate"
+  ],
+  "commit": {
+    "types": {
+      "idea": "A new idea enters the KB as seed",
+      "decide": "An ADR is added or changes status",
+      "question": "Questions added, reframed or answered",
+      "refine": "Clarify, reword, split or merge without changing meaning",
+      "struct": "Folders, indexes, moves, renames",
+      "input": "Owner inputs imported into inputs/",
+      "meta": "Conventions, templates, tooling, protocols, playbooks",
+      "journal": "Journal-only entries",
+      "product": "Vision, principles, scope, personas",
+      "arch": "Cross-repo architecture",
+      "module": "One repo's design or status",
+      "contract": "Reasoning behind an API, protocol or format",
+      "research": "Facts about external projects or data",
+      "plan": "Roadmap, milestones, features, releases, status reports",
+      "goal": "Agent goal briefs and the session board",
+      "qa": "Test plans, test reports, regression list",
+      "support": "FAQ, known issues, replies",
+      "ops": "Digests and outbox drafts",
+      "revert": "Reverting an earlier commit"
+    },
+    "accepted_change_footer": "ACCEPTED-CHANGE",
+    "max_header": 72
+  },
+  "privacy": {
+    "enabled": false,
+    "extra_patterns": [],
+    "scan": [],
+    "aliases_file": ".kb-aliases.env",
+    "aliases_expected": true
+  },
+  "forge": "github",
+  "forges": {
+    "github": {
+      "transport": "cli",
+      "cli": "gh",
+      "host": "github.com",
+      "token_env": "GITHUB_TOKEN"
+    },
+    "gitlab": {
+      "transport": "cli",
+      "cli": "glab",
+      "host": "gitlab.com",
+      "token_env": "GITLAB_TOKEN"
+    },
+    "gitea": {
+      "transport": "cli",
+      "cli": "tea",
+      "host": "codeberg.org",
+      "token_env": "GITEA_TOKEN"
+    },
+    "bitbucket": {
+      "transport": "cli",
+      "host": "bitbucket.org",
+      "token_env": "BITBUCKET_TOKEN"
+    }
+  },
+  "repos": [],
+  "authority": {
+    "kb_commit": "auto",
+    "kb_push": "never",
+    "comment": "draft",
+    "review": "draft",
+    "label": "draft",
+    "assign": "draft",
+    "open_issue": "draft",
+    "close": "never",
+    "merge": "never",
+    "push_code": "never",
+    "dispatch_session": "draft",
+    "create_worktree": "draft"
+  },
+  "ops": {
+    "digest_dir": "ops/digests",
+    "outbox_dir": "ops/outbox",
+    "state_file": "ops/.state.json",
+    "page_size": 50,
+    "disclosure": true,
+    "kb_visibility": "public",
+    "kb_url": "https://github.com/panelarr/knowledge"
+  },
+  "template": {
+    "upstream": "https://github.com/aurimasniekis/llm-knowledge-base-template",
+    "slug": "aurimasniekis/llm-knowledge-base-template",
+    "forge": "github",
+    "version": "0.1.0",
+    "synced": "2026-10-11"
+  },
+  "agents": [
+    "claude"
+  ]
+}

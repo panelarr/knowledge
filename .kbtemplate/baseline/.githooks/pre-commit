@@ -1,0 +1,3 @@
+#!/bin/sh
+# Keep the knowledge base healthy: frontmatter, links, indexes, IDs (meta/conventions.md).
+exec python3 "$(git rev-parse --show-toplevel)/tools/kb.py" check

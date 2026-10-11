@@ -1,0 +1,24 @@
+# Self-documenting Makefile: `make` or `make help` lists every target with a `## description`.
+.DEFAULT_GOAL := help
+.PHONY: help setup build test check run clean
+
+help: ## List targets
+	@awk 'BEGIN {FS = ":.*## "} /^[a-zA-Z0-9_.-]+:.*## / {printf "  \033[36m%-14s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
+
+setup: ## Install or check toolchains and dependencies
+	@echo "TODO: setup"
+
+build: ## Build everything
+	@echo "TODO: build"
+
+test: ## Run all tests
+	@echo "TODO: test"
+
+check: ## Format check, lint, static analysis (run before every report/PR)
+	@echo "TODO: check"
+
+run: ## Run the app locally and print its URL
+	@echo "TODO: run"
+
+clean: ## Remove build artifacts
+	@echo "TODO: clean"

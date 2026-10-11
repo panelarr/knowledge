@@ -1,0 +1,511 @@
+{
+  "preset": "platform",
+  "values": {
+    "PROJECT_NAME": "Panelarr",
+    "PROJECT_SLUG": "panelarr",
+    "PROJECT_PITCH": "A self-hosted, arr-style app for curating, downloading, managing and reading manga, manhwa, manhua and comics, with real multi-user support and opt-in plugins for sources and metadata.",
+    "OWNER": "@aurimasniekis",
+    "KEEPER_SESSION": "panelarr-knowledge",
+    "TODAY": "2026-10-11",
+    "KB_COMMIT_POLICY": "the keeper commits on its own after each discussion",
+    "KB_PUSH_POLICY": "never by the agent",
+    "AREAS_TABLE": "| Folder | Holds | Question it answers |\n|---|---|---|\n| `product/` | Vision, principles, scope, personas | Why and what are we building, for whom? |\n| `architecture/` | Cross-repo design: overview, domain model, deployment, security, repo standard | How do the pieces fit together? |\n| `modules/` | One sub-folder per repo: role, boundaries, internals, implementation status | How is each repo built and what does it own? |\n| `contracts/` | The reasoning behind APIs, protocols and file formats between repos | Why does each interface look the way it does? |\n| `research/` | Facts about external projects, libraries, standards | What exists out there, and what did we learn? |\n| `planning/` | Roadmap, milestones, features with acceptance criteria, releases, status reports | What gets delivered, and when? |\n| `agents/` | Coding-session board, goal briefs, inbox for session messages | Who is working on what? |\n| `qa/` | Test plans, test reports, regression list | Does it work, and how do we know? |\n| `support/` | FAQ, known issues, reusable replies | What do users ask, and what do we answer? |\n| `ops/` | Forge digests and the outbox of drafted comments and reviews | What's happening on the forges? |\n| `playbooks/` | How the agent performs each role | How does the agent do its job? |\n| `decisions/` | Decision records (ADRs) | What did we decide, and what did we reject? |\n| `questions/` | Open-question register | What don't we know yet? |\n| `inputs/` | The owner's words, verbatim and immutable | Where did an idea come from? |\n| `journal/` | One entry per working session | What happened in each session? |\n| `meta/` | Conventions, commit convention, protocols, authority, glossary, templates | How does this KB work? |",
+    "DOMAIN_COMMIT_TYPES": "Domain types for this KB:\n\n| Type | Use when… |\n|---|---|\n| `product` | Vision, principles, scope, personas |\n| `arch` | Cross-repo architecture |\n| `module` | One repo's design or status |\n| `contract` | Reasoning behind an API, protocol or format |\n| `research` | Facts about external projects or data |",
+    "SETUP_ANSWERS": "```json\n{\n  \"project\": {\n    \"name\": \"Panelarr\",\n    \"pitch\": \"A self-hosted, arr-style app for curating, downloading, managing and reading manga, manhwa, manhua and comics, with real multi-user support and opt-in plugins for sources and metadata.\",\n    \"owner\": \"@aurimasniekis\",\n    \"keeper_session\": \"panelarr-knowledge\",\n    \"slug\": \"panelarr\",\n    \"language\": \"en\"\n  },\n  \"preset\": \"platform\",\n  \"mode\": \"agents\",\n  \"roles\": {\n    \"product_owner\": true,\n    \"project_manager\": true,\n    \"agent_manager\": true,\n    \"qa\": true,\n    \"docs_writer\": true,\n    \"support\": true\n  },\n  \"agents\": [\n    \"claude\"\n  ],\n  \"repos\": [],\n  \"authority\": {\n    \"kb_commit\": \"auto\",\n    \"kb_push\": \"never\",\n    \"comment\": \"draft\",\n    \"review\": \"draft\",\n    \"label\": \"draft\",\n    \"assign\": \"draft\",\n    \"open_issue\": \"draft\",\n    \"close\": \"never\",\n    \"merge\": \"never\",\n    \"push_code\": \"never\",\n    \"dispatch_session\": \"draft\",\n    \"create_worktree\": \"draft\"\n  },\n  \"forge\": \"github\",\n  \"collaboration\": {\n    \"templates\": false,\n    \"ci_check\": true,\n    \"ci_agent\": false,\n    \"codeowners\": \"\"\n  },\n  \"kb\": {\n    \"visibility\": \"public\",\n    \"url\": \"https://github.com/panelarr/knowledge\"\n  },\n  \"privacy\": {\n    \"enabled\": false,\n    \"extra_patterns\": [],\n    \"aliases\": [\n      \"EXTREPO\"\n    ]\n  },\n  \"secrets\": false,\n  \"license\": \"own-open\",\n  \"areas\": {\n    \"add\": [],\n    \"remove\": []\n  },\n  \"git\": {\n    \"init\": true,\n    \"hooks\": true\n  },\n  \"seed\": {}\n}\n```\n\nThe seed text, if any, is IN-0002."
+  },
+  "managed": [
+    "tools/kb.py",
+    "tools/kblib/*",
+    "tools/kblib/forges/*",
+    ".githooks/*",
+    "meta/templates/*",
+    "meta/conventions.md",
+    "meta/commit-convention.md",
+    "meta/session-protocol.md",
+    "meta/authority.md",
+    "meta/README.md",
+    "playbooks/*",
+    ".claude/skills/*/SKILL.md",
+    "kits/code-repo/*",
+    "ci/agent/*",
+    ".github/ISSUE_TEMPLATE/*",
+    ".github/PULL_REQUEST_TEMPLATE.md",
+    ".github/workflows/kb-check.yml",
+    ".github/workflows/pr-title.yml",
+    ".gitlab/issue_templates/*",
+    ".gitlab/merge_request_templates/*",
+    ".gitlab-ci.yml",
+    ".forgejo/issue_template/*",
+    ".forgejo/pull_request_template.md",
+    ".forgejo/workflows/*",
+    "bitbucket-pipelines.yml",
+    "AGENTS.md",
+    "CLAUDE.md",
+    "GEMINI.md",
+    "CONTRIBUTING.md",
+    "agents/inbox/README.md",
+    "ops/README.md",
+    "ops/digests/README.md",
+    "ops/outbox/README.md",
+    ".kbtemplate/CHANGELOG.md"
+  ],
+  "files": {
+    ".claude/skills/kb-agent-manager/SKILL.md": {
+      "source": ".claude/skills/kb-agent-manager/SKILL.md",
+      "shipped": "4ea248b45d6cda1c",
+      "installed": "4ea248b45d6cda1c"
+    },
+    ".claude/skills/kb-docs-writer/SKILL.md": {
+      "source": ".claude/skills/kb-docs-writer/SKILL.md",
+      "shipped": "36eece9843153615",
+      "installed": "36eece9843153615"
+    },
+    ".claude/skills/kb-keeper/SKILL.md": {
+      "source": ".claude/skills/kb-keeper/SKILL.md",
+      "shipped": "06f316e00bbfb8d0",
+      "installed": "06f316e00bbfb8d0"
+    },
+    ".claude/skills/kb-onboard-repo/SKILL.md": {
+      "source": ".claude/skills/kb-onboard-repo/SKILL.md",
+      "shipped": "66650bb107678450",
+      "installed": "66650bb107678450"
+    },
+    ".claude/skills/kb-ops-round/SKILL.md": {
+      "source": ".claude/skills/kb-ops-round/SKILL.md",
+      "shipped": "8627a15bb52e4511",
+      "installed": "8627a15bb52e4511"
+    },
+    ".claude/skills/kb-product-owner/SKILL.md": {
+      "source": ".claude/skills/kb-product-owner/SKILL.md",
+      "shipped": "fd2bfd89fae6cb98",
+      "installed": "fd2bfd89fae6cb98"
+    },
+    ".claude/skills/kb-project-manager/SKILL.md": {
+      "source": ".claude/skills/kb-project-manager/SKILL.md",
+      "shipped": "2625a9d9844dafcf",
+      "installed": "2625a9d9844dafcf"
+    },
+    ".claude/skills/kb-qa/SKILL.md": {
+      "source": ".claude/skills/kb-qa/SKILL.md",
+      "shipped": "1b3b14205a98cf12",
+      "installed": "1b3b14205a98cf12"
+    },
+    ".claude/skills/kb-reviewer/SKILL.md": {
+      "source": ".claude/skills/kb-reviewer/SKILL.md",
+      "shipped": "08714a53b58404ba",
+      "installed": "08714a53b58404ba"
+    },
+    ".claude/skills/kb-support/SKILL.md": {
+      "source": ".claude/skills/kb-support/SKILL.md",
+      "shipped": "ae8aa6ae2cf71233",
+      "installed": "ae8aa6ae2cf71233"
+    },
+    ".claude/skills/kb-template-feedback/SKILL.md": {
+      "source": ".claude/skills/kb-template-feedback/SKILL.md",
+      "shipped": "a4046b89289445b0",
+      "installed": "a4046b89289445b0"
+    },
+    ".claude/skills/kb-template-sync/SKILL.md": {
+      "source": ".claude/skills/kb-template-sync/SKILL.md",
+      "shipped": "36c8528e86259549",
+      "installed": "36c8528e86259549"
+    },
+    ".githooks/commit-msg": {
+      "source": ".githooks/commit-msg",
+      "shipped": "95fce14818dc313b",
+      "installed": "95fce14818dc313b"
+    },
+    ".githooks/pre-commit": {
+      "source": ".githooks/pre-commit",
+      "shipped": "f6d819a7780bf50e",
+      "installed": "f6d819a7780bf50e"
+    },
+    ".github/workflows/kb-check.yml": {
+      "source": ".github/workflows/kb-check.yml",
+      "shipped": "1aebe8fa910f969b",
+      "installed": "1aebe8fa910f969b"
+    },
+    ".github/workflows/pr-title.yml": {
+      "source": ".github/workflows/pr-title.yml",
+      "shipped": "4093f749dc656393",
+      "installed": "4093f749dc656393"
+    },
+    ".kbtemplate/CHANGELOG.md": {
+      "source": ".kbtemplate/CHANGELOG.md",
+      "shipped": "3f92dc5b95536739",
+      "installed": "3f92dc5b95536739"
+    },
+    "AGENTS.md": {
+      "source": "AGENTS.md",
+      "shipped": "cb5b094d46c6e7ae",
+      "installed": "f43c1afa4afd3573"
+    },
+    "CLAUDE.md": {
+      "source": "CLAUDE.md",
+      "shipped": "c7cb2e0b8c19a80c",
+      "installed": "c7cb2e0b8c19a80c"
+    },
+    "agents/inbox/README.md": {
+      "source": "agents/inbox/README.md",
+      "shipped": "33af9dedd52009e1",
+      "installed": "33af9dedd52009e1"
+    },
+    "kits/code-repo/AGENTS.private-kb.md": {
+      "source": "kits/code-repo/AGENTS.private-kb.md",
+      "shipped": "aa1f479d2705e493",
+      "installed": "aa1f479d2705e493"
+    },
+    "kits/code-repo/AGENTS.public-repo.md": {
+      "source": "kits/code-repo/AGENTS.public-repo.md",
+      "shipped": "2dd70ccad425f6c5",
+      "installed": "2dd70ccad425f6c5"
+    },
+    "kits/code-repo/CONTRIBUTING.snippet.md": {
+      "source": "kits/code-repo/CONTRIBUTING.snippet.md",
+      "shipped": "69d7a7e346010eff",
+      "installed": "69d7a7e346010eff"
+    },
+    "kits/code-repo/Makefile.help": {
+      "source": "kits/code-repo/Makefile.help",
+      "shipped": "afc00fac2aac3d57",
+      "installed": "afc00fac2aac3d57"
+    },
+    "kits/code-repo/README.md": {
+      "source": "kits/code-repo/README.md",
+      "shipped": "b71a3df99d95b1c1",
+      "installed": "b71a3df99d95b1c1"
+    },
+    "kits/code-repo/pull_request_template.md": {
+      "source": "kits/code-repo/pull_request_template.md",
+      "shipped": "21c9924206c91136",
+      "installed": "21c9924206c91136"
+    },
+    "meta/README.md": {
+      "source": "meta/README.md",
+      "shipped": "24f7b0716aa5ef3c",
+      "installed": "24f7b0716aa5ef3c"
+    },
+    "meta/authority.md": {
+      "source": "meta/authority.md",
+      "shipped": "cf38efec71b1014c",
+      "installed": "cf38efec71b1014c"
+    },
+    "meta/commit-convention.md": {
+      "source": "meta/commit-convention.md",
+      "shipped": "569f738a11d76427",
+      "installed": "a60845cfdc86bc35"
+    },
+    "meta/conventions.md": {
+      "source": "meta/conventions.md",
+      "shipped": "acc19bc90f8deaea",
+      "installed": "e3434b06aefd723c"
+    },
+    "meta/session-protocol.md": {
+      "source": "meta/session-protocol.md",
+      "shipped": "9c8a592b885b8bbe",
+      "installed": "6a75fab0cfcef102"
+    },
+    "meta/templates/bug.md": {
+      "source": "meta/templates/bug.md",
+      "shipped": "b32ea0123e478d5c",
+      "installed": "b32ea0123e478d5c"
+    },
+    "meta/templates/concept.md": {
+      "source": "meta/templates/concept.md",
+      "shipped": "f79f7f93ec6d0454",
+      "installed": "f79f7f93ec6d0454"
+    },
+    "meta/templates/contract.md": {
+      "source": "presets/platform/templates/contract.md",
+      "shipped": "ef0c55d41f66bc5b",
+      "installed": "ef0c55d41f66bc5b"
+    },
+    "meta/templates/decision.md": {
+      "source": "meta/templates/decision.md",
+      "shipped": "dd3a0ee492805998",
+      "installed": "dd3a0ee492805998"
+    },
+    "meta/templates/feature.md": {
+      "source": "meta/templates/feature.md",
+      "shipped": "8ff845800f62dc1d",
+      "installed": "8ff845800f62dc1d"
+    },
+    "meta/templates/goal.md": {
+      "source": "meta/templates/goal.md",
+      "shipped": "981be9f406397134",
+      "installed": "981be9f406397134"
+    },
+    "meta/templates/input.md": {
+      "source": "meta/templates/input.md",
+      "shipped": "083da24dc5516241",
+      "installed": "083da24dc5516241"
+    },
+    "meta/templates/journal.md": {
+      "source": "meta/templates/journal.md",
+      "shipped": "6a2197fd03333ce0",
+      "installed": "6a2197fd03333ce0"
+    },
+    "meta/templates/kb-aliases.env": {
+      "source": "meta/templates/kb-aliases.env",
+      "shipped": "acc4cbfced36b1c0",
+      "installed": "acc4cbfced36b1c0"
+    },
+    "meta/templates/module.md": {
+      "source": "presets/platform/templates/module.md",
+      "shipped": "de3a356f733e7f25",
+      "installed": "de3a356f733e7f25"
+    },
+    "meta/templates/question.md": {
+      "source": "meta/templates/question.md",
+      "shipped": "461dc7544d618f6d",
+      "installed": "461dc7544d618f6d"
+    },
+    "meta/templates/release-notes.md": {
+      "source": "meta/templates/release-notes.md",
+      "shipped": "0cbbcb27889df19b",
+      "installed": "0cbbcb27889df19b"
+    },
+    "meta/templates/reply.md": {
+      "source": "meta/templates/reply.md",
+      "shipped": "19032915853e9d3c",
+      "installed": "19032915853e9d3c"
+    },
+    "meta/templates/research.md": {
+      "source": "meta/templates/research.md",
+      "shipped": "f9a56a43e351fe1d",
+      "installed": "f9a56a43e351fe1d"
+    },
+    "meta/templates/review.md": {
+      "source": "meta/templates/review.md",
+      "shipped": "681324e6cd847d0b",
+      "installed": "681324e6cd847d0b"
+    },
+    "meta/templates/status-report.md": {
+      "source": "meta/templates/status-report.md",
+      "shipped": "8754c8a6d07fca18",
+      "installed": "8754c8a6d07fca18"
+    },
+    "meta/templates/test-plan.md": {
+      "source": "meta/templates/test-plan.md",
+      "shipped": "f184b42994925389",
+      "installed": "f184b42994925389"
+    },
+    "meta/templates/test-report.md": {
+      "source": "meta/templates/test-report.md",
+      "shipped": "3e95b403ead2fd9f",
+      "installed": "3e95b403ead2fd9f"
+    },
+    "ops/README.md": {
+      "source": "ops/README.md",
+      "shipped": "7a85a45d02581db0",
+      "installed": "7a85a45d02581db0"
+    },
+    "ops/digests/README.md": {
+      "source": "ops/digests/README.md",
+      "shipped": "cb25f406539ca0e0",
+      "installed": "cb25f406539ca0e0"
+    },
+    "ops/outbox/README.md": {
+      "source": "ops/outbox/README.md",
+      "shipped": "b7d38014197d899d",
+      "installed": "b7d38014197d899d"
+    },
+    "playbooks/README.md": {
+      "source": "playbooks/README.md",
+      "shipped": "0681a3506005884d",
+      "installed": "0681a3506005884d"
+    },
+    "playbooks/agent-manager.md": {
+      "source": "playbooks/agent-manager.md",
+      "shipped": "77db174c43423d83",
+      "installed": "77db174c43423d83"
+    },
+    "playbooks/docs-writer.md": {
+      "source": "playbooks/docs-writer.md",
+      "shipped": "ed0b8283ba39ec0e",
+      "installed": "ed0b8283ba39ec0e"
+    },
+    "playbooks/keeper.md": {
+      "source": "playbooks/keeper.md",
+      "shipped": "ccffaf99ce88c701",
+      "installed": "ccffaf99ce88c701"
+    },
+    "playbooks/onboarding-a-code-repo.md": {
+      "source": "playbooks/onboarding-a-code-repo.md",
+      "shipped": "e4099995b83cd774",
+      "installed": "e4099995b83cd774"
+    },
+    "playbooks/ops-round.md": {
+      "source": "playbooks/ops-round.md",
+      "shipped": "14577de52d58584c",
+      "installed": "97586552cf869190"
+    },
+    "playbooks/product-owner.md": {
+      "source": "playbooks/product-owner.md",
+      "shipped": "ba733b55c765e76d",
+      "installed": "ba733b55c765e76d"
+    },
+    "playbooks/project-manager.md": {
+      "source": "playbooks/project-manager.md",
+      "shipped": "f8b4a2efc3c2b799",
+      "installed": "f8b4a2efc3c2b799"
+    },
+    "playbooks/qa.md": {
+      "source": "playbooks/qa.md",
+      "shipped": "bf15adbdf4fa0d79",
+      "installed": "bf15adbdf4fa0d79"
+    },
+    "playbooks/reviewer.md": {
+      "source": "playbooks/reviewer.md",
+      "shipped": "2213d12f0f052ef6",
+      "installed": "2213d12f0f052ef6"
+    },
+    "playbooks/support.md": {
+      "source": "playbooks/support.md",
+      "shipped": "c525adc96df6f842",
+      "installed": "c525adc96df6f842"
+    },
+    "playbooks/template-feedback.md": {
+      "source": "playbooks/template-feedback.md",
+      "shipped": "b3e5cca43f58a0fe",
+      "installed": "b3e5cca43f58a0fe"
+    },
+    "playbooks/template-sync.md": {
+      "source": "playbooks/template-sync.md",
+      "shipped": "d89633e67b8cd138",
+      "installed": "d89633e67b8cd138"
+    },
+    "tools/kb.py": {
+      "source": "tools/kb.py",
+      "shipped": "ca96c09dec5889ec",
+      "installed": "ca96c09dec5889ec"
+    },
+    "tools/kblib/__init__.py": {
+      "source": "tools/kblib/__init__.py",
+      "shipped": "d7b3d93301257b2f",
+      "installed": "d7b3d93301257b2f"
+    },
+    "tools/kblib/aliases.py": {
+      "source": "tools/kblib/aliases.py",
+      "shipped": "7a4ccaf3b3fee694",
+      "installed": "7a4ccaf3b3fee694"
+    },
+    "tools/kblib/check.py": {
+      "source": "tools/kblib/check.py",
+      "shipped": "5a18f7e4f084c881",
+      "installed": "5a18f7e4f084c881"
+    },
+    "tools/kblib/cli.py": {
+      "source": "tools/kblib/cli.py",
+      "shipped": "af812d95d5bcb58d",
+      "installed": "af812d95d5bcb58d"
+    },
+    "tools/kblib/commitmsg.py": {
+      "source": "tools/kblib/commitmsg.py",
+      "shipped": "bdfe7710be19a22b",
+      "installed": "bdfe7710be19a22b"
+    },
+    "tools/kblib/config.py": {
+      "source": "tools/kblib/config.py",
+      "shipped": "3a3b23fa875e35c5",
+      "installed": "3a3b23fa875e35c5"
+    },
+    "tools/kblib/forges/__init__.py": {
+      "source": "tools/kblib/forges/__init__.py",
+      "shipped": "b86e62b81953409f",
+      "installed": "b86e62b81953409f"
+    },
+    "tools/kblib/forges/base.py": {
+      "source": "tools/kblib/forges/base.py",
+      "shipped": "67b18f527843be44",
+      "installed": "67b18f527843be44"
+    },
+    "tools/kblib/forges/bitbucket.py": {
+      "source": "tools/kblib/forges/bitbucket.py",
+      "shipped": "f6d1def72143d017",
+      "installed": "f6d1def72143d017"
+    },
+    "tools/kblib/forges/gitea.py": {
+      "source": "tools/kblib/forges/gitea.py",
+      "shipped": "4b44e0a0768609bd",
+      "installed": "4b44e0a0768609bd"
+    },
+    "tools/kblib/forges/github.py": {
+      "source": "tools/kblib/forges/github.py",
+      "shipped": "6669831b39310e74",
+      "installed": "6669831b39310e74"
+    },
+    "tools/kblib/forges/gitlab.py": {
+      "source": "tools/kblib/forges/gitlab.py",
+      "shipped": "3c1b6a6a916a9d45",
+      "installed": "3c1b6a6a916a9d45"
+    },
+    "tools/kblib/init.py": {
+      "source": "tools/kblib/init.py",
+      "shipped": "f011aa2529899c63",
+      "installed": "f011aa2529899c63"
+    },
+    "tools/kblib/leak.py": {
+      "source": "tools/kblib/leak.py",
+      "shipped": "6dbd0fca3e638c88",
+      "installed": "6dbd0fca3e638c88"
+    },
+    "tools/kblib/md.py": {
+      "source": "tools/kblib/md.py",
+      "shipped": "81b4cc630fb112fe",
+      "installed": "81b4cc630fb112fe"
+    },
+    "tools/kblib/new.py": {
+      "source": "tools/kblib/new.py",
+      "shipped": "4ff2b4de1c06620a",
+      "installed": "4ff2b4de1c06620a"
+    },
+    "tools/kblib/ops.py": {
+      "source": "tools/kblib/ops.py",
+      "shipped": "75c189279cc635bf",
+      "installed": "75c189279cc635bf"
+    },
+    "tools/kblib/template.py": {
+      "source": "tools/kblib/template.py",
+      "shipped": "86c515a1f8b714fe",
+      "installed": "86c515a1f8b714fe"
+    }
+  },
+  "excluded": [
+    ".forgejo/issue_template/bug.yaml",
+    ".forgejo/issue_template/config.yaml",
+    ".forgejo/issue_template/conflict.yaml",
+    ".forgejo/issue_template/decision.yaml",
+    ".forgejo/issue_template/idea.yaml",
+    ".forgejo/issue_template/kb-maintenance.yaml",
+    ".forgejo/issue_template/question.yaml",
+    ".forgejo/issue_template/research.yaml",
+    ".forgejo/pull_request_template.md",
+    ".forgejo/workflows/kb-check.yml",
+    ".github/ISSUE_TEMPLATE/bug.yml",
+    ".github/ISSUE_TEMPLATE/config.yml",
+    ".github/ISSUE_TEMPLATE/conflict.yml",
+    ".github/ISSUE_TEMPLATE/decision.yml",
+    ".github/ISSUE_TEMPLATE/idea.yml",
+    ".github/ISSUE_TEMPLATE/kb-maintenance.yml",
+    ".github/ISSUE_TEMPLATE/question.yml",
+    ".github/ISSUE_TEMPLATE/research.yml",
+    ".github/PULL_REQUEST_TEMPLATE.md",
+    ".gitlab-ci.yml",
+    ".gitlab/issue_templates/Bug.md",
+    ".gitlab/issue_templates/Conflict.md",
+    ".gitlab/issue_templates/Decision.md",
+    ".gitlab/issue_templates/Idea.md",
+    ".gitlab/issue_templates/KB maintenance.md",
+    ".gitlab/issue_templates/Question.md",
+    ".gitlab/issue_templates/Research.md",
+    ".gitlab/merge_request_templates/Default.md",
+    "CONTRIBUTING.md",
+    "GEMINI.md",
+    "bitbucket-pipelines.yml",
+    "ci/agent/README.md",
+    "ci/agent/forgejo-ops-round.yml",
+    "ci/agent/github-ops-round.yml",
+    "ci/agent/gitlab-ops-round.yml"
+  ]
+}

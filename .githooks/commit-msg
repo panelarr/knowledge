@@ -1,0 +1,3 @@
+#!/bin/sh
+# Enforce the knowledge commit convention (meta/commit-convention.md).
+exec python3 "$(git rev-parse --show-toplevel)/tools/kb.py" commit-msg "$1"
