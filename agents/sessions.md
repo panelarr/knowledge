@@ -17,7 +17,7 @@ Every agent session working on Panelarr: where it works, what goal it holds and 
 | Session | Repo | Worktree | Branch prefix | Goal | State | Last report |
 |---|---|---|---|---|---|---|
 | `panelarr-knowledge` | this KB | — | — | keeper | active | — |
-| `panelarr-server` | `server` (not created yet; [module](../modules/server/README.md)) | — | — | — | idle | — |
+| `panelarr-server` | `server` (`../server`, `panelarr/server`; [module](../modules/server/README.md)) | — (the clone itself) | `<type>/<scope>-<slug>` | [GOAL-0010](goals/GOAL-0010-server-v0-accounts-add-and-match-chapters-reader-api-downloa.md) | working | 2026-10-11: slice 0 merged (`f14d9a4`); slice 1 accounts and setup |
 | `panelarr-web` | `web` (not created yet; [module](../modules/web/README.md)) | — | — | — | idle | — |
 | `panelarr-source-api` | `source-api` (not created yet; [module](../modules/source-api/README.md)) | — | — | — | idle | 2026-10-11: work done by `panelarr-mihon-source` (GOAL-0009) |
 | `panelarr-meta` | `meta` + `meta-mangabaka` (`../meta`, `../meta-mangabaka`, `panelarr/meta`, `panelarr/meta-mangabaka`; [meta](../modules/meta/README.md), [meta-mangabaka](../modules/meta-mangabaka/README.md)) | — (the clones) | `<type>/<scope>-<slug>` | [GOAL-0004](goals/GOAL-0004-meta-duplicates-find-similar-entries-optional-model-review.md) | working | 2026-10-11: GOAL-0006 done and verified; GOAL-0004 started |

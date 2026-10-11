@@ -46,7 +46,7 @@ web/                     go:embed of the web dist (pulled from web releases)
 Env and flags, *arr*-style: `PANELARR_DB` (DSN), `PANELARR_DATA`, `PANELARR_CONFIG`, `PANELARR_BASE_URL`, `PANELARR_SEARCH_BACKEND`, `PANELARR_META_URL` and `PANELARR_META_KEY` (pre-fill the setup wizard; when set they win and show read-only; meta is required, ADR-0029). Everything else lives in the UI and the DB.
 
 ## Implementation status
-Not started (M2). Repo not created yet.
+In progress (GOAL-0010, `panelarr-server`). Slice 0 (scaffold) merged at `f14d9a4`: `panelarr serve|migrate|healthcheck|version`, config from env and flags, slog JSON, metrics off by default on a private listener, `/healthz` and `/readyz` (required vs optional checks, for "degraded" when meta is down), pgx/goose/sqlc with a `settings` table, spec-first OpenAPI 3.1 with a generated chi server, problem+json errors, CI with an API breaking-change check. Next: accounts and setup.
 
 ## Open questions
 [Q-0004](../../questions/README.md), [Q-0021](../../questions/README.md), [Q-0025](../../questions/README.md).
