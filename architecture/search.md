@@ -3,7 +3,7 @@ title: Search
 status: proposed
 tags: [architecture, search]
 related: [decisions/ADR-0010-optional-search-engine.md, decisions/ADR-0017-search-interface-builtin-default.md, research/search-engines.md]
-inputs: [IN-0003]
+inputs: [IN-0003, IN-0017, IN-0018]
 updated: 2026-10-11
 ---
 
@@ -11,7 +11,7 @@ updated: 2026-10-11
 
 ## Summary
 
-Search goes through a **`SearchIndex` interface**. The default backend is the **database's own full-text search**, with no extra container. Hosters may add **Typesense** (first adapter) or **Meilisearch** for typo tolerance, facets and better multilingual search. This applies to **both server and meta**, each configured on its own (IN-0017) ([ADR-0010](../decisions/ADR-0010-optional-search-engine.md) accepted; [ADR-0017](../decisions/ADR-0017-search-interface-builtin-default.md) proposed). The DB stays the source of truth.
+Search goes through a **`SearchIndex` interface**. The default backend is the **database's own full-text search**, with no extra container. Hosters may add **Typesense** (first adapter) or **Meilisearch** for typo tolerance, facets and better multilingual search. These optional engine integrations belong to **meta** (IN-0017, IN-0018). The library (server) uses the built-in Postgres search ([ADR-0010](../decisions/ADR-0010-optional-search-engine.md) accepted; [ADR-0017](../decisions/ADR-0017-search-interface-builtin-default.md) proposed). The DB stays the source of truth.
 
 ## What is searched
 
@@ -41,10 +41,10 @@ type SearchIndex interface {
 ```
 
 ## Backends
-1. **Built-in:** Postgres `tsvector` + **`pg_trgm`** similarity (trigrams also cover CJK substrings). Postgres is the only database ([ADR-0022](../decisions/ADR-0022-postgresql-only.md)).
-2. **Typesense:** a collection per doc type, typo tolerance, facets, synonyms (e.g. romanization variants).
-3. **Meilisearch:** a candidate; strong CJK tokenization.
-   - **OpenSearch / Algolia:** "maybe" for meta (IN-0017). Not planned: ADR-0010 rules out OpenSearch-class engines, and Algolia is hosted SaaS ([Q-0033](../questions/README.md)).
+1. **Built-in** (server's library search, and meta's default): Postgres `tsvector` + **`pg_trgm`** similarity (trigrams also cover CJK substrings). Postgres is the only database ([ADR-0022](../decisions/ADR-0022-postgresql-only.md)).
+2. **Typesense** (meta, optional): a collection per doc type, typo tolerance, facets, synonyms (e.g. romanization variants).
+3. **Meilisearch** (meta, optional): a candidate; strong CJK tokenization.
+   - **OpenSearch / Algolia:** "maybe" (IN-0017). Not planned: ADR-0010 rules out OpenSearch-class engines, and Algolia is hosted SaaS ([Q-0033](../questions/README.md)).
 4. **Bleve** (embedded): evaluate ([Q-0022](../questions/README.md)).
 
 ## Operations

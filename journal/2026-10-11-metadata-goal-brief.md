@@ -1,7 +1,7 @@
 # 2026-10-11: metadata goal brief
 
 - **Participants:** @aurimasniekis, panelarr-knowledge
-- **Inputs:** IN-0009, IN-0010, IN-0011, IN-0012, IN-0013, IN-0014, IN-0015, IN-0016
+- **Inputs:** IN-0009, IN-0010, IN-0011, IN-0012, IN-0013, IN-0014, IN-0015, IN-0016, IN-0017, IN-0018
 
 ## Discussed
 
@@ -29,10 +29,12 @@
 - Owner (IN-0014), asked for open questions: Armeria accepted ([ADR-0024](../decisions/ADR-0024-armeria-for-the-jvm-rpc-server.md)); GPL-3.0 apps + Apache-2.0 protos/SDKs ([ADR-0025](../decisions/ADR-0025-licences-gpl-3-0-apps-apache-2-0-sdks-and-protos.md)); before the first release, sessions merge their own branches (no push); repos may cite KB IDs and link KB docs. Q-0010, Q-0012, Q-0028 answered; Q-0020 narrowed to the Go side. Repo standard and both briefs updated; both sessions told.
 - Owner (IN-0015): `GPL-3.0-or-later`; contact team@panelarr.app; Docker Hub org secured; ports 8900/8901/8902; source-mihon delegates stores; meta standalone with library integration. Q-0005, Q-0006, Q-0013, Q-0031 answered; both sessions told.
 - Owner (IN-0016): plugin ports from 8903 up confirmed.
+- Owner (IN-0017): meta gets optional, configurable search engine integrations (Typesense, Meilisearch; maybe OpenSearch/Algolia). The keeper first wrote this as applying to server too; the owner corrected it (IN-0018): these are meta's, and the library uses built-in Postgres search. Recorded in meta, search, ADR-0017 and GOAL-0002.
 
 ## New open questions
 
-- None new. The ingestion-type list is a draft for the session to refine.
+- None new at first. The ingestion-type list is a draft for the session to refine.
+- Q-0033: OpenSearch/Algolia vs ADR-0010.
 
 ## Next
 

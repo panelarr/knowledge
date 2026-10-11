@@ -15,5 +15,6 @@ updated: 2026-10-11
 - server and meta use a `SearchIndex` interface. **The DB is the source of truth**; the index is rebuildable.
 - **Default backend:** PostgreSQL's own full-text (`tsvector` + `pg_trgm`; Postgres is the only database since [ADR-0022](ADR-0022-postgresql-only.md)). No extra container.
 - **First external adapter: Typesense** (the author's suggestion). **Meilisearch** is the candidate second adapter (strong CJK).
+- *Update (IN-0017, IN-0018):* the optional engine integrations belong to **meta**; the library (server) uses the built-in Postgres search. OpenSearch/Algolia: [Q-0033](../questions/README.md).
 - **Bleve** (embedded) is to be evaluated ([Q-0022](../questions/README.md)).
 - Switching backend triggers a background full re-index job.
