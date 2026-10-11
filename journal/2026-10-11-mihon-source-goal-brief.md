@@ -27,6 +27,8 @@
 
 - GOAL-0001 DONE, then the owner's FlareSolverr test found a usability gap; the fix was merged (`e66c909`); the keeper re-verified; **GOAL-0001 done**; worktrees removed.
 
+- The owner gave `panelarr-mihon-source` eight follow-ups directly; recorded as [GOAL-0005](../agents/goals/GOAL-0005-mihon-source-v0-1-follow-ups.md) (`proposed` until the owner confirms), with keeper constraints (checker reports out of git, no auto-install, protected metrics).
+
 ## Decided
 
 - Owner (IN-0006): [ADR-0021](../decisions/ADR-0021-mihon-source-standalone-admin.md) accepted, superseding ADR-0005: mihon-source is a standalone service with a minimal React admin, scoped client API keys and one admin token, solvers, network profiles and extension stores.

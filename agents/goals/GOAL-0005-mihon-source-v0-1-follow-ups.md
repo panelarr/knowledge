@@ -1,0 +1,55 @@
+---
+title: "GOAL-0005: mihon-source v0.1 follow-ups"
+status: proposed
+tags: [goal, agents, mihon-source]
+related: [agents/goals/GOAL-0001-mihon-source-v0-run-mihon-extensions-over-the-source-api.md, modules/mihon-source/overview.md, contracts/source-plugin.md, contracts/mihon-source-api.md]
+inputs: []
+repos: [mihon-source]
+session: "panelarr-mihon-source"
+features: []
+updated: 2026-10-11
+---
+
+# GOAL-0005: mihon-source v0.1 follow-ups
+
+The brief a coding session works from. A short paste-in version points here: *"Work on GOAL-0005 in the knowledge base at `~/Projects/Panelarr/knowledge`; read it first and follow it."* Change this file to change the goal.
+
+## Status
+
+`proposed`. The owner gave this list to `panelarr-mihon-source` directly; the session reported it to the keeper on 2026-10-11, and the keeper recorded it here. It becomes `accepted` when the owner confirms it to the keeper. Work has started.
+
+## Context
+
+- Code: `~/Projects/Panelarr/mihon-source` · one branch per item · same rules as GOAL-0001 (merge your own branches before the first release, never push, leak-check, aliases, KB IDs allowed).
+- Builds on the [GOAL-0001](GOAL-0001-mihon-source-v0-run-mihon-extensions-over-the-source-api.md) v0 and the [module](../../modules/mihon-source/overview.md).
+
+## Objective
+
+The owner's follow-up list for mihon-source, in this order:
+
+1. **Extension icons:** served by the service, both for installed extensions (from the extension file) and for store icons proxied through the service; shown in the admin UI.
+2. **Metrics:** per-source request counts, errors and latency as a Prometheus endpoint.
+3. **Container hardening docs:** read-only root filesystem, only `/data` writable, guidance for untrusted extensions.
+4. **Compatibility checker:** a generic CLI that works against a running service. By default it installs and loads; selected calls are optional (popular, latest, search, details, chapters, pages, image). It can target all extensions, a random N, or a name/lang filter, and writes a report.
+5. **Android-style date parsing:** an ICU-backed `SimpleDateFormat` replacement via bytecode rewrite (planned in the module's "ASM fix-ups").
+6. **Scheduled store refresh,** configurable.
+7. **ResolveUrl:** a search-based fallback for sources that accept a pasted URL as a query.
+8. **Result cache:** a short-TTL in-memory cache of source API results, with concurrent identical calls merged into one, invalidation on settings, profile and extension changes, `Cache-Control: no-cache` bypass and configurable TTLs. **Images are not cached** (the owner's choice).
+
+## Constraints (keeper notes, from the KB)
+
+- **Compatibility checker:** it runs against the owner's real stores locally. **Reports must stay out of git** (write to a git-ignored path by default). No extension, store or site names in code, tests, docs or commits ([ADR-0020](../../decisions/ADR-0020-public-kb-with-aliases.md)). Tests use the in-repo test extensions and fixture store.
+- **Scheduled store refresh** refreshes indexes only. It must **not auto-install updates**: v0 shows updates and installs on request, and update policy isn't decided.
+- **Metrics:** don't expose them unauthenticated on the public port by default. Require a key or scope, or use a separate configurable listen address. No URLs with query strings or credentials in labels; keep label cardinality bounded (source ID, operation, outcome).
+- **Result cache:** keyed per source, operation and arguments; no user data in keys; size-bounded.
+- **ResolveUrl:** a fallback only when the source has no native resolver, and reported as best-effort in the capability.
+
+## Definition of Done
+
+- [ ] Each item merged with tests; `make check` green; leak-check clean
+- [ ] Docs updated (configuration, API, hardening, checker usage)
+- [ ] A REPORT after each merge; `DONE:` with evidence per item
+
+## History
+
+- 2026-10-11: recorded from `panelarr-mihon-source`'s REPORT of the owner's direct request (`proposed` until the owner confirms to the keeper).
