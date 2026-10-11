@@ -60,3 +60,4 @@ Implement FEAT-0001: optional Typesense, then Meilisearch, behind `search.Index`
 ## History
 
 - 2026-10-11: written from FEAT-0001 after the owner accepted it (IN-0025); queued after GOAL-0003 and GOAL-0004.
+- 2026-10-11: owner approved GOAL-0004 and GOAL-0006 and kept the order: GOAL-0003 → GOAL-0004 → GOAL-0006 (IN-0026).
