@@ -3,7 +3,7 @@ title: web overview
 status: proposed
 tags: [module, web, react, tanstack, pwa]
 related: [contracts/server-api.md, modules/server/overview.md]
-inputs: [IN-0002]
+inputs: [IN-0002, IN-0037]
 updated: 2026-10-11
 ---
 
@@ -22,18 +22,23 @@ A SPA built with **Vite + React + TanStack Router, Query, Virtual, Pacer and Sto
 | Rate control | **TanStack Pacer**: debounced search-as-you-type, throttled progress sync while scrolling, page preload queues |
 | Client state | **TanStack Store**: reader state (mode, page, zoom, direction), UI prefs |
 | PWA | `vite-plugin-pwa` (Workbox). Offline chapters in OPFS / Cache Storage |
-| UI kit | Open ([Q-0008](../../questions/README.md)) |
+| UI kit | **shadcn/ui + Tailwind** (Q-0008, IN-0037) |
 | Tests | Vitest + Testing Library; Playwright smoke |
+
+## Look and feel (IN-0037 §3)
+- **Fully responsive.** On phones it should look and feel like a **native mobile app**: bottom navigation, full-screen views, touch gestures, safe-area insets, installable PWA. On desktop it should look good too: sidebar navigation, wider grids, keyboard shortcuts.
+- **Reader settings per source:** zoom level, fit, reading mode and direction, remembered **per source** (with a global default and a per-series override, suggestion), since sources differ in page sizes and formats.
 
 ## Screens
 - **Library:** per-user grid or list, categories, filters, sort, unread badges.
 - **Browse:**
   - pick a source (only allowed ones), then popular / latest / search with dynamic filters;
   - preview, then add to library.
-- **Work page:** metadata, sources and variants, chapters, trackers, "fix match".
+- **Work page** (ADR-0028): metadata from meta, **a tab per source** with its own chapters, and a **unified chapter list** that fills gaps from other sources; trackers; "fix match" (attach, detach, confirm sources).
 - **Reader:**
   - modes: paged (LTR/RTL), long strip (webtoon), double page with spread detection;
-  - tap zones, zoom, keyboard shortcuts, preloading, progress sync, next-chapter handoff.
+  - tap zones, zoom, keyboard shortcuts, preloading, progress sync, next-chapter handoff;
+  - **settings remembered per source** (zoom, fit, mode, direction), with global defaults and per-series overrides (IN-0037 §3).
 - **Downloads and jobs:** queue, progress over SSE, retry.
 - **Search:** global search across the library (+ metadata).
 - **Admin:** users and grants, plugins and indexes, network profiles, search backend, system.

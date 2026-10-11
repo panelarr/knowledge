@@ -11,7 +11,7 @@ updated: 2026-10-11
 
 ## Summary
 
-The core idea: a **Work** is the canonical series. It is fed by one or more **SourceSeries** (the same series on different sources) and optionally linked to a **metadata record**. Chapters are merged across sources into canonical **Chapters**, each with a chosen variant and at most one stored **ChapterFile**. **Users never own content.** They own library entries, progress and tracker bindings that point at shared Works ([ADR-0003](../decisions/ADR-0003-shared-store-per-user-libraries.md)).
+**Per [ADR-0028](../decisions/ADR-0028-library-entry-per-work.md): one Work per actual work, anchored on meta's Entry, with sources matched to it by titles and alternatives, per-source chapter tabs, and a unified chapter list filled across sources.** The core idea: a **Work** is the canonical series. It is fed by one or more **SourceSeries** (the same series on different sources) and optionally linked to a **metadata record**. Chapters are merged across sources into canonical **Chapters**, each with a chosen variant and at most one stored **ChapterFile**. **Users never own content.** They own library entries, progress and tracker bindings that point at shared Works ([ADR-0003](../decisions/ADR-0003-shared-store-per-user-libraries.md)).
 
 ```mermaid
 erDiagram
@@ -42,7 +42,7 @@ erDiagram
 | **Plugin** | id, kind, version, mode (managed/remote), endpoint, settings, enabled | Installed by the admin |
 | **Source** | `plugin:sourceId`, name, lang, content rating, capabilities, profile_id, enabled | Synced from the plugin's `ListSources` |
 | **NetworkProfile** | see [networking](networking.md) | |
-| **Work** | id, display title, sort title, cover, status, content rating, meta_link | Canonical. Created when the first SourceSeries is added or a local file is adopted |
+| **Work** | id, display title, sort title, cover, status, content rating, meta_link | Canonical. **Created from a meta Entry** (ADR-0028); without meta, see [Q-0038](../questions/README.md) |
 | **MetaLink** | provider ids (mangabaka, anilist, mal, …), confidence, locked | From meta matching; manual override locks it |
 | **SourceSeries** | source_id, key (opaque plugin key), title, url, priority, preferred scanlators, last_checked | A Work has many; priority decides the preferred variant |
 | **SourceChapter** | source_series_id, key, number, volume, title, scanlator, lang, uploaded_at | Raw listing |

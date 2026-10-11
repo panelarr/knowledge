@@ -31,3 +31,4 @@ Numbered, append-only decision records. An accepted ADR is never rewritten. A ne
 | [ADR-0025](ADR-0025-licences-gpl-3-0-apps-apache-2-0-sdks-and-protos.md) | Licences: GPL-3.0 for apps, Apache-2.0 for SDKs and protos | accepted |
 | [ADR-0026](ADR-0026-connectrpc-on-go-grpc-as-the-plugin-wire.md) | ConnectRPC on Go; standard gRPC is the canonical plugin wire, REST/JSON per google.api.http, Connect optional | accepted |
 | [ADR-0027](ADR-0027-observability-baseline-for-every-service.md) | Every service: configurable JSON/text logs, Prometheus metrics, `/healthz` + `/readyz` + detailed health; mihon-source per-source self-check | accepted |
+| [ADR-0028](ADR-0028-library-entry-per-work.md) | One library entry per work (anchored on meta), sources matched by titles and alternatives, per-source tabs, unified chapters filled across sources | accepted |
