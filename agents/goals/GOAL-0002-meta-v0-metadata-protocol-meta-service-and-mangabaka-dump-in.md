@@ -1,9 +1,9 @@
 ---
 title: "GOAL-0002: meta v0: metadata protocol, meta service and MangaBaka dump ingest"
-status: proposed
+status: accepted
 tags: [goal, agents, meta, metadata, mangabaka, go]
 related: [contracts/metadata-schema.md, modules/meta/overview.md, modules/meta-mangabaka/overview.md, contracts/metadata-plugin.md, research/mangabaka.md, research/metadata-providers.md, architecture/search.md, architecture/plugins.md, architecture/repo-standard.md]
-inputs: [IN-0007, IN-0009, IN-0010]
+inputs: [IN-0007, IN-0009, IN-0010, IN-0011]
 repos: [meta, meta-mangabaka]
 session: "panelarr-meta"
 features: []
@@ -16,11 +16,11 @@ The brief a coding session works from. A short paste-in version points here: *"W
 
 ## Status
 
-`proposed`: brief written for the owner to review (IN-0009). It becomes `accepted` when dispatched.
+`accepted`: dispatched to `panelarr-meta` on 2026-10-11 (IN-0011). Scope from IN-0009, schema from IN-0010.
 
 ## Context
 
-- Code: `~/Projects/Panelarr/meta` and `~/Projects/Panelarr/meta-mangabaka` (clones of `github.com/panelarr/meta` and `github.com/panelarr/meta-mangabaka`, created by the owner) · no extra worktrees · branches `<type>/<scope>-<slug>`, e.g. `feat/proto-metadata-v1`
+- Code: `~/Projects/Panelarr/meta` and `~/Projects/Panelarr/meta-mangabaka` (clones of `github.com/panelarr/meta` and `github.com/panelarr/meta-mangabaka`, created by the owner; empty, no commits yet) · no extra worktrees · branches `<type>/<scope>-<slug>`, e.g. `feat/proto-metadata-v1`
 - Milestone: M3 work pulled forward to run alongside M1 ([roadmap](../../planning/roadmap.md)). There are no `FEAT-` docs yet. The DoD below stands in for acceptance criteria.
 - **Read first, in this order:**
   1. [product/principles.md](../../product/principles.md) and [product/scope.md](../../product/scope.md): opt-in and composable; meta is optional and usable standalone.
@@ -109,3 +109,4 @@ Each slice works end to end, has tests and ends with `make check` green and a `R
 
 - 2026-10-11: brief written from IN-0009 (`proposed`).
 - 2026-10-11: entry schema added from the owner's schema ideas (IN-0010).
+- 2026-10-11: owner gave the go; repos created: `accepted`, dispatched (IN-0011).

@@ -5,4 +5,4 @@ Briefs for coding sessions: objective, context to read, how to work, constraints
 | ID | Goal | Session | Status |
 |---|---|---|---|
 | [GOAL-0001](GOAL-0001-mihon-source-v0-run-mihon-extensions-over-the-source-api.md) | mihon-source v0: run Mihon extensions over the source API | `panelarr-mihon-source` | accepted |
-| [GOAL-0002](GOAL-0002-meta-v0-metadata-protocol-meta-service-and-mangabaka-dump-in.md) | meta v0: metadata protocol, meta service and MangaBaka dump ingest | `panelarr-meta` | proposed |
+| [GOAL-0002](GOAL-0002-meta-v0-metadata-protocol-meta-service-and-mangabaka-dump-in.md) | meta v0: metadata protocol, meta service and MangaBaka dump ingest | `panelarr-meta` | accepted |

@@ -1,7 +1,7 @@
 # 2026-10-11: metadata goal brief
 
 - **Participants:** @aurimasniekis, panelarr-knowledge
-- **Inputs:** IN-0009, IN-0010
+- **Inputs:** IN-0009, IN-0010, IN-0011
 
 ## Discussed
 
@@ -31,5 +31,5 @@
 
 ## Next
 
-- Owner: create `panelarr/meta` and `panelarr/meta-mangabaka`, OK GOAL-0002, start `panelarr-meta`.
-- Keeper: tell `panelarr-mihon-source` nothing changes for it (no DB); dispatch GOAL-0002 on the owner's go.
+- The owner created both repos and gave the go (IN-0011): GOAL-0002 `accepted`, board `briefed`.
+- Owner: start `panelarr-meta` with the paste-in prompt. Keeper: handle its messages; board to `working` on the first REPORT.

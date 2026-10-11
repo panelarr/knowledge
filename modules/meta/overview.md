@@ -43,4 +43,4 @@ Plugins declare which they support: `lookup` (API), `scrape`, `dump` (snapshot d
 - **Rate limits:** each plugin declares its limits per ingestion type and meta enforces them.
 
 ## Implementation status
-Not started. [GOAL-0002](../../agents/goals/GOAL-0002-meta-v0-metadata-protocol-meta-service-and-mangabaka-dump-in.md) is briefed (proposed) for `panelarr-meta`, pulled forward from M3 to run alongside M1 (IN-0009).
+Not started. [GOAL-0002](../../agents/goals/GOAL-0002-meta-v0-metadata-protocol-meta-service-and-mangabaka-dump-in.md) is dispatched to `panelarr-meta` (2026-10-11), pulled forward from M3 to run alongside M1 (IN-0009).
