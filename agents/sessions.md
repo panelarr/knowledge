@@ -20,9 +20,9 @@ Every agent session working on Panelarr: where it works, what goal it holds and 
 | `panelarr-server` | `server` (not created yet; [module](../modules/server/README.md)) | — | — | — | idle | — |
 | `panelarr-web` | `web` (not created yet; [module](../modules/web/README.md)) | — | — | — | idle | — |
 | `panelarr-source-api` | `source-api` (not created yet; [module](../modules/source-api/README.md)) | — | — | — | idle | — |
-| `panelarr-meta` | `meta` + `meta-mangabaka` (`../meta`, `../meta-mangabaka`, `panelarr/meta`, `panelarr/meta-mangabaka`; [meta](../modules/meta/README.md), [meta-mangabaka](../modules/meta-mangabaka/README.md)) | — (the clones) | `<type>/<scope>-<slug>` | [GOAL-0004](goals/GOAL-0004-meta-duplicates-find-similar-entries-optional-model-review.md) | working | 2026-10-11: GOAL-0003 done and verified; GOAL-0004 started; GOAL-0006 queued |
+| `panelarr-meta` | `meta` + `meta-mangabaka` (`../meta`, `../meta-mangabaka`, `panelarr/meta`, `panelarr/meta-mangabaka`; [meta](../modules/meta/README.md), [meta-mangabaka](../modules/meta-mangabaka/README.md)) | — (the clones) | `<type>/<scope>-<slug>` | [GOAL-0004](goals/GOAL-0004-meta-duplicates-find-similar-entries-optional-model-review.md) | working | 2026-10-11: genre/tag/layout/logo fixes merged (meta `1b08ac9`, meta-mangabaka `058c363`); DB-size follow-ups, then GOAL-0004 |
 | `panelarr-source-mihon` | `source-mihon` (not created yet; [module](../modules/source-mihon/README.md)) | — | — | — | idle | — |
-| `panelarr-mihon-source` | `mihon-source` (`../mihon-source`, `panelarr/mihon-source`; [module](../modules/mihon-source/README.md)) | — (the clone itself) | `<type>/<scope>-<slug>` | [GOAL-0005](goals/GOAL-0005-mihon-source-v0-1-follow-ups.md) | working | 2026-10-11: GOAL-0005 follow-ups (owner confirmed) |
+| `panelarr-mihon-source` | `mihon-source` (`../mihon-source`, `panelarr/mihon-source`; [module](../modules/mihon-source/README.md)) | — (the clone itself) | `<type>/<scope>-<slug>` | [GOAL-0005](goals/GOAL-0005-mihon-source-v0-1-follow-ups.md) | idle | 2026-10-11: GOAL-0005 done and verified (`7a442e0`) |
 | `panelarr-source-local` | `source-local` (not created yet; [module](../modules/source-local/README.md)) | — | — | — | idle | — |
 | `panelarr-deploy` | `deploy` (not created yet; [module](../modules/deploy/README.md)) | — | — | — | idle | — |
 

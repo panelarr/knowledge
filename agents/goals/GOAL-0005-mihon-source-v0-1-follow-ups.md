@@ -16,7 +16,7 @@ The brief a coding session works from. A short paste-in version points here: *"W
 
 ## Status
 
-`accepted` (owner confirmed, IN-0025). The owner gave this list to `panelarr-mihon-source` directly; work is in progress.
+`accepted`, **Done 2026-10-11** (verified; [test report](../../qa/reports/goal-0005-mihon-source-v0-1-done-verification.md)). The owner gave this list to `panelarr-mihon-source` directly (confirmed, IN-0025).
 
 ## Context
 
@@ -48,10 +48,10 @@ The owner's follow-up list for mihon-source, in this order:
 
 ## Definition of Done
 
-- [ ] Logs, metrics and health meet ADR-0027; per-source self-check with status in health, metrics and the UI
-- [ ] Each item merged with tests; `make check` green; leak-check clean
-- [ ] Docs updated (configuration, API, hardening, checker usage)
-- [ ] A REPORT after each merge; `DONE:` with evidence per item
+- [x] Logs, metrics and health meet ADR-0027; per-source self-check with status in health, metrics and the UI
+- [x] Each item merged with tests; `make check` green; leak-check clean
+- [x] Docs updated (configuration, API, hardening, checker usage)
+- [x] A REPORT after each merge; `DONE:` with evidence per item
 
 ## History
 
@@ -69,3 +69,4 @@ The owner's follow-up list for mihon-source, in this order:
 - 2026-10-11: REPORT: **item 7 (ResolveUrl fallback) merged** (`22ab5f6`). Native resolvers first; otherwise search same-site sources with the URL as the query and accept a URL-matching result (or the single result); additive `ResolveUrlResponse.best_effort`; the `RESOLVE_URL` capability still means native only. Next: item 8 (result cache).
 - 2026-10-11: **Logo** (IN-0030/0031, [brand](../../product/brand.md)): add `panelarr-icon.svg` to the admin UI (header lockup "Panelarr Mihon Source", favicon, login, page title); a small follow-up task.
 - 2026-10-11: REPORT: **item 8 (result cache) merged** (`8de2708`). In memory, default 5 m for lists and search, 10 m for details and chapters, 30 m for pages, 1 h for filters; size-bounded LRU (64 MB); keys are source + operation + a request hash (no user data); identical calls share one request; no-cache bypass; errors and images never cached; invalidated on settings, profile, extension and integration changes; hit/miss metric. **Logo added** (`7a442e0`): header lockup, login, favicon, page title, CC BY 4.0 note. DONE to follow.
+- 2026-10-11: **DONE received and verified.** Clean clone of `main` @ `7a442e0`: 138 JUnit + 76 Vitest, 0 failures; DoD ticked ([test report](../../qa/reports/goal-0005-mihon-source-v0-1-done-verification.md)).
