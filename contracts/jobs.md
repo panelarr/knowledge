@@ -48,7 +48,7 @@ message Schedule {
 message JobParam { string name = 1; string type = 2; /* bool|int|string|string_list */ string description = 3; bool required = 4; string default = 5; }
 
 enum JobRunStatus { JOB_RUN_STATUS_UNSPECIFIED = 0; JOB_RUN_STATUS_RUNNING = 1; JOB_RUN_STATUS_SUCCEEDED = 2; JOB_RUN_STATUS_FAILED = 3; JOB_RUN_STATUS_CANCELLED = 4; JOB_RUN_STATUS_SKIPPED = 5; }
-enum JobTrigger   { JOB_TRIGGER_UNSPECIFIED = 0; JOB_TRIGGER_SCHEDULE = 1; JOB_TRIGGER_MANUAL = 2; JOB_TRIGGER_STARTUP = 3; }
+enum JobTrigger   { JOB_TRIGGER_UNSPECIFIED = 0; JOB_TRIGGER_SCHEDULE = 1; JOB_TRIGGER_MANUAL = 2; JOB_TRIGGER_STARTUP = 3; JOB_TRIGGER_SYSTEM = 4; }
 
 message JobRunSummary {
   string id = 1; string job_id = 2;
@@ -91,3 +91,4 @@ message JobAlreadyRunning { string current_run_id = 1; } // google.rpc error det
 - 2026-10-11: from the meta session building GOAL-0008: no `:` in job IDs (dotted `sync.<provider>.<kind>`), prefixed enum values (buf lint), `JobParam.default`, `int` param type, typed `status` filter, a `JobAlreadyRunning` error detail.
 - 2026-10-11: as built in meta (`743e687`): a scheduled run that finds its job busy is recorded as `SKIPPED` (trigger schedule); `:run`/`:cancel` accept an empty body. mihon-source should match.
 - 2026-10-11: as built in mihon-source (`898723f`): `JobParam.choices = 6` (allowed values; the UI shows checkboxes for a string_list with choices) and, on the 409, an ErrorInfo (reason `ALREADY_RUNNING`, metadata `current_run_id`) next to `JobAlreadyRunning`. meta to copy. Note: Armeria's transcoding passes `a:b` through to the handler (vanguard 404s); the ID rule still applies everywhere.
+- 2026-10-11: from meta (GOAL-0006): `JOB_TRIGGER_SYSTEM = 4` for runs the service starts on its own while running (e.g. a rebuild after a backlog or a settings change). meta also adopted `JobParam.choices` and the ErrorInfo on 409. mihon-source to add SYSTEM.

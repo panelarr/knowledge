@@ -39,16 +39,16 @@ A hoster who wants better catalogue search adds a Typesense or Meilisearch conta
 
 ## Acceptance criteria
 
-- [ ] **AC1, opt-in:** With `search.backend: postgres` (the default) and no engine configured, meta behaves exactly as today. No engine container is required anywhere.
-- [ ] **AC2, select:** With `search.backend: typesense` and a reachable Typesense, `Search` and `Browse` answers come from Typesense and return the same entry IDs and order rules (filters, sorts, paging) as Postgres for the shared conformance cases.
-- [ ] **AC3, change feed:** Given an entry is created, changed, merged or removed by ingest, the engine reflects it within a configurable delay (default ≤ 30 s), without losing updates across a meta restart or an engine outage (at-least-once, idempotent).
-- [ ] **AC4, rebuild:** A full rebuild builds a new index and swaps it in atomically; searches keep answering from the old index until the swap. A rebuild runs automatically on first use and when the document schema version changes.
-- [ ] **AC5, fallback:** When the engine is unreachable or the index isn't ready, searches fall back to Postgres, health shows "degraded", and `/readyz` stays ready.
-- [ ] **AC6, multilingual:** Japanese, Chinese and Korean titles are searchable by substring/prefix, romanized titles and typos ("naruro" finds "Naruto") are found, and people names match. The conformance cases from the Postgres search tests pass on each engine.
-- [ ] **AC7, facets:** Browse and Search can return facet counts (genres, tags, type, status, content rating, original language) when the backend reports the `Facets` capability; Postgres reports none, and clients handle both.
-- [ ] **AC8, Meilisearch:** the same as AC2–AC7 with `search.backend: meilisearch`; analytics off by default in the compose profile.
-- [ ] **AC9, secrets and exposure:** The engine's API key is stored as a secret (never returned), meta uses its own key, and the engine is never exposed to browsers; all search goes through meta's API.
-- [ ] **AC10, ops:** Compose profiles `search-typesense` and `search-meilisearch` in meta's example; the admin UI shows backend, document count, change-feed lag, last rebuild and a "Rebuild" button.
+- [x] **AC1, opt-in:** With `search.backend: postgres` (the default) and no engine configured, meta behaves exactly as today. No engine container is required anywhere.
+- [x] **AC2, select:** With `search.backend: typesense` and a reachable Typesense, `Search` and `Browse` answers come from Typesense and return the same entry IDs and order rules (filters, sorts, paging) as Postgres for the shared conformance cases.
+- [x] **AC3, change feed:** Given an entry is created, changed, merged or removed by ingest, the engine reflects it within a configurable delay (default ≤ 30 s), without losing updates across a meta restart or an engine outage (at-least-once, idempotent).
+- [x] **AC4, rebuild:** A full rebuild builds a new index and swaps it in atomically; searches keep answering from the old index until the swap. A rebuild runs automatically on first use and when the document schema version changes.
+- [x] **AC5, fallback:** When the engine is unreachable or the index isn't ready, searches fall back to Postgres, health shows "degraded", and `/readyz` stays ready.
+- [x] **AC6, multilingual:** Japanese, Chinese and Korean titles are searchable by substring/prefix, romanized titles and typos ("naruro" finds "Naruto") are found, and people names match. The conformance cases from the Postgres search tests pass on each engine.
+- [x] **AC7, facets:** Browse and Search can return facet counts (genres, tags, type, status, content rating, original language) when the backend reports the `Facets` capability; Postgres reports none, and clients handle both.
+- [x] **AC8, Meilisearch:** the same as AC2–AC7 with `search.backend: meilisearch`; analytics off by default in the compose profile.
+- [x] **AC9, secrets and exposure:** The engine's API key is stored as a secret (never returned), meta uses its own key, and the engine is never exposed to browsers; all search goes through meta's API.
+- [x] **AC10, ops:** Compose profiles `search-typesense` and `search-meilisearch` in meta's example; the admin UI shows backend, document count, change-feed lag, last rebuild and a "Rebuild" button.
 
 ## Design notes
 
@@ -59,7 +59,7 @@ A hoster who wants better catalogue search adds a Typesense or Meilisearch conta
 
 | Repo | Goal | PR/MR | State |
 |---|---|---|---|
-| meta | [GOAL-0006](../../agents/goals/GOAL-0006-meta-search-engines-typesense-then-meilisearch.md) | — | queued after GOAL-0008 (before GOAL-0004) |
+| meta | [GOAL-0006](../../agents/goals/GOAL-0006-meta-search-engines-typesense-then-meilisearch.md) | — | done (`43e7adf`) |
 
 ## Open questions
 

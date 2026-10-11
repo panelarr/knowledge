@@ -10,3 +10,4 @@ Results of test runs, including verification of a session's `REPORT:`/`DONE:` an
 | [goal-0005-mihon-source-v0-1-done-verification.md](goal-0005-mihon-source-v0-1-done-verification.md) | GOAL-0005 mihon-source v0.1 DONE verification | draft |
 | [goal-0008-meta-jobs-done-verification.md](goal-0008-meta-jobs-done-verification.md) | GOAL-0008 meta jobs DONE verification | draft |
 | [goal-0007-mihon-source-jobs-done-verification.md](goal-0007-mihon-source-jobs-done-verification.md) | GOAL-0007 mihon-source jobs DONE verification | draft |
+| [goal-0006-meta-search-engines-done-verification.md](goal-0006-meta-search-engines-done-verification.md) | GOAL-0006 meta search engines DONE verification | draft |

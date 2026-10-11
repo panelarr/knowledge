@@ -52,10 +52,10 @@ Implement FEAT-0001: optional Typesense, then Meilisearch, behind `search.Index`
 
 ## Definition of Done
 
-- [ ] FEAT-0001 AC1–AC10 met, each with test or doc evidence
-- [ ] Conformance suite passes on Postgres, Typesense and Meilisearch
-- [ ] Benchmarks reported; docs and compose profiles done; `make check` green; leak-check clean
-- [ ] `DONE:` with evidence per AC
+- [x] FEAT-0001 AC1–AC10 met, each with test or doc evidence
+- [x] Conformance suite passes on Postgres, Typesense and Meilisearch
+- [x] Benchmarks reported; docs and compose profiles done; `make check` green; leak-check clean
+- [x] `DONE:` with evidence per AC
 
 ## History
 
@@ -63,3 +63,4 @@ Implement FEAT-0001: optional Typesense, then Meilisearch, behind `search.Index`
 - 2026-10-11: owner approved GOAL-0004 and GOAL-0006 and kept the order: GOAL-0003 → GOAL-0004 → GOAL-0006 (IN-0026).
 - 2026-10-11: owner swapped the order (IN-0034): GOAL-0008 → **GOAL-0006** → GOAL-0004.
 - 2026-10-11: owner allowed pulling the Typesense and Meilisearch images for engine tests and one benchmark each (IN-0035). Engine tests run in CI as a separate job; opt-in locally (`META_TEST_ENGINES=1`). Session design choices accepted: thin REST clients, an outbox of entry_id+seq, `search-rebuild`/`search-indexer` jobs, tag-key facet values.
+- 2026-10-11: **Done.** DONE received (`43e7adf`, `a95426a`); keeper verification on clean clones passed (see the [test report](../../qa/reports/goal-0006-meta-search-engines-done-verification.md)).

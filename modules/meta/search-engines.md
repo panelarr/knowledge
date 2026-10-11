@@ -99,3 +99,15 @@ search:
 
 - One **adapter conformance suite**, the same cases as today's Postgres search tests (romanized, Japanese substring, typo, person, filters, sorts, paging, merged excluded), run against each engine with testcontainers, plus outbox tests (restart, outage, flood → rebuild) and a swap test (queries during rebuild).
 - Benchmarks on synthetic data at about 300k entries: index size and RAM, query p50/p95, rebuild time. The owner's real dump stays local ([Q-0022](../../questions/README.md)).
+
+## As built (GOAL-0006, `43e7adf`)
+
+- Thin REST clients for Typesense and Meilisearch.
+- The outbox holds entry ID and a sequence number; the indexer reads the entry's state when it indexes.
+- Jobs `search-rebuild` (cancellable) and `search-indexer`.
+- Facet values for genres and tags are tag keys.
+- Engine settings live in a `search_settings` row that wins over the config file; switching backend at runtime starts or stops the indexer, and coming back to an engine rebuilds.
+- `meta sync` and `meta rebuild` processes also write the outbox when an engine is in use.
+- A browse-mode setting: `facets` (default; engine only when facets are asked for), `engine` or `postgres`.
+- CI: a separate `search-engines` job with service containers.
+- Japanese and Chinese: Typesense leads with the CJK field for the query's script; Han-only queries search a Japanese-first and a Chinese-first index together. Meilisearch uses `localizedAttributes`.
