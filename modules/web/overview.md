@@ -42,6 +42,7 @@ A SPA built with **Vite + React + TanStack Router, Query, Virtual, Pacer and Sto
 - **Downloads and jobs:** queue, progress over SSE, retry.
 - **Search:** global search across the library (+ metadata).
 - **Admin:** users and grants, plugins and indexes, network profiles, search backend, system.
+- **Connected services, built into Panelarr's admin** (IN-0039): when meta and mihon-source are connected, most of their admin is available inside Panelarr itself: meta's providers, sync runs and jobs, health, duplicates review, integrations; mihon-source's extensions, stores, sources and health checks, jobs, integrations. It's the same API their own admins use (every admin action is a plain API call), called by the server with each service's admin-scope key. Standalone admins stay for people not running Panelarr.
 
 ## Implementation status
 Not started (M2).

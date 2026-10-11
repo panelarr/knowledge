@@ -16,6 +16,7 @@ The Go core and the only **required** component ([ADR-0011](../../decisions/ADR-
 ## Owns / does not own
 - **Owns:** everything in the [domain model](../../architecture/domain-model.md); [multi-user](../../architecture/multi-user.md) enforcement; [plugin host](../../architecture/plugins.md); [network profiles](../../architecture/networking.md); [search](../../architecture/search.md) (library scope); [trackers](../../architecture/trackers.md); [storage](../../architecture/storage-layout.md).
 - **Does not own:** scraping or extension runtime (plugins); metadata aggregation (meta); UI (web).
+- **Connected-service admin (IN-0039):** the server keeps an admin-scope key per connected service (meta, mihon-source via source-mihon) as an encrypted secret and exposes their admin APIs to Panelarr admins through its own authorization (a thin, allow-listed proxy or typed clients, suggestion), so the web app can show those pages built in.
 
 ## Internal packages (suggested layout)
 ```
@@ -28,7 +29,7 @@ internal/download/       page fetch → CBZ + ComicInfo writer, atomic moves
 internal/plugins/        index client, verifier, go-plugin manager, remote clients, health
 internal/network/        profiles, assignment, push to plugins
 internal/search/         SearchIndex + backends (dbfts, typesense, meilisearch)
-internal/meta/           meta client (remote) or embedded meta
+internal/meta/           meta client (meta is a required separate service, ADR-0029)
 internal/trackers/       Tracker interface + implementations
 internal/store/          goose SQL migrations, sqlc queries, pgx pool
 web/                     go:embed of the web dist (pulled from web releases)

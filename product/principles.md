@@ -13,7 +13,7 @@ updated: 2026-10-11
 
 These tests apply to every design choice. Most are accepted ADRs; this page states them as product rules.
 
-1. **Opt-in and composable.** The hoster decides what runs. `server` with PostgreSQL works ([ADR-0022](../decisions/ADR-0022-postgresql-only.md)). meta, the search engine, solvers, VPN and every plugin are optional, configurable, and fail gracefully when absent ([ADR-0011](../decisions/ADR-0011-composable-opt-in-deployment.md)).
+1. **Opt-in and composable.** The hoster decides what runs. `server` with PostgreSQL and **meta** works ([ADR-0022](../decisions/ADR-0022-postgresql-only.md), [ADR-0029](../decisions/ADR-0029-meta-required.md): the library requires meta). The search engine, solvers, VPN and every plugin are optional, configurable, and fail gracefully when absent ([ADR-0011](../decisions/ADR-0011-composable-opt-in-deployment.md)).
 2. **Nothing bundled that touches content providers.** Sources and metadata providers are plugins the hoster adds ([ADR-0009](../decisions/ADR-0009-plugins-not-bundled.md)). Legal wording is still open ([Q-0016](../questions/README.md)).
 3. **Multi-user first.** Every feature is designed for *N* users sharing one store: permissions, content ratings, quotas, ownership checks on every file read ([ADR-0003](../decisions/ADR-0003-shared-store-per-user-libraries.md)).
 4. **Standalone pieces.** If a component is useful without Panelarr (mihon-source, meta, plugins), it gets a clean public API and its own docs.

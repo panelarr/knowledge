@@ -11,6 +11,7 @@ updated: 2026-10-11
 
 - **Date:** 2026-10-11 · **Deciders:** author
 - **Annotation (2026-10-11):** the database points ("SQLite" in a server-only install, "Postgres/MySQL" as opt-in) are replaced by [ADR-0022](ADR-0022-postgresql-only.md): Postgres is required, so the minimal install is server + Postgres. Everything else here still stands.
+- **Annotation (2026-10-11):** meta is no longer opt-in: the library requires it ([ADR-0029](ADR-0029-meta-required.md)). The minimal install is server + PostgreSQL + meta.
 
 ## Context
 "Each own hoster can decide what they want to run" (IN-0003 §4), together with "standalone" tools (IN-0002).

@@ -18,7 +18,7 @@ Docker-first, *arr*-style: images `panelarr/<repo>` ([ADR-0008](../decisions/ADR
 | Image | Contains | Needed? |
 |---|---|---|
 | `panelarr/server` | server + embedded web | **yes** |
-| `panelarr/meta` | standalone meta service | optional |
+| `panelarr/meta` | meta service, **required by the library** ([ADR-0029](../decisions/ADR-0029-meta-required.md)); also usable standalone | **yes** |
 | `panelarr/mihon-source` | JVM tool for Mihon extensions (+ optional Chromium variant `:<ver>-webview`, [Q-0002](../questions/README.md)) | optional |
 | `panelarr/source-mihon`, `panelarr/source-local`, `panelarr/meta-*` | plugin in standalone/remote mode | optional (managed binaries are the default) |
 | `postgres` | PostgreSQL, the only database ([ADR-0022](../decisions/ADR-0022-postgresql-only.md)). **Production setup: one server, one database per service**: server (the library) and meta each get their own (IN-0012). Dev setups may do whatever is convenient (IN-0013) | **yes** |
@@ -28,7 +28,7 @@ Docker-first, *arr*-style: images `panelarr/<repo>` ([ADR-0008](../decisions/ADR
 
 ```mermaid
 flowchart LR
-    S[server + postgres<br/>always]
+    S[server + postgres + meta<br/>always]
     S -.-> P1[profile: mihon<br/>mihon-source]
     S -.-> P2[profile: meta<br/>meta]
     S -.-> P3[profile: search-typesense / search-meilisearch]
