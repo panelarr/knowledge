@@ -30,7 +30,7 @@ A Jobs page in the meta admin listing background jobs with schedule, last result
 
 ## Jobs to register
 
-provider sync (one job per provider and ingestion kind, parameters `force`), entry rebuild (maintenance), **stale-refresh** (correction: meta had no background stale refresh, only refresh-on-read; this new job is **manual-only by default**, param `limit` (default 100, oldest first), only providers with `lookup`, so dump-only providers are never hammered); GOAL-0004's duplicate finder and GOAL-0006's search rebuild register as jobs when they land.
+provider sync (one job per provider and ingestion kind, `sync.<provider>.<kind>`, parameters `force`), entry rebuild (maintenance), **stale-refresh** (correction: meta had no background stale refresh, only refresh-on-read; this new job is **manual-only by default**, param `limit` (default 100, oldest first), only providers with `lookup`, so dump-only providers are never hammered); GOAL-0004's duplicate finder and GOAL-0006's search rebuild register as jobs when they land.
 
 ## Storage
 
@@ -48,3 +48,4 @@ Postgres (`job_runs`), folding in or mapping the existing `sync_runs` while keep
 - 2026-10-11: brief written from IN-0032 (`proposed`).
 - 2026-10-11: owner's go (IN-0033): `accepted`, dispatched.
 - 2026-10-11: the session corrected the brief: no background stale refresh existed. stale-refresh is a new manual-only, capped job (working assumption).
+- 2026-10-11: PROPOSE accepted into contracts/jobs.md: no `:` in job IDs, prefixed enums, `JobParam.default`/`int`, typed status filter, `JobAlreadyRunning` detail.

@@ -26,7 +26,7 @@ service JobsService {                                   // MihonJobsService / Me
 }
 
 message Job {
-  string id = 1;                 // stable, e.g. "store-refresh", "source-health", "sync:mangabaka:dump", "rebuild-entries"
+  string id = 1;                 // stable, ^[a-z0-9][a-z0-9._-]*$ (no ":"), e.g. "store-refresh", "source-health", "sync.mangabaka.dump", "rebuild-entries"
   string name = 2;               // human label
   string description = 3;
   Schedule schedule = 4;
@@ -45,10 +45,10 @@ message Schedule {
   string source = 4;             // where it is configured, e.g. "MIHON_STORE_REFRESH_INTERVAL" (read-only in the UI)
 }
 
-message JobParam { string name = 1; string type = 2; /* bool|string|string_list */ string description = 3; bool required = 4; }
+message JobParam { string name = 1; string type = 2; /* bool|int|string|string_list */ string description = 3; bool required = 4; string default = 5; }
 
-enum JobRunStatus { JOB_RUN_STATUS_UNSPECIFIED = 0; RUNNING = 1; SUCCEEDED = 2; FAILED = 3; CANCELLED = 4; SKIPPED = 5; }
-enum JobTrigger   { JOB_TRIGGER_UNSPECIFIED = 0; SCHEDULE = 1; MANUAL = 2; STARTUP = 3; }
+enum JobRunStatus { JOB_RUN_STATUS_UNSPECIFIED = 0; JOB_RUN_STATUS_RUNNING = 1; JOB_RUN_STATUS_SUCCEEDED = 2; JOB_RUN_STATUS_FAILED = 3; JOB_RUN_STATUS_CANCELLED = 4; JOB_RUN_STATUS_SKIPPED = 5; }
+enum JobTrigger   { JOB_TRIGGER_UNSPECIFIED = 0; JOB_TRIGGER_SCHEDULE = 1; JOB_TRIGGER_MANUAL = 2; JOB_TRIGGER_STARTUP = 3; }
 
 message JobRunSummary {
   string id = 1; string job_id = 2;
@@ -70,14 +70,21 @@ message JobRunNote { google.protobuf.Timestamp at = 1; string level = 2; string 
 message JobProgress { string phase = 1; int64 done = 2; int64 total = 3; string unit = 4; }
 
 message RunJobRequest { string job_id = 1; map<string, string> params = 2; }
-message RunJobResponse { JobRunSummary run = 1; }   // ALREADY_EXISTS (HTTP 409) with the current run id when running
+message RunJobResponse { JobRunSummary run = 1; }   // ALREADY_EXISTS (HTTP 409) with detail JobAlreadyRunning when running
+message JobAlreadyRunning { string current_run_id = 1; } // google.rpc error detail
+// ListJobRunsRequest.status is a JobRunStatus (REST ?status=JOB_RUN_STATUS_FAILED)
 ```
 
 ## Rules
 
-- **admin** scope only. Errors: unknown job → `NOT_FOUND`, already running → `ALREADY_EXISTS` (409, details carry `current_run_id`), not cancellable → `FAILED_PRECONDITION`.
+- **Job IDs** match `^[a-z0-9][a-z0-9._-]*$` and **never contain `:`**: `google.api.http` transcoding treats `:x` in the last path segment as a custom verb (as in `:run`), so `/jobs/sync:mangabaka:dump` 404s, even percent-encoded (verified through vanguard by the meta session, 2026-10-11).
+- **admin** scope only. Errors: unknown job → `NOT_FOUND`, already running → `ALREADY_EXISTS` (409, detail `JobAlreadyRunning{current_run_id}`), not cancellable → `FAILED_PRECONDITION`.
 - **Retention:** last 100 runs per job by default (configurable); counts and notes are bounded.
 - **Restart:** runs left `RUNNING` at startup become `FAILED` with message "interrupted".
 - **Metrics** (ADR-0027): `<svc>_job_runs_total{job,status,trigger}`, `<svc>_job_duration_seconds{job}`, `<svc>_job_running{job}`.
-- **meta:** a provider sync is a job per provider and ingestion kind (`sync:<provider>:<kind>`, param `force`); the existing sync-run API keeps working (map it onto job runs).
+- **meta:** a provider sync is a job per provider and ingestion kind (`sync.<provider>.<kind>`, param `force`); the existing sync-run API keeps working (map it onto job runs).
 - **Parameterised jobs** declare `params`; the UI renders a small form before "Run now".
+
+## Changes
+
+- 2026-10-11: from the meta session building GOAL-0008: no `:` in job IDs (dotted `sync.<provider>.<kind>`), prefixed enum values (buf lint), `JobParam.default`, `int` param type, typed `status` filter, a `JobAlreadyRunning` error detail.
