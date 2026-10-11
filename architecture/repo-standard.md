@@ -46,6 +46,7 @@ Every Panelarr code repo is **public on GitHub** and must look and behave like a
 - Structured logs: `json` (default) or `text`, level configurable via config and env; no secrets in logs.
 - Prometheus metrics, configurable, not open on the public port by default; bounded labels.
 - `GET /healthz`, `GET /readyz`, and a detailed health view (components, plugins, sources).
+- **As built:** meta: metrics off by default, `:9464` private listener or `metrics:read` scope, `GET /v1/admin/health`. mihon-source: `metrics` scope or optional `MIHON_METRICS_PORT`, JSON logs by default. *Suggestion: one scope name (`metrics:read`) and one default metrics port convention across services.*
 
 ## Quality bars
 - Coverage is reported (Codecov or similar) but not gated at first. Gating starts once modules settle.
