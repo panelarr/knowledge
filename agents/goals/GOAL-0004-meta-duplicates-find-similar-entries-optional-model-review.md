@@ -55,12 +55,12 @@ The hoster chooses whether stage 1 alone is enough ("just first is enough for us
 
 ## Definition of Done
 
-- [ ] Incremental candidate generation with scores and signals; scale test on synthetic data at about 300k entries
-- [ ] Optional decision-model judge: one interface, OpenAI Decisions adapter plus state/questions adapter (TypeSafe, Clef), tested against mock servers; token caps, back-off, verdict cache; fully off by default
-- [ ] Review list API (list, confirm, dismiss, run now); confirm merges through meta's merge path with redirects; dismiss is remembered
-- [ ] Admin UI page (side by side, signals, model probabilities) in the GOAL-0003 admin
-- [ ] Configurable schedule and thresholds; docs; `make check` green; leak-check clean
-- [ ] `DONE:` with evidence per box
+- [x] Incremental candidate generation with scores and signals; scale test on synthetic data at about 300k entries
+- [x] Optional decision-model judge: one interface, OpenAI Decisions adapter plus state/questions adapter (TypeSafe, Clef), tested against mock servers; token caps, back-off, verdict cache; fully off by default
+- [x] Review list API (list, confirm, dismiss, run now); confirm merges through meta's merge path with redirects; dismiss is remembered
+- [x] Admin UI page (side by side, signals, model probabilities) in the GOAL-0003 admin
+- [x] Configurable schedule and thresholds; docs; `make check` green; leak-check clean
+- [x] `DONE:` with evidence per box
 
 ## History
 
@@ -72,3 +72,4 @@ The hoster chooses whether stage 1 alone is enough ("just first is enough for us
 - 2026-10-11: ASK/PROPOSE from the session: the brief's "skip same-provider pairs" would skip everything with MangaBaka alone. The keeper clarified its own wording and accepted the proposal as a working assumption (see Design sketch).
 - 2026-10-11: now runs after GOAL-0008 (jobs page), so its duplicate-finder job uses the shared job model.
 - 2026-10-11: owner swapped the order (IN-0034): now after GOAL-0006 (search engines); order GOAL-0008 → GOAL-0006 → GOAL-0004. Candidate generation may use the search engine when one is configured, but must work on Postgres alone.
+- 2026-10-11: **Done.** DONE received (`324acd6`); keeper verification passed on clean clones ([test report](../../qa/reports/goal-0004-meta-duplicates-done-verification.md)). Candidate quality on the real catalogue is still to be seen; the first run is manual from the Jobs page. The judge is off unless configured.
