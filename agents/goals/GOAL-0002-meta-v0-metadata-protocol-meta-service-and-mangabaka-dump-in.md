@@ -3,7 +3,7 @@ title: "GOAL-0002: meta v0: metadata protocol, meta service and MangaBaka dump i
 status: accepted
 tags: [goal, agents, meta, metadata, mangabaka, go]
 related: [contracts/metadata-schema.md, modules/meta/overview.md, modules/meta-mangabaka/overview.md, contracts/metadata-plugin.md, research/mangabaka.md, research/metadata-providers.md, architecture/search.md, architecture/plugins.md, architecture/repo-standard.md]
-inputs: [IN-0007, IN-0009, IN-0010, IN-0011]
+inputs: [IN-0007, IN-0009, IN-0010, IN-0011, IN-0012]
 repos: [meta, meta-mangabaka]
 session: "panelarr-meta"
 features: []
@@ -58,7 +58,7 @@ Each slice works end to end, has tests and ends with `make check` green and a `R
 5. **meta ingest:** plugin host (managed binary and remote URL + API key), sync scheduler with manual runs (`MetaAdmin.RunSync`), batched upserts of ProviderEntries committed at checkpoints (`COPY` into staging tables if it pays off), building or updating merged Entries (per-field provider priority, manual locks honoured; with one provider it's a straight copy), linking by shared external IDs, merge redirects, removed-after-snapshot marking, sync run records with counts and errors, attribution stored per record. A full re-sync of an unchanged dump makes no changes.
 6. **meta API:** `panelarr.meta.v1` over gRPC + HTTP/JSON with OpenAPI: `Browse` with filters (genre, tag, type, status, year, content rating, language) and sort (popularity, rating, updated, year), `Search` (titles in every language and alt titles, people) via a `SearchIndex` interface backed by Postgres FTS + `pg_trgm`, `Get` with full details and attribution, `LookupExternal` (e.g. `anilist:30013`), `MetaAdmin` (providers, runs). Old IDs resolve through merge redirects. Auth: a service API key from config (suggestion; `PROPOSE:` if you see better).
 7. **meta-mangabaka `lookup`:** `Search` / `Get` through the MangaBaka API within its limits (search 30/min, other GETs 180/min), backing off on 429. meta uses it to refresh a stale record on demand.
-8. **Images + docs:** images `panelarr/meta` and `panelarr/meta-mangabaka` (standalone mode), a `compose.yaml` example (meta + postgres + meta-mangabaka), a quick start in each README, and `docs/` for configuration, the protocol, how to write a metadata plugin, and the API.
+8. **Images + docs:** images `panelarr/meta` and `panelarr/meta-mangabaka` (standalone mode), a `compose.yaml` example (meta + postgres + meta-mangabaka). In the full stack, meta and server (the library) **share one Postgres server, each with its own database** (IN-0012), so meta takes its own DSN, never assumes it owns the server, and the example creates its database with an init script that a later server database can join; a quick start in each README, and `docs/` for configuration, the protocol, how to write a metadata plugin, and the API.
 
 ## Tests and fixtures
 
@@ -110,3 +110,4 @@ Each slice works end to end, has tests and ends with `make check` green and a `R
 - 2026-10-11: brief written from IN-0009 (`proposed`).
 - 2026-10-11: entry schema added from the owner's schema ideas (IN-0010).
 - 2026-10-11: owner gave the go; repos created: `accepted`, dispatched (IN-0011).
+- 2026-10-11: one Postgres server shared with server, a database each (IN-0012).
