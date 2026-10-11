@@ -3,7 +3,7 @@ title: meta overview
 status: proposed
 tags: [module, meta, metadata, go]
 related: [contracts/metadata-plugin.md, contracts/metadata-schema.md, modules/meta-mangabaka/overview.md, research/mangabaka.md, research/metadata-providers.md, architecture/search.md, decisions/ADR-0022-postgresql-only.md, decisions/ADR-0023-sqlc-pgx-goose-data-layer.md]
-inputs: [IN-0002, IN-0003, IN-0009, IN-0010, IN-0015, IN-0017]
+inputs: [IN-0002, IN-0003, IN-0009, IN-0010, IN-0015, IN-0017, IN-0020]
 updated: 2026-10-11
 ---
 
@@ -41,6 +41,7 @@ Plugins declare which they support: `lookup` (API), `scrape`, `dump` (snapshot d
   - external IDs from sources (where given) short-circuit matching;
   - output candidates with a confidence score. server auto-links above a threshold, otherwise asks a curator.
 - **Rate limits:** each plugin declares its limits per ingestion type and meta enforces them.
+- **Admin (proposed, IN-0020, [GOAL-0003](../../agents/goals/GOAL-0003-meta-admin-clients-integrations-and-admin-ui.md)):** a minimal admin UI like mihon-source's. **Clients** with scoped API keys (replacing the fixed `api_keys` list). **Integrations:** solvers (FlareSolverr/Byparr) and network profiles (proxies, VPN containers such as gluetun), assigned per provider and handed to plugins that declare the `network_profile` common service. Also providers and sync runs (status, run now, schedules), and browse/search for checking the catalogue (suggestion). Who owns profiles in the full stack: [Q-0034](../../questions/README.md).
 
 ## Implementation status
 Not started. [GOAL-0002](../../agents/goals/GOAL-0002-meta-v0-metadata-protocol-meta-service-and-mangabaka-dump-in.md) is dispatched to `panelarr-meta` (2026-10-11). **Slices 1–3, 5 and 6 merged** into `main` (`2331852`, not pushed), including the **Browse / Search / GetEntry / LookupExternal API** (synthetic: browse 15–60 ms, search 100–300 ms at 54k entries). Earlier slices: scaffold; protos, Go plugin SDK and conformance harness; Postgres data layer (goose, sqlc, pgx); ingest (plugin host, sync runner, scheduler, merged entries with priority and locks, MetaAdminService, `meta serve | sync | migrate`). Projected full MangaBaka import ≈ 8–9 min and ≈ 4–5 GB (synthetic measurement). Next: image, compose example and release setup (slice 8). It was pulled forward from M3 to run alongside M1 (IN-0009).

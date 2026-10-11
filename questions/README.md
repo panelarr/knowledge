@@ -25,6 +25,7 @@ Everything we don't know yet. IDs are stable and never reused. When a question i
 | Q-0025 | Should Panelarr be a Mihon "enhanced tracker" / Mihon extension target (like Komga), so the Mihon app can read from and sync with Panelarr? | product | P3 | [trackers research](../research/trackers.md) |
 | Q-0027 | Should server auto-discover remote plugins in the same Compose project (mDNS/DNS-SD, self-registration with a join token, DNS probing, Docker labels)? Discovered plugins are only suggested, never auto-enabled. | plugins, deploy | P3 | [plugins](../architecture/plugins.md) |
 | Q-0033 | OpenSearch and Algolia as optional meta search adapters ("maybe", IN-0017)? [ADR-0010](../decisions/ADR-0010-optional-search-engine.md) (accepted) says lightweight only, "never OpenSearch or Elasticsearch". Algolia is a hosted SaaS, so the catalogue would leave the instance. *Suggestion: keep the `SearchIndex` adapter interface open so either can be added later as an opt-in adapter if the owner revises ADR-0010; build Typesense and Meilisearch first.* | search, meta | P3 | [search](../architecture/search.md) |
+| Q-0034 | In the full stack, do meta's network profiles and solvers come from server (pushed, as for mihon-source, IN-0007) or stay meta's own? *Suggestion: same as mihon-source. meta's admin manages them when standalone; when integrated, server pushes profiles and meta's own entries stay as the fallback.* | meta | P3 | [GOAL-0003](../agents/goals/GOAL-0003-meta-admin-clients-integrations-and-admin-ui.md) |
 
 ## Answered
 

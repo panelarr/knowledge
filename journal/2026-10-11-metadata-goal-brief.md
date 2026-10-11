@@ -1,7 +1,7 @@
 # 2026-10-11: metadata goal brief
 
 - **Participants:** @aurimasniekis, panelarr-knowledge
-- **Inputs:** IN-0009, IN-0010, IN-0011, IN-0012, IN-0013, IN-0014, IN-0015, IN-0016, IN-0017, IN-0018, IN-0019
+- **Inputs:** IN-0009, IN-0010, IN-0011, IN-0012, IN-0013, IN-0014, IN-0015, IN-0016, IN-0017, IN-0018, IN-0019, IN-0020
 
 ## Discussed
 
@@ -37,6 +37,9 @@
 - Owner (IN-0016): plugin ports from 8903 up confirmed.
 - Owner (IN-0017): meta gets optional, configurable search engine integrations (Typesense, Meilisearch; maybe OpenSearch/Algolia). The keeper first wrote this as applying to server too; the owner corrected it (IN-0018): these are meta's, and the library uses built-in Postgres search. Recorded in meta, search, ADR-0017 and GOAL-0002.
 - Owner (IN-0019): after hearing the case against, accepted ConnectRPC with the gRPC wire rule ([ADR-0026](../decisions/ADR-0026-connectrpc-on-go-grpc-as-the-plugin-wire.md)); Q-0020 closed.
+
+- Owner (IN-0020): meta should probably get an admin UI too (API key clients, integrations: proxies, VPNs, FlareSolverr). Shaped as [GOAL-0003](../agents/goals/GOAL-0003-meta-admin-clients-integrations-and-admin-ui.md) (`proposed`, after GOAL-0002), modelled on mihon-source; Q-0034 opened.
+- GOAL-0001 verified by the keeper: pass with issues ([test report](../qa/reports/goal-0001-mihon-source-v0-done-verification.md)).
 
 ## New open questions
 

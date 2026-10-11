@@ -78,6 +78,10 @@ service MetaAdmin {
 - **meta API:** `Browse`, `Search`, `GetEntry`, `LookupExternal`, `ListTags`; admin `ListProviders`, `RunSync`, `ListSyncRuns`, `GetSyncRun`, `RefreshEntry`. REST: `GET /v1/entries`, `/v1/search`, `/v1/entries/{id}`, `/v1/lookup/{provider}/{external_id}`, `/v1/tags`, `/v1/admin/…`.
 - **Transport:** ConnectRPC (gRPC, gRPC-Web, Connect) for standalone plugins and meta's API; grpc-go for managed plugins (go-plugin needs it); REST via vanguard transcoding planned. Decided in [ADR-0026](../decisions/ADR-0026-connectrpc-on-go-grpc-as-the-plugin-wire.md): gRPC is the canonical wire.
 
+## Proposed (GOAL-0003, IN-0020)
+- `SetNetworkProfile` on `MetadataPluginService`, mirroring `source.v1`: meta pushes the profile (proxy, solver, UA, limits) to plugins that declare the `network_profile` common service. Additive, so not breaking for v1.
+- `MetaClientsService` (scoped API keys) and `MetaIntegrationsService` (solvers, profiles, assignments per provider) in `meta.v1`, modelled on mihon-source's services.
+
 ## Design notes
 - **Record shape:** the [entry schema](metadata-schema.md) (IN-0010). Plugins send `ProviderEntry`s; meta stores them as received and builds merged `Entry`s with per-field provider priority and manual locks.
 - **Merges:** honour MangaBaka `merged_with`. meta keeps redirects so old IDs still resolve.
