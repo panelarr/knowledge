@@ -32,7 +32,7 @@ A SPA built with **Vite + React + TanStack Router, Query, Virtual, Pacer and Sto
 - **Stack:** Vite, React 19, TypeScript, TanStack (Router, Query, Virtual, Pacer, Store), shadcn/ui on Tailwind v4, pnpm, a PWA (app shell only in v0), fonts self-hosted.
 - **API:** client generated from the server's spec (copied from server `main`); parts the server hasn't specced are drafted by web and sent through the keeper; the server owns the final shape.
 - **Defaults:** brand pink accent; font list in config.
-- **Embedding:** the server embeds a pinned web release at the root path in v0 (relative asset base, so a URL base can come later); web documents the embedding rules.
+- **Embedding contract** (web `docs/embedding.md`, `331ae2e`): the server embeds the release tarball of `dist/`; SPA fallback for everything except `/api/`, `/opds/`, `/assets/`, `/healthz`, `/readyz`, `/metrics`; `assets/*` cached immutable, everything else no-cache; `sw.js` served from the root; headers CSP + nosniff + `Referrer-Policy: no-referrer` + `X-Frame-Options: DENY` (exact strings in web `csp.config.mjs`); paths relative to `<base href="/">`. **CSP:** `script-src 'self'` (strict), `img-src 'self' data: blob:`, and `style-src 'self' 'unsafe-inline'`, because Radix's scroll lock and the toast library insert style elements at runtime.
 - **Not in v0:** library categories, offline chapters, connected-service admin pages (IN-0039).
 
 ## Look and feel (IN-0037 §3)
@@ -56,4 +56,4 @@ A SPA built with **Vite + React + TanStack Router, Query, Virtual, Pacer and Sto
 - **Connected services, built into Panelarr's admin** (IN-0039): when meta and mihon-source are connected, most of their admin is available inside Panelarr itself: meta's providers, sync runs and jobs, health, duplicates review, integrations; mihon-source's extensions, stores, sources and health checks, jobs, integrations. It's the same API their own admins use (every admin action is a plain API call), called by the server with each service's admin-scope key. Standalone admins stay for people not running Panelarr.
 
 ## Implementation status
-Not started (M2).
+In progress (GOAL-0011, `panelarr-web`). Slice 0 (scaffold) merged at `331ae2e`: the stack, a spec copy from server main with a drafts overlay, generated client, one error type, the SSE client, MSW mocks validated against the spec, the responsive shell (sidebar / bottom nav), themes before first paint, PWA app shell; 37 unit and 8 Playwright tests (desktop, 360 px, CSP). Next: setup and login.
