@@ -16,7 +16,7 @@ The brief a coding session works from. A short paste-in version points here: *"W
 
 ## Status
 
-`proposed`: written from IN-0020 for the owner to review. It starts after GOAL-0002 is DONE and verified.
+`accepted`: dispatched to `panelarr-meta` on 2026-10-11 (owner's go, IN-0021). Written from IN-0020.
 
 ## Context
 
