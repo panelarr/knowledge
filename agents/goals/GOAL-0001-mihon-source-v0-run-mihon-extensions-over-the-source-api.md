@@ -111,3 +111,4 @@ Each slice works end to end, has tests and ends with `make check` green and a `R
 - 2026-10-11: brief written from IN-0005 (`proposed`).
 - 2026-10-11: widened with the minimal admin SPA, clients and API keys, integrations and extension stores (IN-0006, ADR-0021).
 - 2026-10-11: admin clarified as standalone-only; the Panelarr stack configures mihon-source through source-mihon (IN-0007 §1). Owner created the repo and gave the go: `accepted`, dispatched (IN-0007 §2).
+- 2026-10-11: REPORT from `panelarr-mihon-source`: started; read the brief and its docs; slice 1 (scaffold) in progress on `chore/repo-scaffold`.
