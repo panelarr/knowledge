@@ -52,9 +52,10 @@ shadcn/ui + Tailwind ([Q-0008](../../questions/README.md)); [web](../../modules/
 
 | Repo | Goal | PR/MR | State |
 |---|---|---|---|
-| web, server | — | — | — |
+| server | [GOAL-0010](../../agents/goals/GOAL-0010-server-v0-accounts-add-and-match-chapters-reader-api-downloa.md) slice 7 | — | server side done (`e2726f1`; CBZ pages in slice 8) |
+| web | [GOAL-0011](../../agents/goals/GOAL-0011-web-v0-panelarr-app-for-the-first-slice.md) | — | pending |
 
 ## Open questions
 
-- Per-series overrides: also per user? (suggestion: settings are per user).
+- Per-series overrides: also per user? **Answered as built:** settings are per user (server `e2726f1`).
 - Suwayomi's reader feature list is from the owner's experience; the web session should review it hands-on and list what to keep and what to polish.
