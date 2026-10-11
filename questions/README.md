@@ -32,9 +32,10 @@ Everything we don't know yet. IDs are stable and never reused. When a question i
 | Q-0023 | Where does character data come from (AniList, ComicVine)? Is it stored in meta and indexed for search? | meta, search | P3 | [search](../architecture/search.md) |
 | Q-0024 | Plugin signing: key format (minisign vs cosign/sigstore), official key management, the trust UI for third-party indexes. | plugins, security | P2 | [plugin index](../contracts/plugin-index.md) |
 | Q-0025 | Should Panelarr be a Mihon "enhanced tracker" / Mihon extension target (like Komga), so the Mihon app can read from and sync with Panelarr? | product | P3 | [trackers research](../research/trackers.md) |
-| Q-0026 | Now that mihon-source speaks the source-api protos itself: is source-mihon a pass-through plugin plus store manager, or only a store/trust library used by the plugin host? | sources | P1 | [source-mihon](../modules/source-mihon/overview.md) |
+| Q-0026 | Now that mihon-source speaks the source-api protos itself: is source-mihon a pass-through plugin plus store manager, or only a store/trust library used by the plugin host? *Since [ADR-0021](../decisions/ADR-0021-mihon-source-standalone-admin.md) mihon-source manages stores itself too: does source-mihon keep its own store logic, push config to mihon-source (Q-0030), or shrink to a pass-through?* | sources | P1 | [source-mihon](../modules/source-mihon/overview.md) |
 | Q-0027 | Should server auto-discover remote plugins in the same Compose project (mDNS/DNS-SD, self-registration with a join token, DNS probing, Docker labels)? Discovered plugins are only suggested, never auto-enabled. | plugins, deploy | P3 | [plugins](../architecture/plugins.md) |
 | Q-0028 | Now that the KB is public: may code repos cite KB IDs (`ADR-`, `Q-`, `FEAT-`), link KB docs, or use `Refs:` footers? Until answered, they don't. | process | P2 | [ADR-0020](../decisions/ADR-0020-public-kb-with-aliases.md) |
+| Q-0030 | How does mihon-source pick up config (stores, network profiles, solvers) from the Panelarr side later (IN-0006 §2), and which wins over the local admin? *Suggestion: pushed config is read-only in the admin and overrides local entries of the same name; local entries stay for standalone use.* | mihon-source | P2 | [ADR-0021](../decisions/ADR-0021-mihon-source-standalone-admin.md) |
 
 ## Answered
 

@@ -35,7 +35,7 @@ flowchart TB
             SL["source-local (Go)<br/>CBZ/CBR/CB7/CBT/folders"]
             SX["… future: OPDS, native, other ecosystems"]
         end
-        MS["mihon-source (Kotlin/JVM)<br/>small tool: Mihon extensions over source-api"]
+        MS["mihon-source (Kotlin/JVM)<br/>Mihon extensions over source-api + minimal admin"]
         subgraph mplug [Metadata plugins]
             MB[meta-mangabaka] --- MA[meta-anilist] --- MO[… MAL, MU, Kitsu, MangaDex, ComicVine]
         end

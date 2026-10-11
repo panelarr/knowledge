@@ -2,8 +2,8 @@
 title: mihon-source overview
 status: proposed
 tags: [module, mihon-source, mihon, kotlin, jvm]
-related: [contracts/mihon-source-api.md, contracts/source-plugin.md, research/suwayomi-server.md, research/mihon-extensions.md, architecture/networking.md]
-inputs: [IN-0002, IN-0003, IN-0005]
+related: [decisions/ADR-0021-mihon-source-standalone-admin.md, contracts/mihon-source-api.md, contracts/source-plugin.md, research/suwayomi-server.md, research/mihon-extensions.md, architecture/networking.md]
+inputs: [IN-0002, IN-0003, IN-0005, IN-0006]
 updated: 2026-10-11
 ---
 
@@ -11,7 +11,7 @@ updated: 2026-10-11
 
 ## Summary
 
-A **small Kotlin/JVM tool** that runs Mihon extensions and exposes them **directly over an API** (IN-0003 §3.4). It speaks Panelarr's **source-api protos** over gRPC and HTTP/JSON with OpenAPI, so it works **standalone** and as a **remote source plugin** (IN-0003 §6, [ADR-0012](../../decisions/ADR-0012-protobuf-grpc-contracts.md)). It has no store logic, no library and no database; those belong to source-mihon and server.
+A **standalone Kotlin/JVM service** that runs Mihon extensions and exposes them **directly over an API** (IN-0003 §3.4). It speaks Panelarr's **source-api protos** over gRPC and HTTP/JSON with OpenAPI, so it works **standalone** and as a **remote source plugin** (IN-0003 §6, [ADR-0012](../../decisions/ADR-0012-protobuf-grpc-contracts.md)). It has a **minimal admin** (React SPA) for sources, extension stores, clients and API keys, and integrations ([ADR-0021](../../decisions/ADR-0021-mihon-source-standalone-admin.md), IN-0006). It has no library, no users and no database; those belong to server.
 
 ## Owns / does not own
 - **Owns:**
@@ -19,8 +19,12 @@ A **small Kotlin/JVM tool** that runs Mihon extensions and exposes them **direct
   - the Android shim layer;
   - per-source OkHttp clients built from network profiles;
   - extension prefs and cookies (files);
-  - mapping Mihon `SManga`/`SChapter`/`Page`/`FilterList`/prefs onto the protos.
-- **Doesn't own:** store indexes, update policy, trust decisions (it enforces a fingerprint it is given), users, downloads.
+  - mapping Mihon `SManga`/`SChapter`/`Page`/`FilterList`/prefs onto the protos;
+  - **extension stores:** store URLs, index parsing, signing-key pinning and verification, install and update from stores;
+  - **clients and auth:** the admin token and scoped client API keys;
+  - **integrations:** solvers and network profiles, assigned per source;
+  - the **admin SPA** (browse and test sources, settings, extensions, stores, clients, integrations).
+- **Doesn't own:** users, libraries, downloads. Config pushed from the Panelarr side later (Q-0030).
 
 ## Internals (planned)
 | Part | Approach (from [Suwayomi research](../../research/suwayomi-server.md)) |
@@ -32,16 +36,20 @@ A **small Kotlin/JVM tool** that runs Mihon extensions and exposes them **direct
 | Networking | One `OkHttpClient` per source from its profile: proxy, solver interceptor (FlareSolverr/Byparr, coalesced per host), rate limit, UA, cookie jar per source. **No JVM-global proxy properties** ([networking](../../architecture/networking.md)) |
 | WebView | Optional ([Q-0002](../../questions/README.md)). Sources that need it report `needs_webview` |
 | Server | gRPC + HTTP/JSON transcoding + OpenAPI docs (Armeria vs grpc-kotlin + Ktor, [Q-0020](../../questions/README.md)) |
-| Storage | `/data/extensions/*.jar`, `/data/prefs/<sourceId>.json`, `/data/cookies/<sourceId>.json` |
+| Storage | `/data/extensions/*.jar`, `/data/prefs/<sourceId>.json`, `/data/cookies/<sourceId>.json`, plus files for stores, clients (hashed keys) and integrations |
+| Admin UI | Small React SPA ([ADR-0006](../../decisions/ADR-0006-technology-stack.md) stack) built in a multi-stage image and served by the service. Logs in with the admin token |
+| Auth | One admin token (env or generated on first start, shown once); scoped client API keys, hashed at rest |
 | Isolation | One JVM, a classloader per extension ([Q-0007](../../questions/README.md)) |
 
 ## Standalone usage (target)
 ```
 docker run -p 8080:8080 -v ./data:/data panelarr/mihon-source
 # install an extension jar by URL, list sources, browse:
-curl -X POST localhost:8080/v1/admin/extensions -d '{"url":"https://…/xyz.jar"}'
-curl localhost:8080/v1/sources
-curl localhost:8080/v1/sources/123456789/popular?page=1
+# open http://localhost:8080/ and log in with the admin token from the logs,
+# or use the API with it:
+curl -H "Authorization: Bearer $ADMIN" -X POST localhost:8080/v1/admin/extensions -d '{"url":"https://…/xyz.jar"}'
+curl -H "Authorization: Bearer $CLIENT_KEY" localhost:8080/v1/sources
+curl -H "Authorization: Bearer $CLIENT_KEY" localhost:8080/v1/sources/123456789/popular?page=1
 ```
 
 ## Implementation status

@@ -11,7 +11,7 @@ updated: 2026-10-11
 
 ## Summary
 
-The **general source layer** in Go ([ADR-0005](../../decisions/ADR-0005-layered-source-architecture.md)). It defines the `panelarr.source.v1` protos ([contract](../../contracts/source-plugin.md)) and ships what plugin authors and hosts need: a Go SDK, generated clients, an HTTP client factory that applies network profiles, and a conformance suite. It is likely also the home of the shared **plugin kit** (go-plugin handshake, plugin index schema and verifier) used by both server and meta ([Q-0017](../../questions/README.md)).
+The **general source layer** in Go ([ADR-0021](../../decisions/ADR-0021-mihon-source-standalone-admin.md), which superseded ADR-0005). It defines the `panelarr.source.v1` protos ([contract](../../contracts/source-plugin.md)) and ships what plugin authors and hosts need: a Go SDK, generated clients, an HTTP client factory that applies network profiles, and a conformance suite. It is likely also the home of the shared **plugin kit** (go-plugin handshake, plugin index schema and verifier) used by both server and meta ([Q-0017](../../questions/README.md)).
 
 ## Contents
 ```

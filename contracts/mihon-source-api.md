@@ -2,8 +2,8 @@
 title: mihon-source API
 status: draft
 tags: [contract, mihon]
-related: [contracts/source-plugin.md, modules/mihon-source/overview.md, modules/source-mihon/overview.md]
-inputs: [IN-0003]
+related: [decisions/ADR-0021-mihon-source-standalone-admin.md, contracts/source-plugin.md, modules/mihon-source/overview.md, modules/source-mihon/overview.md]
+inputs: [IN-0003, IN-0006]
 updated: 2026-10-11
 ---
 
@@ -11,7 +11,7 @@ updated: 2026-10-11
 
 ## Summary
 
-mihon-source is a **small standalone tool** that exposes Mihon extensions over an API (IN-0003 §3.4). It implements **`panelarr.source.v1`** directly, so it is usable alone and as a remote source plugin (IN-0003 §6). It adds a tiny **`panelarr.mihon.v1`** admin service for installing extensions and managing their prefs. Both are served over gRPC and HTTP/JSON with OpenAPI.
+mihon-source is a **standalone service** that exposes Mihon extensions over an API (IN-0003 §3.4). It implements **`panelarr.source.v1`** directly, so it is usable alone and as a remote source plugin (IN-0003 §6). Its **`panelarr.mihon.v1`** admin API covers extensions, extension stores, clients and API keys, and integrations (solvers, network profiles), and it backs a minimal admin SPA ([ADR-0021](../decisions/ADR-0021-mihon-source-standalone-admin.md)). Everything is served over gRPC and HTTP/JSON with OpenAPI.
 
 ## `panelarr.mihon.v1` (admin) sketch
 ```proto
@@ -21,9 +21,37 @@ service MihonAdmin {
   rpc UninstallExtension(ExtensionRef) returns (Empty);
   rpc ReloadExtension(ExtensionRef) returns (Extension);
 }
+
+service MihonStores {                                          // extension stores (repositories)
+  rpc ListStores(Empty) returns (StoreList);                   // url, name, pinned signing-key fingerprint, last refresh, errors
+  rpc AddStore(AddStoreRequest) returns (Store);               // fetches repo.json, pins its signingKey
+  rpc RemoveStore(StoreRef) returns (Empty);
+  rpc RefreshStore(StoreRef) returns (Store);
+  rpc ListAvailable(ListAvailableRequest) returns (AvailableList); // extensions offered, installed version, update available, content warning
+  rpc InstallFromStore(StoreInstallRequest) returns (Extension);   // jarUrl else apkUrl; signing key and sha256 verified
+}
+
+service MihonClients {                                         // admin scope only
+  rpc ListClients(Empty) returns (ClientList);                 // name, scopes, created, last used; never the key
+  rpc CreateClient(CreateClientRequest) returns (ClientWithKey); // key shown once
+  rpc RotateClientKey(ClientRef) returns (ClientWithKey);
+  rpc DeleteClient(ClientRef) returns (Empty);
+}
+
+service MihonIntegrations {
+  rpc ListSolvers / PutSolver / DeleteSolver;                  // FlareSolverr / Byparr endpoints
+  rpc ListProfiles / PutProfile / DeleteProfile;               // network profiles (architecture/networking.md)
+  rpc AssignProfile(AssignProfileRequest) returns (Empty);     // source → profile; a pushed SetNetworkProfile overrides it (Q-0030)
+}
 ```
 
+## Auth
+- **Admin token:** one secret from an env var, or generated on first start and shown once. Full access, and the admin SPA logs in with it.
+- **Clients:** each caller (a Panelarr server, a script) gets an **API key** with scopes: `sources:read` for `panelarr.source.v1`, `admin` for `panelarr.mihon.v1` (suggested scope names). Sent as `Authorization: Bearer` / gRPC metadata ([contracts and transport](../architecture/contracts-and-transport.md)).
+- Keys are stored hashed and never returned after creation.
+
 ## Boundaries
-- **No store logic.** Index parsing, update checks and signing **trust decisions** live in source-mihon ([module](../modules/source-mihon/overview.md)). mihon-source only *reports* the fingerprint and *enforces* an expected one if it is given one.
-- **No database.** Jars, prefs and cookies are files under `/data`.
-- **Without Panelarr:** `docker run panelarr/mihon-source`, then install a jar by URL, then `curl /v1/sources/{id}/popular`.
+- **Stores in both places.** mihon-source manages its own stores for standalone use ([ADR-0021](../decisions/ADR-0021-mihon-source-standalone-admin.md)). Whether source-mihon keeps store logic too or pushes config down is [Q-0026](../questions/README.md) / [Q-0030](../questions/README.md). An install request may still carry an expected fingerprint and SHA-256, which mihon-source enforces.
+- **No database.** Jars, prefs, cookies, stores, clients and integrations are files under `/data`.
+- **No library, no users, no downloads.** Those belong to server.
+- **Without Panelarr:** `docker run panelarr/mihon-source`, open the admin with the admin token, add a store or install a jar by URL, create a client key, then `curl -H 'Authorization: Bearer …' /v1/sources/{id}/popular`.

@@ -2,7 +2,7 @@
 title: source-mihon overview
 status: draft
 tags: [module, source-mihon, mihon, go]
-related: [modules/mihon-source/overview.md, contracts/mihon-source-api.md, research/mihon-extension-store.md]
+related: [decisions/ADR-0021-mihon-source-standalone-admin.md, modules/mihon-source/overview.md, contracts/mihon-source-api.md, research/mihon-extension-store.md]
 inputs: [IN-0003]
 updated: 2026-10-11
 ---
@@ -11,7 +11,7 @@ updated: 2026-10-11
 
 ## Summary
 
-The Go side of Mihon support ([ADR-0005](../../decisions/ADR-0005-layered-source-architecture.md)). It holds the "smart" logic so that mihon-source can stay a small tool: **extension stores, signing trust, update checks, install orchestration, caching and retries**. It talks to one or more mihon-source endpoints.
+The Go side of Mihon support ([ADR-0021](../../decisions/ADR-0021-mihon-source-standalone-admin.md), which superseded ADR-0005). It was planned to hold the "smart" logic: **extension stores, signing trust, update checks, install orchestration, caching and retries**. It talks to one or more mihon-source endpoints. Since ADR-0021, mihon-source manages stores itself for standalone use, so this module's store role is open ([Q-0026](../../questions/README.md), [Q-0030](../../questions/README.md)).
 
 ## Responsibilities
 - **Stores:**

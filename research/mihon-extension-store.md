@@ -33,7 +33,7 @@ Mihon moved from a flat `index.min.json` to an **Extension Store** described by 
 - EXTREPO now publishes only placeholder entries there ("Outdated App"), so **legacy-only clients get nothing useful**.
 
 ## What it means for Panelarr
-- source-mihon must support `repo.json` → `index.pb`/JSON first, and legacy as a fallback for other stores.
+- mihon-source ([ADR-0021](../decisions/ADR-0021-mihon-source-standalone-admin.md)), and source-mihon if it keeps store logic ([Q-0026](../questions/README.md)), must support `repo.json` → `index.pb`/JSON first, and legacy as a fallback for other stores.
 - **Verify the signing key** of downloaded APKs/jars against the store's `signingKey`. Suwayomi stores it but doesn't verify.
 - Map `contentWarning` to Panelarr content ratings, for per-user limits.
 

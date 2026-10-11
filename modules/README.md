@@ -9,7 +9,7 @@ One folder per code repo ([ADR-0002](../decisions/ADR-0002-split-repositories.md
 | source-api | Go | Source contract, SDK, conformance, plugin kit | [source-api/](source-api/README.md) |
 | meta | Go | Metadata service + plugin contract | [meta/](meta/README.md) |
 | source-mihon | Go | Mihon stores, trust, orchestration | [source-mihon/](source-mihon/README.md) |
-| mihon-source | Kotlin | Small tool: Mihon extensions over source-api | [mihon-source/](mihon-source/README.md) |
+| mihon-source | Kotlin | Mihon extensions over source-api, minimal admin, stores | [mihon-source/](mihon-source/README.md) |
 | source-local | Go | User's own files as a source | [source-local/](source-local/README.md) |
 | deploy | YAML | Compose, Unraid, AIO | [deploy/](deploy/README.md) |
 
