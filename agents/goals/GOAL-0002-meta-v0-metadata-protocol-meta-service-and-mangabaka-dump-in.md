@@ -16,7 +16,7 @@ The brief a coding session works from. A short paste-in version points here: *"W
 
 ## Status
 
-`accepted`: dispatched to `panelarr-meta` on 2026-10-11 (IN-0011). Scope from IN-0009, schema from IN-0010.
+`accepted`, **Done 2026-10-11** (verified; [test report](../../qa/reports/goal-0002-meta-v0-done-verification.md)). Dispatched to `panelarr-meta` on 2026-10-11 (IN-0011). Scope from IN-0009, schema from IN-0010.
 
 ## Context
 
@@ -92,18 +92,18 @@ Each slice works end to end, has tests and ends with `make check` green and a `R
 
 ## Definition of Done
 
-- [ ] Both repos scaffolded to the repo standard; `make check` green; CI runs against Postgres
-- [ ] `metadata.v1` and `meta.v1` protos, `buf lint` clean; ingestion types, limits and common services declared in `GetInfo`; contract changes REPORTed
-- [ ] Go SDK: one plugin binary runs managed (go-plugin) and standalone (`--listen`); conformance harness passes against meta-mangabaka
-- [ ] goose migrations applied at startup and through `migrate`; sqlc queries; tests on real Postgres
-- [ ] meta-mangabaka dump ingest against the synthetic fixture: download, checksum (mismatch refused), zstd, SQLite read, mapping, merges, checkpoints
-- [ ] Entry schema implemented: ProviderEntry stored as received (raw kept), merged Entry with per-field provenance, raw values kept next to enums
-- [ ] meta ingest: idempotent re-sync, merge redirects resolve old IDs, removed-after-snapshot marking, sync runs recorded, attribution stored
-- [ ] meta API: Browse (filters + sort), Search (multi-language titles via Postgres FTS + trigram behind `SearchIndex`), Get, LookupExternal, MetaAdmin; OpenAPI served
-- [ ] meta-mangabaka lookup within rate limits, 429 back-off tested with a mock server
-- [ ] Images build; the compose example and README quick starts work as written; docs cover config, protocol, writing a plugin, API
-- [ ] Tests pass; `make check` passes; leak-check clean; no MangaBaka data committed
-- [ ] `DONE:` sent with evidence: branches and commits per repo, test output, how to verify by hand (and real-dump numbers if run)
+- [x] Both repos scaffolded to the repo standard; `make check` green; CI runs against Postgres
+- [x] `metadata.v1` and `meta.v1` protos, `buf lint` clean; ingestion types, limits and common services declared in `GetInfo`; contract changes REPORTed
+- [x] Go SDK: one plugin binary runs managed (go-plugin) and standalone (`--listen`); conformance harness passes against meta-mangabaka
+- [x] goose migrations applied at startup and through `migrate`; sqlc queries; tests on real Postgres
+- [x] meta-mangabaka dump ingest against the synthetic fixture: download, checksum (mismatch refused), zstd, SQLite read, mapping, merges, checkpoints
+- [x] Entry schema implemented: ProviderEntry stored as received (raw kept), merged Entry with per-field provenance, raw values kept next to enums
+- [x] meta ingest: idempotent re-sync, merge redirects resolve old IDs, removed-after-snapshot marking, sync runs recorded, attribution stored
+- [x] meta API: Browse (filters + sort), Search (multi-language titles via Postgres FTS + trigram behind `SearchIndex`), Get, LookupExternal, MetaAdmin; OpenAPI served
+- [x] meta-mangabaka lookup within rate limits, 429 back-off tested with a mock server
+- [x] Images build; the compose example and README quick starts work as written; docs cover config, protocol, writing a plugin, API
+- [x] Tests pass; `make check` passes; leak-check clean; no MangaBaka data committed
+- [x] `DONE:` sent with evidence: branches and commits per repo, test output, how to verify by hand (and real-dump numbers if run)
 
 ## History
 
@@ -127,3 +127,4 @@ Each slice works end to end, has tests and ends with `make check` green and a `R
 - 2026-10-11: REPORT: **paused (usage limit)**. Slice 6 written but untested on meta `feat/api-catalog` (WIP `a91d50b`: MetaService, SearchIndex with a Postgres backend, background refresh); **not merged**. Slice 8 for meta-mangabaka handed to a background helper on `feat/image-and-docs` (uncommitted Dockerfile, GoReleaser, release-please, CodeQL found in the working tree by the keeper). Remaining: slice 6 tests + merge, review the slice 8 branch, slice 8 for meta, DONE. meta's `PROGRESS.md` lists the next steps.
 - 2026-10-11: REPORT: **slice 6 (meta API) done**, squash-merged into meta `main` (`2331852`; the WIP commit is not on main), and **slice 8 for meta-mangabaka done** (`1cf4a9a`, `15c03d8`); nothing pushed. MetaService over gRPC, Connect and REST: Browse (genre/tag/exclude/type/status/rating/language/year filters, sorts, paging), Search (all titles and alt titles plus people; normalized + trigram + substring for CJK; ranked), GetEntry (all parts, sources with attribution, field_sources, redirects, background refresh of stale entries), LookupExternal (meta IDs first, then plugins; result stored), ListTags; `SearchIndex` selected by `search.backend` (postgres only). Synthetic speed with 54k active entries: browse 15–60 ms, search 100–300 ms. meta-mangabaka image: distroless, non-root, 22 MB, healthcheck, :8903, meta as a named build context; GoReleaser multi-arch, release-please, CodeQL, Renovate. **Assumption:** images go to Docker Hub `panelarr/<repo>`, needing DOCKERHUB_USERNAME/DOCKERHUB_TOKEN secrets (matches ADR-0008 and Q-0013). Keeper checked both `main`s and ran leak-check (clean); tests not re-run. Next: slice 8 for meta, then DONE.
 - 2026-10-11: **DONE received.** All 8 slices merged (meta `fca9551`: image + compose; meta-mangabaka `15c03d8`), nothing pushed, evidence named per DoD box (test names). The session ran the compose stack (meta healthy, provider OK, 401 without a key) but not a real-dump sync. Follow-ups: `replace => ../meta` until meta is tagged; Docker Hub secrets for releases; working assumptions still open (same-provider linking, name-only people, `is_licensed` as English). **Note:** the session pruned the owner's Docker build cache (4.7 GB) when the Docker Desktop disk hit 98% during scale tests, without asking first; told to ask next time. The keeper is verifying on clean clones.
+- 2026-10-11: **Done.** Keeper verification passed on clean clones of both repos (lint 0 issues, no vulnerabilities, all tests ok, Postgres tests not skipped); DoD boxes ticked on the session's per-box evidence plus this run ([test report](../../qa/reports/goal-0002-meta-v0-done-verification.md)). Open: a real-dump ingest by the owner; images and release workflows not run by the keeper.

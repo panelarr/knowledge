@@ -41,6 +41,8 @@
 - Owner (IN-0020): meta should probably get an admin UI too (API key clients, integrations: proxies, VPNs, FlareSolverr). Shaped as [GOAL-0003](../agents/goals/GOAL-0003-meta-admin-clients-integrations-and-admin-ui.md) (`proposed`, after GOAL-0002), modelled on mihon-source; Q-0034 opened.
 - GOAL-0001 verified by the keeper: pass with issues ([test report](../qa/reports/goal-0001-mihon-source-v0-done-verification.md)).
 
+- **GOAL-0002 done:** the keeper verified it on clean clones ([test report](../qa/reports/goal-0002-meta-v0-done-verification.md)); DoD ticked; board idle; GOAL-0003 waits for the owner.
+
 ## New open questions
 
 - None new at first. The ingestion-type list is a draft for the session to refine.

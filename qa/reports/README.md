@@ -5,3 +5,4 @@ Results of test runs, including verification of a session's `REPORT:`/`DONE:` an
 | Doc | Build | Status |
 |---|---|---|
 | [goal-0001-mihon-source-v0-done-verification.md](goal-0001-mihon-source-v0-done-verification.md) | GOAL-0001 mihon-source v0 DONE verification | draft |
+| [goal-0002-meta-v0-done-verification.md](goal-0002-meta-v0-done-verification.md) | GOAL-0002 meta v0 DONE verification | draft |
