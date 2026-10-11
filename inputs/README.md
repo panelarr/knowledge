@@ -34,3 +34,4 @@ The owner's raw words: messages, answers, idea dumps, transcripts, pasted conver
 | [IN-0028](IN-0028-meta-admin-ui-feedback-layout-no-tag-search.md) | meta admin UI needs work (filter layout) and has no tag search; screenshot after the real import (306,084 entries) | 2026-10-11 | GOAL-0003, contracts/metadata-schema.md |
 | [IN-0029](IN-0029-real-meta-import-numbers-first-try-failed-on-docker-disk.md) | First real meta import: 13m23s, 6.6 GB DB, 306,084 active entries; first try failed when Docker ran out of disk | 2026-10-11 | research/mangabaka.md, modules/meta/overview.md |
 | [IN-0030](IN-0030-panelarr-svg-logo-for-every-admin.md) | A Panelarr SVG logo, used in every admin as "LOGO Panelarr Meta" etc. | 2026-10-11 | product/brand.md |
+| [IN-0031](IN-0031-logo-approved.md) | Owner approves the draft logo ("yeah not bad") | 2026-10-11 | product/brand.md |

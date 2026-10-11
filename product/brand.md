@@ -1,9 +1,9 @@
 ---
 title: Brand and logo
-status: proposed
+status: accepted
 tags: [product, brand, design]
 related: [product/vision.md, modules/mihon-source/overview.md, modules/meta/overview.md]
-inputs: [IN-0030]
+inputs: [IN-0030, IN-0031]
 updated: 2026-10-11
 ---
 
@@ -11,7 +11,7 @@ updated: 2026-10-11
 
 ## Summary
 
-The owner asked for a Panelarr SVG logo, used in every admin as "LOGO Panelarr Meta" and so on (IN-0030). This is the keeper's first draft for the owner to approve. The mark is **a manga page cut into three panels with slanted gutters** on a rounded tile: "panels" for Panelarr, in the *arr* family's rounded-tile style.
+The owner asked for a Panelarr SVG logo, used in every admin as "LOGO Panelarr Meta" and so on (IN-0030). The owner approved the draft ("yeah not bad", IN-0031); it can still be refined later. The mark is **a manga page cut into three panels with slanted gutters** on a rounded tile: "panels" for Panelarr, in the *arr* family's rounded-tile style.
 
 ## Files
 
