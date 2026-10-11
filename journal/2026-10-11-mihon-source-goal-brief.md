@@ -1,7 +1,7 @@
 # 2026-10-11: mihon-source goal brief
 
 - **Participants:** @aurimasniekis, panelarr-knowledge
-- **Inputs:** IN-0005, IN-0006, IN-0007
+- **Inputs:** IN-0005, IN-0006, IN-0007, IN-0008
 
 ## Discussed
 
@@ -10,6 +10,7 @@
 - Blockers found in the KB: source-api (M0) isn't started, so the `panelarr.source.v1` protos don't exist; Q-0003 (AndroidCompat reuse) and Q-0012 (licence) are open; Q-0010 (code-session git autonomy) is open; the repo doesn't exist. The keeper asked four questions (IN-0005 §2).
 
 - The owner answered Q-0026 and Q-0030 together (IN-0007 §1), created the repo and gave the go (IN-0007 §2).
+- The session started and reported in directly through session messages. The owner suggested ("maybe") a frontend sub-agent working in parallel (IN-0008).
 
 ## Changed in the KB
 
@@ -20,6 +21,7 @@
 - [Questions](../questions/README.md): Q-0003 answered; Q-0010, Q-0012 and Q-0026 annotated; Q-0030 opened.
 - [ADR-0021](../decisions/ADR-0021-mihon-source-standalone-admin.md) written; ADR-0005 marked superseded. GOAL-0001 widened to nine slices (auth, integrations, stores, admin SPA). Updated [contract](../contracts/mihon-source-api.md) (stores, clients, integrations services; auth), mihon-source and source-mihon overviews, source-api overview, store research, architecture overview, roadmap M1, modules index.
 - Q-0026 and Q-0030 answered; Q-0031 opened. [Plugins](../architecture/plugins.md) common surface: plugins declare the config they expect and the common services they can use. Contracts, both Mihon module docs and GOAL-0001 updated. GOAL-0001 `accepted` and dispatched; board `briefed`.
+- GOAL-0001: optional "Parallel frontend" section (after slice 2, sub-agent owns `admin/` in its own worktree, API is the contract). Board: `working`; ownership note.
 
 ## Decided
 

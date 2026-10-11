@@ -3,7 +3,7 @@ title: "GOAL-0001: mihon-source v0: run Mihon extensions over the source API"
 status: accepted
 tags: [goal, agents, mihon-source, mihon, kotlin]
 related: [decisions/ADR-0021-mihon-source-standalone-admin.md, modules/mihon-source/overview.md, contracts/mihon-source-api.md, research/mihon-extension-store.md, architecture/security.md, contracts/source-plugin.md, research/suwayomi-server.md, research/mihon-extensions.md, architecture/networking.md, architecture/repo-standard.md]
-inputs: [IN-0005, IN-0006, IN-0007]
+inputs: [IN-0005, IN-0006, IN-0007, IN-0008]
 repos: [mihon-source]
 session: "panelarr-mihon-source"
 features: []
@@ -73,6 +73,15 @@ Each slice works end to end, has tests and ends with `make check` green and a `R
 4. Keep `PROGRESS.md` in the repo: these slices ticked off, plus the next one. **Re-read it whenever you lose context.**
 5. Don't stop after each slice to ask. Go on to the next one unless blocked on the owner's decision. The owner merges finished branches; you may branch the next slice off the previous one if it isn't merged yet, and say so in the REPORT.
 
+## Parallel frontend (optional)
+
+The owner suggested you may hand the admin SPA (slice 8) to a **sub-agent** working in parallel while you do the backend (IN-0008). It's your call when and whether it pays off. If you do it:
+
+- **Start it after slice 2**, once `mihon.v1`/`source.v1` and the generated OpenAPI exist. The API is the contract between you. The sub-agent works against the generated TypeScript client plus a mock server or fixtures, and switches to the real service as slices land.
+- **Ownership:** the sub-agent owns only `admin/` (the SPA and its build config). You own everything else, including `proto/`, the OpenAPI output and the `Makefile`. If the sub-agent needs an API change, it asks you; it never edits the protos or the backend.
+- **Isolation:** give it its own git worktree and branch (`feat/admin-…`), off your latest slice. Same git rules: commit on its branch, never push or merge.
+- **You stay the only one who talks to the keeper.** Fold its progress into your `REPORT:`s and `PROGRESS.md`. Its work counts for slice 8 and the SPA DoD box only after you've checked it against the API and `make check` passes.
+
 ## When something isn't decided
 
 - `ASK:` the keeper first.
@@ -111,4 +120,5 @@ Each slice works end to end, has tests and ends with `make check` green and a `R
 - 2026-10-11: brief written from IN-0005 (`proposed`).
 - 2026-10-11: widened with the minimal admin SPA, clients and API keys, integrations and extension stores (IN-0006, ADR-0021).
 - 2026-10-11: admin clarified as standalone-only; the Panelarr stack configures mihon-source through source-mihon (IN-0007 §1). Owner created the repo and gave the go: `accepted`, dispatched (IN-0007 §2).
+- 2026-10-11: optional parallel frontend sub-agent for slice 8 (IN-0008).
 - 2026-10-11: REPORT from `panelarr-mihon-source`: started; read the brief and its docs; slice 1 (scaffold) in progress on `chore/repo-scaffold`.

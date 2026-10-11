@@ -32,7 +32,7 @@ States: `idle` · `briefed` · `working` · `blocked` · `review` · `done`.
 
 <!-- When sessions run in parallel: which paths each owns, so they don't edit each other's files. -->
 
-- `panelarr-mihon-source`: the whole `mihon-source` repo. Its `proto/` tree is a temporary home for `panelarr.source.v1` until `source-api` exists (IN-0005 §2).
+- `panelarr-mihon-source`: the whole `mihon-source` repo. If it starts a frontend sub-agent (optional, IN-0008), that sub-agent owns only `admin/`, in its own worktree on `feat/admin-…`, and reports through the session. Its `proto/` tree is a temporary home for `panelarr.source.v1` until `source-api` exists (IN-0005 §2).
 
 ## Worktrees
 
