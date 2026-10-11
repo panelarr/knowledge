@@ -27,4 +27,4 @@ The Go side of Mihon support ([ADR-0021](../../decisions/ADR-0021-mihon-source-s
 - Multiple mihon-source instances, e.g. one per network zone (suggestion).
 
 ## Implementation status
-In progress (GOAL-0009). On `main` (`c16adaf`): config schema and SetConfig, pass-through of every source.v1 RPC to mihon-source, health, profiles, store and extension reconcile via MihonStores, metrics; end-to-end conformance against the real mihon-source passes. Next: image and compose.
+**v0 done** (GOAL-0009, `ada9503`): config via SetConfig, pass-through of every source.v1 call to mihon-source, health, profiles, store and extension reconcile, metrics; a 21.6 MB distroless image on :8904; a compose example; end-to-end conformance against the real mihon-source passes.

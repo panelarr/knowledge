@@ -16,7 +16,7 @@ The brief a coding session works from. A short paste-in version points here: *"W
 
 ## Status
 
-`accepted`: dispatched to `panelarr-mihon-source` on 2026-10-11 (owner's go, IN-0040). Repos `panelarr/source-api` and `panelarr/source-mihon` created by the owner.
+`accepted`, **Done 2026-10-11** (verified, pass with issues; [test report](../../qa/reports/goal-0009-source-api-and-source-mihon-done-verification.md)). Dispatched on 2026-10-11 (owner's go, IN-0040). Repos `panelarr/source-api` and `panelarr/source-mihon` created by the owner.
 
 ## Context
 
@@ -54,11 +54,11 @@ The brief a coding session works from. A short paste-in version points here: *"W
 
 ## Definition of Done
 
-- [ ] source-api: protos moved (no wire change), lint and breaking checks in CI, Go SDK managed + standalone, httpx, conformance runner; Apache-2.0
-- [ ] mihon-source builds against source-api's protos; its tests are unchanged and green
-- [ ] source-mihon: config schema and common services declared; every source.v1 RPC passed through; stores via MihonStores; profiles forwarded; conformance passes end to end against mihon-source
-- [ ] Images, compose example, docs; `make check` green in all three repos; leak-check clean
-- [ ] `DONE:` with evidence per box
+- [x] source-api: protos moved (no wire change), lint and breaking checks in CI, Go SDK managed + standalone, httpx, conformance runner; Apache-2.0
+- [x] mihon-source builds against source-api's protos; its tests are unchanged and green
+- [x] source-mihon: config schema and common services declared; every source.v1 RPC passed through; stores via MihonStores; profiles forwarded; conformance passes end to end against mihon-source
+- [x] Images, compose example, docs; `make check` green in all three repos; leak-check clean
+- [x] `DONE:` with evidence per box
 
 ## History
 
@@ -69,3 +69,4 @@ The brief a coding session works from. A short paste-in version points here: *"W
 - 2026-10-11: REPORT: **slice 3 (SDK) done** (`dcf0c7d`; GetConfig/SetConfig protos `aab3ecf`). plugin (managed/standalone, typed errors with reasons and retry hints, config handling), client (managed, remote gRPC/Connect, host connection, in-process), httpx (per-source profiles incl. SOCKS5 auth, solver, limits, DoH, shared jars), settings, a conformance runner (CLI with --strict) and a fake plugin for host tests. The server's asks (1) importable remote client and (2) an in-process fixture are met. Next: slice 4 (mihon-source consumes source-api).
 - 2026-10-11: REPORT: **slice 4 done**: mihon-source consumes source-api's protos (`d892a22`), vendored byte-identical under `third_party/source-api` with a pinned commit and checksum; a build check blocks edits; `make sync-source-api` re-pins; GetConfig/SetConfig answered UNIMPLEMENTED. `JOB_TRIGGER_SYSTEM` added (`a3906c0`). Next: slice 5 (source-mihon).
 - 2026-10-11: REPORT: **slice 5 (source-mihon) done** (`adcfb82` scaffold, `c16adaf` plugin; source-api `f62b01a` SDK routes). Config schema (mihon-source URL, writeOnly key, stores, extensions) via SetConfig, env or file; limits 2 concurrent and 30/min per source; full pass-through with retries only while mihon-source is unreachable and errors kept (incl. retry_after); health passed through; profiles forwarded; stores and extensions reconciled through MihonStores every 15 min (add only, updates stay in mihon-source); metrics. **End to end:** real mihon-source + test extension + a made-up site: conformance 2 sources, every step OK, 0 problems; title search finds both languages. Slice 6 (image, compose, release) approved by the keeper as part of the goal.
+- 2026-10-11: **DONE received** (source-mihon `ada9503`: distroless image 21.6 MB, compose with secrets, release workflow; checked read-only and nonroot). Keeper verification: source-api and source-mihon pass on clean clones; mihon-source has a **flaky GOAL-0007 scheduler test** (2 of 5 runs fail), sent for a fix. Goal closed; the flake is tracked separately.

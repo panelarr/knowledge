@@ -29,4 +29,4 @@ openapi/                    generated OpenAPI for the JSON mapping
 - `sdk/httpx` is the Go twin of mihon-source's per-source OkHttp setup ([networking](../../architecture/networking.md)). Both must behave the same in conformance tests (proxy honoured, solver called on challenge).
 
 ## Implementation status
-In progress (GOAL-0009). On `main`: protos (`69a73ff`, plus GetConfig/SetConfig `aab3ecf`) and the Go SDK (`dcf0c7d`): plugin, client, httpx, settings, conformance runner and `plugintest.Fake`.
+**v0 done** (GOAL-0009, `d33d1bf`): `panelarr.source.v1` protos (incl. GetConfig/SetConfig), Go codegen and OpenAPI, the plugin SDK (plugin, client, httpx, settings), the conformance runner and a fake plugin.
