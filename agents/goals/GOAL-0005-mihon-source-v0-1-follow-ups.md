@@ -58,3 +58,4 @@ The owner's follow-up list for mihon-source, in this order:
 - 2026-10-11: recorded from `panelarr-mihon-source`'s REPORT of the owner's direct request (`proposed` until the owner confirms to the keeper).
 - 2026-10-11: items 9 (structured logs) and 10 (per-source health self-check) added from the owner (IN-0024, ADR-0027).
 - 2026-10-11: owner confirmed (IN-0025): `accepted`.
+- 2026-10-11: REPORT: **item 1 (icons) merged** (`4d91e3f`). Taken from the highest-density launcher icon in the APK or jar, falling back to the store's icon URL at install; max 512 KB, type checked. Routes: `/v1/sources/{id}/icon` (sources:read), admin extension and store-icon proxy (cached a week). `Source.icon_url` is a plugin-relative path. Admin UI shows icons with a letter fallback, and nothing loads from third parties. Next: items 2 + 9 (metrics, logs, health), then 3, then 4 + 10, then 5–8.
