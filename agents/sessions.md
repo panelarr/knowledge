@@ -22,7 +22,7 @@ Every agent session working on Panelarr: where it works, what goal it holds and 
 | `panelarr-source-api` | `source-api` (not created yet; [module](../modules/source-api/README.md)) | — | — | — | idle | — |
 | `panelarr-meta` | `meta` (not created yet; [module](../modules/meta/README.md)) | — | — | — | idle | — |
 | `panelarr-source-mihon` | `source-mihon` (not created yet; [module](../modules/source-mihon/README.md)) | — | — | — | idle | — |
-| `panelarr-mihon-source` | `mihon-source` (not created yet; [module](../modules/mihon-source/README.md)) | — | — | — | idle | — |
+| `panelarr-mihon-source` | `mihon-source` (`../mihon-source`, being created by the owner; [module](../modules/mihon-source/README.md)) | — (the clone itself) | `<type>/<scope>-<slug>` | [GOAL-0001](goals/GOAL-0001-mihon-source-v0-run-mihon-extensions-over-the-source-api.md) (proposed) | idle | — |
 | `panelarr-source-local` | `source-local` (not created yet; [module](../modules/source-local/README.md)) | — | — | — | idle | — |
 | `panelarr-deploy` | `deploy` (not created yet; [module](../modules/deploy/README.md)) | — | — | — | idle | — |
 
@@ -31,6 +31,8 @@ States: `idle` · `briefed` · `working` · `blocked` · `review` · `done`.
 ## Ownership
 
 <!-- When sessions run in parallel: which paths each owns, so they don't edit each other's files. -->
+
+- `panelarr-mihon-source`: the whole `mihon-source` repo. Its `proto/` tree is a temporary home for `panelarr.source.v1` until `source-api` exists (IN-0005 §2).
 
 ## Worktrees
 

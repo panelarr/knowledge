@@ -10,16 +10,15 @@ Everything we don't know yet. IDs are stable and never reused. When a question i
 |---|---|---|---|---|
 | Q-0001 | Go data layer: ent + Atlas vs bun vs sqlc + goose for SQLite/Postgres/MySQL? *Leaning ent + Atlas ([ADR-0018](../decisions/ADR-0018-ent-atlas-data-layer.md)).* | server, meta | P1 | [server](../modules/server/overview.md) |
 | Q-0002 | WebView engine for WebView-only Mihon sources: KCEF/JCEF in-process (Suwayomi) vs a headless Chromium sidecar over CDP? Or skip those sources at first? | mihon-source | P2 | [mihon-source](../modules/mihon-source/overview.md) |
-| Q-0003 | Can we reuse Suwayomi's AndroidCompat? Check its licence (believed MPL-2.0) against our repo licence, or write our own shims. | mihon-source, legal | P1 | [suwayomi research](../research/suwayomi-server.md) |
 | Q-0004 | Tracker OAuth on self-hosted instances (different redirect URI each time): per-instance client registration, PIN/copy-token flows, or a relay? | server, trackers | P2 | [trackers](../architecture/trackers.md) |
 | Q-0005 | Default ports for server, meta, mihon-source and plugins. Avoid clashes with other *arr* apps (8989, 7878, 8686, 9696, …). | deploy | P3 | [deployment](../architecture/deployment.md) |
 | Q-0006 | By default, is meta embedded in server (one container) or a separate service? | meta, deploy | P2 | [meta](../modules/meta/overview.md) |
 | Q-0007 | Extension isolation in mihon-source: all extensions in one JVM (classloader per extension) vs a JVM pool or per-extension processes for crash and memory isolation? | mihon-source | P3 | [mihon-source](../modules/mihon-source/overview.md) |
 | Q-0008 | Web UI component kit and styling (e.g. shadcn/ui + Tailwind, Mantine, Park UI)? | web | P2 | [web](../modules/web/overview.md) |
 | Q-0009 | Which other extension ecosystems might get source plugins later (Paperback, Aidoku, Kotatsu…)? | sources | P3 | [plugins](../architecture/plugins.md) |
-| Q-0010 | Code-session git autonomy: may code sessions commit and merge on branches themselves, or only on request? Who may merge to main and push? | process | P1 | [session protocol](../meta/session-protocol.md) |
+| Q-0010 | Code-session git autonomy: may code sessions commit and merge on branches themselves, or only on request? Who may merge to main and push? *For GOAL-0001 only: commit on its own branches, never push or merge; the owner pushes and merges (IN-0005 §2).* | process | P1 | [session protocol](../meta/session-protocol.md) |
 | Q-0011 | Is MySQL/MariaDB support worth its cost? Review after the first migrations and FTS work. | server | P3 | [ADR-0004](../decisions/ADR-0004-database-portability.md) |
-| Q-0012 | Licence per public repo (the KB itself was set up as MIT tooling + CC BY 4.0 docs by the template default; confirm): GPL-3.0 (like the *arrs) vs AGPL vs MPL-2.0 vs Apache-2.0. Plugin SDKs may want a permissive licence; mihon-source is constrained by any reused Suwayomi code. | legal | P1 | [repo standard](../architecture/repo-standard.md) |
+| Q-0012 | Licence per public repo (the KB itself was set up as MIT tooling + CC BY 4.0 docs by the template default; confirm): GPL-3.0 (like the *arrs) vs AGPL vs MPL-2.0 vs Apache-2.0. Plugin SDKs may want a permissive licence; mihon-source no longer reuses Suwayomi code (Q-0003), so it has no inherited constraint; it ships without a `LICENSE` until this is answered. | legal | P1 | [repo standard](../architecture/repo-standard.md) |
 | Q-0013 | Is the GitHub org **panelarr** available? Is Docker Hub org `panelarr` secured? | repos | P1 | [repo standard](../architecture/repo-standard.md) |
 | Q-0014 | Docker Hub only, or also mirror to ghcr.io/panelarr? | deploy | P3 | [repo standard](../architecture/repo-standard.md) |
 | Q-0015 | Central docs site (a `docs` repo with Starlight/Docusaurus on GitHub Pages) vs per-repo `docs/` only? | repos | P2 | [repo standard](../architecture/repo-standard.md) |
@@ -41,4 +40,5 @@ Everything we don't know yet. IDs are stable and never reused. When a question i
 
 | ID | Question | Answer |
 |---|---|---|
+| Q-0003 | Can we reuse Suwayomi's AndroidCompat? | No reuse: mihon-source writes its own Android shims and studies Suwayomi's approach only, copying no code (IN-0005 §2). The licence check is no longer needed for mihon-source. See [mihon-source](../modules/mihon-source/overview.md) |
 | Q-0029 | Replace the earlier private KB's pushed history before going public? | Done by the owner: the previous repo was deleted, and this repo starts from a fresh initial commit (IN-0004 §3) |

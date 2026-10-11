@@ -249,7 +249,24 @@
       "token_env": "BITBUCKET_TOKEN"
     }
   },
-  "repos": [],
+  "repos": [
+    {
+      "name": "mihon-source",
+      "path": "../mihon-source",
+      "forge": "github",
+      "slug": "panelarr/mihon-source",
+      "visibility": "public",
+      "session": "panelarr-mihon-source",
+      "default_branch": "main",
+      "module": "modules/mihon-source/overview.md",
+      "docs": [
+        "contracts/mihon-source-api.md",
+        "contracts/source-plugin.md",
+        "architecture/networking.md",
+        "architecture/repo-standard.md"
+      ]
+    }
+  ],
   "authority": {
     "kb_commit": "auto",
     "kb_push": "never",
