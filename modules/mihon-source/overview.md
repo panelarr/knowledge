@@ -24,7 +24,7 @@ A **standalone Kotlin/JVM service** that runs Mihon extensions and exposes them 
   - **clients and auth:** the admin token and scoped client API keys;
   - **integrations:** solvers and network profiles, assigned per source;
   - the **admin SPA** (browse and test sources, settings, extensions, stores, clients, integrations).
-- **Doesn't own:** users, libraries, downloads. Config pushed from the Panelarr side later (Q-0030).
+- **Doesn't own:** users, libraries, downloads. In the Panelarr stack its config comes from the main app through source-mihon; **the admin is for standalone users** (Q-0030, IN-0007 §1).
 
 ## Internals (planned)
 | Part | Approach (from [Suwayomi research](../../research/suwayomi-server.md)) |
@@ -53,4 +53,4 @@ curl -H "Authorization: Bearer $CLIENT_KEY" localhost:8080/v1/sources/123456789/
 ```
 
 ## Implementation status
-Not started (M1). [GOAL-0001](../../agents/goals/GOAL-0001-mihon-source-v0-run-mihon-extensions-over-the-source-api.md) is briefed (proposed) for `panelarr-mihon-source`. Until `source-api` exists, the `panelarr.source.v1` protos live in this repo's `proto/` and move later (IN-0005 §2).
+Not started (M1). [GOAL-0001](../../agents/goals/GOAL-0001-mihon-source-v0-run-mihon-extensions-over-the-source-api.md) is dispatched to `panelarr-mihon-source` (2026-10-11). Until `source-api` exists, the `panelarr.source.v1` protos live in this repo's `proto/` and move later (IN-0005 §2).

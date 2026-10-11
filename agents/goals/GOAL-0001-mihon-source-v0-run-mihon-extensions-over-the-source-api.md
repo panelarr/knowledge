@@ -1,9 +1,9 @@
 ---
 title: "GOAL-0001: mihon-source v0: run Mihon extensions over the source API"
-status: proposed
+status: accepted
 tags: [goal, agents, mihon-source, mihon, kotlin]
 related: [decisions/ADR-0021-mihon-source-standalone-admin.md, modules/mihon-source/overview.md, contracts/mihon-source-api.md, research/mihon-extension-store.md, architecture/security.md, contracts/source-plugin.md, research/suwayomi-server.md, research/mihon-extensions.md, architecture/networking.md, architecture/repo-standard.md]
-inputs: [IN-0005, IN-0006]
+inputs: [IN-0005, IN-0006, IN-0007]
 repos: [mihon-source]
 session: "panelarr-mihon-source"
 features: []
@@ -16,11 +16,11 @@ The brief a coding session works from. A short paste-in version points here: *"W
 
 ## Status
 
-`proposed`: brief written for the owner to review (IN-0005), widened with the minimal admin, clients and extension stores (IN-0006, ADR-0021). It becomes `accepted` when dispatched.
+`accepted`: dispatched to `panelarr-mihon-source` on 2026-10-11 (IN-0007 §2). Scope from IN-0005, widened with the minimal admin, clients and extension stores (IN-0006, ADR-0021). It becomes `accepted` when dispatched.
 
 ## Context
 
-- Code: `~/Projects/Panelarr/mihon-source` (clone of `github.com/panelarr/mihon-source`, created by the owner) · no extra worktree (single session) · branches `<type>/<scope>-<slug>`, e.g. `feat/loader-dex2jar`
+- Code: `~/Projects/Panelarr/mihon-source` (clone of `github.com/panelarr/mihon-source`, created by the owner; empty, no commits yet) · no extra worktree (single session) · branches `<type>/<scope>-<slug>`, e.g. `feat/loader-dex2jar`
 - Milestone: **M1 Mihon sources** ([roadmap](../../planning/roadmap.md)). There are no `FEAT-` docs for it yet. The DoD below stands in for acceptance criteria.
 - **Read first, in this order:**
   1. [product/principles.md](../../product/principles.md): opt-in and composable. mihon-source must run **standalone**.
@@ -42,7 +42,7 @@ Build **mihon-source v0**: a small Kotlin/JVM 21 service that installs Mihon ext
 - **Protos live in this repo for now.** source-api (M0) isn't started. Write `proto/panelarr/source/v1/` and `proto/panelarr/mihon/v1/` here from the contract sketches, and build against them. They move to the `source-api` repo once it exists, so keep them self-contained: no Mihon- or JVM-specific types in `source.v1`, `buf lint` clean.
 - **Our own Android shims.** Study Suwayomi's approach (AndroidCompat, dex2jar, classloaders, GraalJS behind the QuickJS API), but **copy no Suwayomi code**. Q-0003 is answered this way.
 - **Git:** commit on your own feature branches. **Never push, never merge to `main`.** The owner pushes and merges.
-- **Minimal admin** (IN-0006): a small **React SPA** on the web module's stack (React + TanStack, [ADR-0006](../../decisions/ADR-0006-technology-stack.md)), built in a multi-stage image and served by the service. **One admin token** (env var, or generated on first start and printed once). Clients get **scoped API keys**. The admin manages **solvers, proxies/network profiles and extension stores**. Later, mihon-source should be able to pick up this config from the Panelarr side (Q-0030): keep config behind one interface, so a pushed source can be added without reworking the admin.
+- **Minimal admin** (IN-0006): a small **React SPA** on the web module's stack (React + TanStack, [ADR-0006](../../decisions/ADR-0006-technology-stack.md)), built in a multi-stage image and served by the service. **One admin token** (env var, or generated on first start and printed once). Clients get **scoped API keys**. The admin manages **solvers, proxies/network profiles and extension stores**. **The admin is for people who run mihon-source standalone**, without the Panelarr stack. In the stack, the main app owns the config and source-mihon passes it to mihon-source through the same `mihon.v1` APIs with an admin-scope key (Q-0026/Q-0030, IN-0007 §1). So: **everything the SPA does must be a plain API call**, with no SPA-only logic, and config lives behind one interface.
 
 ## Slices (suggested order)
 
@@ -78,7 +78,7 @@ Each slice works end to end, has tests and ends with `make check` green and a `R
 - `ASK:` the keeper first.
 - Still open? `PROPOSE:` a concrete working assumption that fits the accepted decisions, then build it **cheap to change** (config/data, not hard-coded).
 - Never present an assumption as decided, and never change an accepted decision yourself.
-- Known open points you'll meet: Q-0020 (JVM RPC stack), Q-0007 (isolation: build one JVM with a classloader per extension, as planned), Q-0002 (WebView: out of scope), Q-0012 (licence: none yet), Q-0028 (no KB IDs in the repo).
+- Known open points you'll meet: Q-0031 (whether source-mihon will call your store API: build `MihonStores` as a complete API either way), Q-0020 (JVM RPC stack), Q-0007 (isolation: build one JVM with a classloader per extension, as planned), Q-0002 (WebView: out of scope), Q-0012 (licence: none yet), Q-0028 (no KB IDs in the repo).
 
 ## Constraints
 
@@ -109,4 +109,5 @@ Each slice works end to end, has tests and ends with `make check` green and a `R
 ## History
 
 - 2026-10-11: brief written from IN-0005 (`proposed`).
-- 2026-10-11: widened with the minimal admin SPA, clients and API keys, integrations and extension stores (IN-0006, ADR-0021). Still `proposed`.
+- 2026-10-11: widened with the minimal admin SPA, clients and API keys, integrations and extension stores (IN-0006, ADR-0021).
+- 2026-10-11: admin clarified as standalone-only; the Panelarr stack configures mihon-source through source-mihon (IN-0007 §1). Owner created the repo and gave the go: `accepted`, dispatched (IN-0007 §2).

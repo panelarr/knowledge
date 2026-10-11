@@ -51,7 +51,7 @@ service MihonIntegrations {
 - Keys are stored hashed and never returned after creation.
 
 ## Boundaries
-- **Stores in both places.** mihon-source manages its own stores for standalone use ([ADR-0021](../decisions/ADR-0021-mihon-source-standalone-admin.md)). Whether source-mihon keeps store logic too or pushes config down is [Q-0026](../questions/README.md) / [Q-0030](../questions/README.md). An install request may still carry an expected fingerprint and SHA-256, which mihon-source enforces.
+- **Two ways to configure.** Standalone users configure mihon-source through its admin ([ADR-0021](../decisions/ADR-0021-mihon-source-standalone-admin.md)). In the Panelarr stack the main app owns the config: source-mihon declares it (repos/stores, settings, common services) and passes it to mihon-source (Q-0026, Q-0030 answered, IN-0007 §1). Whether source-mihon parses stores itself or calls `MihonStores` is [Q-0031](../questions/README.md). An install request may still carry an expected fingerprint and SHA-256, which mihon-source enforces.
 - **No database.** Jars, prefs, cookies, stores, clients and integrations are files under `/data`.
 - **No library, no users, no downloads.** Those belong to server.
 - **Without Panelarr:** `docker run panelarr/mihon-source`, open the admin with the admin token, add a store or install a jar by URL, create a client key, then `curl -H 'Authorization: Bearer …' /v1/sources/{id}/popular`.

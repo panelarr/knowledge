@@ -16,7 +16,7 @@ Every source plugin implements this: Mihon (via mihon-source and/or source-mihon
 ## Service sketch
 ```proto
 service SourcePlugin {
-  rpc GetInfo(GetInfoRequest) returns (PluginInfo);             // id, version, contract versions, capabilities, limits
+  rpc GetInfo(GetInfoRequest) returns (PluginInfo);             // id, version, contract versions, capabilities, limits, common services it can use (IN-0007)
   rpc ListSources(ListSourcesRequest) returns (ListSourcesResponse); // id, name, lang, content_rating, icon, capabilities
   rpc GetFilters(SourceRef) returns (FilterList);                // typed filters (text, select, tri-state, sort, group)
   rpc Popular(PageRequest) returns (SeriesPage);

@@ -11,7 +11,7 @@ updated: 2026-10-11
 
 ## Summary
 
-The Go side of Mihon support ([ADR-0021](../../decisions/ADR-0021-mihon-source-standalone-admin.md), which superseded ADR-0005). It was planned to hold the "smart" logic: **extension stores, signing trust, update checks, install orchestration, caching and retries**. It talks to one or more mihon-source endpoints. Since ADR-0021, mihon-source manages stores itself for standalone use, so this module's store role is open ([Q-0026](../../questions/README.md), [Q-0030](../../questions/README.md)).
+The Go side of Mihon support ([ADR-0021](../../decisions/ADR-0021-mihon-source-standalone-admin.md), which superseded ADR-0005). It was planned to hold the "smart" logic: **extension stores, signing trust, update checks, install orchestration, caching and retries**. It talks to one or more mihon-source endpoints. Since ADR-0021, mihon-source manages stores itself for standalone use. In the Panelarr stack, source-mihon tells the main app **what config it expects** (extension repos/stores, settings) and **which common services it can use**; the main app manages that config and source-mihon passes it to mihon-source (Q-0026 answered, IN-0007 §1). Whether it parses stores itself or delegates to mihon-source: [Q-0031](../../questions/README.md).
 
 ## Responsibilities
 - **Stores:**
@@ -24,7 +24,7 @@ The Go side of Mihon support ([ADR-0021](../../decisions/ADR-0021-mihon-source-s
 - **Network profiles:** forward per-source profiles to mihon-source.
 
 ## Open
-- [Q-0026](../../questions/README.md) (the role split). Multiple mihon-source instances, e.g. one per network zone (suggestion).
+- [Q-0031](../../questions/README.md) (store parsing: here or delegated). Multiple mihon-source instances, e.g. one per network zone (suggestion).
 
 ## Implementation status
 Not started (M1).
