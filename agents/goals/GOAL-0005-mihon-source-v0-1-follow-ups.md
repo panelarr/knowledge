@@ -3,7 +3,7 @@ title: "GOAL-0005: mihon-source v0.1 follow-ups"
 status: accepted
 tags: [goal, agents, mihon-source]
 related: [agents/goals/GOAL-0001-mihon-source-v0-run-mihon-extensions-over-the-source-api.md, modules/mihon-source/overview.md, contracts/source-plugin.md, contracts/mihon-source-api.md]
-inputs: [IN-0024, IN-0025]
+inputs: [IN-0024, IN-0025, IN-0027]
 repos: [mihon-source]
 session: "panelarr-mihon-source"
 features: []
@@ -29,7 +29,7 @@ The owner's follow-up list for mihon-source, in this order:
 
 1. **Extension icons:** served by the service, both for installed extensions (from the extension file) and for store icons proxied through the service; shown in the admin UI.
 2. **Metrics:** per-source request counts, errors and latency as a Prometheus endpoint.
-3. **Container hardening docs:** read-only root filesystem, only `/data` writable, guidance for untrusted extensions.
+3. **Container hardening docs:** read-only root filesystem, only `/data` writable, guidance for untrusted extensions. **Plus a VPN example** (IN-0027): **gluetun** running an OpenVPN or WireGuard config and exposing its HTTP proxy, with a network profile pointing at it (e.g. `vpn → http://gluetun:8888`) for chosen sources. Mention the alternative `network_mode: "service:gluetun"` (all traffic through the VPN, all or nothing) with its trade-offs. A compose snippet with placeholders only: no provider credentials, no real server names.
 4. **Compatibility checker:** a generic CLI that works against a running service. By default it installs and loads; selected calls are optional (popular, latest, search, details, chapters, pages, image). It can target all extensions, a random N, or a name/lang filter, and writes a report.
 5. **Android-style date parsing:** an ICU-backed `SimpleDateFormat` replacement via bytecode rewrite (planned in the module's "ASM fix-ups").
 6. **Scheduled store refresh,** configurable.
@@ -60,3 +60,4 @@ The owner's follow-up list for mihon-source, in this order:
 - 2026-10-11: owner confirmed (IN-0025): `accepted`.
 - 2026-10-11: REPORT: **item 1 (icons) merged** (`4d91e3f`). Taken from the highest-density launcher icon in the APK or jar, falling back to the store's icon URL at install; max 512 KB, type checked. Routes: `/v1/sources/{id}/icon` (sources:read), admin extension and store-icon proxy (cached a week). `Source.icon_url` is a plugin-relative path. Admin UI shows icons with a letter fallback, and nothing loads from third parties. Next: items 2 + 9 (metrics, logs, health), then 3, then 4 + 10, then 5–8.
 - 2026-10-11: REPORT: **items 2 (metrics) and 9 (logs, health) merged** (`168bc7b`). Prometheus via Micrometer: JVM, per-source call timings by source/operation/outcome, solver solves, extension and source counts, with bounded labels (a test checks no site URL appears). `/metrics` needs the new `metrics` scope (or admin) on the API port, or runs unauthenticated on an optional separate `MIHON_METRICS_PORT`. JSON logs by default (`MIHON_LOG_FORMAT`, `MIHON_LOG_LEVEL`). `/healthz` and `/readyz` without credentials. Meets ADR-0027 except the per-source self-check (item 10). Next: the SOCKS5 auth gap fix (GOAL-0001), then hardening docs.
+- 2026-10-11: the owner asked for a gluetun VPN-to-proxy example in the docs (IN-0027), added to item 3.

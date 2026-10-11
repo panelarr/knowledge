@@ -30,3 +30,4 @@ The owner's raw words: messages, answers, idea dumps, transcripts, pasted conver
 | [IN-0024](IN-0024-observability-for-every-service-mihon-per-source-self-check.md) | Every service: configurable structured JSON logs, Prometheus metrics, health endpoints; mihon-source per-source self-check; go on GOAL-0004 | 2026-10-11 | ADR-0027, GOAL-0003, GOAL-0004, GOAL-0005 |
 | [IN-0025](IN-0025-confirm-goal-0005-and-accept-feat-0001.md) | Confirms GOAL-0005 and accepts FEAT-0001 | 2026-10-11 | GOAL-0005, FEAT-0001, GOAL-0006 |
 | [IN-0026](IN-0026-goal-0004-and-goal-0006-approved.md) | GOAL-0004 and GOAL-0006 approved; queue order kept (duplicates, then search engines) | 2026-10-11 | GOAL-0004, GOAL-0006 |
+| [IN-0027](IN-0027-gluetun-vpn-as-proxy-example-in-mihon-source-docs.md) | VPN via OpenVPN/WireGuard for mihon-source: document gluetun as a VPN-to-proxy container in mihon-source's docs | 2026-10-11 | GOAL-0005, architecture/networking.md |

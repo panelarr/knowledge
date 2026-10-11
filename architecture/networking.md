@@ -52,7 +52,9 @@ flowchart LR
 - **Images:** page and image fetches use the same profile. Many CDNs check `Referer` and cookies, so the plugin owns image fetches end to end.
 
 ## VPN
-- Panelarr never manages tunnels. A **VPN** is a container such as **gluetun** that exposes an HTTP/SOCKS proxy. A profile points at it (`vpn-nl → http://gluetun-nl:8888`).
+- Panelarr never manages tunnels. A **VPN** is a container such as **gluetun** (OpenVPN or WireGuard) that exposes an HTTP/SOCKS proxy. A profile points at it (`vpn-nl → http://gluetun-nl:8888`). mihon-source documents this with a compose example (IN-0027, GOAL-0005).
+- Alternative for "everything through the VPN": run the service in the VPN container's network (`network_mode: "service:gluetun"`). It is all or nothing, with no per-source choice, and the service's port must be published on the gluetun container.
+- Not planned: services running OpenVPN/WireGuard themselves (needs NET_ADMIN and a tun device, which conflicts with hardening).
 - Deploy offers compose profiles for one or more gluetun instances ([deployment](deployment.md)).
 
 ## Challenges that solvers can't pass
