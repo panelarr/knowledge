@@ -20,11 +20,12 @@ Everything we don't know yet. IDs are stable and never reused. When a question i
 | Q-0019 | Rules for inferring series, volume and chapter from file and folder names when there is no ComicInfo. | source-local | P2 | [formats](../research/comic-archive-formats.md) |
 | Q-0020 | RPC stack on the Go side: ConnectRPC + OpenAPI generation from protos? Is gRPC the primary wire for remote plugins, with JSON optional? *JVM side answered: Armeria ([ADR-0024](../decisions/ADR-0024-armeria-for-the-jvm-rpc-server.md)).* | contracts | P1 | [ADR-0012](../decisions/ADR-0012-protobuf-grpc-contracts.md) |
 | Q-0021 | Should trackers become a plugin kind (like sources and metadata), or stay built into server? | trackers | P3 | [trackers](../architecture/trackers.md) |
-| Q-0022 | Search backends: Typesense first (author's suggestion) then Meilisearch? Is embedded Bleve worth adding? Benchmark CJK title search. | search | P2 | [search](../architecture/search.md) |
+| Q-0022 | Search backends: Typesense first (author's suggestion) then Meilisearch? Is embedded Bleve worth adding? Benchmark CJK title search.  *meta gets the same optional, configurable integrations (IN-0017); OpenSearch/Algolia: Q-0033.* | search | P2 | [search](../architecture/search.md) |
 | Q-0023 | Where does character data come from (AniList, ComicVine)? Is it stored in meta and indexed for search? | meta, search | P3 | [search](../architecture/search.md) |
 | Q-0024 | Plugin signing: key format (minisign vs cosign/sigstore), official key management, the trust UI for third-party indexes. | plugins, security | P2 | [plugin index](../contracts/plugin-index.md) |
 | Q-0025 | Should Panelarr be a Mihon "enhanced tracker" / Mihon extension target (like Komga), so the Mihon app can read from and sync with Panelarr? | product | P3 | [trackers research](../research/trackers.md) |
 | Q-0027 | Should server auto-discover remote plugins in the same Compose project (mDNS/DNS-SD, self-registration with a join token, DNS probing, Docker labels)? Discovered plugins are only suggested, never auto-enabled. | plugins, deploy | P3 | [plugins](../architecture/plugins.md) |
+| Q-0033 | OpenSearch and Algolia as optional meta search adapters ("maybe", IN-0017)? [ADR-0010](../decisions/ADR-0010-optional-search-engine.md) (accepted) says lightweight only, "never OpenSearch or Elasticsearch". Algolia is a hosted SaaS, so the catalogue would leave the instance. *Suggestion: keep the `SearchIndex` adapter interface open so either can be added later as an opt-in adapter if the owner revises ADR-0010; build Typesense and Meilisearch first.* | search, meta | P3 | [search](../architecture/search.md) |
 
 ## Answered
 

@@ -3,7 +3,7 @@ title: meta overview
 status: proposed
 tags: [module, meta, metadata, go]
 related: [contracts/metadata-plugin.md, contracts/metadata-schema.md, modules/meta-mangabaka/overview.md, research/mangabaka.md, research/metadata-providers.md, architecture/search.md, decisions/ADR-0022-postgresql-only.md, decisions/ADR-0023-sqlc-pgx-goose-data-layer.md]
-inputs: [IN-0002, IN-0003, IN-0009, IN-0010, IN-0015]
+inputs: [IN-0002, IN-0003, IN-0009, IN-0010, IN-0015, IN-0017]
 updated: 2026-10-11
 ---
 
@@ -34,7 +34,7 @@ Plugins declare which they support: `lookup` (API), `scrape`, `dump` (snapshot d
 - **Ingest:** consumes a plugin's `Sync` stream; upserts in batches, committing at each checkpoint; applies merges as redirects; after a full dump, marks unseen records removed; records each sync run (counts, errors, cursor). Bulk loads may use `COPY` into staging tables.
 - **Sync scheduler:** dump and delta runs on the hoster's schedule, plus manual runs from `MetaAdmin`.
 - **API:** `Browse` (filters + sort, Seerr-style discovery), `Search`, `Get`, `LookupExternal`; gRPC + HTTP/JSON + OpenAPI. Every record carries attribution.
-- **Search:** Postgres FTS + `pg_trgm` behind the `SearchIndex` interface, so Typesense/Meilisearch can plug in later ([search](../../architecture/search.md)).
+- **Search:** Postgres FTS + `pg_trgm` by default, behind the `SearchIndex` interface. **Optional, configurable search engine integrations** (IN-0017): **Typesense** and **Meilisearch** planned; **OpenSearch** and **Algolia** maybe ([Q-0033](../../questions/README.md): they conflict with ADR-0010 or send data off-instance). The hoster picks one in config; the DB stays the source of truth and the index can be rebuilt ([search](../../architecture/search.md)).
 - **Matcher (later):**
   - normalize titles (case, punctuation, width, romanization variants), compare against every title and language;
   - add an author overlap score, year proximity and type;
