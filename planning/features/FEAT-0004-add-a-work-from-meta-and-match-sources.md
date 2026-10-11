@@ -48,7 +48,8 @@ A user searches a title, sees meta's catalogue results (Seerr-style), opens one 
 
 | Repo | Goal | PR/MR | State |
 |---|---|---|---|
-| server, web | — | — | — |
+| server | [GOAL-0010](../../agents/goals/GOAL-0010-server-v0-accounts-add-and-match-chapters-reader-api-downloa.md) slice 5 | — | server side done (`a4b98e9`) |
+| web | [GOAL-0011](../../agents/goals/GOAL-0011-web-v0-panelarr-app-for-the-first-slice.md) | — | pending |
 
 ## Open questions
 
