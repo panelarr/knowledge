@@ -30,7 +30,7 @@ Everything we don't know yet. IDs are stable and never reused. When a question i
 
 | ID | Question | Answer |
 |---|---|---|
-| Q-0005 | Default ports? | server **8900**, meta **8901**, mihon-source **8902** (IN-0015 §1). Plugins in standalone mode: from 8903 up (suggestion). See [deployment](../architecture/deployment.md) |
+| Q-0005 | Default ports? | server **8900**, meta **8901**, mihon-source **8902** (IN-0015 §1). Plugins in standalone mode: from **8903** up (IN-0016). See [deployment](../architecture/deployment.md) |
 | Q-0006 | Is meta embedded in server or a separate service by default? | A **standalone service** (its own container) with library integration (IN-0015 §1). See [meta](../modules/meta/overview.md) |
 | Q-0013 | Are the GitHub org and Docker Hub org `panelarr` secured? | Yes, both: the GitHub repos exist, and the owner confirmed Docker Hub (IN-0015 §1) |
 | Q-0031 | Does source-mihon parse extension stores itself or delegate to mihon-source? | **Delegate**: the store logic lives once, in mihon-source; source-mihon declares the config and passes it on through mihon-source's store API (IN-0015 §1). See [source-mihon](../modules/source-mihon/overview.md) |

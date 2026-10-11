@@ -80,7 +80,7 @@ Each slice works end to end, has tests and ends with `make check` green and a `R
 - `ASK:` the keeper first.
 - Still open? `PROPOSE:` a concrete working assumption that fits the accepted decisions, then build it **cheap to change** (config/data, not hard-coded).
 - Never present an assumption as decided, and never change an accepted decision yourself.
-- **meta is a standalone service** with library integration through its API (Q-0006, IN-0015); **default port 8901** (server 8900, mihon-source 8902). Known open points: Q-0020 (RPC stack: ConnectRPC on Go is the lead), Q-0022 (external search engines: later), Q-0023 (characters: out of scope).
+- **meta is a standalone service** with library integration through its API (Q-0006, IN-0015); **default port 8901** (server 8900, mihon-source 8902); meta-mangabaka in standalone mode **8903** (IN-0016). Known open points: Q-0020 (RPC stack: ConnectRPC on Go is the lead), Q-0022 (external search engines: later), Q-0023 (characters: out of scope).
 
 ## Constraints
 
@@ -114,3 +114,4 @@ Each slice works end to end, has tests and ends with `make check` green and a `R
 - 2026-10-11: owner answers (IN-0014): Armeria accepted (ADR-0024); licences GPL-3.0 apps / Apache-2.0 protos and SDKs (ADR-0025); sessions may merge their own branches into `main` before the first release (no push); repos may cite KB IDs and link KB docs.
 - 2026-10-11: REPORT: **slice 1 (scaffold) done** in both repos and merged into `main` (meta `e7763e4`, meta-mangabaka `ed0e201`; `main` created at the scaffold commit; not pushed). Go 1.26 module (toolchain go1.27.2); `make setup` pins tools into `./bin` (buf, sqlc, golangci-lint, govulncheck, protoc plugins incl. connect-go and connect-openapi); `make check` = fmt-check, vet, golangci-lint, buf lint (once protos exist), govulncheck, `go test -race -cover`. CI for meta runs postgres:18 with a non-superuser role (CREATEDB only), which proves meta needs no superuser; `buf breaking` on PRs. meta-mangabaka uses the SDK through a committed `replace => ../meta` and checks out meta beside it in CI. GPL-3.0 at both roots, SPDX `GPL-3.0-or-later`; Apache-2.0 for `proto/`, `gen/`, `sdk/` from slice 2. **Assumptions:** testcontainers (postgres:18) by default, or `META_TEST_DATABASE_URL`; global-gitignore names avoided. Keeper checked both `main` trees and ran leak-check (clean); `make check` not re-run. Next: slice 2 on `feat/proto-metadata-v1`.
 - 2026-10-11: owner answers (IN-0015): SPDX `GPL-3.0-or-later` confirmed; Code of Conduct contact team@panelarr.app; ports server 8900, meta 8901, mihon-source 8902; source-mihon delegates stores to mihon-source; meta is a standalone service.
+- 2026-10-11: plugin ports from 8903 confirmed; meta-mangabaka standalone on 8903 (IN-0016).

@@ -1,7 +1,7 @@
 # 2026-10-11: metadata goal brief
 
 - **Participants:** @aurimasniekis, panelarr-knowledge
-- **Inputs:** IN-0009, IN-0010, IN-0011, IN-0012, IN-0013, IN-0014, IN-0015
+- **Inputs:** IN-0009, IN-0010, IN-0011, IN-0012, IN-0013, IN-0014, IN-0015, IN-0016
 
 ## Discussed
 
@@ -28,6 +28,7 @@
 - Owner (IN-0012): in compose, meta and the library share one Postgres server, each with its own database. Recorded in deployment, deploy, meta and GOAL-0002; sent to `panelarr-meta`. Clarified right after: that's the production setup, dev doesn't matter (IN-0013).
 - Owner (IN-0014), asked for open questions: Armeria accepted ([ADR-0024](../decisions/ADR-0024-armeria-for-the-jvm-rpc-server.md)); GPL-3.0 apps + Apache-2.0 protos/SDKs ([ADR-0025](../decisions/ADR-0025-licences-gpl-3-0-apps-apache-2-0-sdks-and-protos.md)); before the first release, sessions merge their own branches (no push); repos may cite KB IDs and link KB docs. Q-0010, Q-0012, Q-0028 answered; Q-0020 narrowed to the Go side. Repo standard and both briefs updated; both sessions told.
 - Owner (IN-0015): `GPL-3.0-or-later`; contact team@panelarr.app; Docker Hub org secured; ports 8900/8901/8902; source-mihon delegates stores; meta standalone with library integration. Q-0005, Q-0006, Q-0013, Q-0031 answered; both sessions told.
+- Owner (IN-0016): plugin ports from 8903 up confirmed.
 
 ## New open questions
 
