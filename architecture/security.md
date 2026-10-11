@@ -32,3 +32,6 @@ There are three main risk areas: **running third-party code** (plugins, Mihon ex
 ## Web
 - HTTP-only, SameSite cookies, CSRF protection for cookie-auth mutations, a strict CSP for the SPA, rate-limited login, and audit logging of admin actions.
 - Remote images go through the server image proxy, so the browser never hits sources directly. This avoids leaking user IPs and referers.
+
+## Network profiles to plugins
+- Hosts push network profiles, **including proxy passwords**, to plugins (mihon-source, meta plugins via `SetNetworkProfile`). Managed plugins get them over a local socket. **Remote plugins must be reached over a private network or TLS** (or mTLS), since the profile crosses the wire (GOAL-0003 slice 3).
