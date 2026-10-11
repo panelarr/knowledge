@@ -20,7 +20,7 @@ Every Panelarr code repo is **public on GitHub** and must look and behave like a
 | `LICENSE` | GPL-3.0 for apps, Apache-2.0 for protos and SDKs, with a directory-level `LICENSE` where a repo holds both ([ADR-0025](../decisions/ADR-0025-licences-gpl-3-0-apps-apache-2-0-sdks-and-protos.md)) |
 | `CONTRIBUTING.md` | Dev setup (`make setup`), Conventional Commits, PR process |
 | `SECURITY.md` | Private vulnerability reporting via GitHub Security Advisories |
-| `CODE_OF_CONDUCT.md` | Contributor Covenant |
+| `CODE_OF_CONDUCT.md` | Contributor Covenant. Contact: **team@panelarr.app** (IN-0015) |
 | `.github/ISSUE_TEMPLATE/*`, `pull_request_template.md`, `CODEOWNERS` | |
 | `docs/` | Usage, configuration, API (generated OpenAPI/proto docs), architecture-for-contributors. Optional public `docs/adr/`, written fresh |
 | `Makefile` | `help` (default), `setup`, `build`, `test`, `lint`, `fmt`, `run`, `docker`, `gen` (protos/OpenAPI), `clean` |

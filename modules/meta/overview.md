@@ -3,7 +3,7 @@ title: meta overview
 status: proposed
 tags: [module, meta, metadata, go]
 related: [contracts/metadata-plugin.md, contracts/metadata-schema.md, modules/meta-mangabaka/overview.md, research/mangabaka.md, research/metadata-providers.md, architecture/search.md, decisions/ADR-0022-postgresql-only.md, decisions/ADR-0023-sqlc-pgx-goose-data-layer.md]
-inputs: [IN-0002, IN-0003, IN-0009, IN-0010]
+inputs: [IN-0002, IN-0003, IN-0009, IN-0010, IN-0015]
 updated: 2026-10-11
 ---
 
@@ -11,7 +11,7 @@ updated: 2026-10-11
 
 ## Summary
 
-An optional Go **metadata service**, the **Seerr-style** part of Panelarr: it provides metadata information, browsing and search to the library and the rest of the app (IN-0009 §2). It hosts **metadata plugins**, ingests their records into its own Postgres DB, cross-references external IDs, merges providers into one **Entry** per item ([schema](../../contracts/metadata-schema.md)), and serves **Browse / Search / Get** over the whole catalogue, not only what is in a library. Later: matching source series to metadata, and external search engines. It runs standalone (`panelarr/meta`, usable by other projects) or embedded in server (default still open, [Q-0006](../../questions/README.md)). With meta absent, server falls back to source-provided metadata.
+An optional Go **metadata service**, the **Seerr-style** part of Panelarr: it provides metadata information, browsing and search to the library and the rest of the app (IN-0009 §2). It hosts **metadata plugins**, ingests their records into its own Postgres DB, cross-references external IDs, merges providers into one **Entry** per item ([schema](../../contracts/metadata-schema.md)), and serves **Browse / Search / Get** over the whole catalogue, not only what is in a library. Later: matching source series to metadata, and external search engines. It is a **standalone service** (`panelarr/meta`, its own container, port 8901, usable by other projects) that **integrates with the library** through its API (Q-0006, IN-0015). With meta absent, server falls back to source-provided metadata.
 
 ## Repos
 - **`meta`**: the `panelarr.metadata.v1` and `panelarr.meta.v1` protos, the Go plugin SDK (`plugin.Serve`, managed via go-plugin or standalone `--listen`), the meta service.

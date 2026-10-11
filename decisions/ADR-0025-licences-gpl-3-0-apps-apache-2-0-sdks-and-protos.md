@@ -11,6 +11,7 @@ updated: 2026-10-11
 
 - **Date:** 2026-10-11
 - **Deciders:** @aurimasniekis
+- **Annotation (2026-10-11):** the owner confirmed SPDX `GPL-3.0-or-later` for the apps (IN-0015 §1).
 
 ## Context
 

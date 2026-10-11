@@ -3,7 +3,7 @@ title: Deployment
 status: proposed
 tags: [architecture, deployment, docker, unraid]
 related: [decisions/ADR-0011-composable-opt-in-deployment.md, modules/deploy/overview.md, architecture/repo-standard.md]
-inputs: [IN-0002, IN-0003, IN-0012, IN-0013]
+inputs: [IN-0002, IN-0003, IN-0012, IN-0013, IN-0015]
 updated: 2026-10-11
 ---
 
@@ -17,7 +17,7 @@ Docker-first, *arr*-style: images `panelarr/<repo>` ([ADR-0008](../decisions/ADR
 
 | Image | Contains | Needed? |
 |---|---|---|
-| `panelarr/server` | server + embedded web (+ meta embeddable, [Q-0006](../questions/README.md)) | **yes** |
+| `panelarr/server` | server + embedded web | **yes** |
 | `panelarr/meta` | standalone meta service | optional |
 | `panelarr/mihon-source` | JVM tool for Mihon extensions (+ optional Chromium variant `:<ver>-webview`, [Q-0002](../questions/README.md)) | optional |
 | `panelarr/source-mihon`, `panelarr/source-local`, `panelarr/meta-*` | plugin in standalone/remote mode | optional (managed binaries are the default) |
@@ -41,7 +41,7 @@ Example: `docker compose --profile mihon --profile flaresolverr --profile search
 ## Conventions
 - Volumes `/config` and `/data`; `PUID`/`PGID`/`TZ`/`UMASK` env vars; healthchecks; a non-root user.
 - Multi-arch images: `linux/amd64` and `linux/arm64`.
-- **Ports:** to be picked ([Q-0005](../questions/README.md)).
+- **Ports** (Q-0005, IN-0015): server **8900**, meta **8901**, mihon-source **8902**. Plugins in standalone mode take 8903 and up (suggestion). Every port stays configurable.
 - **Unraid:** Community Applications templates, one per image, in the deploy repo.
 - **Later:** an AIO image (s6-overlay: server + mihon-source + optional meta) for the simplest installs; maybe a Helm chart.
 - **Plugin discovery inside Compose** (mDNS/self-registration) is an open idea ([Q-0027](../questions/README.md)).

@@ -43,13 +43,13 @@ A **standalone Kotlin/JVM service** that runs Mihon extensions and exposes them 
 
 ## Standalone usage (target)
 ```
-docker run -p 8080:8080 -v ./data:/data panelarr/mihon-source
+docker run -p 8902:8902 -v ./data:/data panelarr/mihon-source
 # install an extension jar by URL, list sources, browse:
-# open http://localhost:8080/ and log in with the admin token from the logs,
+# open http://localhost:8902/ and log in with the admin token from the logs,
 # or use the API with it:
-curl -H "Authorization: Bearer $ADMIN" -X POST localhost:8080/v1/admin/extensions -d '{"url":"https://…/xyz.jar"}'
-curl -H "Authorization: Bearer $CLIENT_KEY" localhost:8080/v1/sources
-curl -H "Authorization: Bearer $CLIENT_KEY" localhost:8080/v1/sources/123456789/popular?page=1
+curl -H "Authorization: Bearer $ADMIN" -X POST localhost:8902/v1/admin/extensions -d '{"url":"https://…/xyz.jar"}'
+curl -H "Authorization: Bearer $CLIENT_KEY" localhost:8902/v1/sources
+curl -H "Authorization: Bearer $CLIENT_KEY" localhost:8902/v1/sources/123456789/popular?page=1
 ```
 
 ## Implementation status

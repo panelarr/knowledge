@@ -48,4 +48,4 @@ Env and flags, *arr*-style: `PANELARR_DB` (DSN), `PANELARR_DATA`, `PANELARR_CONF
 Not started (M2). Repo not created yet.
 
 ## Open questions
-[Q-0004](../../questions/README.md), [Q-0006](../../questions/README.md), [Q-0021](../../questions/README.md), [Q-0025](../../questions/README.md).
+[Q-0004](../../questions/README.md), [Q-0021](../../questions/README.md), [Q-0025](../../questions/README.md).
