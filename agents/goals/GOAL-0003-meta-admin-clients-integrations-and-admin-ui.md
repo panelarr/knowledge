@@ -1,9 +1,9 @@
 ---
 title: "GOAL-0003: meta admin: clients, integrations and admin UI"
-status: proposed
+status: accepted
 tags: [goal, agents, meta, admin, networking]
 related: [agents/goals/GOAL-0002-meta-v0-metadata-protocol-meta-service-and-mangabaka-dump-in.md, modules/meta/overview.md, contracts/metadata-plugin.md, contracts/mihon-source-api.md, architecture/networking.md, architecture/security.md]
-inputs: [IN-0007, IN-0020]
+inputs: [IN-0007, IN-0020, IN-0021]
 repos: [meta, meta-mangabaka]
 session: "panelarr-meta"
 features: []
@@ -63,3 +63,4 @@ Give meta a minimal admin like mihon-source's (IN-0020). It covers **API key cli
 
 - 2026-10-11: brief written from IN-0020 (`proposed`); starts after GOAL-0002.
 - 2026-10-11: `panelarr-meta` reports that the owner said "go" directly in that session and has started slice 1. **Not confirmed by the owner to the keeper yet**, so the status stays `proposed` until the owner confirms.
+- 2026-10-11: the owner confirmed the go to the keeper (IN-0021): `accepted`, dispatched to `panelarr-meta`.
