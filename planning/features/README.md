@@ -11,4 +11,4 @@ Scoped units of product value, each with **acceptance criteria** that QA tests a
 | [FEAT-0005](FEAT-0005-unified-chapters-and-update-checks.md) | Unified chapters and update checks | M2 | accepted |
 | [FEAT-0006](FEAT-0006-mobile-first-reader.md) | Mobile-first reader (per-source settings) | M2 | accepted |
 | [FEAT-0007](FEAT-0007-downloads-to-the-shared-library.md) | Downloads to the shared library (CBZ) | M2 | accepted |
-| [FEAT-0008](FEAT-0008-backup-and-restore-for-the-whole-platform.md) | Backup and restore for the whole platform (all services, encrypted, to any storage) | — | proposed |
+| [FEAT-0008](FEAT-0008-backup-and-restore-for-the-whole-platform.md) | Backup and restore for the whole platform (all services, encrypted, to any storage) | — | accepted |

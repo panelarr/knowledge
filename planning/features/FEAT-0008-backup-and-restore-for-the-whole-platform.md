@@ -1,9 +1,9 @@
 ---
 title: "FEAT-0008: Backup and restore for the whole platform"
-status: proposed
+status: accepted
 tags: [feature, ops, backup, server, meta, mihon-source]
 related: [architecture/storage-layout.md, decisions/ADR-0029-meta-required.md, planning/features/FEAT-0002-jobs-page-in-every-admin.md]
-inputs: [IN-0042]
+inputs: [IN-0042, IN-0044]
 milestone: ""
 priority: P2
 updated: 2026-10-11

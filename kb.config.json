@@ -324,6 +324,35 @@
         "contracts/source-plugin.md",
         "contracts/mihon-source-api.md"
       ]
+    },
+    {
+      "name": "server",
+      "path": "../server",
+      "forge": "github",
+      "slug": "panelarr/server",
+      "visibility": "public",
+      "session": "panelarr-server",
+      "default_branch": "main",
+      "module": "modules/server/overview.md",
+      "docs": [
+        "contracts/server-api.md",
+        "architecture/domain-model.md",
+        "architecture/multi-user.md",
+        "architecture/storage-layout.md"
+      ]
+    },
+    {
+      "name": "web",
+      "path": "../web",
+      "forge": "github",
+      "slug": "panelarr/web",
+      "visibility": "public",
+      "session": "panelarr-web",
+      "default_branch": "main",
+      "module": "modules/web/overview.md",
+      "docs": [
+        "contracts/server-api.md"
+      ]
     }
   ],
   "authority": {
