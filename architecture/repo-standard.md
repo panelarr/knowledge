@@ -42,6 +42,11 @@ Every Panelarr code repo is **public on GitHub** and must look and behave like a
 - Commit messages come from `/cc` (Conventional Commits) and feed release-please. KB IDs are welcome as `Refs:` footers (Q-0028), and never a real term behind an alias (`python3 tools/kb.py leak-check`).
 - Git autonomy for code sessions: **before the first releases**, sessions may merge their own branches into `main` (Q-0010, IN-0014). Pushing needs the owner's word. Revisit at the first release.
 
+## Observability ([ADR-0027](../decisions/ADR-0027-observability-baseline-for-every-service.md))
+- Structured logs: `json` (default) or `text`, level configurable via config and env; no secrets in logs.
+- Prometheus metrics, configurable, not open on the public port by default; bounded labels.
+- `GET /healthz`, `GET /readyz`, and a detailed health view (components, plugins, sources).
+
 ## Quality bars
 - Coverage is reported (Codecov or similar) but not gated at first. Gating starts once modules settle.
 - Contract repos get a conformance suite that runs in CI against reference implementations.

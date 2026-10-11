@@ -49,6 +49,8 @@
 - Search engine scoping (IN-0021): research refreshed with sources ([search engines](../research/search-engines.md)); [FEAT-0001](../planning/features/FEAT-0001-meta-search-engine-integrations.md) (`proposed`, ACs) and a design ([meta search engines](../modules/meta/search-engines.md)): transactional outbox, atomic rebuild swap, per-language fields, Browse on Postgres, fallback; Typesense first, then Meilisearch. Q-0037 (Postgres-extension backends).
 - Owner (IN-0023): links for the decision models and Q-0036 answer; [decision models](../research/decision-models.md) researched; Q-0035, Q-0036 answered; GOAL-0004's model judge specified.
 
+- Owner (IN-0024): every service gets configurable JSON logs, Prometheus metrics and health endpoints, and mihon-source gets per-source health with a self-check: [ADR-0027](../decisions/ADR-0027-observability-baseline-for-every-service.md); added to GOAL-0003 and GOAL-0005. GOAL-0004 go: accepted, queued after GOAL-0003.
+
 ## New open questions
 
 - None new at first. The ingestion-type list is a draft for the session to refine.

@@ -1,9 +1,9 @@
 ---
 title: "GOAL-0004: meta duplicates: find similar entries, optional model review"
-status: proposed
+status: accepted
 tags: [goal, agents, meta, matching, duplicates]
 related: [research/decision-models.md, modules/meta/overview.md, contracts/metadata-schema.md, agents/goals/GOAL-0003-meta-admin-clients-integrations-and-admin-ui.md, architecture/search.md]
-inputs: [IN-0022, IN-0023]
+inputs: [IN-0022, IN-0023, IN-0024]
 repos: [meta]
 session: "panelarr-meta"
 features: []
@@ -16,7 +16,7 @@ The brief a coding session works from. A short paste-in version points here: *"W
 
 ## Status
 
-`proposed`: written from IN-0022 for the owner to review. Suggested to start after GOAL-0003, since its review list lives in GOAL-0003's admin UI.
+`accepted` (owner's go, IN-0024 §2). Queued for `panelarr-meta` to start **after GOAL-0003 is done**, since its review list lives in GOAL-0003's admin UI.
 
 ## Context
 
@@ -66,3 +66,4 @@ The hoster chooses whether stage 1 alone is enough ("just first is enough for us
 
 - 2026-10-11: brief written from IN-0022 (`proposed`).
 - 2026-10-11: model judge specified against the three decision-model APIs the owner linked; Q-0035 and Q-0036 answered (IN-0023).
+- 2026-10-11: owner's go (IN-0024 §2): `accepted`, queued after GOAL-0003.

@@ -7,5 +7,5 @@ Briefs for coding sessions: objective, context to read, how to work, constraints
 | [GOAL-0001](GOAL-0001-mihon-source-v0-run-mihon-extensions-over-the-source-api.md) | mihon-source v0: run Mihon extensions over the source API | `panelarr-mihon-source` | accepted |
 | [GOAL-0002](GOAL-0002-meta-v0-metadata-protocol-meta-service-and-mangabaka-dump-in.md) | meta v0: metadata protocol, meta service and MangaBaka dump ingest | `panelarr-meta` | accepted |
 | [GOAL-0003](GOAL-0003-meta-admin-clients-integrations-and-admin-ui.md) | meta admin: clients, integrations and admin UI | `panelarr-meta` | accepted |
-| [GOAL-0004](GOAL-0004-meta-duplicates-find-similar-entries-optional-model-review.md) | meta duplicates: find similar entries, optional model review | `panelarr-meta` | proposed |
+| [GOAL-0004](GOAL-0004-meta-duplicates-find-similar-entries-optional-model-review.md) | meta duplicates: find similar entries, optional model review | `panelarr-meta` | accepted |
 | [GOAL-0005](GOAL-0005-mihon-source-v0-1-follow-ups.md) | mihon-source v0.1 follow-ups (icons, metrics, hardening, checker, dates, store refresh, ResolveUrl, cache) | `panelarr-mihon-source` | proposed |

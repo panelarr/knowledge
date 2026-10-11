@@ -3,7 +3,7 @@ title: "GOAL-0005: mihon-source v0.1 follow-ups"
 status: proposed
 tags: [goal, agents, mihon-source]
 related: [agents/goals/GOAL-0001-mihon-source-v0-run-mihon-extensions-over-the-source-api.md, modules/mihon-source/overview.md, contracts/source-plugin.md, contracts/mihon-source-api.md]
-inputs: []
+inputs: [IN-0024]
 repos: [mihon-source]
 session: "panelarr-mihon-source"
 features: []
@@ -34,6 +34,8 @@ The owner's follow-up list for mihon-source, in this order:
 5. **Android-style date parsing:** an ICU-backed `SimpleDateFormat` replacement via bytecode rewrite (planned in the module's "ASM fix-ups").
 6. **Scheduled store refresh,** configurable.
 7. **ResolveUrl:** a search-based fallback for sources that accept a pasted URL as a query.
+9. **Structured logs** ([ADR-0027](../../decisions/ADR-0027-observability-baseline-for-every-service.md)): `json` (default) or `text` and the level, configurable via config and env (today logback is plain text only). Add `/healthz` and `/readyz` next to the gRPC `Health` if they're missing.
+10. **Per-source health with a self-check** (IN-0024): occasionally probe configured sources (suggestion: the first page of popular, jittered, within rate limits; interval configurable; per-source opt-out; **off by default**). Record per source: ok / failing with the error reason (`CLOUDFLARE_CHALLENGE`, `SOURCE_DOWN`, `NEEDS_WEBVIEW`, …), latency and last checked. Show it in a detailed health endpoint, metrics and the admin UI (Sources and Extensions). Also report it through the source API (e.g. per-source status in `ListSources`/`GetSource`, additive).
 8. **Result cache:** a short-TTL in-memory cache of source API results, with concurrent identical calls merged into one, invalidation on settings, profile and extension changes, `Cache-Control: no-cache` bypass and configurable TTLs. **Images are not cached** (the owner's choice).
 
 ## Constraints (keeper notes, from the KB)
@@ -46,6 +48,7 @@ The owner's follow-up list for mihon-source, in this order:
 
 ## Definition of Done
 
+- [ ] Logs, metrics and health meet ADR-0027; per-source self-check with status in health, metrics and the UI
 - [ ] Each item merged with tests; `make check` green; leak-check clean
 - [ ] Docs updated (configuration, API, hardening, checker usage)
 - [ ] A REPORT after each merge; `DONE:` with evidence per item
@@ -53,3 +56,4 @@ The owner's follow-up list for mihon-source, in this order:
 ## History
 
 - 2026-10-11: recorded from `panelarr-mihon-source`'s REPORT of the owner's direct request (`proposed` until the owner confirms to the keeper).
+- 2026-10-11: items 9 (structured logs) and 10 (per-source health self-check) added from the owner (IN-0024, ADR-0027).

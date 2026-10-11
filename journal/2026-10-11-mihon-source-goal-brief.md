@@ -29,6 +29,8 @@
 
 - The owner gave `panelarr-mihon-source` eight follow-ups directly; recorded as [GOAL-0005](../agents/goals/GOAL-0005-mihon-source-v0-1-follow-ups.md) (`proposed` until the owner confirms), with keeper constraints (checker reports out of git, no auto-install, protected metrics).
 
+- Owner (IN-0024): every service gets configurable JSON logs, Prometheus metrics and health endpoints, and mihon-source gets per-source health with a self-check: [ADR-0027](../decisions/ADR-0027-observability-baseline-for-every-service.md); added to GOAL-0003 and GOAL-0005. GOAL-0004 go: accepted, queued after GOAL-0003.
+
 ## Decided
 
 - Owner (IN-0006): [ADR-0021](../decisions/ADR-0021-mihon-source-standalone-admin.md) accepted, superseding ADR-0005: mihon-source is a standalone service with a minimal React admin, scoped client API keys and one admin token, solvers, network profiles and extension stores.
