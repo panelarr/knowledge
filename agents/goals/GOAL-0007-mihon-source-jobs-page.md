@@ -1,9 +1,9 @@
 ---
 title: "GOAL-0007: mihon-source jobs page"
-status: proposed
+status: accepted
 tags: [goal, agents, mihon-source, admin, jobs]
 related: [planning/features/FEAT-0002-jobs-page-in-every-admin.md, modules/mihon-source/overview.md, decisions/ADR-0027-observability-baseline-for-every-service.md]
-inputs: [IN-0032]
+inputs: [IN-0032, IN-0033]
 repos: [mihon-source]
 session: "panelarr-mihon-source"
 features: [FEAT-0002]
@@ -16,7 +16,7 @@ The brief a coding session works from. A short paste-in version points here: *"W
 
 ## Status
 
-`proposed`: written from IN-0032 for the owner to review. Can start right away (the session is idle).
+`accepted`: dispatched to `panelarr-mihon-source` on 2026-10-11 (owner's go, IN-0033).
 
 ## Context
 
@@ -46,3 +46,4 @@ files under `/data` with retention (e.g. last 100 runs per job).
 ## History
 
 - 2026-10-11: brief written from IN-0032 (`proposed`).
+- 2026-10-11: owner's go (IN-0033): `accepted`, dispatched.

@@ -1,9 +1,9 @@
 ---
 title: "FEAT-0002: Jobs page in every admin"
-status: proposed
+status: accepted
 tags: [feature, admin, jobs, ops]
 related: [decisions/ADR-0027-observability-baseline-for-every-service.md, modules/meta/overview.md, modules/mihon-source/overview.md]
-inputs: [IN-0032]
+inputs: [IN-0032, IN-0033]
 milestone: ""
 priority: P2
 updated: 2026-10-11
@@ -57,8 +57,8 @@ Each admin has a **Jobs** page. It lists every background job with its schedule,
 
 | Repo | Goal | PR/MR | State |
 |---|---|---|---|
-| mihon-source | [GOAL-0007](../../agents/goals/GOAL-0007-mihon-source-jobs-page.md) | — | proposed |
-| meta | [GOAL-0008](../../agents/goals/GOAL-0008-meta-jobs-page.md) | — | proposed |
+| mihon-source | [GOAL-0007](../../agents/goals/GOAL-0007-mihon-source-jobs-page.md) | — | in progress |
+| meta | [GOAL-0008](../../agents/goals/GOAL-0008-meta-jobs-page.md) | — | in progress |
 
 ## Open questions
 

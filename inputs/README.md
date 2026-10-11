@@ -36,3 +36,4 @@ The owner's raw words: messages, answers, idea dumps, transcripts, pasted conver
 | [IN-0030](IN-0030-panelarr-svg-logo-for-every-admin.md) | A Panelarr SVG logo, used in every admin as "LOGO Panelarr Meta" etc. | 2026-10-11 | product/brand.md |
 | [IN-0031](IN-0031-logo-approved.md) | Owner approves the draft logo ("yeah not bad") | 2026-10-11 | product/brand.md |
 | [IN-0032](IN-0032-jobs-in-both-admins-past-runs-statuses-manual-trigger.md) | Jobs page in both admins (past runs, statuses, manual trigger); meta's DB size doesn't matter | 2026-10-11 | FEAT-0002, GOAL-0007, GOAL-0008 |
+| [IN-0033](IN-0033-accept-feat-0002-go-goal-0007-and-goal-0008.md) | FEAT-0002 accepted; go on GOAL-0007 and GOAL-0008 | 2026-10-11 | FEAT-0002, GOAL-0007, GOAL-0008 |

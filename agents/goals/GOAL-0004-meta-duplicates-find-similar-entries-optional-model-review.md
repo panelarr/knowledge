@@ -70,3 +70,4 @@ The hoster chooses whether stage 1 alone is enough ("just first is enough for us
 - 2026-10-11: owner approved GOAL-0004 and GOAL-0006 and kept the order: GOAL-0003 → GOAL-0004 → GOAL-0006 (IN-0026).
 - 2026-10-11: GOAL-0003 verified; GOAL-0004 starts now for `panelarr-meta`.
 - 2026-10-11: ASK/PROPOSE from the session: the brief's "skip same-provider pairs" would skip everything with MangaBaka alone. The keeper clarified its own wording and accepted the proposal as a working assumption (see Design sketch).
+- 2026-10-11: now runs after GOAL-0008 (jobs page), so its duplicate-finder job uses the shared job model.

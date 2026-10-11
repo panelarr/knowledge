@@ -1,9 +1,9 @@
 ---
 title: "GOAL-0008: meta jobs page"
-status: proposed
+status: accepted
 tags: [goal, agents, meta, admin, jobs]
 related: [planning/features/FEAT-0002-jobs-page-in-every-admin.md, modules/meta/overview.md, decisions/ADR-0027-observability-baseline-for-every-service.md]
-inputs: [IN-0032]
+inputs: [IN-0032, IN-0033]
 repos: [meta]
 session: "panelarr-meta"
 features: [FEAT-0002]
@@ -16,7 +16,7 @@ The brief a coding session works from. A short paste-in version points here: *"W
 
 ## Status
 
-`proposed`: written from IN-0032 for the owner to review. Queued after GOAL-0004 (duplicates) unless the owner reorders; GOAL-0004's duplicate job should use this model if it lands first.
+`accepted`: dispatched to `panelarr-meta` on 2026-10-11 (owner's go, IN-0033). **Runs before GOAL-0004**, so the duplicate finder registers as a job (keeper's ordering; the owner can swap it back).
 
 ## Context
 
@@ -46,3 +46,4 @@ Postgres (`job_runs`), folding in or mapping the existing `sync_runs` while keep
 ## History
 
 - 2026-10-11: brief written from IN-0032 (`proposed`).
+- 2026-10-11: owner's go (IN-0033): `accepted`, dispatched.
