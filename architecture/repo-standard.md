@@ -11,13 +11,13 @@ updated: 2026-10-11
 
 ## Summary
 
-Every Panelarr code repo is **public on GitHub** and must look and behave like a well-run open-source project, with full workflows for PRs, quality, tests, builds and releases, plus its own docs ([ADR-0008](../decisions/ADR-0008-public-repo-standard-and-images.md)). Code sessions apply this standard **in their own words**. Public repo docs stand on their own. Until [Q-0028](../questions/README.md) is answered they don't cite KB IDs, and they always use the KB's aliases instead of the real terms ([ADR-0020](../decisions/ADR-0020-public-kb-with-aliases.md)).
+Every Panelarr code repo is **public on GitHub** and must look and behave like a well-run open-source project, with full workflows for PRs, quality, tests, builds and releases, plus its own docs ([ADR-0008](../decisions/ADR-0008-public-repo-standard-and-images.md)). Code sessions apply this standard **in their own words**. Public repo docs stand on their own, but **may cite KB IDs and link KB docs** for deeper design (Q-0028, IN-0014). They always use the KB's aliases instead of the real terms ([ADR-0020](../decisions/ADR-0020-public-kb-with-aliases.md)).
 
 ## Required files
 | File | Notes |
 |---|---|
 | `README.md` | What it is, standalone usage, quick start (docker + binary), config table, links to docs |
-| `LICENSE` | Per [Q-0012](../questions/README.md) |
+| `LICENSE` | GPL-3.0 for apps, Apache-2.0 for protos and SDKs, with a directory-level `LICENSE` where a repo holds both ([ADR-0025](../decisions/ADR-0025-licences-gpl-3-0-apps-apache-2-0-sdks-and-protos.md)) |
 | `CONTRIBUTING.md` | Dev setup (`make setup`), Conventional Commits, PR process |
 | `SECURITY.md` | Private vulnerability reporting via GitHub Security Advisories |
 | `CODE_OF_CONDUCT.md` | Contributor Covenant |
@@ -39,8 +39,8 @@ Every Panelarr code repo is **public on GitHub** and must look and behave like a
 ## Branching and commits
 - `main` is protected: required checks, linear history, squash merge.
 - Branches: `<type>/<scope>-<slug>`.
-- Commit messages come from `/cc` (Conventional Commits) and feed release-please. No KB IDs in messages until [Q-0028](../questions/README.md) is answered, and never a real term behind an alias (`python3 tools/kb.py leak-check`).
-- Git autonomy for code sessions is not settled ([Q-0010](../questions/README.md)).
+- Commit messages come from `/cc` (Conventional Commits) and feed release-please. KB IDs are welcome as `Refs:` footers (Q-0028), and never a real term behind an alias (`python3 tools/kb.py leak-check`).
+- Git autonomy for code sessions: **before the first releases**, sessions may merge their own branches into `main` (Q-0010, IN-0014). Pushing needs the owner's word. Revisit at the first release.
 
 ## Quality bars
 - Coverage is reported (Codecov or similar) but not gated at first. Gating starts once modules settle.

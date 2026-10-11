@@ -35,7 +35,7 @@ A **standalone Kotlin/JVM service** that runs Mihon extensions and exposes them 
 | Android shims | Context, SharedPreferences (file-backed), Base64, Log, Uri, Html, Bitmap/BitmapFactory, androidx.preference → JSON Schema, QuickJS/Duktape API backed by GraalJS. **Our own shims**, Suwayomi studied as a reference, no code copied (Q-0003 answered, IN-0005 §2) |
 | Networking | One `OkHttpClient` per source from its profile: proxy, solver interceptor (FlareSolverr/Byparr, coalesced per host), rate limit, UA, cookie jar per source. **No JVM-global proxy properties** ([networking](../../architecture/networking.md)) |
 | WebView | Optional ([Q-0002](../../questions/README.md)). Sources that need it report `needs_webview` |
-| Server | gRPC + gRPC-Web + HTTP/JSON transcoding on one port, OpenAPI generated from the protos. **Armeria** as a working assumption (session PROPOSE, owner to confirm in [Q-0020](../../questions/README.md)); Armeria-specific code kept in one file, services are plain grpc-kotlin |
+| Server | gRPC + gRPC-Web + HTTP/JSON transcoding on one port, OpenAPI generated from the protos. **Armeria** ([ADR-0024](../../decisions/ADR-0024-armeria-for-the-jvm-rpc-server.md)); Armeria-specific code kept in one file, services are plain grpc-kotlin |
 | Storage | `/data/extensions/*.jar`, `/data/prefs/<sourceId>.json`, `/data/cookies/<sourceId>.json`, plus files for stores, clients (hashed keys) and integrations |
 | Admin UI | Small React SPA ([ADR-0006](../../decisions/ADR-0006-technology-stack.md) stack) built in a multi-stage image and served by the service. Logs in with the admin token |
 | Auth | One admin token (env or generated on first start, shown once); scoped client API keys, hashed at rest |

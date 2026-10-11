@@ -15,28 +15,28 @@ Everything we don't know yet. IDs are stable and never reused. When a question i
 | Q-0007 | Extension isolation in mihon-source: all extensions in one JVM (classloader per extension) vs a JVM pool or per-extension processes for crash and memory isolation? | mihon-source | P3 | [mihon-source](../modules/mihon-source/overview.md) |
 | Q-0008 | Web UI component kit and styling (e.g. shadcn/ui + Tailwind, Mantine, Park UI)? | web | P2 | [web](../modules/web/overview.md) |
 | Q-0009 | Which other extension ecosystems might get source plugins later (Paperback, Aidoku, Kotatsu…)? | sources | P3 | [plugins](../architecture/plugins.md) |
-| Q-0010 | Code-session git autonomy: may code sessions commit and merge on branches themselves, or only on request? Who may merge to main and push? *For GOAL-0001 only: commit on its own branches, never push or merge; the owner pushes and merges (IN-0005 §2).* | process | P1 | [session protocol](../meta/session-protocol.md) |
-| Q-0012 | Licence per public repo (the KB itself was set up as MIT tooling + CC BY 4.0 docs by the template default; confirm): GPL-3.0 (like the *arrs) vs AGPL vs MPL-2.0 vs Apache-2.0. Plugin SDKs may want a permissive licence; mihon-source no longer reuses Suwayomi code (Q-0003), so it has no inherited constraint; it ships without a `LICENSE` until this is answered. | legal | P1 | [repo standard](../architecture/repo-standard.md) |
 | Q-0013 | Is the GitHub org **panelarr** available? Is Docker Hub org `panelarr` secured? | repos | P1 | [repo standard](../architecture/repo-standard.md) |
 | Q-0014 | Docker Hub only, or also mirror to ghcr.io/panelarr? | deploy | P3 | [repo standard](../architecture/repo-standard.md) |
 | Q-0015 | Central docs site (a `docs` repo with Starlight/Docusaurus on GitHub Pages) vs per-repo `docs/` only? | repos | P2 | [repo standard](../architecture/repo-standard.md) |
 | Q-0016 | Legal and ToS stance and wording: no bundled extensions or plugins; hosters add indexes; disclaimers; DMCA contact. | legal | P2 | [principles](../product/principles.md) |
 | Q-0018 | When to support PDF and EPUB in source-local (PDF needs a rasterizer, which may require cgo)? | source-local | P3 | [source-local](../modules/source-local/overview.md) |
 | Q-0019 | Rules for inferring series, volume and chapter from file and folder names when there is no ComicInfo. | source-local | P2 | [formats](../research/comic-archive-formats.md) |
-| Q-0020 | RPC stack: ConnectRPC (Go) + gRPC-JSON transcoding on the JVM (Armeria? grpc-kotlin + Ktor?) and OpenAPI generation from protos. Is gRPC the primary wire for remote plugins, with JSON optional?  *JVM side: `panelarr-mihon-source` PROPOSEs **Armeria** (one port for gRPC, gRPC-Web and JSON transcoding; plain grpc-kotlin services; swap touches one file). Working assumption until the owner decides.* | contracts | P1 | [ADR-0012](../decisions/ADR-0012-protobuf-grpc-contracts.md) |
+| Q-0020 | RPC stack on the Go side: ConnectRPC + OpenAPI generation from protos? Is gRPC the primary wire for remote plugins, with JSON optional? *JVM side answered: Armeria ([ADR-0024](../decisions/ADR-0024-armeria-for-the-jvm-rpc-server.md)).* | contracts | P1 | [ADR-0012](../decisions/ADR-0012-protobuf-grpc-contracts.md) |
 | Q-0021 | Should trackers become a plugin kind (like sources and metadata), or stay built into server? | trackers | P3 | [trackers](../architecture/trackers.md) |
 | Q-0022 | Search backends: Typesense first (author's suggestion) then Meilisearch? Is embedded Bleve worth adding? Benchmark CJK title search. | search | P2 | [search](../architecture/search.md) |
 | Q-0023 | Where does character data come from (AniList, ComicVine)? Is it stored in meta and indexed for search? | meta, search | P3 | [search](../architecture/search.md) |
 | Q-0024 | Plugin signing: key format (minisign vs cosign/sigstore), official key management, the trust UI for third-party indexes. | plugins, security | P2 | [plugin index](../contracts/plugin-index.md) |
 | Q-0025 | Should Panelarr be a Mihon "enhanced tracker" / Mihon extension target (like Komga), so the Mihon app can read from and sync with Panelarr? | product | P3 | [trackers research](../research/trackers.md) |
 | Q-0027 | Should server auto-discover remote plugins in the same Compose project (mDNS/DNS-SD, self-registration with a join token, DNS probing, Docker labels)? Discovered plugins are only suggested, never auto-enabled. | plugins, deploy | P3 | [plugins](../architecture/plugins.md) |
-| Q-0028 | Now that the KB is public: may code repos cite KB IDs (`ADR-`, `Q-`, `FEAT-`), link KB docs, or use `Refs:` footers? Until answered, they don't. | process | P2 | [ADR-0020](../decisions/ADR-0020-public-kb-with-aliases.md) |
 | Q-0031 | In the Panelarr stack, does source-mihon parse extension stores itself (Go) or delegate to mihon-source's store API? *Suggestion: delegate, so the store logic exists once (in mihon-source) and source-mihon only declares the config and passes it on.* | sources | P2 | [source-mihon](../modules/source-mihon/overview.md) |
 
 ## Answered
 
 | ID | Question | Answer |
 |---|---|---|
+| Q-0010 | Code-session git autonomy? | **Before the first releases**, coding sessions may merge their own branches into `main` themselves (IN-0014 §2). Pushing still needs the owner's word. Revisit at the first release. See the goal briefs |
+| Q-0012 | Licence per public repo? | GPL-3.0 for apps and services, Apache-2.0 for protos and SDKs (IN-0014 §2). See [ADR-0025](../decisions/ADR-0025-licences-gpl-3-0-apps-apache-2-0-sdks-and-protos.md) |
+| Q-0028 | May code repos cite KB IDs and link KB docs? | Yes: IDs in docs and commits (`Refs:` footers), and links to KB docs (IN-0014 §2). Aliases still apply. See [repo standard](../architecture/repo-standard.md) |
 | Q-0001 | Go data layer? | First ent + Atlas (IN-0009 §2), then, once Postgres became the only database, **sqlc + pgx + goose** (IN-0009 §5). See [ADR-0023](../decisions/ADR-0023-sqlc-pgx-goose-data-layer.md) |
 | Q-0011 | Is MySQL/MariaDB support worth its cost? | No: PostgreSQL is the only database (IN-0009 §5). See [ADR-0022](../decisions/ADR-0022-postgresql-only.md) |
 | Q-0032 | How are migrations applied at runtime? | goose: plain SQL migrations embedded in the binary, applied at startup (IN-0009 §5). See [ADR-0023](../decisions/ADR-0023-sqlc-pgx-goose-data-layer.md) |

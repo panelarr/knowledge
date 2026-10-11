@@ -27,3 +27,5 @@ Numbered, append-only decision records. An accepted ADR is never rewritten. A ne
 | [ADR-0021](ADR-0021-mihon-source-standalone-admin.md) | mihon-source is a standalone service with a minimal admin (React SPA): sources, clients and API keys, solvers, proxies, extension stores. Supersedes ADR-0005 | accepted |
 | [ADR-0022](ADR-0022-postgresql-only.md) | PostgreSQL is the only database. Supersedes ADR-0004 | accepted |
 | [ADR-0023](ADR-0023-sqlc-pgx-goose-data-layer.md) | sqlc + pgx + goose as the Go data layer. Supersedes ADR-0018 | accepted |
+| [ADR-0024](ADR-0024-armeria-for-the-jvm-rpc-server.md) | Armeria for the JVM RPC server (gRPC, gRPC-Web, JSON transcoding on one port) | accepted |
+| [ADR-0025](ADR-0025-licences-gpl-3-0-apps-apache-2-0-sdks-and-protos.md) | Licences: GPL-3.0 for apps, Apache-2.0 for SDKs and protos | accepted |

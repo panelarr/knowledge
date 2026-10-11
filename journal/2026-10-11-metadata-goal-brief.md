@@ -1,7 +1,7 @@
 # 2026-10-11: metadata goal brief
 
 - **Participants:** @aurimasniekis, panelarr-knowledge
-- **Inputs:** IN-0009, IN-0010, IN-0011, IN-0012, IN-0013
+- **Inputs:** IN-0009, IN-0010, IN-0011, IN-0012, IN-0013, IN-0014
 
 ## Discussed
 
@@ -25,6 +25,7 @@
 - Owner (IN-0009 §2): one repo per metadata plugin; meta end to end as the Seerr-style metadata, browse and search service.
 - Owner (IN-0009 §5): PostgreSQL is the only database for the whole app; the Go data layer is sqlc + pgx + goose.
 - Owner (IN-0012): in compose, meta and the library share one Postgres server, each with its own database. Recorded in deployment, deploy, meta and GOAL-0002; sent to `panelarr-meta`. Clarified right after: that's the production setup, dev doesn't matter (IN-0013).
+- Owner (IN-0014), asked for open questions: Armeria accepted ([ADR-0024](../decisions/ADR-0024-armeria-for-the-jvm-rpc-server.md)); GPL-3.0 apps + Apache-2.0 protos/SDKs ([ADR-0025](../decisions/ADR-0025-licences-gpl-3-0-apps-apache-2-0-sdks-and-protos.md)); before the first release, sessions merge their own branches (no push); repos may cite KB IDs and link KB docs. Q-0010, Q-0012, Q-0028 answered; Q-0020 narrowed to the Go side. Repo standard and both briefs updated; both sessions told.
 
 ## New open questions
 

@@ -3,7 +3,7 @@ title: "GOAL-0002: meta v0: metadata protocol, meta service and MangaBaka dump i
 status: accepted
 tags: [goal, agents, meta, metadata, mangabaka, go]
 related: [contracts/metadata-schema.md, modules/meta/overview.md, modules/meta-mangabaka/overview.md, contracts/metadata-plugin.md, research/mangabaka.md, research/metadata-providers.md, architecture/search.md, architecture/plugins.md, architecture/repo-standard.md]
-inputs: [IN-0007, IN-0009, IN-0010, IN-0011, IN-0012, IN-0013]
+inputs: [IN-0007, IN-0009, IN-0010, IN-0011, IN-0012, IN-0013, IN-0014]
 repos: [meta, meta-mangabaka]
 session: "panelarr-meta"
 features: []
@@ -51,7 +51,7 @@ Result: a hoster runs meta + Postgres + meta-mangabaka, triggers a sync, and bro
 
 Each slice works end to end, has tests and ends with `make check` green and a `REPORT:`.
 
-1. **Scaffold both repos** to the repo standard: Go module, `Makefile` (`help` default, `setup`, `build`, `test`, `lint`, `fmt`, `run`, `docker`, `gen`, `clean`, `check`), golangci-lint, `go test -race`, govulncheck, `README.md`, `CONTRIBUTING.md`, `SECURITY.md`, `CODE_OF_CONDUCT.md`, `.github/` (CI with a Postgres service, PR title lint, templates), `docs/`, `PROGRESS.md`. `AGENTS.md` from [kits/code-repo/AGENTS.public-repo.md](../../kits/code-repo/AGENTS.public-repo.md) plus a one-line `CLAUDE.md`. **No `LICENSE` yet** (Q-0012): say "licence to be decided" in the README.
+1. **Scaffold both repos** to the repo standard: Go module, `Makefile` (`help` default, `setup`, `build`, `test`, `lint`, `fmt`, `run`, `docker`, `gen`, `clean`, `check`), golangci-lint, `go test -race`, govulncheck, `README.md`, `CONTRIBUTING.md`, `SECURITY.md`, `CODE_OF_CONDUCT.md`, `.github/` (CI with a Postgres service, PR title lint, templates), `docs/`, `PROGRESS.md`. `AGENTS.md` from [kits/code-repo/AGENTS.public-repo.md](../../kits/code-repo/AGENTS.public-repo.md) plus a one-line `CLAUDE.md`. **Licences** ([ADR-0025](../../decisions/ADR-0025-licences-gpl-3-0-apps-apache-2-0-sdks-and-protos.md)): `meta` is GPL-3.0 with `proto/` and the plugin SDK under Apache-2.0 (own `LICENSE` + SPDX headers); `meta-mangabaka` is GPL-3.0.
 2. **Protocol + SDK** (`meta`): `proto/panelarr/metadata/v1` and `proto/panelarr/meta/v1` from the [contract](../../contracts/metadata-plugin.md), `buf lint`, Go codegen. `GetInfo` declares the ingestion types, limits per type, capabilities and the common services a plugin can use (IN-0007). `Sync` is a server stream of events (started, upsert, removed, merge, checkpoint, finished). SDK: `plugin.Serve(impl)` runs managed (go-plugin handshake) or standalone (`--listen`). Add a small conformance harness that runs a plugin through `GetInfo` → `Sync` and checks the events.
 3. **meta DB:** goose migrations for the [entry schema](../../contracts/metadata-schema.md): provider_entries (as received, raw JSONB), entries (merged view) and their parts, shared persons/companies/tags, field locks, merges/redirects and sync_runs; sqlc queries; pgx pool; tests against a real Postgres (testcontainers or the CI service).
 4. **meta-mangabaka `dump`:** settings schema (dump variant, download dir, optional URL override, schedule hint); download with resume, `.sha1` check, zstd decompression, read-only SQLite via a pure-Go driver (no cgo); map each series to a `ProviderEntry` in the entry schema (titles in every language, plain-string authors/artists as Persons without IDs, tags with spoiler/explicit flags, covers with blurhash/thumbhash and size variants, status, type, content rating, external IDs from the `source` map, relations, links, raw enums kept); `merged_with` → merge events; checkpoints every N records; raw fields kept as extras.
@@ -72,7 +72,7 @@ Each slice works end to end, has tests and ends with `make check` green and a `R
 2. One branch per slice, per repo. Conventional Commits.
 3. After each slice: `make check` passes in every repo you touched → `REPORT:` to the keeper (`panelarr-knowledge`, via session messages) with what you built, what you assumed and how to test it.
 4. Keep `PROGRESS.md` in `meta` covering both repos: these slices ticked off, plus the next one. **Re-read it whenever you lose context.**
-5. Don't stop after each slice to ask. Go on to the next one unless blocked on the owner's decision. The owner merges finished branches; you may branch the next slice off the previous one, and say so in the REPORT.
+5. Don't stop after each slice to ask. Go on to the next one unless blocked on the owner's decision. Before the first release, merge each finished slice into `main` yourself once `make check` is green, then branch the next slice off `main`. Say what you merged in the REPORT.
 6. Until `meta` publishes tagged versions, `meta-mangabaka` uses the SDK through a Go `replace` directive pointing at the local `meta` clone (or a workspace, `go.work`, kept out of git). Say which in a REPORT.
 
 ## When something isn't decided
@@ -80,12 +80,12 @@ Each slice works end to end, has tests and ends with `make check` green and a `R
 - `ASK:` the keeper first.
 - Still open? `PROPOSE:` a concrete working assumption that fits the accepted decisions, then build it **cheap to change** (config/data, not hard-coded).
 - Never present an assumption as decided, and never change an accepted decision yourself.
-- Known open points: Q-0006 (meta embedded in server or separate: build it as a standalone service whose packages server could import), Q-0020 (RPC stack: ConnectRPC on Go is the lead), Q-0022 (external search engines: later), Q-0023 (characters: out of scope), Q-0012 (licence: none yet), Q-0028 (no KB IDs in the repos).
+- Known open points: Q-0006 (meta embedded in server or separate: build it as a standalone service whose packages server could import), Q-0020 (RPC stack: ConnectRPC on Go is the lead), Q-0022 (external search engines: later), Q-0023 (characters: out of scope).
 
 ## Constraints
 
-- **Git:** commit on your own branches only. Never push, never merge to `main`, never rewrite `main`. No forge actions.
-- **Public repos** ([ADR-0008](../../decisions/ADR-0008-public-repo-standard-and-images.md), [ADR-0020](../../decisions/ADR-0020-public-kb-with-aliases.md)): everything you write is public. Explain the *why* in your own words. **No KB IDs or KB paths** in code, docs, commits or branches until Q-0028 is answered. Aliases only. Before each REPORT, run `python3 ~/Projects/Panelarr/knowledge/tools/kb.py leak-check` (no arguments: it scans every registered repo).
+- **Git:** commit on your own feature branches. **Before the first release you may merge your own branches into `main` yourself** once `make check` is green (IN-0014): fast-forward or squash, keep history linear, never rewrite `main`. **Never push**: the owner pushes. No forge actions (issues, PRs, comments).
+- **Public repo** ([ADR-0008](../../decisions/ADR-0008-public-repo-standard-and-images.md), [ADR-0020](../../decisions/ADR-0020-public-kb-with-aliases.md)): everything you write is public. Explain the *why* in your own words. **You may cite KB IDs** (`ADR-`, `Q-`, `GOAL-`) in docs and in `Refs:` commit footers, and **link KB docs** at `https://github.com/panelarr/knowledge/blob/main/<path>` (Q-0028, IN-0014). Never local KB paths. Aliases only. Never say where extensions can be obtained. Before each REPORT, run `python3 ~/Projects/Panelarr/knowledge/tools/kb.py leak-check` (no arguments: it scans every registered repo).
 - **Respect upstreams:** honour MangaBaka's rate limits, identify the client with a clear User-Agent, show attribution wherever its data is served, never redistribute its data.
 - **Opt-in:** meta runs without any plugin (empty catalogue, clear "no providers" state). The plugin runs without network profiles.
 - **Out of scope:** matching source series to metadata, characters, other providers, external search engines, server integration, UI.
@@ -111,3 +111,4 @@ Each slice works end to end, has tests and ends with `make check` green and a `R
 - 2026-10-11: entry schema added from the owner's schema ideas (IN-0010).
 - 2026-10-11: owner gave the go; repos created: `accepted`, dispatched (IN-0011).
 - 2026-10-11: production setup shares one Postgres server with server, a database each; dev doesn't matter (IN-0012, IN-0013).
+- 2026-10-11: owner answers (IN-0014): Armeria accepted (ADR-0024); licences GPL-3.0 apps / Apache-2.0 protos and SDKs (ADR-0025); sessions may merge their own branches into `main` before the first release (no push); repos may cite KB IDs and link KB docs.

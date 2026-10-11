@@ -1,6 +1,6 @@
 # Modules
 
-One folder per code repo ([ADR-0002](../decisions/ADR-0002-split-repositories.md)). All code repos are **public**, like this KB ([ADR-0020](../decisions/ADR-0020-public-kb-with-aliases.md)). Whether code repos may link KB IDs is open ([Q-0028](../questions/README.md)); until then they don't. Each module's `overview.md` has an **Implementation status** section that the keeper updates from REPORTs.
+One folder per code repo ([ADR-0002](../decisions/ADR-0002-split-repositories.md)). All code repos are **public**, like this KB ([ADR-0020](../decisions/ADR-0020-public-kb-with-aliases.md)). Code repos may cite KB IDs and link KB docs (Q-0028, IN-0014). Each module's `overview.md` has an **Implementation status** section that the keeper updates from REPORTs.
 
 | Module | Lang | Role | Index |
 |---|---|---|---|
