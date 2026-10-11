@@ -37,4 +37,4 @@
 
 ## Next
 
-- Keeper: draft feature docs for the first slice (accounts, add and match, unified chapters and updates, reader, downloads), refine the server API contract, and brief source-mihon, server and web sessions.
+- Keeper: feature docs FEAT-0003–0007 drafted (`proposed`); next, the server API contract and the server/web briefs. GOAL-0009 dispatched (IN-0040).

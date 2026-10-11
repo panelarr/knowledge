@@ -3,7 +3,7 @@ title: Server API and events (browser-facing)
 status: draft
 tags: [contract, api, openapi, sse]
 related: [architecture/contracts-and-transport.md, modules/server/overview.md, modules/web/overview.md]
-inputs: [IN-0002]
+inputs: [IN-0002, IN-0041]
 updated: 2026-10-11
 ---
 
@@ -11,7 +11,7 @@ updated: 2026-10-11
 
 ## Summary
 
-The browser and 3rd-party API is **REST + OpenAPI 3.1** under `/api/v1`, with an **SSE** event stream. It is designed for TanStack Query: resource-oriented, cursor pagination, ETags. **Public home:** `server/api/openapi.yaml`.
+The browser and 3rd-party API is **REST + OpenAPI 3.1** under `/api/v1`, with an **SSE** event stream. **It is a public client API** (IN-0041): our `web` app is just one client in its own repo, and anyone can build another. Every web feature uses only this documented API, it is versioned (breaking changes need `/api/v2`, checked in CI against the published spec), and clients authenticate with personal API keys or a session. It is designed for TanStack Query: resource-oriented, cursor pagination, ETags. **Public home:** `server/api/openapi.yaml`.
 
 ## Resource groups (sketch)
 | Group | Examples |

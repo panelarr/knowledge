@@ -25,6 +25,9 @@ A SPA built with **Vite + React + TanStack Router, Query, Virtual, Pacer and Sto
 | UI kit | **shadcn/ui + Tailwind** (Q-0008, IN-0037) |
 | Tests | Vitest + Testing Library; Playwright smoke |
 
+## Separate client (IN-0041)
+- `web` is its own repo (ADR-0002) and only uses the public [server API](../../contracts/server-api.md); the server image embeds a pinned web release, and users may build or run their own client against the same API.
+
 ## Look and feel (IN-0037 §3)
 - **Fully responsive.** On phones it should look and feel like a **native mobile app**: bottom navigation, full-screen views, touch gestures, safe-area insets, installable PWA. On desktop it should look good too: sidebar navigation, wider grids, keyboard shortcuts.
 - **Reader settings per source:** zoom level, fit, reading mode and direction, remembered **per source** (with a global default and a per-series override, suggestion), since sources differ in page sizes and formats.

@@ -44,3 +44,4 @@ The owner's raw words: messages, answers, idea dumps, transcripts, pasted conver
 | [IN-0038](IN-0038-meta-required-for-the-library-source-mihon-by-the-mihon-sour.md) | meta is required for the library (answers Q-0038); source-mihon built by the panelarr-mihon-source session | 2026-10-11 | ADR-0029, Q-0038, GOAL-0009 |
 | [IN-0039](IN-0039-integrate-meta-and-mihon-source-admin-into-panelarr.md) | Most of meta's and mihon-source's admin should be visible inside Panelarr when connected | 2026-10-11 | modules/web/overview.md, modules/server/overview.md |
 | [IN-0040](IN-0040-go-goal-0009.md) | Go on GOAL-0009; repos source-api and source-mihon created | 2026-10-11 | GOAL-0009, kb.config.json |
+| [IN-0041](IN-0041-separate-frontend-repo-so-users-can-build-their-own-clients.md) | Frontend as a separate repo so users can build their own clients (already planned; the API must be public and stable) | 2026-10-11 | contracts/server-api.md, modules/web/overview.md |
