@@ -35,6 +35,12 @@ service SourcePlugin {
 }
 ```
 
+## As built (in mihon-source, until source-api exists)
+- `SourcePluginService` (buf STANDARD naming, Request/Response per RPC) with every RPC above plus `GetSource`.
+- `PluginInfo` carries `config_schema` (JSON Schema as a Struct) and `common_services` (`NETWORK_PROFILE`, `SOLVER`) per Q-0026/Q-0030, plus contracts, capabilities and limits.
+- Search filter values are sparse `FilterValue{path, value}` keyed by **position**, because Mihon filters have no stable keys.
+- `FetchImage` streams metadata first, then chunks. `ErrorReason` enum; `google.rpc.ErrorInfo.reason` carries the name without the prefix.
+
 ## Design notes
 - **Keys are opaque strings** chosen by the plugin (for Mihon, the extension's relative URL). The host never parses them.
 - **Source IDs** are namespaced by the host as `plugin:sourceId`. Mihon IDs are stable MD5-derived longs, carried as strings.

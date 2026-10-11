@@ -35,7 +35,7 @@ A **standalone Kotlin/JVM service** that runs Mihon extensions and exposes them 
 | Android shims | Context, SharedPreferences (file-backed), Base64, Log, Uri, Html, Bitmap/BitmapFactory, androidx.preference → JSON Schema, QuickJS/Duktape API backed by GraalJS. **Our own shims**, Suwayomi studied as a reference, no code copied (Q-0003 answered, IN-0005 §2) |
 | Networking | One `OkHttpClient` per source from its profile: proxy, solver interceptor (FlareSolverr/Byparr, coalesced per host), rate limit, UA, cookie jar per source. **No JVM-global proxy properties** ([networking](../../architecture/networking.md)) |
 | WebView | Optional ([Q-0002](../../questions/README.md)). Sources that need it report `needs_webview` |
-| Server | gRPC + HTTP/JSON transcoding + OpenAPI docs (Armeria vs grpc-kotlin + Ktor, [Q-0020](../../questions/README.md)) |
+| Server | gRPC + gRPC-Web + HTTP/JSON transcoding on one port, OpenAPI generated from the protos. **Armeria** as a working assumption (session PROPOSE, owner to confirm in [Q-0020](../../questions/README.md)); Armeria-specific code kept in one file, services are plain grpc-kotlin |
 | Storage | `/data/extensions/*.jar`, `/data/prefs/<sourceId>.json`, `/data/cookies/<sourceId>.json`, plus files for stores, clients (hashed keys) and integrations |
 | Admin UI | Small React SPA ([ADR-0006](../../decisions/ADR-0006-technology-stack.md) stack) built in a multi-stage image and served by the service. Logs in with the admin token |
 | Auth | One admin token (env or generated on first start, shown once); scoped client API keys, hashed at rest |
@@ -53,4 +53,4 @@ curl -H "Authorization: Bearer $CLIENT_KEY" localhost:8080/v1/sources/123456789/
 ```
 
 ## Implementation status
-Not started (M1). [GOAL-0001](../../agents/goals/GOAL-0001-mihon-source-v0-run-mihon-extensions-over-the-source-api.md) is dispatched to `panelarr-mihon-source` (2026-10-11). **Slice 1 (scaffold) done** on `chore/repo-scaffold` (`16ad730`): Gradle/Kotlin build with conventions, `make` wrapping Gradle, repo docs and CI. `main` has no commits until the owner merges. Until `source-api` exists, the `panelarr.source.v1` protos live in this repo's `proto/` and move later (IN-0005 §2).
+Not started (M1). [GOAL-0001](../../agents/goals/GOAL-0001-mihon-source-v0-run-mihon-extensions-over-the-source-api.md) is dispatched to `panelarr-mihon-source` (2026-10-11). **Slices 1–2 done:** scaffold (`chore/repo-scaffold`), then protos, API server and token auth (`feat/api-protos-auth` @ `2124d96`): GetInfo, Health and ListSources answer; other RPCs are UNIMPLEMENTED until their slice. Admin SPA started in parallel (`feat/admin-spa`). `main` has no commits until the owner merges. Until `source-api` exists, the `panelarr.source.v1` protos live in this repo's `proto/` and move later (IN-0005 §2).

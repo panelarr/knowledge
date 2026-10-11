@@ -45,6 +45,10 @@ service MihonIntegrations {
 }
 ```
 
+## As built (mihon-source slice 2)
+- Services follow buf STANDARD naming: `MihonAdminService`, `MihonStoresService`, `MihonClientsService` (+ `WhoAmI`, `UpdateClient`), `MihonIntegrationsService` (+ `SetDefaultProfile`, `ListAssignments` reporting pushed / assigned / default / none). Each RPC has its own Request/Response.
+- Client keys look like `msk_…`. Scopes as built: `sources:read`, `sources:write` (SetSettings, SetNetworkProfile; implies read), `admin`. Unknown RPCs need admin.
+
 ## Auth
 - **Admin token:** one secret from an env var, or generated on first start and shown once. Full access, and the admin SPA logs in with it.
 - **Clients:** each caller (a Panelarr server, a script) gets an **API key** with scopes: `sources:read` for `panelarr.source.v1`, `admin` for `panelarr.mihon.v1` (suggested scope names). Sent as `Authorization: Bearer` / gRPC metadata ([contracts and transport](../architecture/contracts-and-transport.md)).

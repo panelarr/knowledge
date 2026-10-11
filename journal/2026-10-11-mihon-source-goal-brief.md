@@ -22,6 +22,7 @@
 - [ADR-0021](../decisions/ADR-0021-mihon-source-standalone-admin.md) written; ADR-0005 marked superseded. GOAL-0001 widened to nine slices (auth, integrations, stores, admin SPA). Updated [contract](../contracts/mihon-source-api.md) (stores, clients, integrations services; auth), mihon-source and source-mihon overviews, source-api overview, store research, architecture overview, roadmap M1, modules index.
 - Q-0026 and Q-0030 answered; Q-0031 opened. [Plugins](../architecture/plugins.md) common surface: plugins declare the config they expect and the common services they can use. Contracts, both Mihon module docs and GOAL-0001 updated. GOAL-0001 `accepted` and dispatched; board `briefed`.
 - GOAL-0001: optional "Parallel frontend" section (after slice 2, sub-agent owns `admin/` in its own worktree, API is the contract). Board: `working`; ownership note.
+- GOAL-0001: slices 1 and 2 REPORTed and recorded; Armeria PROPOSE recorded as a working assumption on Q-0020; contracts note what was built.
 
 ## Decided
 
