@@ -64,3 +64,4 @@ The brief a coding session works from. A short paste-in version points here: *"W
 
 - 2026-10-11: brief written (`proposed`); waiting for the repos and the owner's go.
 - 2026-10-11: owner's go and repos created (IN-0040): `accepted`, dispatched.
+- 2026-10-11: REPORT: **slices 1–2 done** in source-api (`bc396c2` scaffold, `69a73ff` protos): Go module and tooling pinned like meta; CI with gen-check, breaking against main, CodeQL, release-please; Apache-2.0. `source_plugin.proto` copied byte-for-byte from mihon-source; Go messages, gRPC and Connect stubs, OpenAPI. Port: **source-mihon standalone = 8904** (meta-mangabaka has 8903). Next: slice 3 (SDK).

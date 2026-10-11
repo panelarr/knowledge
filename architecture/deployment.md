@@ -41,7 +41,7 @@ Example: `docker compose --profile mihon --profile flaresolverr --profile search
 ## Conventions
 - Volumes `/config` and `/data`; `PUID`/`PGID`/`TZ`/`UMASK` env vars; healthchecks; a non-root user.
 - Multi-arch images: `linux/amd64` and `linux/arm64`.
-- **Ports** (Q-0005, IN-0015): server **8900**, meta **8901**, mihon-source **8902**. Plugins in standalone mode take 8903 and up (IN-0016); meta-mangabaka is 8903. Every port stays configurable.
+- **Ports** (Q-0005, IN-0015): server **8900**, meta **8901**, mihon-source **8902**. Plugins in standalone mode take 8903 and up (IN-0016); meta-mangabaka is 8903, source-mihon 8904. Every port stays configurable.
 - **Unraid:** Community Applications templates, one per image, in the deploy repo.
 - **Later:** an AIO image (s6-overlay: server + mihon-source + optional meta) for the simplest installs; maybe a Helm chart.
 - **Plugin discovery inside Compose** (mDNS/self-registration) is an open idea ([Q-0027](../questions/README.md)).
