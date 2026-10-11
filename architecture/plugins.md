@@ -70,7 +70,7 @@ Leaning (suggestion): use **mDNS + self-registration**, with discovered endpoint
 
 ## Common plugin surface (all kinds)
 - `GetInfo` (id, kind, version, contract versions, capabilities, declared limits).
-- `GetSettingsSchema` / `GetSettings` / `SetSettings` (JSON Schema + values). This is how a plugin tells the main app **what config it expects**: for source-mihon, the extension repos/stores and its other settings. The main app renders and stores it (IN-0007 §1).
+- `GetSettingsSchema` / `GetSettings` / `SetSettings` (JSON Schema + values). This is how a plugin tells the main app **what config it expects** (source plugins: `GetConfig`/`SetConfig` at plugin level, besides per-source settings): for source-mihon, the extension repos/stores and its other settings. The main app renders and stores it (IN-0007 §1).
 - **Common services:** a plugin declares in `GetInfo` which **common services** the main app offers that it can use (e.g. solvers, network profiles / proxies), and the main app supplies them (IN-0007 §1). The exact list is open.
 - `Health`. Structured errors ([contracts and transport](contracts-and-transport.md)).
 
