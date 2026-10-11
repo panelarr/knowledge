@@ -25,6 +25,8 @@
 - GOAL-0001: slices 1 and 2 REPORTed and recorded; Armeria PROPOSE recorded as a working assumption on Q-0020; contracts note what was built.
 - GOAL-0001 catch-up REPORT: slices 3–8 merged (`a49f0ba`); a second sub-agent was used for the shims, beyond the brief; a hand test against a real store worked.
 
+- GOAL-0001 DONE, then the owner's FlareSolverr test found a usability gap; the fix was merged (`e66c909`); the keeper re-verified; **GOAL-0001 done**; worktrees removed.
+
 ## Decided
 
 - Owner (IN-0006): [ADR-0021](../decisions/ADR-0021-mihon-source-standalone-admin.md) accepted, superseding ADR-0005: mihon-source is a standalone service with a minimal React admin, scoped client API keys and one admin token, solvers, network profiles and extension stores.

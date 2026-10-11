@@ -53,6 +53,6 @@ curl -H "Authorization: Bearer $CLIENT_KEY" localhost:8902/v1/sources/123456789/
 ```
 
 ## Implementation status
-**Slices 1–8 merged** into local `main` (`a49f0ba`, not pushed; 100 JVM + 67 SPA tests). Extensions load (jar/APK, lib 1.4–1.6) behind our own Android shims; all of `source.v1` works, including streamed images; per-source networking with proxies and solvers; stores with signing-key pinning; clients and API keys; the admin web UI at `/`. A hand test against a real store and extension worked end to end. **Next:** slice 9, the multi-arch Docker image ([GOAL-0001](../../agents/goals/GOAL-0001-mihon-source-v0-run-mihon-extensions-over-the-source-api.md)).
+**v0 done** (GOAL-0001, verified 2026-10-11; `main` @ `e66c909`, not pushed; 107 JVM + 68 SPA tests). Extensions load (jar/APK, lib 1.4–1.6) behind our own Android shims; all of `source.v1` works, including streamed images; per-source networking with proxies and solvers; stores with signing-key pinning; clients and API keys; the admin web UI at `/`. A hand test against a real store and extension worked end to end. Docker image (JRE 21, non-root, ~485 MB). Solvers work out of the box: the first solver auto-creates a default profile, and challenge detection covers `cf-mitigated`, Server and page markers.
 
 Known limits (as built): WebView-only sources report `needs_webview` and don't work (Q-0002); lib 1.5 is accepted although Mihon accepts only 1.4 and 1.6; snake_case query parameters aren't accepted.

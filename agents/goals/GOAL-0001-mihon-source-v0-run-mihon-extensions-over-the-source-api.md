@@ -16,7 +16,7 @@ The brief a coding session works from. A short paste-in version points here: *"W
 
 ## Status
 
-`accepted`: dispatched to `panelarr-mihon-source` on 2026-10-11 (IN-0007 §2). Scope from IN-0005, widened with the minimal admin, clients and extension stores (IN-0006, ADR-0021). It becomes `accepted` when dispatched.
+`accepted`, **Done 2026-10-11** (verified; [test report](../../qa/reports/goal-0001-mihon-source-v0-done-verification.md)). Dispatched to `panelarr-mihon-source` on 2026-10-11 (IN-0007 §2). Scope from IN-0005, widened with the minimal admin, clients and extension stores (IN-0006, ADR-0021). It becomes `accepted` when dispatched.
 
 ## Context
 
@@ -99,21 +99,21 @@ The owner suggested you may hand the admin SPA (slice 8) to a **sub-agent** work
 
 ## Definition of Done
 
-- [ ] Repo scaffolded to the repo standard (files, `make` targets, CI workflow, PR title lint), `make check` green locally
-- [ ] `source.v1` and `mihon.v1` protos in `proto/`, `buf lint` clean, self-contained enough to move to source-api
-- [ ] Service serves both APIs over gRPC and HTTP/JSON, with OpenAPI docs reachable from the running service
-- [ ] Admin token and scoped client API keys enforced on every endpoint but `Health`; keys hashed, shown once, rotatable; a test proves a `sources:read` key can't call admin APIs
-- [ ] Install by URL and by upload, jar and APK (dex2jar) paths; lib 1.4–1.6 accepted, others rejected with a clear error; fingerprint reported; expected SHA-256/fingerprint enforced; uninstall and reload work; a broken extension doesn't take the service down
-- [ ] Own Android shims (no copied Suwayomi code); prefs and cookies persisted as files under `/data`
-- [ ] Popular/Latest/Search with filters, GetSeries, ListChapters, ListPages and FetchImage work against the in-repo test extensions; settings schema/get/set work; error reasons mapped
-- [ ] Per-source OkHttp clients from network profiles (proxy, UA, rate limit, cookies, solver interceptor coalesced per host); no JVM-global proxy settings; a test proves two sources use different proxies
-- [ ] Solvers and profiles managed through `MihonIntegrations`; a pushed `SetNetworkProfile` overrides the local assignment
-- [ ] Stores: add, refresh, list available, install/update from a store against an in-repo fixture store; signing-key mismatch refused; legacy index fallback tested
-- [ ] Admin SPA covers sources (browse, search with filters, details, chapters, page preview, settings), extensions, stores, clients and integrations, logging in with the admin token
-- [ ] Docker image builds (`make docker`) and the standalone quick start in `README.md` works as written
-- [ ] Tests pass; `make check` passes; leak-check clean
-- [ ] Docs in the repo: `README.md`, `docs/` (configuration, API, architecture for contributors), `PROGRESS.md` current
-- [ ] `DONE:` sent with evidence: branches and commits, test output, how to verify by hand
+- [x] Repo scaffolded to the repo standard (files, `make` targets, CI workflow, PR title lint), `make check` green locally
+- [x] `source.v1` and `mihon.v1` protos in `proto/`, `buf lint` clean, self-contained enough to move to source-api
+- [x] Service serves both APIs over gRPC and HTTP/JSON, with OpenAPI docs reachable from the running service
+- [x] Admin token and scoped client API keys enforced on every endpoint but `Health`; keys hashed, shown once, rotatable; a test proves a `sources:read` key can't call admin APIs
+- [x] Install by URL and by upload, jar and APK (dex2jar) paths; lib 1.4–1.6 accepted, others rejected with a clear error; fingerprint reported; expected SHA-256/fingerprint enforced; uninstall and reload work; a broken extension doesn't take the service down
+- [x] Own Android shims (no copied Suwayomi code); prefs and cookies persisted as files under `/data`
+- [x] Popular/Latest/Search with filters, GetSeries, ListChapters, ListPages and FetchImage work against the in-repo test extensions; settings schema/get/set work; error reasons mapped
+- [x] Per-source OkHttp clients from network profiles (proxy, UA, rate limit, cookies, solver interceptor coalesced per host); no JVM-global proxy settings; a test proves two sources use different proxies
+- [x] Solvers and profiles managed through `MihonIntegrations`; a pushed `SetNetworkProfile` overrides the local assignment
+- [x] Stores: add, refresh, list available, install/update from a store against an in-repo fixture store; signing-key mismatch refused; legacy index fallback tested
+- [x] Admin SPA covers sources (browse, search with filters, details, chapters, page preview, settings), extensions, stores, clients and integrations, logging in with the admin token
+- [x] Docker image builds (`make docker`) and the standalone quick start in `README.md` works as written
+- [x] Tests pass; `make check` passes; leak-check clean
+- [x] Docs in the repo: `README.md`, `docs/` (configuration, API, architecture for contributors), `PROGRESS.md` current
+- [x] `DONE:` sent with evidence: branches and commits, test output, how to verify by hand
 
 ## History
 
@@ -140,3 +140,4 @@ The owner suggested you may hand the admin SPA (slice 8) to a **sub-agent** work
   - Keeper checked `main` (no extension binaries; only the Gradle wrapper jar) and ran leak-check (clean); tests not re-run. Next: slice 9 (Docker image) on `feat/docker-image`. The `mihon-source-admin` and `mihon-source-compat` worktrees are finished and can be removed when the owner agrees.
 - 2026-10-11: **DONE received** (`main` @ `3977e41`, slice 9 Docker image: JRE 21, non-root, 485 MB; multi-arch workflow not run yet since nothing is pushed), with evidence for each DoD box. The keeper is verifying it on a clean clone. **Not ticked yet:** the owner's hand test found that a configured FlareSolverr is never used. A solver only works through a network profile, and the UI doesn't say so (the owner had a solver and no profiles). Challenge detection also requires `Server: cloudflare`. Follow-up fix requested: a default-profile flow or a warning, broader detection (`cf-mitigated`, challenge page markers), logging and tests. The owner OK'd removing the `mihon-source-admin` and `mihon-source-compat` worktrees; the session was told.
 - 2026-10-11: **Keeper verification:** `make check` on a clean clone of `main` @ `3977e41` passed (100 JUnit + 67 Vitest, 0 failures). Verdict: pass with issues; the goal closes after the solver follow-up. See the [test report](../../qa/reports/goal-0001-mihon-source-v0-done-verification.md).
+- 2026-10-11: REPORT: **solver fix merged** (`e66c909`): auto default profile for the first solver, an unused-solver badge with "Use for all sources", broader challenge detection with logging, `CLOUDFLARE_CHALLENGE` guidance when no solver is set, and the solver's user agent kept per host. Worktrees removed; merged branches deleted. `feat/admin-spa`, `feat/android-compat-shims` and `feat/extension-loader` were squash-merged, so deleting them needs `git branch -D`, left to the owner. **Done.** The keeper re-verified on a clean clone (107 JUnit + 68 Vitest, 0 failures); DoD ticked ([test report](../../qa/reports/goal-0001-mihon-source-v0-done-verification.md)). The owner's real-source retest is pending.
