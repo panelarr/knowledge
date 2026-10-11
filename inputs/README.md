@@ -39,3 +39,4 @@ The owner's raw words: messages, answers, idea dumps, transcripts, pasted conver
 | [IN-0033](IN-0033-accept-feat-0002-go-goal-0007-and-goal-0008.md) | FEAT-0002 accepted; go on GOAL-0007 and GOAL-0008 | 2026-10-11 | FEAT-0002, GOAL-0007, GOAL-0008 |
 | [IN-0034](IN-0034-swap-goal-0004-and-goal-0006.md) | Swap GOAL-0004 and GOAL-0006: meta does search engines before duplicates | 2026-10-11 | GOAL-0004, GOAL-0006 |
 | [IN-0035](IN-0035-allow-engine-images-for-goal-0006-tests.md) | Allows pulling the Typesense and Meilisearch images for GOAL-0006 tests and benchmarks | 2026-10-11 | GOAL-0006 |
+| [IN-0036](IN-0036-health-check-random-or-selected-languages-not-all.md) | mihon-source health check: only random or selected languages, not all sources | 2026-10-11 | GOAL-0007 |

@@ -57,6 +57,6 @@ curl -H "Authorization: Bearer $CLIENT_KEY" localhost:8902/v1/sources/123456789/
 
 Real-world compatibility sample (2026-10-11, GOAL-0005 checker, local only): 30/30 random extensions loaded with no host-API gaps; in a 10-source live walk, failures were Cloudflare challenges without a solver, or site-side.
 
-**Jobs page done** (GOAL-0007, `898723f`): `store-refresh` and `source-health` jobs with history, Run now and cancel. Scheduled health checks now run as rounds per interval (two sources at a time, random order).
+**Jobs page done** (GOAL-0007, `898723f`): `store-refresh` and `source-health` jobs with history, Run now and cancel. Scheduled health checks now run as rounds per interval (two sources at a time, random order); a follow-up limits each round to selected languages and/or a random sample (IN-0036).
 
 Known limits (as built): WebView-only sources report `needs_webview` and don't work (Q-0002); lib 1.5 is accepted although Mihon accepts only 1.4 and 1.6; snake_case query parameters aren't accepted.
