@@ -22,6 +22,7 @@
 - GOAL-0002 slice 1 REPORTed and recorded; board `working`.
 - GOAL-0002 slice 2 REPORTed and recorded; the contracts got "as built" sections; ConnectRPC PROPOSE recorded on Q-0020.
 - GOAL-0002 slice 3 REPORTed: DB layer merged; working assumptions (merge on write, linking rule, name-only sharing) recorded in the schema doc.
+- GOAL-0002 slice 4 REPORTed: MangaBaka dump ingestion merged in meta-mangabaka; no data committed (checked).
 
 ## Decided
 

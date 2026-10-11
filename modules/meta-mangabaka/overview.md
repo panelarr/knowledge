@@ -22,6 +22,7 @@ The first metadata plugin (IN-0009 §1). It implements `panelarr.metadata.v1` wi
   5. stream `Sync` events: upserts, `merged_with` → merge events, checkpoints.
 - **`lookup`:** `Search` and `Get` against the API, within its limits (search 30/min, other GETs 180/min per IP) and backing off on 429.
 - **Common services:** may use the main app's network profiles for downloads and API calls (IN-0007).
+- **Mapping choices** (as built): piracy-typed links and the untyped v1 link list are dropped, so Panelarr never points to where content can be obtained ([ADR-0020](../../decisions/ADR-0020-public-kb-with-aliases.md)); `is_licensed` becomes an English licence (an assumption, since MangaBaka doesn't name the language); plain-string authors/artists become Persons without IDs; per-series spoiler flags go on the tag assignment.
 
 ## Owns / doesn't own
 - **Owns:** MangaBaka URLs, download, checksum, decompression, the dump schema mapping, API client, attribution text.
@@ -31,4 +32,4 @@ The first metadata plugin (IN-0009 §1). It implements `panelarr.metadata.v1` wi
 MangaBaka data is CC BY-NC-SA 4.0. The plugin downloads it on the hoster's instruction; no dump or extract is ever committed, bundled or published. Tests use synthetic fixtures.
 
 ## Implementation status
-Scaffold merged into `main` (`ed0e201`, not pushed); uses the meta SDK through `replace => ../meta` until meta is tagged. Part of [GOAL-0002](../../agents/goals/GOAL-0002-meta-v0-metadata-protocol-meta-service-and-mangabaka-dump-in.md).
+**`dump` ingestion merged** into `main` (`e4d49d5`, not pushed): download with resume, SHA-1 check, zstd, read-only SQLite, mapping per `docs/mapping.md` in the repo, Sync with checkpoints and unchanged-dump detection. `lookup` comes in slice 7. Not yet run against the real dump (`make real-dump`). Uses the meta SDK through `replace => ../meta` until meta is tagged. Part of [GOAL-0002](../../agents/goals/GOAL-0002-meta-v0-metadata-protocol-meta-service-and-mangabaka-dump-in.md).
