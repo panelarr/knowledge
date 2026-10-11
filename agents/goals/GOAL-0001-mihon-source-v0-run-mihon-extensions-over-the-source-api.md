@@ -126,3 +126,4 @@ The owner suggested you may hand the admin SPA (slice 8) to a **sub-agent** work
 - 2026-10-11: REPORT from `panelarr-mihon-source`: started; read the brief and its docs; slice 1 (scaffold) in progress on `chore/repo-scaffold`.
 - 2026-10-11: owner answers (IN-0014): Armeria accepted (ADR-0024); licences GPL-3.0 apps / Apache-2.0 protos and SDKs (ADR-0025); sessions may merge their own branches into `main` before the first release (no push); repos may cite KB IDs and link KB docs.
 - 2026-10-11: owner answers (IN-0015): SPDX `GPL-3.0-or-later` confirmed; Code of Conduct contact team@panelarr.app; ports server 8900, meta 8901, mihon-source 8902; source-mihon delegates stores to mihon-source; meta is a standalone service.
+- 2026-10-11: Q-0020 closed (IN-0019, ADR-0026): ConnectRPC on Go; **standard gRPC is the canonical wire** every service and plugin must speak; REST/JSON per google.api.http; Connect optional.

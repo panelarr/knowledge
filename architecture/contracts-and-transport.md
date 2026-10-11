@@ -34,7 +34,8 @@ The reasoning behind each contract lives in [contracts/](../contracts/README.md)
 - **Auth between services:** a pre-shared API key (metadata header / `Authorization: Bearer`), or a local socket for managed plugins. mTLS is optional for remote plugins.
 - **Capabilities:** every service exposes `GetInfo` (name, version, contract versions, capabilities), so hosts degrade gracefully.
 
-## Stack (leaning, [Q-0020](../questions/README.md))
-- **Go:** **ConnectRPC** serves gRPC, gRPC-Web and Connect JSON from one handler. OpenAPI comes from protos (e.g. `protoc-gen-connect-openapi`). `buf` handles generation, lint and breaking checks.
-- **JVM (mihon-source):** grpc-kotlin with Ktor for JSON, or **Armeria** (built-in gRPC + HTTP/JSON transcoding + docs service). To be decided.
+## Stack (decided: [ADR-0024](../decisions/ADR-0024-armeria-for-the-jvm-rpc-server.md), [ADR-0026](../decisions/ADR-0026-connectrpc-on-go-grpc-as-the-plugin-wire.md))
+- **Wire rule:** standard **gRPC** is the canonical wire for remote plugins and services; every Panelarr service and plugin speaks it. REST/JSON follows the `google.api.http` paths. The Connect protocol is optional.
+- **Go:** **ConnectRPC** serves gRPC, gRPC-Web and Connect from one handler; REST via vanguard transcoding (grpc-gateway as fallback). go-plugin managed plugins use grpc-go. OpenAPI comes from protos (e.g. `protoc-gen-connect-openapi`). `buf` handles generation, lint and breaking checks.
+- **JVM (mihon-source):** **Armeria** (gRPC, gRPC-Web and HTTP/JSON transcoding on one port) with grpc-kotlin services.
 - **Browser API:** OpenAPI 3.1 written for `server`. web generates a typed client from it.

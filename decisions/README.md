@@ -29,3 +29,4 @@ Numbered, append-only decision records. An accepted ADR is never rewritten. A ne
 | [ADR-0023](ADR-0023-sqlc-pgx-goose-data-layer.md) | sqlc + pgx + goose as the Go data layer. Supersedes ADR-0018 | accepted |
 | [ADR-0024](ADR-0024-armeria-for-the-jvm-rpc-server.md) | Armeria for the JVM RPC server (gRPC, gRPC-Web, JSON transcoding on one port) | accepted |
 | [ADR-0025](ADR-0025-licences-gpl-3-0-apps-apache-2-0-sdks-and-protos.md) | Licences: GPL-3.0 for apps, Apache-2.0 for SDKs and protos | accepted |
+| [ADR-0026](ADR-0026-connectrpc-on-go-grpc-as-the-plugin-wire.md) | ConnectRPC on Go; standard gRPC is the canonical plugin wire, REST/JSON per google.api.http, Connect optional | accepted |

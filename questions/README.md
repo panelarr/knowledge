@@ -18,7 +18,6 @@ Everything we don't know yet. IDs are stable and never reused. When a question i
 | Q-0016 | Legal and ToS stance and wording: no bundled extensions or plugins; hosters add indexes; disclaimers; DMCA contact. | legal | P2 | [principles](../product/principles.md) |
 | Q-0018 | When to support PDF and EPUB in source-local (PDF needs a rasterizer, which may require cgo)? | source-local | P3 | [source-local](../modules/source-local/overview.md) |
 | Q-0019 | Rules for inferring series, volume and chapter from file and folder names when there is no ComicInfo. | source-local | P2 | [formats](../research/comic-archive-formats.md) |
-| Q-0020 | RPC stack on the Go side: ConnectRPC + OpenAPI generation from protos? Is gRPC the primary wire for remote plugins, with JSON optional? *Go side: `panelarr-meta` PROPOSEs **ConnectRPC** (built in meta slice 2; grpc-go for go-plugin managed plugins; vanguard for REST transcoding), a working assumption until the owner decides. JVM side answered: Armeria ([ADR-0024](../decisions/ADR-0024-armeria-for-the-jvm-rpc-server.md)).* | contracts | P1 | [ADR-0012](../decisions/ADR-0012-protobuf-grpc-contracts.md) |
 | Q-0021 | Should trackers become a plugin kind (like sources and metadata), or stay built into server? | trackers | P3 | [trackers](../architecture/trackers.md) |
 | Q-0022 | Search backends: Typesense first (author's suggestion) then Meilisearch? Is embedded Bleve worth adding? Benchmark CJK title search.  *The optional engine integrations belong to meta; the library uses built-in Postgres search (IN-0017, IN-0018). OpenSearch/Algolia: Q-0033.* | search | P2 | [search](../architecture/search.md) |
 | Q-0023 | Where does character data come from (AniList, ComicVine)? Is it stored in meta and indexed for search? | meta, search | P3 | [search](../architecture/search.md) |
@@ -31,6 +30,7 @@ Everything we don't know yet. IDs are stable and never reused. When a question i
 
 | ID | Question | Answer |
 |---|---|---|
+| Q-0020 | RPC stack and primary wire? | JVM: Armeria ([ADR-0024](../decisions/ADR-0024-armeria-for-the-jvm-rpc-server.md)). Go: ConnectRPC, with grpc-go for go-plugin managed plugins; **standard gRPC is the canonical wire** for remote plugins, REST/JSON per `google.api.http`, Connect optional (IN-0019). See [ADR-0026](../decisions/ADR-0026-connectrpc-on-go-grpc-as-the-plugin-wire.md) |
 | Q-0005 | Default ports? | server **8900**, meta **8901**, mihon-source **8902** (IN-0015 §1). Plugins in standalone mode: from **8903** up (IN-0016). See [deployment](../architecture/deployment.md) |
 | Q-0006 | Is meta embedded in server or a separate service by default? | A **standalone service** (its own container) with library integration (IN-0015 §1). See [meta](../modules/meta/overview.md) |
 | Q-0013 | Are the GitHub org and Docker Hub org `panelarr` secured? | Yes, both: the GitHub repos exist, and the owner confirmed Docker Hub (IN-0015 §1) |

@@ -1,7 +1,7 @@
 # 2026-10-11: metadata goal brief
 
 - **Participants:** @aurimasniekis, panelarr-knowledge
-- **Inputs:** IN-0009, IN-0010, IN-0011, IN-0012, IN-0013, IN-0014, IN-0015, IN-0016, IN-0017, IN-0018
+- **Inputs:** IN-0009, IN-0010, IN-0011, IN-0012, IN-0013, IN-0014, IN-0015, IN-0016, IN-0017, IN-0018, IN-0019
 
 ## Discussed
 
@@ -31,6 +31,7 @@
 - Owner (IN-0015): `GPL-3.0-or-later`; contact team@panelarr.app; Docker Hub org secured; ports 8900/8901/8902; source-mihon delegates stores; meta standalone with library integration. Q-0005, Q-0006, Q-0013, Q-0031 answered; both sessions told.
 - Owner (IN-0016): plugin ports from 8903 up confirmed.
 - Owner (IN-0017): meta gets optional, configurable search engine integrations (Typesense, Meilisearch; maybe OpenSearch/Algolia). The keeper first wrote this as applying to server too; the owner corrected it (IN-0018): these are meta's, and the library uses built-in Postgres search. Recorded in meta, search, ADR-0017 and GOAL-0002.
+- Owner (IN-0019): after hearing the case against, accepted ConnectRPC with the gRPC wire rule ([ADR-0026](../decisions/ADR-0026-connectrpc-on-go-grpc-as-the-plugin-wire.md)); Q-0020 closed.
 
 ## New open questions
 
