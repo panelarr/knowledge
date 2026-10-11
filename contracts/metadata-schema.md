@@ -127,6 +127,14 @@ Every enum value travels with the provider's **raw string** (`raw_type`, `raw_ro
 | — | `raw_*` next to every enum, `raw` JSONB per ProviderEntry | Nothing a provider sends is lost when our enums don't fit |
 | — | `stats` per provider | Ratings aren't comparable across providers |
 
+## As built (meta slice 2, `d9e0aed`)
+- `PartialDate.estimated` (MangaBaka flags estimated dates).
+- `CompanyCredit.language` (publishers per market).
+- `stats`: `popularity` (score) and `popularity_rank` (position) are separate fields, and ratings use a 0–100 scale.
+- `ProviderEntry.url` and `updated_at`.
+- `Relation` carries the target `ExternalId`, an `entry_id` set by meta, and a `title`.
+- Persons, companies and tags carry a meta `id` that plugins leave empty.
+
 ## Open (for the meta session to settle by REPORT)
 - The exact proto messages and how the merged view is computed (on write vs on read).
 - The default per-field provider priority. *Suggestion:* MangaBaka for titles, IDs and tags; AniList for people and characters once it exists.
