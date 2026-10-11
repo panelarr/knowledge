@@ -295,6 +295,35 @@
         "contracts/metadata-plugin.md",
         "research/mangabaka.md"
       ]
+    },
+    {
+      "name": "source-api",
+      "path": "../source-api",
+      "forge": "github",
+      "slug": "panelarr/source-api",
+      "visibility": "public",
+      "session": "panelarr-mihon-source",
+      "default_branch": "main",
+      "module": "modules/source-api/overview.md",
+      "docs": [
+        "contracts/source-plugin.md",
+        "architecture/plugins.md",
+        "architecture/networking.md"
+      ]
+    },
+    {
+      "name": "source-mihon",
+      "path": "../source-mihon",
+      "forge": "github",
+      "slug": "panelarr/source-mihon",
+      "visibility": "public",
+      "session": "panelarr-mihon-source",
+      "default_branch": "main",
+      "module": "modules/source-mihon/overview.md",
+      "docs": [
+        "contracts/source-plugin.md",
+        "contracts/mihon-source-api.md"
+      ]
     }
   ],
   "authority": {

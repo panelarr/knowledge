@@ -1,9 +1,9 @@
 ---
 title: "GOAL-0009: source-api and source-mihon v0"
-status: proposed
+status: accepted
 tags: [goal, agents, source-api, source-mihon, go]
 related: [modules/source-api/overview.md, modules/source-mihon/overview.md, contracts/source-plugin.md, contracts/mihon-source-api.md, decisions/ADR-0028-library-entry-per-work.md]
-inputs: [IN-0007, IN-0015, IN-0037, IN-0038]
+inputs: [IN-0007, IN-0015, IN-0037, IN-0038, IN-0040]
 repos: [source-api, source-mihon, mihon-source]
 session: "panelarr-mihon-source"
 features: []
@@ -16,7 +16,7 @@ The brief a coding session works from. A short paste-in version points here: *"W
 
 ## Status
 
-`proposed`. The owner chose source-mihon from day one and this session to build it (IN-0037 §2, IN-0038). It needs the repos `panelarr/source-api` and `panelarr/source-mihon` created by the owner, and the owner's go.
+`accepted`: dispatched to `panelarr-mihon-source` on 2026-10-11 (owner's go, IN-0040). Repos `panelarr/source-api` and `panelarr/source-mihon` created by the owner.
 
 ## Context
 
@@ -63,3 +63,4 @@ The brief a coding session works from. A short paste-in version points here: *"W
 ## History
 
 - 2026-10-11: brief written (`proposed`); waiting for the repos and the owner's go.
+- 2026-10-11: owner's go and repos created (IN-0040): `accepted`, dispatched.

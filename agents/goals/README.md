@@ -12,4 +12,4 @@ Briefs for coding sessions: objective, context to read, how to work, constraints
 | [GOAL-0006](GOAL-0006-meta-search-engines-typesense-then-meilisearch.md) | meta search engines: Typesense then Meilisearch (FEAT-0001) | `panelarr-meta` | accepted |
 | [GOAL-0007](GOAL-0007-mihon-source-jobs-page.md) | mihon-source jobs page (FEAT-0002) | `panelarr-mihon-source` | accepted |
 | [GOAL-0008](GOAL-0008-meta-jobs-page.md) | meta jobs page (FEAT-0002) | `panelarr-meta` | accepted |
-| [GOAL-0009](GOAL-0009-source-api-and-source-mihon-v0.md) | source-api (protos, Go SDK, conformance) and source-mihon v0 (pass-through to mihon-source) | `panelarr-mihon-source` | proposed |
+| [GOAL-0009](GOAL-0009-source-api-and-source-mihon-v0.md) | source-api (protos, Go SDK, conformance) and source-mihon v0 (pass-through to mihon-source) | `panelarr-mihon-source` | accepted |
