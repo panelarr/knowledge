@@ -19,8 +19,11 @@ The owner asked for a Panelarr SVG logo, used in every admin as "LOGO Panelarr M
 |---|---|
 | [brand/panelarr-icon.svg](brand/panelarr-icon.svg) | Full colour: pink tile `#E0457B`, white panels. Headers, favicons, README badges, image labels |
 | [brand/panelarr-icon-mono.svg](brand/panelarr-icon-mono.svg) | One colour (`currentColor`; the panels are cut out). Monochrome spots, overlays, the theme's text colour |
+| [brand/panelarr-icon-512.png](brand/panelarr-icon-512.png) | Full colour, 512×512 PNG (transparent corners). Docker Hub, GitHub org/repo avatars, Unraid templates, app stores |
+| [brand/panelarr-icon-mono-black-512.png](brand/panelarr-icon-mono-black-512.png) | One colour black, 512×512 PNG |
+| [brand/panelarr-icon-mono-white-512.png](brand/panelarr-icon-mono-white-512.png) | One colour white, 512×512 PNG (for dark backgrounds) |
 
-Both use a `64×64` viewBox and stay legible at 16 px.
+The SVGs use a `64×64` viewBox and stay legible at 16 px. The PNGs are rendered from them (`rsvg-convert -w 512 -h 512`); re-render if the SVG changes.
 
 ## Usage in admin UIs and apps
 
