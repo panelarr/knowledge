@@ -13,5 +13,5 @@ Briefs for coding sessions: objective, context to read, how to work, constraints
 | [GOAL-0007](GOAL-0007-mihon-source-jobs-page.md) | mihon-source jobs page (FEAT-0002) | `panelarr-mihon-source` | accepted |
 | [GOAL-0008](GOAL-0008-meta-jobs-page.md) | meta jobs page (FEAT-0002) | `panelarr-meta` | accepted |
 | [GOAL-0009](GOAL-0009-source-api-and-source-mihon-v0.md) | source-api (protos, Go SDK, conformance) and source-mihon v0 (pass-through to mihon-source) | `panelarr-mihon-source` | accepted |
-| [GOAL-0010](GOAL-0010-server-v0-accounts-add-and-match-chapters-reader-api-downloa.md) | [GOAL-0010](GOAL-0010-server-v0-accounts-add-and-match-chapters-reader-api-downloa.md) | — | draft |
+| [GOAL-0010](GOAL-0010-server-v0-accounts-add-and-match-chapters-reader-api-downloa.md) | server v0: accounts, add and match, chapters, reader API, downloads | `panelarr-server` | accepted |
 | [GOAL-0011](GOAL-0011-web-v0-panelarr-app-for-the-first-slice.md) | web v0: Panelarr app for the first slice | `panelarr-web` | accepted |

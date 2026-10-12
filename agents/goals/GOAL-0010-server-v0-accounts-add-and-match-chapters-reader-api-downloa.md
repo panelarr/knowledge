@@ -1,10 +1,10 @@
 ---
 title: "GOAL-0010: server v0: accounts, add and match, chapters, reader API, downloads"
-status: draft
+status: accepted
 tags: [goal, agents]
 related: []
-repos: []
-session: ""
+repos: [server]
+session: "panelarr-server"
 features: []
 updated: 2026-10-11
 ---
@@ -15,7 +15,7 @@ The brief a coding session works from. A short paste-in version points here: *"W
 
 ## Status
 
-<!-- draft → proposed (owner reviews the brief) → accepted (dispatched) → done/superseded. Keep a dated history below. -->
+**Done 2026-10-12.** The session planned this goal itself and the keeper accepted the plan; its slices and evidence are in its REPORTs and its `PROGRESS.md`. Verified on a clean clone: see the [test report](../../qa/reports/goal-0010-server-v0-done-verification.md).
 
 ## Context
 
@@ -53,3 +53,4 @@ The brief a coding session works from. A short paste-in version points here: *"W
 - [ ] `DONE:` sent with evidence (commits, how to verify)
 
 ## History
+- 2026-10-12: DONE received (`41418a9`) and verified on a clean clone.
