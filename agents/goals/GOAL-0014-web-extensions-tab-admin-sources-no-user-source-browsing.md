@@ -50,3 +50,4 @@ As in GOAL-0011: slices, `make check` and `make e2e` green, `REPORT:` per slice,
 ## History
 
 - 2026-10-12: brief written and dispatched on the owner's go (IN-0055).
+- 2026-10-12: plan PROPOSEd and accepted by the keeper. S0 admin-only sources (Browse → Sources moves to Admin → Sources → a source as the test view; old links redirect; a work's sources show lang). S1 Admin → Sources (language, package, filters in the URL, on/off; "Off" vs "Not available" vs "Absent" kept apart). S2 Extensions tab (only with the packages capability; virtualised list, search and language filter, install/update/uninstall as tasks with live progress, a package sheet with its sources and enabled_langs). S3 layout, axe, journey test, docs. Work page "Search this source" for match fixers: admin-only until the server adds a work-scoped search (asked of panelarr-server).
