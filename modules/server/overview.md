@@ -52,3 +52,5 @@ In progress (GOAL-0010, `panelarr-server`). Slice 0 (scaffold) merged at `f14d9a
 [Q-0004](../../questions/README.md), [Q-0021](../../questions/README.md), [Q-0025](../../questions/README.md).
 
 Meta errors (IN-0049, `0fd607b`): `meta_unavailable` (503) only when meta didn't answer; `meta_provider_unavailable` (502) when meta answered that a provider's plugin is down (meta `5117089` adds `ErrorInfo` reason `PROVIDER_UNAVAILABLE` with the provider); `meta_key_rejected` and `meta_error` (502) for other answered errors.
+
+Plugin health (IN-0050, `6fc6819`): a plugin found down is rechecked on its own after 10s, 30s and 1m (single-plugin syncs, debug logs, no job runs), then by the 5-minute `plugins.sync`; at startup a plugin that doesn't answer gets 1s and 2s waits before it's marked down.
