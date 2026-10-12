@@ -53,3 +53,5 @@ As in your earlier goals: slices, gated `make check`, `REPORT:` per slice, `PROG
 ## History
 
 - 2026-10-12: brief written and dispatched on the owner's go (IN-0055).
+- 2026-10-12: plan PROPOSEd and accepted by the keeper. S1 admin-only sources (`feat(api)!:`; source listing, popular, latest, search, filters, series, chapters move to admin; work-bound calls, attach/match, reader pages and signed images stay user). S2 source filters (`plugin_id`, `enabled`, `present`), proof that disabled/absent sources are skipped everywhere, and AC3 (an absent source keeps a work's links, history and downloads). S3 packages after GOAL-0012 (capability flag on Plugin, `/plugins/{id}/packages` list/install/update/uninstall as queue tasks, per-package settings, `package` on sources). Answers: `addFromSource` stays `user` (grants and may_add still apply; working assumption, cheap to change); no server language setting (languages live in plugin config and package settings, IN-0054); admin read-only keys lose source browsing (admin scope required, consistent with admin-only sources).
+
