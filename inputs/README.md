@@ -65,3 +65,4 @@ The owner's raw words: messages, answers, idea dumps, transcripts, pasted conver
 | [IN-0059](IN-0059-answers-on-feat-0010-q-0045-q-0046-q-0039-q-0040-q-0041.md) | [IN-0059](IN-0059-answers-on-feat-0010-q-0045-q-0046-q-0039-q-0040-q-0041.md) | 2026-10-12 | — |
 | [IN-0060](IN-0060-reader-too-crowded-series-page-and-library-like-the-referenc.md) | [IN-0060](IN-0060-reader-too-crowded-series-page-and-library-like-the-referenc.md) | 2026-10-12 | — |
 | [IN-0061](IN-0061-reader-loads-the-next-chapter-on-scroll.md) | [IN-0061](IN-0061-reader-loads-the-next-chapter-on-scroll.md) | 2026-10-12 | — |
+| [IN-0062](IN-0062-where-are-the-extension-settings.md) | [IN-0062](IN-0062-where-are-the-extension-settings.md) | 2026-10-12 | — |
