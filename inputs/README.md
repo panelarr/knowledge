@@ -68,3 +68,4 @@ The owner's raw words: messages, answers, idea dumps, transcripts, pasted conver
 | [IN-0062](IN-0062-where-are-the-extension-settings.md) | [IN-0062](IN-0062-where-are-the-extension-settings.md) | 2026-10-12 | — |
 | [IN-0063](IN-0063-plugin-admin-pages-inside-panelarr-admin.md) | [IN-0063](IN-0063-plugin-admin-pages-inside-panelarr-admin.md) | 2026-10-12 | — |
 | [IN-0064](IN-0064-network-choices-in-plugin-settings-all-plugin-admin-pages-in.md) | [IN-0064](IN-0064-network-choices-in-plugin-settings-all-plugin-admin-pages-in.md) | 2026-10-12 | — |
+| [IN-0065](IN-0065-custom-resolvers-proxies-and-profiles-per-plugin.md) | [IN-0065](IN-0065-custom-resolvers-proxies-and-profiles-per-plugin.md) | 2026-10-12 | — |

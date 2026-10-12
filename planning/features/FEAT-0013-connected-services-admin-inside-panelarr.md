@@ -3,7 +3,7 @@ title: "FEAT-0013: Connected services' admin inside Panelarr"
 status: accepted
 tags: [feature, admin, server, web, meta, mihon-source, source-mihon]
 related: [modules/web/overview.md, planning/features/FEAT-0010-shared-network-services-and-plugin-admin-settings-in-panelar.md, planning/features/FEAT-0009-extensions-and-sources-in-panelarr-s-admin-with-languages.md, decisions/ADR-0021-mihon-source-standalone-admin.md]
-inputs: [IN-0039, IN-0063, IN-0064]
+inputs: [IN-0065, IN-0039, IN-0063, IN-0064]
 milestone: ""
 priority: P1
 updated: 2026-10-12
@@ -16,6 +16,8 @@ updated: 2026-10-12
 "i meant also plugin settings, like mihon-source network stuff, resolvers, profiles, too not only extensions settings. like imagine meta/source admin page settings inside the admin here" (IN-0063). Asked whether the rest of mihon-source's and meta's admin pages should live inside Panelarr's admin: "Yes, all of it" (IN-0064). On network: "like Panelarr's Network page it defines profiles/proxies/resolvers and in plugin it becomes available for its settings so like on mihon-source setting i can choose resolver from Panelarr itself" (IN-0064).
 
 This is the connected-services idea from IN-0039, left out of v0.
+
+Custom network resources (IN-0065): on each plugin's page the admin can also create custom resolvers, proxies and profiles for that plugin, as in its own admin; Panelarr's shared ones are offered as options.
 
 ## Outcome
 

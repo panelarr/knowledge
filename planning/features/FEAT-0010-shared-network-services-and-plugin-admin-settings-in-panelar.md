@@ -3,7 +3,7 @@ title: "FEAT-0010: Shared network services and plugin admin settings in Panelarr
 status: accepted
 tags: [feature, admin, networking, plugins, server, web, meta, source-mihon, mihon-source]
 related: [architecture/networking.md, decisions/ADR-0016-per-source-network-profiles.md, architecture/plugins.md, contracts/source-plugin.md, contracts/metadata-plugin.md, planning/features/FEAT-0009-extensions-and-sources-in-panelarr-s-admin-with-languages.md]
-inputs: [IN-0058, IN-0059, IN-0007, IN-0039]
+inputs: [IN-0065, IN-0058, IN-0059, IN-0007, IN-0039]
 milestone: ""
 priority: P2
 updated: 2026-10-12
@@ -18,6 +18,8 @@ updated: 2026-10-12
 Today solvers (FlareSolverr and the like), proxies and network profiles are configured separately in mihon-source's admin and meta's admin, and Panelarr itself has none (left out of v0). The design already plans for the host to own them: per-source **network profiles** ([networking](../../architecture/networking.md), [ADR-0016](../../decisions/ADR-0016-per-source-network-profiles.md), proposed), plugins declaring the **common services** they can use (IN-0007), and `SetNetworkProfile` pushed by the host in `source.v1` (and planned in `metadata.v1`).
 
 Accepted with the owner's assignment model (IN-0059): "f10 not every gets one but its available as option from panelarr itself, but each extension can configure custom for it itself if needed, we can also assign global one for whole source/meta plugin too and etc." Q-0045: "yes panelarr provides these as options and on plugin/meta plugin u choose or creeate new one". Q-0046: "all i think apart new integrations as its doenst make sense."
+
+Custom network resources per plugin (IN-0065): "also on each plugin i can set custom resover/proxy/profile like i would do through their admin page too, but this only "shares" panelarrs one with this plugin as options". Each plugin's page can create custom resolvers, proxies and profiles for that plugin; Panelarr's Network page items are shared with all plugins as options. This refines Q-0046's "apart new integrations": shared integrations are created on the Network page, custom ones on the plugin.
 
 ## Outcome
 
