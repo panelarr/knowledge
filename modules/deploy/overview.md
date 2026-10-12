@@ -66,3 +66,5 @@ Until the `deploy` repo exists, the owner has a local Compose setup in `~/Projec
 **Redeploy #17 (2026-10-12):** web `9f66ccc` (one Jobs view, Admin → Metadata). Read-only check: meta's jobs grouped by kind, source-mihon's three jobs on its Jobs tab, the meta line on System. Found: cron schedules shown as "Runs by hand only" (sent to web). The mangabaka sync's last run shows the morning's deliberate provider-down test as failed; tonight's 03:00 sync replaces it.
 
 **Redeploy #18 (2026-10-12):** web `2dbd31a`. Plugin tabs Overview | Extensions | Sources | Jobs | Network; the owner's store with its count and refresh time; installed-extension details with the signing key matching the store's; cron jobs in words. Found: the Sources tab also lists the 41 language-off sources (sent to web to hide by default, as on Admin → Sources).
+
+**Redeploy #19 (2026-10-12):** server `4ab5574` with web `86ff8a9`. Metadata Overview health (database 0 ms, search 419 ms, the mangabaka provider 1 ms), Providers with 564,155 records and the daily 03:00 UTC sync; source-mihon's Sources tab shows its 2 live sources with the other 41 hidden. Read-only; no syncs started.
