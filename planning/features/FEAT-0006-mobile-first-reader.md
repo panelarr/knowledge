@@ -58,4 +58,4 @@ shadcn/ui + Tailwind ([Q-0008](../../questions/README.md)); [web](../../modules/
 ## Open questions
 
 - Per-series overrides: also per user? **Answered as built:** settings are per user (server `e2726f1`).
-- Suwayomi's reader feature list is from the owner's experience; the web session should review it hands-on and list what to keep and what to polish.
+- Suwayomi's reader: reviewed by `panelarr-web` (keep/polish list, 2026-10-12). **Owner (IN-0046):** a change made in the reader saves for this series by default (one tap for the whole source); defaults by work type kept (manga single RTL, manhwa/manhua/webtoon webtoon, comics single LTR, auto webtoon for tall pages).
