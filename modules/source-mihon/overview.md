@@ -28,3 +28,5 @@ The Go side of Mihon support ([ADR-0021](../../decisions/ADR-0021-mihon-source-s
 
 ## Implementation status
 **v0 done** (GOAL-0009, `ada9503`): config via SetConfig, pass-through of every source.v1 call to mihon-source, health, profiles, store and extension reconcile, metrics; a 21.6 MB distroless image on :8904; a compose example; end-to-end conformance against the real mihon-source passes.
+
+Packages and languages (GOAL-0012, `b5dbae0`): source-mihon declares the packages capability (extensions from all stores, install/update/uninstall, per-extension languages through mihon-source) and a plugin-level `languages` setting; only sources in enabled languages are listed or callable.

@@ -16,7 +16,7 @@ The brief a coding session works from. A short paste-in version points here: *"W
 
 ## Status
 
-`accepted` (2026-10-12): the owner accepted [FEAT-0009](../../planning/features/FEAT-0009-extensions-and-sources-in-panelarr-s-admin-with-languages.md) and gave the go (IN-0055). Plan first: send a `PROPOSE:` with the proto shape and slices before building; the keeper reviews it and shares it with `panelarr-server` and `panelarr-web` (GOAL-0013, GOAL-0014 build on it).
+`accepted`, **Done 2026-10-12** (verified, pass; [test report](../../qa/reports/goal-0012-source-plugins-packages-done-verification.md)). The owner accepted [FEAT-0009](../../planning/features/FEAT-0009-extensions-and-sources-in-panelarr-s-admin-with-languages.md) and gave the go (IN-0055). Plan first: send a `PROPOSE:` with the proto shape and slices before building; the keeper reviews it and shares it with `panelarr-server` and `panelarr-web` (GOAL-0013, GOAL-0014 build on it).
 
 ## Context
 
@@ -61,11 +61,11 @@ The brief a coding session works from. A short paste-in version points here: *"W
 
 ## Definition of Done
 
-- [ ] source-api: package capability and language filtering in `source.v1` (additive), SDK support, conformance cases; Apache-2.0
-- [ ] mihon-source: per-extension enabled languages and per-source languages available through its admin API
-- [ ] source-mihon: implements the capability end to end against the real mihon-source and the fixture store; plugin-level languages; `ListSources` filtered
-- [ ] `make check` green in all three repos; leak-check clean; docs updated
-- [ ] `DONE:` with evidence per box
+- [x] source-api: package capability and language filtering in `source.v1` (additive), SDK support, conformance cases; Apache-2.0
+- [x] mihon-source: per-extension enabled languages and per-source languages available through its admin API
+- [x] source-mihon: implements the capability end to end against the real mihon-source and the fixture store; plugin-level languages; `ListSources` filtered
+- [x] `make check` green in all three repos; leak-check clean; docs updated
+- [x] `DONE:` with evidence per box
 
 ## History
 
@@ -76,3 +76,5 @@ The brief a coding session works from. A short paste-in version points here: *"W
 - 2026-10-12: mihon-source per-source settings schemas carry per-property `x-order` (`b3550d7`). Plan for the server's guarantees: slice 1 defines idempotency in the contract (fake + conformance), slice 2 makes mihon-source's install finish even if the caller goes away, slice 3 makes source-mihon idempotent.
 - 2026-10-12: REPORT: **slice 1 done** (source-api `2ac5461`): `PLUGIN_CAPABILITY_PACKAGES`, the six package RPCs, `Package`/`PackageOffer`/`PackageSource{available}`/`PackageSettings{enabled_langs}`, `Source.package_id = 9`, error reasons STORE_FETCH_FAILED (7) / STORE_INVALID (8), package IDs `^[A-Za-z0-9][A-Za-z0-9._-]*$`; idempotency documented and checked by conformance; SDK on Plugin and every Client transport; plugintest fake with packages (one multi-language, from two stores); conformance read-only by default plus a `--package` install walk; settings.Parse refuses malformed `properties`. source-mihon answers UNIMPLEMENTED until slice 3 (`e8cfe2c`). The server still builds and vets against it (keeper check). Next: slice 2 (mihon-source).
 - 2026-10-12: REPORT: **slice 2 done** (mihon-source `17f1f2b`): `SetExtensionLanguages` (`PUT /v1/admin/extensions/{pkgName}/languages`), `Extension.enabled_langs`, `ExtensionSource.available`; every source path (list, browse, health checks, gauge, cache) follows it; stored with the extension (survives restart and update). Admin Languages control on multi-language extensions, with the "all"/"multi" hint. Re-installing the installed version returns at once; a cancelled install leaves the previous version installed and loaded (tested). Fixture-store export task for e2e (v1/v2, en and fr sources, test key). Next: slice 3 (source-mihon).
+- 2026-10-12: REPORT: **slice 3 done** (source-mihon `b5dbae0`): PACKAGES over mihon-source (offers per store, best supported offer, idempotent install/update/uninstall, languages forwarded), plugin-level `languages`, ListSources filtered with `package_id`, NOT_FOUND outside the languages, metrics and logs; e2e against the real mihon-source and the fixture store.
+- 2026-10-12: DONE received and verified on clean clones (all three `make check`/`gradlew check`, plus source-mihon `make e2e` against the real mihon-source). Goal closed.

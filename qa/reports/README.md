@@ -16,3 +16,4 @@ Results of test runs, including verification of a session's `REPORT:`/`DONE:` an
 | [goal-0010-server-v0-done-verification.md](goal-0010-server-v0-done-verification.md) | GOAL-0010 server v0 DONE verification | draft |
 | [goal-0011-web-v0-done-verification.md](goal-0011-web-v0-done-verification.md) | GOAL-0011 web v0 DONE verification | draft |
 | [goal-0013-server-packages-and-sources-done-verification.md](goal-0013-server-packages-and-sources-done-verification.md) | GOAL-0013 server extensions, source languages, admin-only sources DONE verification | draft |
+| [goal-0012-source-plugins-packages-done-verification.md](goal-0012-source-plugins-packages-done-verification.md) | GOAL-0012 source plugins extension packages and languages DONE verification | draft |
