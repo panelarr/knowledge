@@ -48,3 +48,12 @@ Reading feels like a reader, not an app: the page fills the screen, the chrome i
 ## Open questions
 
 - Library changes: how far to follow the reference now (badges, play button, sheet) vs later.
+
+## Plan (accepted by the keeper, 2026-10-12)
+
+`panelarr-web`, after the quick fix (`647cb99`, AC1–AC2):
+- **R1 series page:** one row of icon buttons (in library, a download menu, a mark-read menu, one filter / sort / display sheet, select mode, ⋯); plain rows with unread bright and read dimmed, no "New" badges; the summary says "N chapters · M unread"; select mode with a floating batch bar.
+- **R2 bookmarks** on server `781ed85`: in the reader, the row menu, batch actions, a filter, a mark on the row.
+- **R3 reader chrome:** a thin top bar (back, series and chapter, bookmark, ⋯) and a bottom icon bar (chapters, quick layout, settings) that hide while reading; one settings sheet (Layout, General) with a This series / This source / Everywhere switch and a mark on settings set for the current scope.
+- **R4 library:** unread badges and a continue button on covers; one filter / sort / display sheet (needs server fields: unread count, continue chapter, last read, latest chapter).
+
