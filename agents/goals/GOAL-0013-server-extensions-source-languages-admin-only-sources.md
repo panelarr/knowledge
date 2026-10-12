@@ -16,7 +16,7 @@ The brief a coding session works from. A short paste-in version points here: *"W
 
 ## Status
 
-`accepted` (2026-10-12): the owner accepted [FEAT-0009](../../planning/features/FEAT-0009-extensions-and-sources-in-panelarr-s-admin-with-languages.md) (IN-0055). Depends on GOAL-0012's `source.v1` shape: wait for the keeper to forward `panelarr-mihon-source`'s PROPOSE, comment on it, then PROPOSE your own plan. Slices that don't need the new protos (admin-only sources, source enable/disable, languages on sources) can start right away.
+`accepted`, **Done 2026-10-12** (verified, pass; [test report](../../qa/reports/goal-0013-server-packages-and-sources-done-verification.md)). The owner accepted [FEAT-0009](../../planning/features/FEAT-0009-extensions-and-sources-in-panelarr-s-admin-with-languages.md) (IN-0055). Depends on GOAL-0012's `source.v1` shape: wait for the keeper to forward `panelarr-mihon-source`'s PROPOSE, comment on it, then PROPOSE your own plan. Slices that don't need the new protos (admin-only sources, source enable/disable, languages on sources) can start right away.
 
 ## Context
 
@@ -44,11 +44,11 @@ As in your earlier goals: slices, gated `make check`, `REPORT:` per slice, `PROG
 
 ## Definition of Done
 
-- [ ] Packages API for capable plugins; per-package languages
-- [ ] Source language, package, enable/disable; filtering in search, browse and matching
-- [ ] Admin-only source listing and browsing, enforced in the API, with tests for both roles
-- [ ] Spec and docs updated; `make check` green; leak-check clean
-- [ ] `DONE:` with evidence per box
+- [x] Packages API for capable plugins; per-package languages
+- [x] Source language, package, enable/disable; filtering in search, browse and matching
+- [x] Admin-only source listing and browsing, enforced in the API, with tests for both roles
+- [x] Spec and docs updated; `make check` green; leak-check clean
+- [x] `DONE:` with evidence per box
 
 ## History
 
@@ -58,3 +58,5 @@ As in your earlier goals: slices, gated `make check`, `REPORT:` per slice, `PROG
 - 2026-10-12: added to S2: a work-scoped source search for match fixers (`POST /works/{id}/sources/{source_id}/search`, may_manage_matches, usable and allowed sources only), so users search sources only on a library item (IN-0054).
 - 2026-10-12: CONFLICT (manual source search for non-admin fixers) resolved by the keeper as option A, the work-scoped search. S2 also makes chapter copy choice prefer usable sources and choose again when a source's availability changes (downloads no longer fail on an absent or disabled source when another has the chapter). S3 notes sent to web: `plugin.package` task payload {plugin_id, package_id, action}, `task_id` on pending package rows, one full package list.
 - 2026-10-12: REPORT: **S2 done** (`5afb3f2`, merge `f4b88e0`; no breaking changes): GET /sources filters `plugin_id`, `enabled`, `present`; work-scoped search `POST /works/{work_id}/sources/{source_id}/search` (may_manage_matches, usable sources within the caller's grants; results flag series the work already knows); chapter copies prefer usable sources (a pin on an unusable source gives way; an unusable copy still serves when it's the only one) and are chosen again whenever a source becomes usable or unusable, deleting nothing; checks skip unusable sources; admins may browse an Off source (Absent or plugin-off → 404). "Usable" = enabled, present, plugin enabled; health only ranks. Next: S3 packages.
+- 2026-10-12: REPORT: **S3 done** (`1d732f6`, merge `79cbf1c`): `packages` capability on Plugin; admin endpoints under `/plugins/{id}/packages` (list with filters, get, install/update/uninstall as `plugin.package` tasks, PUT languages); sources carry package and `unavailable_reason: language`; error codes `no_packages` (422), `plugin_disabled` (409), `store_fetch_failed` / `store_invalid` (502).
+- 2026-10-12: DONE received and verified on clean clones (`make check`, key tests re-run). Goal closed. Follow-ups: a package icon proxy, a test for the store-failure mappings.

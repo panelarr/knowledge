@@ -36,3 +36,5 @@ The browser and 3rd-party API is **REST + OpenAPI 3.1** under `/api/v1`, with an
 `job.progress`, `job.done`, `job.failed`, `chapter.downloaded`, `work.updated`, `library.changed`, `plugin.health`, `progress.synced`. Filtered per user. web turns these into TanStack Query invalidations.
 
 **Sources are admin-only (2026-10-12, server `4a51c86`, IN-0054):** listing sources and browsing, searching or reading a source directly need an admin with the admin scope. Users see sources only on works (each with `lang`), plus signed source images. The one deliberate non-additive change within v1, recorded in the server's docs/api.md.
+
+**Packages (2026-10-12, server `1d732f6`):** for plugins whose `capabilities` include `packages`, admin endpoints `GET /plugins/{id}/packages[/{pkg}]`, `POST …/install|update` and `DELETE …/{pkg}` (202 tasks of kind `plugin.package`), `PUT …/languages`. Sources carry `package_id`, `package_name` and `unavailable_reason` (`language`). Single-site plugins answer 422 `no_packages`.

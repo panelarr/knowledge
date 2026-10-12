@@ -58,9 +58,9 @@ On the Mihon plugin's own page, an admin browses the extensions the configured s
 
 | Repo | Goal | PR/MR | State |
 |---|---|---|---|
-| source-api, source-mihon, mihon-source | [GOAL-0012](../../agents/goals/GOAL-0012-source-plugins-extension-packages-and-languages.md) | — | planning |
-| server | [GOAL-0013](../../agents/goals/GOAL-0013-server-extensions-source-languages-admin-only-sources.md) | — | planning |
-| web | [GOAL-0014](../../agents/goals/GOAL-0014-web-extensions-tab-admin-sources-no-user-source-browsing.md) | — | planning |
+| source-api, source-mihon, mihon-source | [GOAL-0012](../../agents/goals/GOAL-0012-source-plugins-extension-packages-and-languages.md) | — | in progress (slices 1–2 done) |
+| server | [GOAL-0013](../../agents/goals/GOAL-0013-server-extensions-source-languages-admin-only-sources.md) | — | done (`79cbf1c`) |
+| web | [GOAL-0014](../../agents/goals/GOAL-0014-web-extensions-tab-admin-sources-no-user-source-browsing.md) | — | in progress (S0, S1 part one) |
 
 ## Open questions
 

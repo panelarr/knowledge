@@ -15,3 +15,4 @@ Results of test runs, including verification of a session's `REPORT:`/`DONE:` an
 | [goal-0004-meta-duplicates-done-verification.md](goal-0004-meta-duplicates-done-verification.md) | GOAL-0004 meta duplicates DONE verification | draft |
 | [goal-0010-server-v0-done-verification.md](goal-0010-server-v0-done-verification.md) | GOAL-0010 server v0 DONE verification | draft |
 | [goal-0011-web-v0-done-verification.md](goal-0011-web-v0-done-verification.md) | GOAL-0011 web v0 DONE verification | draft |
+| [goal-0013-server-packages-and-sources-done-verification.md](goal-0013-server-packages-and-sources-done-verification.md) | GOAL-0013 server extensions, source languages, admin-only sources DONE verification | draft |
