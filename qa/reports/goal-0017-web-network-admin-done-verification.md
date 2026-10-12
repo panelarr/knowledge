@@ -27,3 +27,4 @@ updated: 2026-10-12
 ## Risks and untested areas
 
 - Different tests fail on each loaded run, all timeouts: the suite depends on timing. Sent to `panelarr-web` to harden (longer or condition-based waits, traces on retry) before the next goal closes.
+- **Follow-up (2026-10-12, web `06c718a`, `e492ec8`):** waits given room (Testing Library 5 s, Vitest 20 s), Vite warm-up for e2e, 60 s e2e test timeout, retries with traces and screenshots. Proven under load average ~400: 3 × 315 unit tests and 98/98 e2e passed with no retries. The failures were machine load, not mock timing.
