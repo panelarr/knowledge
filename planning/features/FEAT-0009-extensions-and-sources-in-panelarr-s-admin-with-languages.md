@@ -38,15 +38,15 @@ On the Mihon plugin's own page, an admin browses the extensions the configured s
 
 ## Acceptance criteria
 
-- [ ] AC1: With a store added, the source-mihon plugin page's Extensions tab lists its extensions with language, version and content warning; a language filter and search narrow the list.
-- [ ] AC2a: The plugin's language setting and an extension's language override change which of its sources are listed; a source in a language that's turned off isn't available for search, browse or matching.
-- [ ] AC2: Install puts the extension on mihon-source (signing key and checksum verified as today), and its sources appear in Admin → Sources within seconds, each with its language.
-- [ ] AC3: An installed extension with a newer version in its store shows "Update"; update and uninstall work; an uninstalled extension's sources are marked absent, and works matched to them keep their history.
-- [ ] AC4: A single source can be disabled; disabled sources aren't searched, browsed or matched.
-- [ ] AC5: Language shows on every source in the admin and on a work's source tabs.
-- [ ] AC8: A regular user has no Sources page or direct source browsing; they see a work's sources on the work. The API enforces it (admin scope for source listing and browsing outside a work).
-- [ ] AC7: A single-site source plugin's page has no Extensions tab.
-- [ ] AC6: Only admins can install, update, uninstall or disable; everything is a plain API call (the web app has no Mihon-specific backdoor).
+- [x] AC1: With a store added, the source-mihon plugin page's Extensions tab lists its extensions with language, version and content warning; a language filter and search narrow the list.
+- [x] AC2a: The plugin's language setting and an extension's language override change which of its sources are listed; a source in a language that's turned off isn't available for search, browse or matching.
+- [x] AC2: Install puts the extension on mihon-source (signing key and checksum verified as today), and its sources appear in Admin → Sources within seconds, each with its language.
+- [x] AC3: An installed extension with a newer version in its store shows "Update"; update and uninstall work; an uninstalled extension's sources are marked absent, and works matched to them keep their history.
+- [x] AC4: A single source can be disabled; disabled sources aren't searched, browsed or matched.
+- [x] AC5: Language shows on every source in the admin and on a work's source tabs.
+- [x] AC8: A regular user has no Sources page or direct source browsing; they see a work's sources on the work. The API enforces it (admin scope for source listing and browsing outside a work).
+- [x] AC7: A single-site source plugin's page has no Extensions tab.
+- [x] AC6: Only admins can install, update, uninstall or disable; everything is a plain API call (the web app has no Mihon-specific backdoor).
 
 ## Design notes
 
@@ -60,7 +60,7 @@ On the Mihon plugin's own page, an admin browses the extensions the configured s
 |---|---|---|---|
 | source-api, source-mihon, mihon-source | [GOAL-0012](../../agents/goals/GOAL-0012-source-plugins-extension-packages-and-languages.md) | — | done (source-api `2ac5461`, mihon-source `17f1f2b`, source-mihon `b5dbae0`) |
 | server | [GOAL-0013](../../agents/goals/GOAL-0013-server-extensions-source-languages-admin-only-sources.md) | — | done (`79cbf1c`) |
-| web | [GOAL-0014](../../agents/goals/GOAL-0014-web-extensions-tab-admin-sources-no-user-source-browsing.md) | — | in progress (S0, S1 part one) |
+| web | [GOAL-0014](../../agents/goals/GOAL-0014-web-extensions-tab-admin-sources-no-user-source-browsing.md) | — | done (`344f5bc`) |
 
 ## Open questions
 

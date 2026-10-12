@@ -16,7 +16,7 @@ The brief a coding session works from. A short paste-in version points here: *"W
 
 ## Status
 
-`accepted` (2026-10-12): the owner accepted [FEAT-0009](../../planning/features/FEAT-0009-extensions-and-sources-in-panelarr-s-admin-with-languages.md) (IN-0055). Builds on GOAL-0013's API: work against the server's draft spec and mocks as before; PROPOSE your plan once the server's plan is in.
+`accepted`, **Done 2026-10-12** (verified, pass; [test report](../../qa/reports/goal-0014-web-extensions-and-sources-done-verification.md)). The owner accepted [FEAT-0009](../../planning/features/FEAT-0009-extensions-and-sources-in-panelarr-s-admin-with-languages.md) (IN-0055). Builds on GOAL-0013's API: work against the server's draft spec and mocks as before; PROPOSE your plan once the server's plan is in.
 
 ## Context
 
@@ -41,11 +41,11 @@ As in GOAL-0011: slices, `make check` and `make e2e` green, `REPORT:` per slice,
 
 ## Definition of Done
 
-- [ ] Extensions tab for capable plugins (list, filter, install, update, uninstall, languages)
-- [ ] Admin Sources with language, enable/disable and browse-for-testing
-- [ ] No source browsing for regular users; languages on a work's sources
-- [ ] Tests (unit, Playwright incl. phone and layout); docs; leak-check clean
-- [ ] `DONE:` with evidence per box
+- [x] Extensions tab for capable plugins (list, filter, install, update, uninstall, languages)
+- [x] Admin Sources with language, enable/disable and browse-for-testing
+- [x] No source browsing for regular users; languages on a work's sources
+- [x] Tests (unit, Playwright incl. phone and layout); docs; leak-check clean
+- [x] `DONE:` with evidence per box
 
 ## History
 
@@ -54,3 +54,4 @@ As in GOAL-0011: slices, `make check` and `make e2e` green, `REPORT:` per slice,
 - 2026-10-12: REPORT: **S0 done** (`556a01f`): source browsing moved to Admin → Sources → a source (the test view, with add to library); Browse is the catalogue only; old links redirect (admins to the admin page with the search kept, others to /browse); a work's source tabs show language; search-by-hand admin-only until the work-scoped search lands. Keeper decision on its assumption: admins may browse a source that's Off (for testing before turning it on); Not available and Absent sources can't be browsed (the plugin answers NOT_FOUND). Asked of panelarr-server for S2.
 - 2026-10-12: REPORT: **S1 part one** (`d51440d`): fixers have search-by-hand back via the work-scoped search (results marked Attached / Candidate / Rejected); Admin → Sources shows Off and Absent apart, plugin names in the filter; admins browse Off sources; Absent ones show the reason. Deviation accepted: Admin → Sources filters one full list in the browser (instant filters, one request), server filters used where a slice is enough. Waiting on S3 for the providing package and "Not available".
 - 2026-10-12: REPORT: **S1 done** (`1eeca19`): sources show "via {extension}"; Off / Not available / Absent with their own badges, meanings and filters; an extension filter chip. **S2 done** (`b9fbd57`): the Extensions tab only for plugins with `packages`; a virtualised list with icons (fallback letter), languages, versions and update, ratings, unsupported, stores and errors; filters in the URL; install, update and uninstall follow their tasks live (queued, progress, retrying with the reason, a result toast), also after a reload; a details sheet with offers ("Install from"), language checkboxes, its sources and a link to Sources. Next: S3 (journey test, polish, DONE).
+- 2026-10-12: DONE received (`344f5bc`: S3 journey e2e, layout and axe, docs) and verified on a clean clone (`make check` 291 tests, `make e2e` 35 passed). Goal closed; the real-stack run is left to the next compose rebuild.
