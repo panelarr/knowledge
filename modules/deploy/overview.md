@@ -60,3 +60,5 @@ Until the `deploy` repo exists, the owner has a local Compose setup in `~/Projec
 **Redeploy #12 (2026-10-12):** server `e596c82` with web `d107983` (Admin → Network), mihon-source `9e8b3fc`, source-mihon `466cbf4`. Live: source-mihon's jobs (plugin sync every 15 min, store refresh every 12 h, health checks off as before), the owner's store with its package count, extension details with the signing key matching the store's, Admin → Network empty and ready. No warnings or errors.
 
 **Redeploys #13–#15 (2026-10-12):** server `f28a50e`, then `ae9666f` with web `06c718a` (clean chapter titles in the app). The keeper had `chapters.reunify` run once: in 94 ms Solo Leveling went from no volumes to 181 of 261 chapters with volumes 1–13; chapter IDs, chosen copies and the owner's progress unchanged.
+
+**Redeploy #16 (2026-10-12):** web `645caa3` (library). The owner's library shows Solo Leveling with "258 unread" and a Continue button to chapter 1, checked read-only; the sheet was tried by a throwaway user (sort and display saved and kept after a reload), which was then deleted with its data.
