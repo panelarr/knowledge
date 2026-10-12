@@ -68,3 +68,5 @@ Until the `deploy` repo exists, the owner has a local Compose setup in `~/Projec
 **Redeploy #18 (2026-10-12):** web `2dbd31a`. Plugin tabs Overview | Extensions | Sources | Jobs | Network; the owner's store with its count and refresh time; installed-extension details with the signing key matching the store's; cron jobs in words. Found: the Sources tab also lists the 41 language-off sources (sent to web to hide by default, as on Admin → Sources).
 
 **Redeploy #19 (2026-10-12):** server `4ab5574` with web `86ff8a9`. Metadata Overview health (database 0 ms, search 419 ms, the mangabaka provider 1 ms), Providers with 564,155 records and the daily 03:00 UTC sync; source-mihon's Sources tab shows its 2 live sources with the other 41 hidden. Read-only; no syncs started.
+
+**Redeploy #20 (2026-10-12):** web `c40ed4a` (Metadata → Search; GOAL-0021 complete). A sweep of every new admin tab (plugin, Metadata, Network) found no HTTP, console or page errors. Found: the built-in (postgres) search engine is shown as "Degraded" because the page reads `ready`, which only applies to external engines (sent to web).
