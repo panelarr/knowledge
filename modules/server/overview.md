@@ -58,3 +58,5 @@ Plugin health (IN-0050, `6fc6819`): a plugin found down is rechecked on its own 
 Meta check (`97055ae`): runs detached from the request (own 10s timeout, shared by concurrent callers); a caller that gives up early gets an uncached "didn't finish in time", so one cancelled request can't make the status "degraded" for everyone.
 
 Config follow-up (IN-0051, `844b43f`): after a plugin's config is saved, the server syncs that plugin after 5s and 30s on the same per-plugin chain as the rechecks; every plugin sync publishes a `plugin.health` event to admins (sent after each sync, not only on change).
+
+Image limits (`4e16d93`): page images in the reader and downloads use their own limiter (`image:<source>`) from the plugin's `image_rate_limit` and `max_image_concurrency_per_source`; API calls keep the source limits; an assigned network profile's limits apply to both.
