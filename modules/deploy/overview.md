@@ -54,3 +54,5 @@ Until the `deploy` repo exists, the owner has a local Compose setup in `~/Projec
 **Redeploy #9 (2026-10-12):** server `4c68d52` (canceled requests quiet) with web `d132205` (reader bars and settings sheet). Checked on a phone viewport: the bars hide while reading and return on a centre tap, the settings sheet opens, the page list is fetched once per chapter. The reader jump fix (IN-0066) is not in this build.
 
 **Redeploy #10 (2026-10-12):** server `311a1c8` (meta admin proxied, custom solvers and proxies) with web `d132205`, source-mihon `7be5a70` (origins, details, reload). Meta's jobs, providers, duplicates, judge and search engine answer for the owner with no secrets in the responses. No duplicate pairs yet: meta's duplicates job first runs on this catalogue at 04:30 UTC tomorrow.
+
+**Redeploy #11 (2026-10-12):** server `0eef78e` with web `daa764c` (reader jump fix). Phone test on a slow, throttled connection: the page being read moved 0 px while pages loaded, in three runs; opening a chapter no longer loads the previous one.
