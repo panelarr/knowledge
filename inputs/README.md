@@ -50,3 +50,4 @@ The owner's raw words: messages, answers, idea dumps, transcripts, pasted conver
 | [IN-0044](IN-0044-feat-0008-fine-server-and-web-repos-created.md) | FEAT-0008 accepted; repos server and web created | 2026-10-11 | FEAT-0008, kb.config.json |
 | [IN-0045](IN-0045-smoke-test-with-build-cache-prune-wizard-continue-allowed.md) | Allows the compose smoke test after pruning the Docker build cache; the setup wizard may continue before meta has data (with a warning) | 2026-10-12 | agents/sessions.md, modules/web/overview.md |
 | [IN-0046](IN-0046-real-check-via-compose-reader-defaults-kept.md) | Check the web app against the real server in the compose stack, not the infra Postgres; reader saves per series by default; defaults by work type kept | 2026-10-12 | FEAT-0006, modules/web/overview.md |
+| [IN-0047](IN-0047-admin-issues-in-the-add-storage-dialog.md) | [IN-0047](IN-0047-admin-issues-in-the-add-storage-dialog.md) | 2026-10-12 | — |
