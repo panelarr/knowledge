@@ -43,7 +43,7 @@ Reading feels like a reader, not an app: the page fills the screen, the chrome i
 | Repo | Goal | PR/MR | State |
 |---|---|---|---|
 | web | — | — | dispatched to `panelarr-web` (plan first; bug and DESC default straight away) |
-| server | — | — | bookmarks API, dispatched to `panelarr-server` |
+| server | — | — | bookmarks API done (`781ed85`): per user, batch, `bookmarked` on chapters and a filter, counts in the library, `bookmarks.changed` events |
 
 ## Open questions
 
