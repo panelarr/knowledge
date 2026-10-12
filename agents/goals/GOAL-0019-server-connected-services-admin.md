@@ -16,7 +16,7 @@ The brief a coding session works from. Read this file and follow it.
 
 ## Status
 
-`accepted` (2026-10-12): the owner accepted [FEAT-0013](../../planning/features/FEAT-0013-connected-services-admin-inside-panelarr.md) (IN-0064). Design by `panelarr-server`, accepted by the keeper (see GOAL-0019's history).
+`accepted`, **Done 2026-10-12** (verified, pass; [test report](../../qa/reports/goal-0019-server-connected-services-done-verification.md)). The owner accepted [FEAT-0013](../../planning/features/FEAT-0013-connected-services-admin-inside-panelarr.md) (IN-0064). Design by `panelarr-server`, accepted by the keeper (see GOAL-0019's history).
 
 ## Context
 
@@ -33,12 +33,12 @@ The brief a coding session works from. Read this file and follow it.
 
 ## Definition of Done
 
-- [ ] Meta admin proxied, admin only, tests
-- [ ] Custom solvers and proxies per plugin
-- [ ] Jobs view for plugins and meta
-- [ ] Package origins, details and reload
-- [ ] Docs; checks green; leak-check clean
-- [ ] `DONE:` with evidence per box
+- [x] Meta admin proxied, admin only, tests
+- [x] Custom solvers and proxies per plugin
+- [x] Jobs view for plugins and meta
+- [x] Package origins, details and reload
+- [x] Docs; checks green; leak-check clean
+- [x] `DONE:` with evidence per box
 
 ## History
 
@@ -46,3 +46,5 @@ The brief a coding session works from. Read this file and follow it.
 - 2026-10-12: design PROPOSEd by `panelarr-server` and accepted: mihon-source reached generically through source-mihon (jobs capability, package origins and details), no mihon-source admin key in Panelarr (no hard-coded mihon API, no second URL and key, one writer for stores); meta proxied with its admin key; one Jobs view in the server's jobs shape for server, plugins and meta (polled); custom solvers and proxies in Panelarr's store with the profile owner model (one source of truth, one push path, works for every plugin, secrets stay sealed). Slices S1 meta, S2 custom solvers and proxies (start now), S3 jobs view, S4 origins and details (after GOAL-0020).
 - 2026-10-12: REPORT: **S2 done** (`23b9ac1`, merge `1b86a26`): custom solvers and proxies per plugin, extension, source or provider (owner model as profiles; usable only by profiles in the same scope; deleted with the plugin). A flaky image-budget test fixed (`1a05f2f`). Meta's answers: admin scope covers everything; provider schedules and settings are config-only (shown read-only); search rebuild is a job; duplicates page by status, min score and judged-only; confirming a duplicate is final. Next: S1 meta admin.
 - 2026-10-12: REPORT: **S1 done** (merges `f075731`, `3bc0f70`, `7a95e5a` and the search-engine merge): meta's jobs in the server's job schemas, providers with read-only schedules, sync runs, health, entry refresh, duplicates review (confirm merges and is final) with the decision judge (key write-only), search engine settings and status (key write-only; rebuild is a job). Accepted design point for S3: plugin job runs get parallel `PluginJob*` schemas with string run ids (source-mihon's own run ids aren't UUIDs), otherwise the same shape, rather than a breaking change to the server's job schemas. Next: S4, then S3.
+- 2026-10-12: REPORT: **S4 done** (`f5a6fe2`, merge `0eef78e`): `/plugins/{id}/origins` with refresh, package details, reload, `PUT /sources/{id}/health-check`. **S3 done** (merge `e596c82`): `/plugins/{id}/jobs…` with `PluginJob*` schemas, the admin's username sent as on_behalf_of.
+- 2026-10-12: DONE received and verified on clean clones (`make check`, key tests re-run). Goal closed.
