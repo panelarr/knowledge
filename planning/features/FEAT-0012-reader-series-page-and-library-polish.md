@@ -35,7 +35,7 @@ Reading feels like a reader, not an app: the page fills the screen, the chrome i
 - [x] AC3: Unread chapters show bright and read ones dimmed; no "New" badges in the list.
 - [x] AC4: The series page header has no boxed button rows: icon buttons with menus and one filter / sort / display sheet.
 - [ ] AC5: The reader shows only thin top and bottom bars that hide on tap or scroll; all settings are in one tabbed sheet.
-- [ ] AC6: A user can bookmark a chapter from the reader and the list, filter by bookmarked, and bookmark in batch.
+- [x] AC6: A user can bookmark a chapter from the reader and the list, filter by bookmarked, and bookmark in batch.
 - [ ] AC7: On a phone, the reader's page fills the screen with the bars hidden.
 
 ## Delivery
@@ -57,3 +57,4 @@ Reading feels like a reader, not an app: the page fills the screen, the chrome i
 - **R3 reader chrome:** a thin top bar (back, series and chapter, bookmark, ⋯) and a bottom icon bar (chapters, quick layout, settings) that hide while reading; one settings sheet (Layout, General) with a This series / This source / Everywhere switch and a mark on settings set for the current scope.
 - **R4 library:** unread badges and a continue button on covers; one filter / sort / display sheet (needs server fields: unread count, continue chapter, last read, latest chapter).
 - 2026-10-12: **R1 done** (web `2db8c9d`): one summary line with icon buttons (mark read, download menu, filter/sort/display sheet, select, ⋯), plain rows with unread bright and read dimmed, select mode with a floating action pill; view in the URL and remembered per user.
+- 2026-10-12: **R2 done** (web `d37c44d`): bookmarks in the row menu, batch, a Bookmarked filter, a mark on rows, a toggle in the reader; synced across devices.

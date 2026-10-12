@@ -16,7 +16,7 @@ The brief a coding session works from. A short paste-in version points here: *"W
 
 ## Status
 
-`accepted` (2026-10-12): the owner accepted [FEAT-0010](../../planning/features/FEAT-0010-shared-network-services-and-plugin-admin-settings-in-panelar.md) with its assignment model (IN-0059). **PROPOSE your plan first**; the keeper reviews it and coordinates the three goals (GOAL-0015 server, GOAL-0016 meta, GOAL-0017 web). Plugin-side gaps (source-api, source-mihon, mihon-source) go to `panelarr-mihon-source` through the keeper.
+`accepted`, **Done 2026-10-12** (verified, pass; [test report](../../qa/reports/goal-0015-server-network-services-done-verification.md)). The owner accepted [FEAT-0010](../../planning/features/FEAT-0010-shared-network-services-and-plugin-admin-settings-in-panelar.md) with its assignment model (IN-0059). **PROPOSE your plan first**; the keeper reviews it and coordinates the three goals (GOAL-0015 server, GOAL-0016 meta, GOAL-0017 web). Plugin-side gaps (source-api, source-mihon, mihon-source) go to `panelarr-mihon-source` through the keeper.
 
 ## Context
 
@@ -38,12 +38,12 @@ The brief a coding session works from. A short paste-in version points here: *"W
 
 ## Definition of Done
 
-- [ ] Integrations and profiles API with encrypted secrets and tests
-- [ ] Assignment levels with effective-profile resolution and push, including after plugin restarts
-- [ ] Meta plugin assignment through GOAL-0016's API
-- [ ] Per-source settings API
-- [ ] Docs updated; checks green; leak-check clean
-- [ ] `DONE:` with evidence per box
+- [x] Integrations and profiles API with encrypted secrets and tests
+- [x] Assignment levels with effective-profile resolution and push, including after plugin restarts
+- [x] Meta plugin assignment through GOAL-0016's API
+- [x] Per-source settings API
+- [x] Docs updated; checks green; leak-check clean
+- [x] `DONE:` with evidence per box
 
 ## History
 
@@ -53,3 +53,5 @@ The brief a coding session works from. A short paste-in version points here: *"W
 - 2026-10-12: REPORT: **S2 done** (`65e652f`, merge `d409c60`): network profiles (custom ones owned by a plugin and deleted with it; usable only at their owner), assignments (global, plugin, package, source, meta, provider; profile or plugin_default) and effective resolution; `/network/profiles`, `/network/assignments`, `/plugins/{id}/network` (each source's effective profile and level, and whether the plugin accepts profiles and solvers); delete in use → 409. Next: S3 push. Also delivered: chapter bookmarks API (`781ed85`, FEAT-0012).
 - 2026-10-12: REPORT: **S3 done** (`380aeb5`, merge `8d72954`): effective profiles pushed per source with SetNetworkProfile only to plugins that declare the service (solver only with SOLVER); unchanged hashes skipped; forced on the first sync, after the plugin was down, and when `instance_id` changes (config re-pushed too); changes queue a deduplicated `network.push` task; push state per source in `/plugins/{id}/network`; `/sources/{id}/network` shows what the plugin applies; the server's own per-source limiter follows the profile. Tested against the fake. Next: S4 per-source settings, S5 meta.
 - 2026-10-12: image limits used for page images (`4e16d93`, from FEAT-0012). **S4 done** (`55cf9ed`): `GET`/`PATCH /sources/{id}/settings` (admin; read live from the plugin; secrets blank and kept on an empty value; 422 without the capability; audit log of changed keys only). Next: S5 meta.
+- 2026-10-12: REPORT: **S5 done** (`52e3169`, merge `1708381`): profiles reach meta's providers through SetPushedProfile, reconciled against meta's read-back on change, on connect and every 5 minutes; `GET /system/meta/network`.
+- 2026-10-12: DONE received and verified on clean clones (`make check`, key tests re-run). Goal closed.
