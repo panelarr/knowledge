@@ -42,7 +42,7 @@ Reading feels like a reader, not an app: the page fills the screen, the chrome i
 
 | Repo | Goal | PR/MR | State |
 |---|---|---|---|
-| web | — | — | dispatched to `panelarr-web` (plan first; bug and DESC default straight away) |
+| web | — | — | quick fix done (`647cb99`): long strip loads pages in reading order, chapters load on scroll in both directions, small bands between chapters, newest first by default; rest planned next |
 | server | — | — | bookmarks API done (`781ed85`): per user, batch, `bookmarked` on chapters and a filter, counts in the library, `bookmarks.changed` events |
 
 ## Open questions
