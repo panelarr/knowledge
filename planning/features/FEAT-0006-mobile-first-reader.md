@@ -53,7 +53,7 @@ shadcn/ui + Tailwind ([Q-0008](../../questions/README.md)); [web](../../modules/
 | Repo | Goal | PR/MR | State |
 |---|---|---|---|
 | server | [GOAL-0010](../../agents/goals/GOAL-0010-server-v0-accounts-add-and-match-chapters-reader-api-downloa.md) slice 7 | — | server side done (`e2726f1`; CBZ pages in slice 8) |
-| web | [GOAL-0011](../../agents/goals/GOAL-0011-web-v0-panelarr-app-for-the-first-slice.md) | — | web side done (pending verification) |
+| web | [GOAL-0011](../../agents/goals/GOAL-0011-web-v0-panelarr-app-for-the-first-slice.md) | — | done (`8154eb1`) |
 
 ## Open questions
 

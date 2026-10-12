@@ -48,7 +48,7 @@ A Work's page shows a **Unified** chapter list (one row per chapter, the chosen 
 | Repo | Goal | PR/MR | State |
 |---|---|---|---|
 | server | [GOAL-0010](../../agents/goals/GOAL-0010-server-v0-accounts-add-and-match-chapters-reader-api-downloa.md) slice 6 | — | server side done (`a114382`) |
-| web | [GOAL-0011](../../agents/goals/GOAL-0011-web-v0-panelarr-app-for-the-first-slice.md) | — | web side done (pending verification) |
+| web | [GOAL-0011](../../agents/goals/GOAL-0011-web-v0-panelarr-app-for-the-first-slice.md) | — | done (`8154eb1`) |
 
 ## Open questions
 
