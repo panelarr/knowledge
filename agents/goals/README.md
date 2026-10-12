@@ -21,3 +21,4 @@ Briefs for coding sessions: objective, context to read, how to work, constraints
 | [GOAL-0015](GOAL-0015-server-shared-network-services-and-plugin-admin-settings.md) | server: shared network services and plugin admin settings | `panelarr-server` | accepted |
 | [GOAL-0016](GOAL-0016-meta-network-profiles-from-panelarr-for-meta-plugins.md) | meta: network profiles from Panelarr for meta plugins | `panelarr-meta` | accepted |
 | [GOAL-0017](GOAL-0017-web-network-admin-and-plugin-settings-pages.md) | web: Network admin and plugin settings pages | `panelarr-web` | accepted |
+| [GOAL-0018](GOAL-0018-source-plugins-network-profiles-and-per-source-settings.md) | source plugins: network profiles and per-source settings | `panelarr-mihon-source` | accepted |
