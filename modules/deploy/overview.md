@@ -72,3 +72,5 @@ Until the `deploy` repo exists, the owner has a local Compose setup in `~/Projec
 **Redeploy #20 (2026-10-12):** web `c40ed4a` (Metadata → Search; GOAL-0021 complete). A sweep of every new admin tab (plugin, Metadata, Network) found no HTTP, console or page errors. Found: the built-in (postgres) search engine is shown as "Degraded" because the page reads `ready`, which only applies to external engines (sent to web).
 
 **Redeploy #21 (2026-10-12):** web `f530dc5`. Metadata → Search reads Healthy for the built-in engine. meta confirmed `search-rebuild` and `search-indexer` are no-ops with postgres (recorded as skipped with a reason); hiding them on the Jobs tab, or a per-job "available" flag in meta, is a possible later polish, not scheduled.
+
+**Redeploy #22 (2026-10-12):** server `061fb9d`, web `40bf625`, source-mihon `1e087cb`, meta `f8e976b`. Metadata → Jobs shows meta's two search-index jobs as "Can't run now" (built-in search), everything else runnable; source-mihon's three jobs runnable. No errors.
