@@ -31,9 +31,9 @@ Reading feels like a reader, not an app: the page fills the screen, the chrome i
 ## Acceptance criteria
 
 - [ ] AC1: In long-strip mode, scrolling moves through every page of a chapter and **straight on into the next chapter, loaded automatically as you near the end** (no button press; IN-0061); between chapters only a small strip shows which chapter starts.
-- [ ] AC2: A series page lists chapters newest first by default; the choice is remembered.
-- [ ] AC3: Unread chapters show bright and read ones dimmed; no "New" badges in the list.
-- [ ] AC4: The series page header has no boxed button rows: icon buttons with menus and one filter / sort / display sheet.
+- [x] AC2: A series page lists chapters newest first by default; the choice is remembered.
+- [x] AC3: Unread chapters show bright and read ones dimmed; no "New" badges in the list.
+- [x] AC4: The series page header has no boxed button rows: icon buttons with menus and one filter / sort / display sheet.
 - [ ] AC5: The reader shows only thin top and bottom bars that hide on tap or scroll; all settings are in one tabbed sheet.
 - [ ] AC6: A user can bookmark a chapter from the reader and the list, filter by bookmarked, and bookmark in batch.
 - [ ] AC7: On a phone, the reader's page fills the screen with the bars hidden.
@@ -56,4 +56,4 @@ Reading feels like a reader, not an app: the page fills the screen, the chrome i
 - **R2 bookmarks** on server `781ed85`: in the reader, the row menu, batch actions, a filter, a mark on the row.
 - **R3 reader chrome:** a thin top bar (back, series and chapter, bookmark, ⋯) and a bottom icon bar (chapters, quick layout, settings) that hide while reading; one settings sheet (Layout, General) with a This series / This source / Everywhere switch and a mark on settings set for the current scope.
 - **R4 library:** unread badges and a continue button on covers; one filter / sort / display sheet (needs server fields: unread count, continue chapter, last read, latest chapter).
-
+- 2026-10-12: **R1 done** (web `2db8c9d`): one summary line with icon buttons (mark read, download menu, filter/sort/display sheet, select, ⋯), plain rows with unread bright and read dimmed, select mode with a floating action pill; view in the URL and remembered per user.
