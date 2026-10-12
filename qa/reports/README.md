@@ -24,3 +24,4 @@ Results of test runs, including verification of a session's `REPORT:`/`DONE:` an
 | [goal-0019-server-connected-services-done-verification.md](goal-0019-server-connected-services-done-verification.md) | GOAL-0019 server connected services' admin DONE verification | draft |
 | [goal-0020-source-plugins-jobs-origins-done-verification.md](goal-0020-source-plugins-jobs-origins-done-verification.md) | GOAL-0020 source plugins jobs, package origins and details DONE verification | draft |
 | [goal-0017-web-network-admin-done-verification.md](goal-0017-web-network-admin-done-verification.md) | GOAL-0017 web Network admin and plugin settings DONE verification | draft |
+| [feat-0012-reader-series-library-verification.md](feat-0012-reader-series-library-verification.md) | FEAT-0012 reader, series page and library polish verification | draft |

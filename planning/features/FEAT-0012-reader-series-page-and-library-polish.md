@@ -42,7 +42,7 @@ Reading feels like a reader, not an app: the page fills the screen, the chrome i
 
 | Repo | Goal | PR/MR | State |
 |---|---|---|---|
-| web | — | — | quick fix done (`647cb99`): long strip loads pages in reading order, chapters load on scroll in both directions, small bands between chapters, newest first by default; rest planned next |
+| web | — | — | done (`647cb99` … `645caa3`; [test report](../../qa/reports/feat-0012-reader-series-library-verification.md)) |
 | server | — | — | bookmarks API done (`781ed85`): per user, batch, `bookmarked` on chapters and a filter, counts in the library, `bookmarks.changed` events |
 
 ## Open questions
@@ -62,3 +62,4 @@ Reading feels like a reader, not an app: the page fills the screen, the chrome i
 - 2026-10-12: **Reader jumps fixed** (IN-0066, web `daa764c`): the strip anchors the page in the middle of the screen and compensates every size change before paint (works on iOS Safari too); placeholders take the shape of the chapter's loaded pages; the previous chapter loads only when you scroll up into the start. Measured: the page being read moves at most 3 px while pages and chapters load (desktop, phone, WebKit).
 - 2026-10-12: server fields for R4 done (`ac8875e`): LibraryEntry chapters, unread, downloaded, started, continue_chapter_id, last_read_at, latest_chapter_at.
 - 2026-10-12: chapter labels use the server's `display_title` (web `06c718a`): "Vol. 1 · Chapter 1: Double Dungeon", or "Chapter 192" when there's no name; in rows, the reader bar, the chapter sheet and the bands.
+- 2026-10-12: **R4 done** (web `645caa3`): unread badges and continue buttons on covers, one filter / sort / display sheet, sort and layout saved per user. Verified on a clean clone; feature delivered.
