@@ -52,3 +52,4 @@ The owner's raw words: messages, answers, idea dumps, transcripts, pasted conver
 | [IN-0046](IN-0046-real-check-via-compose-reader-defaults-kept.md) | Check the web app against the real server in the compose stack, not the infra Postgres; reader saves per series by default; defaults by work type kept | 2026-10-12 | FEAT-0006, modules/web/overview.md |
 | [IN-0047](IN-0047-admin-issues-in-the-add-storage-dialog.md) | [IN-0047](IN-0047-admin-issues-in-the-add-storage-dialog.md) | 2026-10-12 | — |
 | [IN-0048](IN-0048-scroll-bar-on-admin-tabs.md) | [IN-0048](IN-0048-scroll-bar-on-admin-tabs.md) | 2026-10-12 | — |
+| [IN-0049](IN-0049-meta-shown-unavailable-when-the-provider-is-down.md) | [IN-0049](IN-0049-meta-shown-unavailable-when-the-provider-is-down.md) | 2026-10-12 | — |
