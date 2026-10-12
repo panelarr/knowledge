@@ -50,7 +50,8 @@ A user with permission downloads chapters (one, a range, all unread, or automati
 
 | Repo | Goal | PR/MR | State |
 |---|---|---|---|
-| server, web | — | — | — |
+| server | [GOAL-0010](../../agents/goals/GOAL-0010-server-v0-accounts-add-and-match-chapters-reader-api-downloa.md) slice 8 | — | server side done (`8179f54`) |
+| web | [GOAL-0011](../../agents/goals/GOAL-0011-web-v0-panelarr-app-for-the-first-slice.md) | — | web side done (pending verification) |
 
 ## Open questions
 
