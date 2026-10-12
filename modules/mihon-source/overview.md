@@ -59,4 +59,6 @@ Real-world compatibility sample (2026-10-11, GOAL-0005 checker, local only): 30/
 
 **Jobs page done** (GOAL-0007, `898723f`): `store-refresh` and `source-health` jobs with history, Run now and cancel. Scheduled health checks now run as rounds per interval (two sources at a time, random order); a follow-up limits each round to selected languages and/or a random sample (IN-0036).
 
+The image has a HEALTHCHECK (`0b0e1b1`: a small Java probe of `/readyz`, read-only safe).
+
 Known limits (as built): WebView-only sources report `needs_webview` and don't work (Q-0002); lib 1.5 is accepted although Mihon accepts only 1.4 and 1.6; snake_case query parameters aren't accepted.
