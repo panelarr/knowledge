@@ -62,3 +62,5 @@ Real-world compatibility sample (2026-10-11, GOAL-0005 checker, local only): 30/
 The image has a HEALTHCHECK (`0b0e1b1`: a small Java probe of `/readyz`, read-only safe).
 
 Known limits (as built): WebView-only sources report `needs_webview` and don't work (Q-0002); lib 1.5 is accepted although Mihon accepts only 1.4 and 1.6; snake_case query parameters aren't accepted.
+
+Per-extension languages (GOAL-0012, `17f1f2b`): an extension can be limited to some of its sources' languages (none = all); sources in other languages aren't listed or callable. Standalone users get it in the admin's Extensions card.
