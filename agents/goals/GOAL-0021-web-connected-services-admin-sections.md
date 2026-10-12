@@ -40,3 +40,4 @@ After GOAL-0017 and FEAT-0012 R4. On the plugin page (tabs built to grow) and on
 ## History
 
 - 2026-10-12: brief written from the accepted server design.
+- 2026-10-12: plan PROPOSEd and accepted. S1 one Jobs component for the server, meta and plugins (events for server jobs, polling for the others); S2 plugin admin (stores with refresh on the Extensions tab, package reload and details, a Sources tab with health, scheduled-check switch and "Check now"); S3 a metadata service page at /admin/metadata (overview, providers and sync runs, jobs, network) plus "Refresh from providers" on a work; S4 duplicates review with the judge; S5 search engine, docs, DONE. Keeper answers: "Check now" uses a plugin job that declares a `source_ids` string_list param (convention recorded in contracts/jobs.md); meta gets its own /admin/metadata page with tabs, linked from System.
