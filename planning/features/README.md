@@ -13,4 +13,5 @@ Scoped units of product value, each with **acceptance criteria** that QA tests a
 | [FEAT-0007](FEAT-0007-downloads-to-the-shared-library.md) | Downloads to the shared library (CBZ) | M2 | accepted |
 | [FEAT-0008](FEAT-0008-backup-and-restore-for-the-whole-platform.md) | Backup and restore for the whole platform (all services, encrypted, to any storage) | — | accepted |
 | [FEAT-0009](FEAT-0009-extensions-and-sources-in-panelarr-s-admin-with-languages.md) | Extensions and sources in Panelarr's admin, with languages (install from stores, language filters) | — | accepted |
-| [FEAT-0010](FEAT-0010-shared-network-services-and-plugin-admin-settings-in-panelar.md) | Shared network services and plugin admin settings in Panelarr (solvers, proxies, profiles once for every plugin) | — | proposed |
+| [FEAT-0010](FEAT-0010-shared-network-services-and-plugin-admin-settings-in-panelar.md) | Shared network services and plugin admin settings in Panelarr (solvers, proxies, profiles once for every plugin) | — | accepted |
+| [FEAT-0011](FEAT-0011-better-chapter-copies-and-configurable-matching.md) | Better chapter copies and configurable matching (rate down bad copies, match rules, storage per source) | — | proposed |
