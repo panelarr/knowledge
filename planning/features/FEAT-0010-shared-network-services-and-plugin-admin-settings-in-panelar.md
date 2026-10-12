@@ -56,7 +56,7 @@ An admin configures solvers, proxies (including VPN-style proxy containers) and 
 | Repo | Goal | PR/MR | State |
 |---|---|---|---|
 | server | [GOAL-0015](../../agents/goals/GOAL-0015-server-shared-network-services-and-plugin-admin-settings.md) | — | planning |
-| meta | [GOAL-0016](../../agents/goals/GOAL-0016-meta-network-profiles-from-panelarr-for-meta-plugins.md) | — | planning |
+| meta | [GOAL-0016](../../agents/goals/GOAL-0016-meta-network-profiles-from-panelarr-for-meta-plugins.md) | — | done (`441df45`) |
 | source-api, source-mihon, mihon-source | [GOAL-0018](../../agents/goals/GOAL-0018-source-plugins-network-profiles-and-per-source-settings.md) | — | planning |
 | web | [GOAL-0017](../../agents/goals/GOAL-0017-web-network-admin-and-plugin-settings-pages.md) | — | planning |
 
