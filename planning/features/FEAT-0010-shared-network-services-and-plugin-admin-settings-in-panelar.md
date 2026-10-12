@@ -39,13 +39,13 @@ An admin configures solvers, proxies (including VPN-style proxy containers) and 
 
 ## Acceptance criteria (draft)
 
-- [ ] AC1: An admin adds a solver and a proxy in Panelarr once; a test button shows they work.
-- [ ] AC2: An admin builds network profiles from them and assigns one to a whole plugin, an extension or a source (most specific wins), or creates a custom one in place; with nothing assigned, a plugin uses its own defaults.
-- [ ] AC3: source-mihon (and through it mihon-source) uses the assigned profile for each source without anything configured in mihon-source's own admin; changes apply within seconds and survive a plugin restart.
-- [ ] AC4: A meta plugin (provider) can be given one of Panelarr's profiles (or a new one) from Panelarr, and uses it without configuring meta's admin.
-- [ ] AC5: The plugin page shows each source's settings and its profile; saving them reaches the plugin.
-- [ ] AC6: Secrets (proxy passwords, solver keys) are stored encrypted, never shown again, and never sent to browsers.
-- [ ] AC7: A plugin that doesn't declare a common service never receives it; a standalone mihon-source or meta keeps working with its own admin settings when not connected to Panelarr.
+- [x] AC1: An admin adds a solver and a proxy in Panelarr once; a test button shows they work.
+- [x] AC2: An admin builds network profiles from them and assigns one to a whole plugin, an extension or a source (most specific wins), or creates a custom one in place; with nothing assigned, a plugin uses its own defaults.
+- [x] AC3: source-mihon (and through it mihon-source) uses the assigned profile for each source without anything configured in mihon-source's own admin; changes apply within seconds and survive a plugin restart.
+- [x] AC4: A meta plugin (provider) can be given one of Panelarr's profiles (or a new one) from Panelarr, and uses it without configuring meta's admin.
+- [x] AC5: The plugin page shows each source's settings and its profile; saving them reaches the plugin.
+- [x] AC6: Secrets (proxy passwords, solver keys) are stored encrypted, never shown again, and never sent to browsers.
+- [x] AC7: A plugin that doesn't declare a common service never receives it; a standalone mihon-source or meta keeps working with its own admin settings when not connected to Panelarr.
 
 ## Design notes
 

@@ -16,7 +16,7 @@ The brief a coding session works from. Read this file and follow it.
 
 ## Status
 
-`accepted` (2026-10-12): the owner accepted [FEAT-0013](../../planning/features/FEAT-0013-connected-services-admin-inside-panelarr.md) (IN-0064). Design by `panelarr-server`, accepted by the keeper (see GOAL-0019's history).
+`accepted`, **Done 2026-10-12** (verified, pass; [test report](../../qa/reports/goal-0021-web-connected-services-done-verification.md)). The owner accepted [FEAT-0013](../../planning/features/FEAT-0013-connected-services-admin-inside-panelarr.md) (IN-0064). Design by `panelarr-server`, accepted by the keeper (see GOAL-0019's history).
 
 ## Context
 
@@ -30,12 +30,12 @@ After GOAL-0017 and FEAT-0012 R4. On the plugin page (tabs built to grow) and on
 
 ## Definition of Done
 
-- [ ] mihon-source sections on the plugin page
-- [ ] meta sections on the metadata service page
-- [ ] One Jobs component for every service
-- [ ] Tests incl. phone, layout and axe
-- [ ] Docs; checks green; leak-check clean
-- [ ] `DONE:` with evidence per box
+- [x] mihon-source sections on the plugin page
+- [x] meta sections on the metadata service page
+- [x] One Jobs component for every service
+- [x] Tests incl. phone, layout and axe
+- [x] Docs; checks green; leak-check clean
+- [x] `DONE:` with evidence per box
 
 ## History
 
@@ -45,3 +45,4 @@ After GOAL-0017 and FEAT-0012 R4. On the plugin page (tabs built to grow) and on
 - 2026-10-12: REPORT: **S2 done** (`2dbd31a`): stores with Refresh now on the Extensions tab, an installed extension's details and Reload, a Sources tab (health, search and filters, scheduled-check switch, "Check now" through the per-source job convention), cron schedules in words (UTC assumed; time zone asked of the server). A rare reader-stability e2e flake under full parallel load is being watched.
 - 2026-10-12: REPORT: **S3 done** (`86ff8a9`): Metadata Overview with per-component health; a Providers tab (schedules in words, last runs, start a full sync or changes, runs and run details with polling); "Refresh from providers" on a catalogue entry; the plugin Sources tab hides not-present sources by default; cron labels use `time_zone`; the light theme's warning colour darkened to pass contrast.
 - 2026-10-12: REPORT: **S4 done** (`12dc5e6`): Metadata → Duplicates (pairs with filters in the URL; a pair side by side with why they look alike and the model's verdict; merge with a can't-undo confirmation, different works, take back), the decision model card and settings (key write-only, test without saving, reset to configuration); @every and @daily-style schedules read in words.
+- 2026-10-12: REPORT: **S5 done** (`c40ed4a`): Metadata → Search (engine state and capabilities, index status, rebuild through meta's job, settings with test and reset). DONE received and verified on a clean clone (`make check` 355, `make e2e` 61). Goal closed; FEAT-0013 delivered.
