@@ -56,3 +56,5 @@ Meta errors (IN-0049, `0fd607b`): `meta_unavailable` (503) only when meta didn't
 Plugin health (IN-0050, `6fc6819`): a plugin found down is rechecked on its own after 10s, 30s and 1m (single-plugin syncs, debug logs, no job runs), then by the 5-minute `plugins.sync`; at startup a plugin that doesn't answer gets 1s and 2s waits before it's marked down.
 
 Meta check (`97055ae`): runs detached from the request (own 10s timeout, shared by concurrent callers); a caller that gives up early gets an uncached "didn't finish in time", so one cancelled request can't make the status "degraded" for everyone.
+
+Config follow-up (IN-0051, `844b43f`): after a plugin's config is saved, the server syncs that plugin after 5s and 30s on the same per-plugin chain as the rechecks; every plugin sync publishes a `plugin.health` event to admins (sent after each sync, not only on change).
