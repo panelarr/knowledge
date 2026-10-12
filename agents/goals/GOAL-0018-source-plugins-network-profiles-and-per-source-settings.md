@@ -45,3 +45,4 @@ Same as GOAL-0012: worktrees, gated checks, merge to local main, never push, no 
 ## History
 
 - 2026-10-12: brief written from the server's GOAL-0015 plan.
+- 2026-10-12: plan PROPOSEd and accepted. Already there: source-mihon declares NETWORK_PROFILE and SOLVER and forwards SetNetworkProfile; mihon-source persists pushed profiles (passwords encrypted; pushed beats its own assignment; unset falls back); settings pass through with x-order. New (additive): `HealthResponse.instance_id` (per start; SDK fills it; source-mihon combines its own and mihon-source's), `GetNetworkProfile` with origin PUSHED / PLUGIN / NONE (secrets empty), writeOnly for password preferences. Slices: source-api, mihon-source, source-mihon with an e2e (proxy and solver honoured, fallback, restart, settings round trip, instance_id change), docs.
