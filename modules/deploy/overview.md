@@ -64,3 +64,5 @@ Until the `deploy` repo exists, the owner has a local Compose setup in `~/Projec
 **Redeploy #16 (2026-10-12):** web `645caa3` (library). The owner's library shows Solo Leveling with "258 unread" and a Continue button to chapter 1, checked read-only; the sheet was tried by a throwaway user (sort and display saved and kept after a reload), which was then deleted with its data.
 
 **Redeploy #17 (2026-10-12):** web `9f66ccc` (one Jobs view, Admin → Metadata). Read-only check: meta's jobs grouped by kind, source-mihon's three jobs on its Jobs tab, the meta line on System. Found: cron schedules shown as "Runs by hand only" (sent to web). The mangabaka sync's last run shows the morning's deliberate provider-down test as failed; tonight's 03:00 sync replaces it.
+
+**Redeploy #18 (2026-10-12):** web `2dbd31a`. Plugin tabs Overview | Extensions | Sources | Jobs | Network; the owner's store with its count and refresh time; installed-extension details with the signing key matching the store's; cron jobs in words. Found: the Sources tab also lists the 41 language-off sources (sent to web to hide by default, as on Admin → Sources).
