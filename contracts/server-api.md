@@ -34,3 +34,5 @@ The browser and 3rd-party API is **REST + OpenAPI 3.1** under `/api/v1`, with an
 
 ## Events (SSE `GET /api/v1/events`)
 `job.progress`, `job.done`, `job.failed`, `chapter.downloaded`, `work.updated`, `library.changed`, `plugin.health`, `progress.synced`. Filtered per user. web turns these into TanStack Query invalidations.
+
+**Sources are admin-only (2026-10-12, server `4a51c86`, IN-0054):** listing sources and browsing, searching or reading a source directly need an admin with the admin scope. Users see sources only on works (each with `lang`), plus signed source images. The one deliberate non-additive change within v1, recorded in the server's docs/api.md.
