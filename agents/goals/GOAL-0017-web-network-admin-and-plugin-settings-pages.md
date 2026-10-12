@@ -46,3 +46,4 @@ The brief a coding session works from. A short paste-in version points here: *"W
 ## History
 
 - 2026-10-12: brief written and dispatched on the owner's acceptance (IN-0059); plan to be PROPOSEd first.
+- 2026-10-12: per-source settings pulled forward (IN-0062) and done (`f61ad6e`): a Settings button on sources with the capability (Admin → Sources row, the source's browse page, the Extensions sheet), a schema-form dialog with write-only secrets and x-order. The rest of this goal follows FEAT-0012.
