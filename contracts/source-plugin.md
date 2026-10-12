@@ -55,3 +55,5 @@ service SourcePlugin {
 - **Network profile push:** the host owns profiles ([networking](../architecture/networking.md)), and plugins apply them per source.
 - **Local sources** (source-local) implement the same contract. `FetchImage` reads from archives.
 - **Conformance suite** (in source-api): runs any endpoint through list → popular → details → chapters → pages → image, checking schema and error mapping.
+
+**Config schema property order (2026-10-12):** the schema travels as a protobuf `Struct` and the server's JSON sorts keys, so the declared order is lost. Web (`65fbfe2`) orders fields by `x-order` / `propertyOrder` when present, otherwise required fields first. Plugins should stamp `x-order` on every property (the source-api SDK is to do it from the declared order).
