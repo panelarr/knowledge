@@ -16,3 +16,4 @@ Scoped units of product value, each with **acceptance criteria** that QA tests a
 | [FEAT-0010](FEAT-0010-shared-network-services-and-plugin-admin-settings-in-panelar.md) | Shared network services and plugin admin settings in Panelarr (solvers, proxies, profiles once for every plugin) | — | accepted |
 | [FEAT-0011](FEAT-0011-better-chapter-copies-and-configurable-matching.md) | Better chapter copies and configurable matching (rate down bad copies, match rules, storage per source) | — | proposed |
 | [FEAT-0012](FEAT-0012-reader-series-page-and-library-polish.md) | Reader, series page and library polish (calmer reader, plain chapter rows, icon menus, bookmarks) | — | accepted |
+| [FEAT-0013](FEAT-0013-connected-services-admin-inside-panelarr.md) | Connected services' admin inside Panelarr (mihon-source and meta admin pages; network chosen from Panelarr) | — | accepted |

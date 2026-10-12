@@ -67,3 +67,4 @@ The owner's raw words: messages, answers, idea dumps, transcripts, pasted conver
 | [IN-0061](IN-0061-reader-loads-the-next-chapter-on-scroll.md) | [IN-0061](IN-0061-reader-loads-the-next-chapter-on-scroll.md) | 2026-10-12 | — |
 | [IN-0062](IN-0062-where-are-the-extension-settings.md) | [IN-0062](IN-0062-where-are-the-extension-settings.md) | 2026-10-12 | — |
 | [IN-0063](IN-0063-plugin-admin-pages-inside-panelarr-admin.md) | [IN-0063](IN-0063-plugin-admin-pages-inside-panelarr-admin.md) | 2026-10-12 | — |
+| [IN-0064](IN-0064-network-choices-in-plugin-settings-all-plugin-admin-pages-in.md) | [IN-0064](IN-0064-network-choices-in-plugin-settings-all-plugin-admin-pages-in.md) | 2026-10-12 | — |
