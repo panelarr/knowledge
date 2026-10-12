@@ -62,3 +62,4 @@ The owner's raw words: messages, answers, idea dumps, transcripts, pasted conver
 | [IN-0056](IN-0056-redeploy-the-compose-stack-after-every-change.md) | [IN-0056](IN-0056-redeploy-the-compose-stack-after-every-change.md) | 2026-10-12 | — |
 | [IN-0057](IN-0057-sources-of-unselected-languages-listed-all-on-off-extension.md) | [IN-0057](IN-0057-sources-of-unselected-languages-listed-all-on-off-extension.md) | 2026-10-12 | — |
 | [IN-0058](IN-0058-plugin-admin-settings-in-panelarr-shared-services-for-all-pl.md) | [IN-0058](IN-0058-plugin-admin-settings-in-panelarr-shared-services-for-all-pl.md) | 2026-10-12 | — |
+| [IN-0059](IN-0059-answers-on-feat-0010-q-0045-q-0046-q-0039-q-0040-q-0041.md) | [IN-0059](IN-0059-answers-on-feat-0010-q-0045-q-0046-q-0039-q-0040-q-0041.md) | 2026-10-12 | — |
