@@ -60,3 +60,4 @@ The owner's raw words: messages, answers, idea dumps, transcripts, pasted conver
 | [IN-0054](IN-0054-plugin-capability-languages-per-plugin-and-extension-sources.md) | [IN-0054](IN-0054-plugin-capability-languages-per-plugin-and-extension-sources.md) | 2026-10-12 | — |
 | [IN-0055](IN-0055-admin-source-browsing-yes-feat-0009-accepted.md) | [IN-0055](IN-0055-admin-source-browsing-yes-feat-0009-accepted.md) | 2026-10-12 | — |
 | [IN-0056](IN-0056-redeploy-the-compose-stack-after-every-change.md) | [IN-0056](IN-0056-redeploy-the-compose-stack-after-every-change.md) | 2026-10-12 | — |
+| [IN-0057](IN-0057-sources-of-unselected-languages-listed-all-on-off-extension.md) | [IN-0057](IN-0057-sources-of-unselected-languages-listed-all-on-off-extension.md) | 2026-10-12 | — |
