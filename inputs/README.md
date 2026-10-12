@@ -53,3 +53,4 @@ The owner's raw words: messages, answers, idea dumps, transcripts, pasted conver
 | [IN-0047](IN-0047-admin-issues-in-the-add-storage-dialog.md) | [IN-0047](IN-0047-admin-issues-in-the-add-storage-dialog.md) | 2026-10-12 | — |
 | [IN-0048](IN-0048-scroll-bar-on-admin-tabs.md) | [IN-0048](IN-0048-scroll-bar-on-admin-tabs.md) | 2026-10-12 | — |
 | [IN-0049](IN-0049-meta-shown-unavailable-when-the-provider-is-down.md) | [IN-0049](IN-0049-meta-shown-unavailable-when-the-provider-is-down.md) | 2026-10-12 | — |
+| [IN-0050](IN-0050-plugins-check-failing-after-the-stack-rebuild.md) | [IN-0050](IN-0050-plugins-check-failing-after-the-stack-rebuild.md) | 2026-10-12 | — |
