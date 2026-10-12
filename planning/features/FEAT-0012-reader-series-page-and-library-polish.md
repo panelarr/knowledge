@@ -3,7 +3,7 @@ title: "FEAT-0012: Reader, series page and library polish"
 status: accepted
 tags: [feature, web, reader, library, ux]
 related: [planning/features/FEAT-0006-mobile-first-reader.md, planning/features/FEAT-0005-unified-chapters-and-update-checks.md, modules/web/overview.md]
-inputs: [IN-0060]
+inputs: [IN-0060, IN-0061]
 milestone: ""
 priority: P1
 updated: 2026-10-12
@@ -30,7 +30,7 @@ Reading feels like a reader, not an app: the page fills the screen, the chrome i
 
 ## Acceptance criteria
 
-- [ ] AC1: In long-strip mode, scrolling moves through every page of a chapter and on into the next; the chapter-start notice takes no more than a small strip.
+- [ ] AC1: In long-strip mode, scrolling moves through every page of a chapter and **straight on into the next chapter, loaded automatically as you near the end** (no button press; IN-0061); between chapters only a small strip shows which chapter starts.
 - [ ] AC2: A series page lists chapters newest first by default; the choice is remembered.
 - [ ] AC3: Unread chapters show bright and read ones dimmed; no "New" badges in the list.
 - [ ] AC4: The series page header has no boxed button rows: icon buttons with menus and one filter / sort / display sheet.
