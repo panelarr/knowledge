@@ -16,7 +16,7 @@ The brief a coding session works from. A short paste-in version points here: *"W
 
 ## Status
 
-`accepted` (2026-10-12): the owner accepted [FEAT-0010](../../planning/features/FEAT-0010-shared-network-services-and-plugin-admin-settings-in-panelar.md) with its assignment model (IN-0059). **PROPOSE your plan first**; the keeper reviews it and coordinates the three goals (GOAL-0015 server, GOAL-0016 meta, GOAL-0017 web). Plugin-side gaps (source-api, source-mihon, mihon-source) go to `panelarr-mihon-source` through the keeper.
+`accepted`, **Done 2026-10-12** (verified, pass with issues; [test report](../../qa/reports/goal-0017-web-network-admin-done-verification.md)). The owner accepted [FEAT-0010](../../planning/features/FEAT-0010-shared-network-services-and-plugin-admin-settings-in-panelar.md) with its assignment model (IN-0059). **PROPOSE your plan first**; the keeper reviews it and coordinates the three goals (GOAL-0015 server, GOAL-0016 meta, GOAL-0017 web). Plugin-side gaps (source-api, source-mihon, mihon-source) go to `panelarr-mihon-source` through the keeper.
 
 ## Context
 
@@ -36,12 +36,12 @@ The brief a coding session works from. A short paste-in version points here: *"W
 
 ## Definition of Done
 
-- [ ] Admin → Network (integrations, profiles)
-- [ ] Assignment at plugin, extension and source level, with create-in-place and custom profiles
-- [ ] Per-source settings
-- [ ] Tests incl. phone and layout
-- [ ] Docs updated; checks green; leak-check clean
-- [ ] `DONE:` with evidence per box
+- [x] Admin → Network (integrations, profiles)
+- [x] Assignment at plugin, extension and source level, with create-in-place and custom profiles
+- [x] Per-source settings
+- [x] Tests incl. phone and layout
+- [x] Docs updated; checks green; leak-check clean
+- [x] `DONE:` with evidence per box
 
 ## History
 
@@ -50,3 +50,4 @@ The brief a coding session works from. A short paste-in version points here: *"W
 - 2026-10-12: plan PROPOSEd and accepted (after the reader jump fix, IN-0066). N1 Admin → Network (solvers, proxies, profiles with tests; global and meta defaults); N2 one profile picker at every level showing what's in effect and push state (plugin page Network tab, extension sheet, a source's "Settings & network", the metadata service page); N3 custom solvers, proxies and profiles per plugin (IN-0065); N4 layout, axe, journey, docs. Answers: plugin page tabs built to grow (FEAT-0013); meta's pickers on the metadata service's page, not Admin → Network; creating in a picker makes a custom item, shared ones only on Admin → Network.
 - 2026-10-12: REPORT: **N1 done** (`d107983`): Admin → Network with Profiles / Proxies / Solvers tabs, "Show custom ones too", a global "For everything" choice (None by default), tests before saving, write-only passwords, delete refused while in use with the reason. Next: N2 pickers.
 - 2026-10-12: REPORT: **N2 done** (`df04df5`): one profile picker at every level, showing what's in effect, where from and whether it arrived; inherit, the plugin's own settings, shared, or a custom one made in place; placed on the plugin page's new Network tab (plugin, each extension, each source), the extension sheet, a source's "Settings and network" dialog and the metadata service card on Admin → System. Next: N3.
+- 2026-10-12: REPORT: **N3** (`f65410d`, plugin-owned proxies, solvers and profiles on the Network tab) and **N4** (`dd2e2a5`, journey e2e, docs/network.md). DONE received. Keeper verification on a clean clone under very heavy machine load: unit tests passed on a re-run; e2e had 2 different timeout failures on each of two runs. Goal closed with the flakiness sent back for hardening.

@@ -60,3 +60,5 @@ Meta check (`97055ae`): runs detached from the request (own 10s timeout, shared 
 Config follow-up (IN-0051, `844b43f`): after a plugin's config is saved, the server syncs that plugin after 5s and 30s on the same per-plugin chain as the rechecks; every plugin sync publishes a `plugin.health` event to admins (sent after each sync, not only on change).
 
 Image limits (`4e16d93`): page images in the reader and downloads use their own limiter (`image:<source>`) from the plugin's `image_rate_limit` and `max_image_concurrency_per_source`; API calls keep the source limits; an assigned network profile's limits apply to both.
+
+Chapter parsing (IN-0067, merge `f28a50e`): number, volume (source first, else the name; majority across copies), extras (no number, kept per source) and a cleaned `display_title` on chapters (empty = show "Chapter N"), used as the ComicInfo title. A network change made during a running push is no longer lost (`b9e070d`).
