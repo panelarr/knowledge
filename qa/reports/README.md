@@ -19,3 +19,4 @@ Results of test runs, including verification of a session's `REPORT:`/`DONE:` an
 | [goal-0012-source-plugins-packages-done-verification.md](goal-0012-source-plugins-packages-done-verification.md) | GOAL-0012 source plugins extension packages and languages DONE verification | draft |
 | [goal-0014-web-extensions-and-sources-done-verification.md](goal-0014-web-extensions-and-sources-done-verification.md) | GOAL-0014 web Extensions tab, admin Sources DONE verification | draft |
 | [goal-0016-meta-pushed-profiles-done-verification.md](goal-0016-meta-pushed-profiles-done-verification.md) | GOAL-0016 meta network profiles from Panelarr DONE verification | draft |
+| [goal-0018-source-plugins-profiles-done-verification.md](goal-0018-source-plugins-profiles-done-verification.md) | GOAL-0018 source plugins network profiles and per-source settings DONE verification | draft |

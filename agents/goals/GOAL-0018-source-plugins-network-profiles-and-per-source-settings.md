@@ -16,7 +16,7 @@ The brief a coding session works from. Read this file and follow it.
 
 ## Status
 
-`accepted` (2026-10-12): the plugin side of [FEAT-0010](../../planning/features/FEAT-0010-shared-network-services-and-plugin-admin-settings-in-panelar.md), from `panelarr-server`'s GOAL-0015 plan. PROPOSE briefly, then build.
+`accepted`, **Done 2026-10-12** (verified, pass; [test report](../../qa/reports/goal-0018-source-plugins-profiles-done-verification.md)). The plugin side of [FEAT-0010](../../planning/features/FEAT-0010-shared-network-services-and-plugin-admin-settings-in-panelar.md), from `panelarr-server`'s GOAL-0015 plan. PROPOSE briefly, then build.
 
 ## Context
 
@@ -36,14 +36,16 @@ Same as GOAL-0012: worktrees, gated checks, merge to local main, never push, no 
 
 ## Definition of Done
 
-- [ ] source-mihon applies pushed profiles per source end to end against the real mihon-source (proxy and solver honoured; unset falls back)
-- [ ] `instance_id` in source.v1, SDK and conformance
-- [ ] Per-source settings through source.v1 end to end
-- [ ] Checks green; docs; leak-check clean
-- [ ] `DONE:` with evidence per box
+- [x] source-mihon applies pushed profiles per source end to end against the real mihon-source (proxy and solver honoured; unset falls back)
+- [x] `instance_id` in source.v1, SDK and conformance
+- [x] Per-source settings through source.v1 end to end
+- [x] Checks green; docs; leak-check clean
+- [x] `DONE:` with evidence per box
 
 ## History
 
 - 2026-10-12: brief written from the server's GOAL-0015 plan.
 - 2026-10-12: plan PROPOSEd and accepted. Already there: source-mihon declares NETWORK_PROFILE and SOLVER and forwards SetNetworkProfile; mihon-source persists pushed profiles (passwords encrypted; pushed beats its own assignment; unset falls back); settings pass through with x-order. New (additive): `HealthResponse.instance_id` (per start; SDK fills it; source-mihon combines its own and mihon-source's), `GetNetworkProfile` with origin PUSHED / PLUGIN / NONE (secrets empty), writeOnly for password preferences. Slices: source-api, mihon-source, source-mihon with an e2e (proxy and solver honoured, fallback, restart, settings round trip, instance_id change), docs.
 - 2026-10-12: REPORT: **slices 1–2 done**: source-api `348bc2d` (`HealthResponse.instance_id`, SDK-filled; optional `GetNetworkProfile` with origin PUSHED / PLUGIN / NONE, no password; conformance); source-mihon `eb60687` (pass-through, combined instance ID); mihon-source `c5ea860` (instance ID per start, GetNetworkProfile from its resolver, password preferences marked writeOnly, read back empty, kept on an empty write). Next: slice 3 e2e.
+- 2026-10-12: REPORT: **slice 3 done** (source-mihon `6140031`): e2e with a local proxy, a fake solver and a challenged test site.
+- 2026-10-12: DONE received and verified on clean clones (all checks plus source-mihon `make e2e`). Goal closed.
