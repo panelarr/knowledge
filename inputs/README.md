@@ -55,3 +55,4 @@ The owner's raw words: messages, answers, idea dumps, transcripts, pasted conver
 | [IN-0049](IN-0049-meta-shown-unavailable-when-the-provider-is-down.md) | [IN-0049](IN-0049-meta-shown-unavailable-when-the-provider-is-down.md) | 2026-10-12 | — |
 | [IN-0050](IN-0050-plugins-check-failing-after-the-stack-rebuild.md) | [IN-0050](IN-0050-plugins-check-failing-after-the-stack-rebuild.md) | 2026-10-12 | — |
 | [IN-0051](IN-0051-cannot-set-extension-repo-from-the-admin.md) | [IN-0051](IN-0051-cannot-set-extension-repo-from-the-admin.md) | 2026-10-12 | — |
+| [IN-0052](IN-0052-install-extensions-from-the-admin-and-languages.md) | [IN-0052](IN-0052-install-extensions-from-the-admin-and-languages.md) | 2026-10-12 | — |

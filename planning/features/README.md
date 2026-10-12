@@ -12,3 +12,4 @@ Scoped units of product value, each with **acceptance criteria** that QA tests a
 | [FEAT-0006](FEAT-0006-mobile-first-reader.md) | Mobile-first reader (per-source settings) | M2 | accepted |
 | [FEAT-0007](FEAT-0007-downloads-to-the-shared-library.md) | Downloads to the shared library (CBZ) | M2 | accepted |
 | [FEAT-0008](FEAT-0008-backup-and-restore-for-the-whole-platform.md) | Backup and restore for the whole platform (all services, encrypted, to any storage) | — | accepted |
+| [FEAT-0009](FEAT-0009-extensions-and-sources-in-panelarr-s-admin-with-languages.md) | Extensions and sources in Panelarr's admin, with languages (install from stores, language filters) | — | proposed |
