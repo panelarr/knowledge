@@ -18,3 +18,6 @@ Briefs for coding sessions: objective, context to read, how to work, constraints
 | [GOAL-0012](GOAL-0012-source-plugins-extension-packages-and-languages.md) | source plugins: extension packages and languages | `panelarr-mihon-source` | accepted |
 | [GOAL-0013](GOAL-0013-server-extensions-source-languages-admin-only-sources.md) | server: extensions, source languages, admin-only sources | `panelarr-server` | accepted |
 | [GOAL-0014](GOAL-0014-web-extensions-tab-admin-sources-no-user-source-browsing.md) | web: Extensions tab, admin Sources, no user source browsing | `panelarr-web` | accepted |
+| [GOAL-0015](GOAL-0015-server-shared-network-services-and-plugin-admin-settings.md) | server: shared network services and plugin admin settings | `panelarr-server` | accepted |
+| [GOAL-0016](GOAL-0016-meta-network-profiles-from-panelarr-for-meta-plugins.md) | meta: network profiles from Panelarr for meta plugins | `panelarr-meta` | accepted |
+| [GOAL-0017](GOAL-0017-web-network-admin-and-plugin-settings-pages.md) | web: Network admin and plugin settings pages | `panelarr-web` | accepted |

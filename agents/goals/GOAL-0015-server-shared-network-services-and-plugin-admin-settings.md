@@ -1,0 +1,50 @@
+---
+title: "GOAL-0015: server: shared network services and plugin admin settings"
+status: accepted
+tags: [goal, agents, server]
+related: [planning/features/FEAT-0010-shared-network-services-and-plugin-admin-settings-in-panelar.md, architecture/networking.md, decisions/ADR-0016-per-source-network-profiles.md]
+inputs: [IN-0058, IN-0059]
+repos: [server]
+session: "panelarr-server"
+features: [FEAT-0010]
+updated: 2026-10-12
+---
+
+# GOAL-0015: server: shared network services and plugin admin settings
+
+The brief a coding session works from. A short paste-in version points here: *"Work on GOAL-0015-server-shared-network-services-and-plugin-admin-settings.md"* is not needed; read this file and follow it.
+
+## Status
+
+`accepted` (2026-10-12): the owner accepted [FEAT-0010](../../planning/features/FEAT-0010-shared-network-services-and-plugin-admin-settings-in-panelar.md) with its assignment model (IN-0059). **PROPOSE your plan first**; the keeper reviews it and coordinates the three goals (GOAL-0015 server, GOAL-0016 meta, GOAL-0017 web). Plugin-side gaps (source-api, source-mihon, mihon-source) go to `panelarr-mihon-source` through the keeper.
+
+## Context
+
+- **Read first:** [FEAT-0010](../../planning/features/FEAT-0010-shared-network-services-and-plugin-admin-settings-in-panelar.md) (the owner's words are quoted there), [architecture/networking.md](../../architecture/networking.md), [ADR-0016](../../decisions/ADR-0016-per-source-network-profiles.md) (proposed), [contracts/source-plugin.md](../../contracts/source-plugin.md), [contracts/metadata-plugin.md](../../contracts/metadata-plugin.md).
+- **Accepted decisions are law** (IN-0059):
+  - solvers, proxies and network profiles live in Panelarr as **options**; nothing uses one until an admin assigns it;
+  - assignment to a **whole plugin** (source plugin or meta plugin), an **extension**, or a **source**, the most specific wins; a **custom** profile per extension or source when needed; "choose or create new" from the plugin;
+  - **all plugin admin settings in Panelarr**, apart from creating new integrations inside a plugin (integrations are Panelarr's).
+- Same working rules as your earlier goals: slices, gated checks, merge to local main, never push, `REPORT:` per slice, `PROGRESS.md`; after each merge the keeper has the compose stack redeployed (IN-0056).
+
+## Objective
+
+1. **Integrations** (admin): solvers (FlareSolverr/Byparr, with a test), proxies (HTTP/SOCKS5; credentials encrypted, never returned), stored once.
+2. **Network profiles** built from them (proxy, solver, user agent, rate limits, DoH), plus custom profiles owned by one extension or source.
+3. **Assignment**: per plugin, per extension (package), per source; most specific wins; none = the plugin's own defaults. Resolve the effective profile per source and push it with `SetNetworkProfile` to plugins that declare `NETWORK_PROFILE`/`SOLVER`, on change and after a plugin (re)starts.
+4. **Meta**: profiles assignable to a meta plugin (provider); the server pushes the chosen one to meta (coordinate the API with GOAL-0016).
+5. **Plugin admin settings**: per-source settings (`GetSettingsSchema`/`GetSettings`/`SetSettings`) through the API, admin only.
+6. Tell `panelarr-web` the API as it settles.
+
+## Definition of Done
+
+- [ ] Integrations and profiles API with encrypted secrets and tests
+- [ ] Assignment levels with effective-profile resolution and push, including after plugin restarts
+- [ ] Meta plugin assignment through GOAL-0016's API
+- [ ] Per-source settings API
+- [ ] Docs updated; checks green; leak-check clean
+- [ ] `DONE:` with evidence per box
+
+## History
+
+- 2026-10-12: brief written and dispatched on the owner's acceptance (IN-0059); plan to be PROPOSEd first.
