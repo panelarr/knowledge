@@ -56,3 +56,5 @@ Until the `deploy` repo exists, the owner has a local Compose setup in `~/Projec
 **Redeploy #10 (2026-10-12):** server `311a1c8` (meta admin proxied, custom solvers and proxies) with web `d132205`, source-mihon `7be5a70` (origins, details, reload). Meta's jobs, providers, duplicates, judge and search engine answer for the owner with no secrets in the responses. No duplicate pairs yet: meta's duplicates job first runs on this catalogue at 04:30 UTC tomorrow.
 
 **Redeploy #11 (2026-10-12):** server `0eef78e` with web `daa764c` (reader jump fix). Phone test on a slow, throttled connection: the page being read moved 0 px while pages loaded, in three runs; opening a chapter no longer loads the previous one.
+
+**Redeploy #12 (2026-10-12):** server `e596c82` with web `d107983` (Admin → Network), mihon-source `9e8b3fc`, source-mihon `466cbf4`. Live: source-mihon's jobs (plugin sync every 15 min, store refresh every 12 h, health checks off as before), the owner's store with its package count, extension details with the signing key matching the store's, Admin → Network empty and ready. No warnings or errors.
