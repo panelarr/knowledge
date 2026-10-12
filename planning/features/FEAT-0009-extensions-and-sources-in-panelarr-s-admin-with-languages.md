@@ -1,9 +1,9 @@
 ---
 title: "FEAT-0009: Extensions and sources in Panelarr's admin, with languages"
-status: proposed
+status: accepted
 tags: [feature, admin, sources, source-mihon, mihon-source, web, server]
 related: [modules/source-mihon/overview.md, contracts/mihon-source-api.md, contracts/source-plugin.md, research/mihon-extension-store.md, modules/web/overview.md]
-inputs: [IN-0052, IN-0053, IN-0054, IN-0039]
+inputs: [IN-0052, IN-0053, IN-0054, IN-0055, IN-0039]
 milestone: ""
 priority: P2
 updated: 2026-10-12
@@ -36,7 +36,7 @@ On the Mihon plugin's own page, an admin browses the extensions the configured s
   - the rest of mihon-source's admin inside Panelarr (clients, integrations, health checks; IN-0039 stays a later feature);
   - other source plugins' install flows (the shape should allow them, per Q-0043).
 
-## Acceptance criteria (draft)
+## Acceptance criteria
 
 - [ ] AC1: With a store added, the source-mihon plugin page's Extensions tab lists its extensions with language, version and content warning; a language filter and search narrow the list.
 - [ ] AC2a: The plugin's language setting and an extension's language override change which of its sources are listed; a source in a language that's turned off isn't available for search, browse or matching.
@@ -58,9 +58,11 @@ On the Mihon plugin's own page, an admin browses the extensions the configured s
 
 | Repo | Goal | PR/MR | State |
 |---|---|---|---|
-| | | | |
+| source-api, source-mihon, mihon-source | [GOAL-0012](../../agents/goals/GOAL-0012-source-plugins-extension-packages-and-languages.md) | — | planning |
+| server | [GOAL-0013](../../agents/goals/GOAL-0013-server-extensions-source-languages-admin-only-sources.md) | — | planning |
+| web | [GOAL-0014](../../agents/goals/GOAL-0014-web-extensions-tab-admin-sources-no-user-source-browsing.md) | — | planning |
 
 ## Open questions
 
 - Answered: [Q-0043](../../questions/README.md), [Q-0044](../../questions/README.md) (IN-0054).
-- Do admins keep a "browse a source" view for testing (suggestion: yes, in the admin Sources page)?
+- Answered (IN-0055): admins keep a "browse a source" view for testing, in Admin → Sources.

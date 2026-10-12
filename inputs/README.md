@@ -58,3 +58,4 @@ The owner's raw words: messages, answers, idea dumps, transcripts, pasted conver
 | [IN-0052](IN-0052-install-extensions-from-the-admin-and-languages.md) | [IN-0052](IN-0052-install-extensions-from-the-admin-and-languages.md) | 2026-10-12 | — |
 | [IN-0053](IN-0053-extension-list-belongs-on-the-plugin-page.md) | [IN-0053](IN-0053-extension-list-belongs-on-the-plugin-page.md) | 2026-10-12 | — |
 | [IN-0054](IN-0054-plugin-capability-languages-per-plugin-and-extension-sources.md) | [IN-0054](IN-0054-plugin-capability-languages-per-plugin-and-extension-sources.md) | 2026-10-12 | — |
+| [IN-0055](IN-0055-admin-source-browsing-yes-feat-0009-accepted.md) | [IN-0055](IN-0055-admin-source-browsing-yes-feat-0009-accepted.md) | 2026-10-12 | — |

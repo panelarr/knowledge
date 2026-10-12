@@ -15,3 +15,6 @@ Briefs for coding sessions: objective, context to read, how to work, constraints
 | [GOAL-0009](GOAL-0009-source-api-and-source-mihon-v0.md) | source-api (protos, Go SDK, conformance) and source-mihon v0 (pass-through to mihon-source) | `panelarr-mihon-source` | accepted |
 | [GOAL-0010](GOAL-0010-server-v0-accounts-add-and-match-chapters-reader-api-downloa.md) | server v0: accounts, add and match, chapters, reader API, downloads | `panelarr-server` | accepted |
 | [GOAL-0011](GOAL-0011-web-v0-panelarr-app-for-the-first-slice.md) | web v0: Panelarr app for the first slice | `panelarr-web` | accepted |
+| [GOAL-0012](GOAL-0012-source-plugins-extension-packages-and-languages.md) | source plugins: extension packages and languages | `panelarr-mihon-source` | accepted |
+| [GOAL-0013](GOAL-0013-server-extensions-source-languages-admin-only-sources.md) | server: extensions, source languages, admin-only sources | `panelarr-server` | accepted |
+| [GOAL-0014](GOAL-0014-web-extensions-tab-admin-sources-no-user-source-browsing.md) | web: Extensions tab, admin Sources, no user source browsing | `panelarr-web` | accepted |
