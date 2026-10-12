@@ -22,3 +22,4 @@ Results of test runs, including verification of a session's `REPORT:`/`DONE:` an
 | [goal-0018-source-plugins-profiles-done-verification.md](goal-0018-source-plugins-profiles-done-verification.md) | GOAL-0018 source plugins network profiles and per-source settings DONE verification | draft |
 | [goal-0015-server-network-services-done-verification.md](goal-0015-server-network-services-done-verification.md) | GOAL-0015 server shared network services and plugin admin settings DONE verification | draft |
 | [goal-0019-server-connected-services-done-verification.md](goal-0019-server-connected-services-done-verification.md) | GOAL-0019 server connected services' admin DONE verification | draft |
+| [goal-0020-source-plugins-jobs-origins-done-verification.md](goal-0020-source-plugins-jobs-origins-done-verification.md) | GOAL-0020 source plugins jobs, package origins and details DONE verification | draft |

@@ -16,7 +16,7 @@ The brief a coding session works from. Read this file and follow it.
 
 ## Status
 
-`accepted` (2026-10-12): the owner accepted [FEAT-0013](../../planning/features/FEAT-0013-connected-services-admin-inside-panelarr.md) (IN-0064). Design by `panelarr-server`, accepted by the keeper (see GOAL-0019's history).
+`accepted`, **Done 2026-10-12** (verified, pass; [test report](../../qa/reports/goal-0020-source-plugins-jobs-origins-done-verification.md)). The owner accepted [FEAT-0013](../../planning/features/FEAT-0013-connected-services-admin-inside-panelarr.md) (IN-0064). Design by `panelarr-server`, accepted by the keeper (see GOAL-0019's history).
 
 ## Context
 
@@ -34,12 +34,12 @@ The brief a coding session works from. Read this file and follow it.
 
 ## Definition of Done
 
-- [ ] Jobs capability in source.v1 with SDK, fake and conformance
-- [ ] source-mihon serves mihon-source's jobs
-- [ ] Origins, package details and reload
-- [ ] Health-check settings reachable through source.v1
-- [ ] Docs; checks green; leak-check clean
-- [ ] `DONE:` with evidence per box
+- [x] Jobs capability in source.v1 with SDK, fake and conformance
+- [x] source-mihon serves mihon-source's jobs
+- [x] Origins, package details and reload
+- [x] Health-check settings reachable through source.v1
+- [x] Docs; checks green; leak-check clean
+- [x] `DONE:` with evidence per box
 
 ## History
 
@@ -47,3 +47,5 @@ The brief a coding session works from. Read this file and follow it.
 - 2026-10-12: plan PROPOSEd and accepted. `panelarr.jobs.v1` in source-api holds the job entities only (wire-identical to contracts/jobs.md and mihon.v1); source.v1 gets `PLUGIN_CAPABILITY_JOBS` with six RPCs and its own wrappers; an SDK jobs runner any Go plugin can reuse; conformance read-only. source-mihon passes mihon-source's jobs through and adds `plugin.sync`. Packages gain ListOrigins, RefreshOrigin, `Package.details` and ReloadPackage (reload re-loads the installed file; Update doesn't). Health checks: `PLUGIN_CAPABILITY_HEALTH_CHECKS` with SetSourceHealthCheck (typed, not a synthetic setting); source-mihon config `health_checks {interval, sample}` pushed to mihon-source's new schedule API; targeted runs write per-step notes. Kept out for now (keeper): installing extensions by URL or upload through Panelarr (arbitrary code), removing stores added inside mihon-source (RemoveOrigin later if wanted). Slices: S1 jobs, S2 origins/details/reload/health toggle, S3 mihon-source schedule and notes, S4 source-mihon.
 - 2026-10-12: REPORT: **S1 done** (source-api `ab7a019`; source-mihon `fa598d8` stubs): `panelarr.jobs.v1` entities matching contracts/jobs.md; `PLUGIN_CAPABILITY_JOBS` with six RPCs; `RunJobRequest.on_behalf_of` (the contract's proposal, now built for plugins); `ERROR_REASON_ALREADY_RUNNING`; an `sdk/jobs` runner (in-memory history); conformance read-only. Next: S2.
 - 2026-10-12: REPORT: **S2 done** (source-api `43548cf`; source-mihon `7be5a70` already serves origins, refresh, details and reload): ListOrigins / RefreshOrigin, `Package.details`, ReloadPackage, `PLUGIN_CAPABILITY_HEALTH_CHECKS` with SetSourceHealthCheck; SDK, fake, conformance (older packages plugins stay conformant). Next: S3 mihon-source.
+- 2026-10-12: REPORT: **S3–S4 done**: mihon-source `9e8b3fc` (health-check schedule API, step notes on targeted runs); source-mihon `466cbf4` (jobs pass-through plus its own `plugin.sync`, the health switch, the `health_checks` config).
+- 2026-10-12: DONE received and verified on clean clones (all checks plus source-mihon `make e2e`). Goal closed.

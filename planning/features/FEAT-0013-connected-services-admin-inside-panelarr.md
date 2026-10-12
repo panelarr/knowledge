@@ -49,5 +49,5 @@ Everything an admin does in mihon-source's or meta's own admin can be done from 
 | Repo | Goal | PR/MR | State |
 |---|---|---|---|
 | server | [GOAL-0019](../../agents/goals/GOAL-0019-server-connected-services-admin.md) | — | done (`e596c82`) |
-| source-api, source-mihon, mihon-source | [GOAL-0020](../../agents/goals/GOAL-0020-source-plugins-jobs-package-origins-and-details.md) | — | dispatched |
+| source-api, source-mihon, mihon-source | [GOAL-0020](../../agents/goals/GOAL-0020-source-plugins-jobs-package-origins-and-details.md) | — | done (source-api `ab7a019`/`43548cf`, mihon-source `9e8b3fc`, source-mihon `466cbf4`) |
 | web | [GOAL-0021](../../agents/goals/GOAL-0021-web-connected-services-admin-sections.md) | — | queued after GOAL-0017 and FEAT-0012 R4 |
