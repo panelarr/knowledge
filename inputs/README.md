@@ -79,3 +79,4 @@ The owner's raw words: messages, answers, idea dumps, transcripts, pasted conver
 | [IN-0073](IN-0073-history-and-updates-tabs-like-the-reference-app.md) | [IN-0073](IN-0073-history-and-updates-tabs-like-the-reference-app.md) | 2026-10-18 | — |
 | [IN-0074](IN-0074-tracker-syncing-later.md) | [IN-0074](IN-0074-tracker-syncing-later.md) | 2026-10-18 | — |
 | [IN-0075](IN-0075-library-search-as-an-icon.md) | [IN-0075](IN-0075-library-search-as-an-icon.md) | 2026-10-18 | — |
+| [IN-0076](IN-0076-black-bands-in-the-home-screen-app.md) | [IN-0076](IN-0076-black-bands-in-the-home-screen-app.md) | 2026-10-18 | — |
