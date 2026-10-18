@@ -16,7 +16,7 @@ The brief a coding session works from. Read this file and follow it.
 
 ## Status
 
-`accepted`. The owner accepted [FEAT-0016](../../planning/features/FEAT-0016-automatic-retries-for-failed-page-images.md) (IN-0080). GOAL-0022's API is merged (server `6ff0878`).
+`accepted`, **Done 2026-10-18** (verified, pass; [test report](../../qa/reports/feat-0016-image-retries-verification.md)). The owner accepted [FEAT-0016](../../planning/features/FEAT-0016-automatic-retries-for-failed-page-images.md) (IN-0080). GOAL-0022's API is merged (server `6ff0878`).
 
 ## Context
 
@@ -30,12 +30,13 @@ In the plugin page's extension details: an "Image retries" setting (attempts and
 
 ## Definition of Done
 
-- [ ] Extension setting and per-source override, with inherited values shown and reset
-- [ ] Tests incl. phone, layout and axe
-- [ ] Checks green; leak-check clean
-- [ ] `DONE:` with evidence per box
+- [x] Extension setting and per-source override, with inherited values shown and reset
+- [x] Tests incl. phone, layout and axe
+- [x] Checks green; leak-check clean
+- [x] `DONE:` with evidence per box
 
 ## History
 
 - 2026-10-18: brief written from the accepted FEAT-0016.
 - 2026-10-18: plan PROPOSEd and accepted by the keeper. One shared control (like the network profile picker): Inherit (says what it inherits; choosing it DELETEs), Off ([]), Custom (up to 5 rows "Attempt N after [x] s", 0–30 s, prefilled from what is in effect), with a line "In effect: … (set here / from its extension / the default)". On the extension details sheet after Network (also when not installed) and in the source settings dialog after Network; admin only. Saving an extension refreshes its sources' inherited text. Tests: unit for the states, e2e on desktop and phone, layout and axe; docs/admin.md.
+- 2026-10-18: DONE (`3f73d90`): the shared control (src/features/extensions/image-retries.tsx) on the extension sheet and the source settings dialog; saves refresh every cached image-retries query; inline bounds and the server's refusal; docs/admin.md. Verified on a clean clone (`make check` 392, `make e2e` 65). Goal closed; FEAT-0016 delivered.
