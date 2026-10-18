@@ -86,3 +86,5 @@ Until the `deploy` repo exists, the owner has a local Compose setup in `~/Projec
 **Redeploy #26–#29 (2026-10-18):** web `b753025` (compact series page), `ff7d11f` (library search icon, back to the series), `3f7b93f` (reader seams and scroll-up), then `6bedb02` (History tab and a reader regression fix). The keeper's request named the commits in the wrong order, so `6c860b8` (History without the fix) was live for about 79 s before `6bedb02`. Redeploy requests now name the branch head to deploy, and the deploy script stops when the requested commit doesn't contain the expected ones.
 
 **Redeploy #30 (2026-10-18):** web `fd0b653` (Updates tab). The owner's feed has 4 new chapters; the earlier failing update check has cleared. The throwaway `sim-check` user was deleted; `owner` is the only account.
+
+**Redeploy #31 (2026-10-18):** web `621c97a` (Browse → library, IN-0081 a) with server `8a13bb6` unchanged; server-only `up -d --no-build --no-deps`, nothing else recreated; build cache pruned (1.31 GB).

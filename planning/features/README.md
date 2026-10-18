@@ -20,3 +20,4 @@ Scoped units of product value, each with **acceptance criteria** that QA tests a
 | [FEAT-0014](FEAT-0014-reading-history.md) | Reading history (a History tab, resume, remove, clear) | — | accepted |
 | [FEAT-0015](FEAT-0015-updates-feed.md) | Updates feed (new chapters across the library, grouped by day and series) | — | accepted |
 | [FEAT-0016](FEAT-0016-automatic-retries-for-failed-page-images.md) | Automatic retries for failed page images (in the server; per extension, overridable per source) | — | accepted |
+| [FEAT-0017](FEAT-0017-import-reading-history-from-other-apps.md) | Import reading history from other apps (Suwayomi first, Aidoku later) | — | proposed |

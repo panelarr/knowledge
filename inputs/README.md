@@ -85,3 +85,4 @@ The owner's raw words: messages, answers, idea dumps, transcripts, pasted conver
 | [IN-0079](IN-0079-retry-failed-page-images-per-source.md) | [IN-0079](IN-0079-retry-failed-page-images-per-source.md) | 2026-10-18 | — |
 | [IN-0080](IN-0080-image-retries-server-default-extension-and-source.md) | [IN-0080](IN-0080-image-retries-server-default-extension-and-source.md) | 2026-10-18 | — |
 | [IN-0081](IN-0081-browse-to-library-and-loading-the-previous-chapter.md) | [IN-0081](IN-0081-browse-to-library-and-loading-the-previous-chapter.md) | 2026-10-18 | — |
+| [IN-0082](IN-0082-import-reading-history-from-other-apps.md) | [IN-0082](IN-0082-import-reading-history-from-other-apps.md) | 2026-10-18 | — |
