@@ -90,3 +90,5 @@ Until the `deploy` repo exists, the owner has a local Compose setup in `~/Projec
 **Redeploy #31 (2026-10-18):** web `621c97a` (Browse → library, IN-0081 a) with server `8a13bb6` unchanged; server-only `up -d --no-build --no-deps`, nothing else recreated; build cache pruned (1.31 GB).
 
 **Redeploy #32 (2026-10-18):** server `9d3ddaa` (page image retries, GOAL-0022 S1) with web `621c97a` unchanged; server only, `--no-deps`; build cache pruned (1.34 GB). The retry path itself wasn't exercised live (GET-only checks).
+
+**Redeploy #33 (2026-10-18):** server `6ff0878` (image retry settings, GOAL-0022 S2; migration 00018 adds `image_retry_settings`) with web `621c97a` unchanged; server only, `--no-deps`. GET on two sources' `image-retries` answers level `default`, [1000, 3000]. Build cache pruned (3.25 GB).
