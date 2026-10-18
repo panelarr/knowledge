@@ -41,5 +41,10 @@ An **Updates** tab lists new chapters in the user's library, newest first, group
 
 | Repo | Goal | PR/MR | State |
 |---|---|---|---|
-| server | — | — | an updates feed API (new chapters per user, grouped data, last check time, refresh) |
+| server | — | — | done (`7743817`): `GET /me/updates` (new chapters, newest first, with read, progress and download state), `GET /me/updates/status`, `POST /me/updates/refresh` |
 | web | — | — | Updates tab, after the mobile fixes and History |
+
+## Decisions (as built, server `7743817`)
+
+- **What counts as new:** a chapter a later update check found after the series' first successful listing and after the user added the work. A work's first chapters, a newly attached source's first listing, chapters remade by `chapters.reunify`, and a copy joining an existing chapter don't appear. Existing chapters were backfilled from their creation time (a best guess). Known limit: if a series' first successful listing was empty, its first chapters aren't announced.
+- **Refresh** queues update checks for the caller's own library (earlier queued checks are brought forward); admins check everyone's with the `updates.check` job.
