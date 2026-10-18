@@ -3,7 +3,7 @@ title: "FEAT-0012: Reader, series page and library polish"
 status: accepted
 tags: [feature, web, reader, library, ux]
 related: [planning/features/FEAT-0006-mobile-first-reader.md, planning/features/FEAT-0005-unified-chapters-and-update-checks.md, modules/web/overview.md]
-inputs: [IN-0060, IN-0061]
+inputs: [IN-0081, IN-0060, IN-0061]
 milestone: ""
 priority: P1
 updated: 2026-10-12
@@ -71,3 +71,4 @@ Reading feels like a reader, not an app: the page fills the screen, the chrome i
 - 2026-10-18: library search behind an icon on phones (IN-0075, web `2565c48`); "Back to the series" from the pages problem's work_id (`ff7d11f`).
 - 2026-10-18: **Seams and sticky scrolling up fixed** (IN-0077, IN-0078; web `3f7b93f`): strip pages get exact whole-pixel heights (the virtualizer rounded, leaving hairline gaps: 32 before, 0 after); while the user scrolls, the anchor corrects with a transform and folds it into scrollTop once scrolling settles, so iOS momentum isn't killed (flings up went from about 500 px to 6,300 px over 10 s, like down). Measured in the iOS Simulator with real flings.
 - 2026-10-18: regression from `3f7b93f` fixed (`6bedb02`): near the ends of the loaded strip the browser clamps scrollTop itself, so the deferred correction doubled it (a jump of about a page); there the strip corrects directly again, and the reader's position counts any pending correction. Proven with repeated runs (18/18 phone, 20/20 desktop).
+- 2026-10-18: **R5 asked** (IN-0081): (a) a Browse item already in the library opens its library page, and **Add to library** moves to the new library page; (b) in the long strip, opening a chapter in the middle (e.g. 45) and scrolling up should bring in the previous chapter more smoothly. Handed to `panelarr-web`.
