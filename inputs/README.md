@@ -73,3 +73,4 @@ The owner's raw words: messages, answers, idea dumps, transcripts, pasted conver
 | [IN-0067](IN-0067-chapter-number-parser-chapter-0-at-the-top.md) | [IN-0067](IN-0067-chapter-number-parser-chapter-0-at-the-top.md) | 2026-10-12 | — |
 | [IN-0068](IN-0068-web-app-buggy-on-mobile-reader-jumps-and-flickers.md) | [IN-0068](IN-0068-web-app-buggy-on-mobile-reader-jumps-and-flickers.md) | 2026-10-18 | — |
 | [IN-0069](IN-0069-no-app-header-on-mobile.md) | [IN-0069](IN-0069-no-app-header-on-mobile.md) | 2026-10-18 | — |
+| [IN-0070](IN-0070-flicker-screen-recording.md) | [IN-0070](IN-0070-flicker-screen-recording.md) | 2026-10-18 | — |
