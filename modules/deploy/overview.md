@@ -98,3 +98,7 @@ Until the `deploy` repo exists, the owner has a local Compose setup in `~/Projec
 **Redeploy #35 (2026-10-18):** web `3f73d90` (image retry settings UI, GOAL-0023) with server `6ff0878` unchanged; server only, `--no-deps`; new shell `index-Cx8AHmoA.js`. GET on both installed packages' and both sources' `image-retries` answers level `default`, [1000, 3000]; no PUT or DELETE. Build cache pruned (3.40 GB).
 
 **Redeploy #36 (2026-10-18):** web `2271320` (nested-list markup fix) with server `6ff0878` unchanged; server only, `--no-deps`; new shell `index-DqdhXhSL.js`. Build cache pruned (1.5 GB).
+
+**Redeploy #37 (2026-10-18):** mihon-source `b128f56` (exec-capable tmpdir); `up -d --no-build --no-deps mihon-source` only. The override's tmpfs is unchanged, so the entrypoint keeps /tmp (no fallback); 2 extensions with 3 sources loaded as before; ready and healthy; no WARN/ERROR in its startup log; source-mihon healthy throughout; the server shows the plugin "ok". Build cache pruned (1.94 GB).
+
+**Correction (2026-10-18):** the "no WARN/ERROR in the server logs" lines in the reports for redeploys #31–#36 weren't really checked. `docker logs --since` was given a time without a date, Docker rejected it, and the error went into the grep, which counted 0. The server container running at #36 (`6ff0878` + web `2271320`) has 0 WARN/ERROR in its whole log; the earlier containers are gone. Everything else in those reports was real. **Rule:** use RFC3339 times with `--since`, and check that the logs command itself succeeded before counting lines.
