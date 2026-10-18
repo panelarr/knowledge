@@ -80,3 +80,5 @@ Until the `deploy` repo exists, the owner has a local Compose setup in `~/Projec
 **Redeploy #23 (2026-10-18):** server `7743817` (history API, updates feed; migrations 00016–00017) with web `c052bd1` (reader flicker fix). Docker Compose had been upgraded to 5.6, which hashes service config differently, so this `up` recreated postgres once (same image and volume, data intact, about 6 s down); meta will be recreated once the same way on its next `up`. Docker Desktop's disk is now about 126 GB (98 GB free). Owner's updates status shows one series whose last check failed, most likely from before the mihon-source /tmp fix; the next scheduled check (20:21 UTC) should clear it.
 
 **Redeploy #24 (2026-10-18):** web `4ce796b` (reader errors). Server-only with `up -d --no-build --no-deps server`, which keeps Compose 5.6 from recreating postgres; use `--no-deps` for single-service redeploys from now on. Chapter 199 opens (48 pages); no zstd errors.
+
+**Redeploy #25 (2026-10-18):** server `8a13bb6` with web `4654cc3` (no app header on phones, Home Screen app bands fixed). Healthy; no warnings.
