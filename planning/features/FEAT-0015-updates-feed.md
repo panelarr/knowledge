@@ -32,10 +32,10 @@ An **Updates** tab lists new chapters in the user's library, newest first, group
 
 ## Acceptance criteria
 
-- [ ] AC1: New chapters found by an update check appear in Updates for every user who has that work in their library, grouped by day and series.
-- [ ] AC2: "Show N more chapters" expands a row; tapping a chapter opens the reader; read chapters are dimmed.
-- [ ] AC3: Refresh runs the update check and the list updates when it finishes; "Last update" shows when it last ran.
-- [ ] AC4: Works fine on a phone in the compact layout.
+- [x] AC1: New chapters found by an update check appear in Updates for every user who has that work in their library, grouped by day and series.
+- [x] AC2: "Show N more chapters" expands a row; tapping a chapter opens the reader; read chapters are dimmed.
+- [x] AC3: Refresh runs the update check and the list updates when it finishes; "Last update" shows when it last ran.
+- [x] AC4: Works fine on a phone in the compact layout.
 
 ## Delivery
 
