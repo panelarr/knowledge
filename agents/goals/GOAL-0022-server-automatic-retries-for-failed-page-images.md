@@ -31,7 +31,7 @@ In the server's image fetch (reader pages and downloads): retry a failed image f
 
 ## Definition of Done
 
-- [ ] Retries for reader images and downloads, with the resolution order
+- [ ] Retries for reader images and downloads, with the resolution order (retries done in S1; resolution in S2)
 - [ ] Admin API for extension and source, with `effective` and its origin; OpenAPI updated
 - [ ] Tests: fail-once-then-succeed, not-found not retried, override wins, rate limit respected
 - [ ] Docs; checks green; leak-check clean
@@ -48,3 +48,4 @@ In the server's image fetch (reader pages and downloads): retry a failed image f
   - API: GET/PUT/DELETE `/plugins/{plugin_id}/packages/{package_id}/image-retries` and `/sources/{source_id}/image-retries`, answering `own`, `effective`, `level` and `from_target_id`; changes are audit-logged; a metric `panelarr_image_retries_total{outcome}`.
   - Slices: S1 the retries, S2 the setting and API.
   - Keeper answers: the 30 s retry_after cap is fine; a challenge stays out of the retry list.
+- 2026-10-18: REPORT: **S1 done** (`0913f34`, merge `9d3ddaa`): `Host.PageImage` (internal/plugins/retry.go) for reader pages and downloads; default [1 s, 3 s] paced by the source's image limiter, stopped by cancellation; the agreed error classes (a stream broken off at any point is retried, since the image is buffered); downloads keep their task back-off afterwards; a metric by outcome; debug logs with the error class only. Tests per case with call and wait counts, plus an API test (reader page 200 and a download with the real default; 502 with retries off). Docs in reader.md and downloads.md.

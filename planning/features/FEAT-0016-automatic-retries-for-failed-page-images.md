@@ -50,7 +50,7 @@ In the server's image fetch, which already knows each source's limits and serves
 
 | Repo | Goal | PR/MR | State |
 |---|---|---|---|
-| server | [GOAL-0022](../../agents/goals/GOAL-0022-server-automatic-retries-for-failed-page-images.md) | | not started |
+| server | [GOAL-0022](../../agents/goals/GOAL-0022-server-automatic-retries-for-failed-page-images.md) | | S1 retries done (`9d3ddaa`); S2 settings next |
 | web | [GOAL-0023](../../agents/goals/GOAL-0023-web-image-retry-settings-in-the-extension-admin.md) | | not started |
 
 ## Decisions
