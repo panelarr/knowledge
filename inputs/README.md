@@ -75,3 +75,4 @@ The owner's raw words: messages, answers, idea dumps, transcripts, pasted conver
 | [IN-0069](IN-0069-no-app-header-on-mobile.md) | [IN-0069](IN-0069-no-app-header-on-mobile.md) | 2026-10-18 | — |
 | [IN-0070](IN-0070-flicker-screen-recording.md) | [IN-0070](IN-0070-flicker-screen-recording.md) | 2026-10-18 | — |
 | [IN-0071](IN-0071-chapter-list-wastes-space-compare-the-reference-app.md) | [IN-0071](IN-0071-chapter-list-wastes-space-compare-the-reference-app.md) | 2026-10-18 | — |
+| [IN-0072](IN-0072-history-tab-to-see-what-you-read.md) | [IN-0072](IN-0072-history-tab-to-see-what-you-read.md) | 2026-10-18 | — |

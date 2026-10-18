@@ -17,3 +17,4 @@ Scoped units of product value, each with **acceptance criteria** that QA tests a
 | [FEAT-0011](FEAT-0011-better-chapter-copies-and-configurable-matching.md) | Better chapter copies and configurable matching (rate down bad copies, match rules, storage per source) | — | proposed |
 | [FEAT-0012](FEAT-0012-reader-series-page-and-library-polish.md) | Reader, series page and library polish (calmer reader, plain chapter rows, icon menus, bookmarks) | — | accepted |
 | [FEAT-0013](FEAT-0013-connected-services-admin-inside-panelarr.md) | Connected services' admin inside Panelarr (mihon-source and meta admin pages; network chosen from Panelarr) | — | accepted |
+| [FEAT-0014](FEAT-0014-reading-history.md) | Reading history (a History tab, resume, remove, clear) | — | accepted |
