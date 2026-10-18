@@ -42,7 +42,7 @@ An **Updates** tab lists new chapters in the user's library, newest first, group
 | Repo | Goal | PR/MR | State |
 |---|---|---|---|
 | server | — | — | done (`7743817`): `GET /me/updates` (new chapters, newest first, with read, progress and download state), `GET /me/updates/status`, `POST /me/updates/refresh` |
-| web | — | — | Updates tab, after the mobile fixes and History |
+| web | — | — | done (`fd0b653`): Updates main tab (bottom bar Library, Updates, History, Browse, More), by day and series, show more, read dimmed, download, mark read, last update and refresh with progress |
 
 ## Decisions (as built, server `7743817`)
 
