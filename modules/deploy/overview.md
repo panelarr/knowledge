@@ -74,3 +74,5 @@ Until the `deploy` repo exists, the owner has a local Compose setup in `~/Projec
 **Redeploy #21 (2026-10-12):** web `f530dc5`. Metadata → Search reads Healthy for the built-in engine. meta confirmed `search-rebuild` and `search-indexer` are no-ops with postgres (recorded as skipped with a reason); hiding them on the Jobs tab, or a per-job "available" flag in meta, is a possible later polish, not scheduled.
 
 **Redeploy #22 (2026-10-12):** server `061fb9d`, web `40bf625`, source-mihon `1e087cb`, meta `f8e976b`. Metadata → Jobs shows meta's two search-index jobs as "Can't run now" (built-in search), everything else runnable; source-mihon's three jobs runnable. No errors.
+
+**Fix (2026-10-18, IN-0068):** mihon-source's /tmp is mounted `rw,exec,size=128m` in the compose stack (other services keep noexec): extensions' HTTP clients unpack zstd/brotli native libraries to /tmp and load them. Without exec, some chapters' page lists failed with `source_failed` (UnsatisfiedLinkError). Durable fix queued for mihon-source's image and its compose example.
