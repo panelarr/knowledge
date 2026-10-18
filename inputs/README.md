@@ -81,3 +81,4 @@ The owner's raw words: messages, answers, idea dumps, transcripts, pasted conver
 | [IN-0075](IN-0075-library-search-as-an-icon.md) | [IN-0075](IN-0075-library-search-as-an-icon.md) | 2026-10-18 | — |
 | [IN-0076](IN-0076-black-bands-in-the-home-screen-app.md) | [IN-0076](IN-0076-black-bands-in-the-home-screen-app.md) | 2026-10-18 | — |
 | [IN-0077](IN-0077-thin-lines-between-pages-in-the-reader.md) | [IN-0077](IN-0077-thin-lines-between-pages-in-the-reader.md) | 2026-10-18 | — |
+| [IN-0078](IN-0078-scrolling-up-in-the-reader-feels-sticky.md) | [IN-0078](IN-0078-scrolling-up-in-the-reader-feels-sticky.md) | 2026-10-18 | — |
