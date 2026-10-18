@@ -88,3 +88,5 @@ Until the `deploy` repo exists, the owner has a local Compose setup in `~/Projec
 **Redeploy #30 (2026-10-18):** web `fd0b653` (Updates tab). The owner's feed has 4 new chapters; the earlier failing update check has cleared. The throwaway `sim-check` user was deleted; `owner` is the only account.
 
 **Redeploy #31 (2026-10-18):** web `621c97a` (Browse → library, IN-0081 a) with server `8a13bb6` unchanged; server-only `up -d --no-build --no-deps`, nothing else recreated; build cache pruned (1.31 GB).
+
+**Redeploy #32 (2026-10-18):** server `9d3ddaa` (page image retries, GOAL-0022 S1) with web `621c97a` unchanged; server only, `--no-deps`; build cache pruned (1.34 GB). The retry path itself wasn't exercised live (GET-only checks).
