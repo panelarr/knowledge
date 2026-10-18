@@ -94,3 +94,5 @@ Until the `deploy` repo exists, the owner has a local Compose setup in `~/Projec
 **Redeploy #33 (2026-10-18):** server `6ff0878` (image retry settings, GOAL-0022 S2; migration 00018 adds `image_retry_settings`) with web `621c97a` unchanged; server only, `--no-deps`. GET on two sources' `image-retries` answers level `default`, [1000, 3000]. Build cache pruned (3.25 GB).
 
 **Redeploy #34 (2026-10-18):** web `6a8b95f` (previous chapter loaded ahead, IN-0081 b) with server `6ff0878` unchanged; server only, `--no-deps`; new shell `index-DP_Ntbhi.js`. The reader wasn't opened (it would write the owner's progress). Build cache pruned (1.35 GB).
+
+**Redeploy #35 (2026-10-18):** web `3f73d90` (image retry settings UI, GOAL-0023) with server `6ff0878` unchanged; server only, `--no-deps`; new shell `index-Cx8AHmoA.js`. GET on both installed packages' and both sources' `image-retries` answers level `default`, [1000, 3000]; no PUT or DELETE. Build cache pruned (3.40 GB).
