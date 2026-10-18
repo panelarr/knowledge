@@ -3,7 +3,7 @@ title: "FEAT-0014: Reading history"
 status: accepted
 tags: [feature, web, server, reader]
 related: [planning/features/FEAT-0012-reader-series-page-and-library-polish.md, contracts/server-api.md]
-inputs: [IN-0072]
+inputs: [IN-0072, IN-0073]
 milestone: ""
 priority: P1
 updated: 2026-10-18
@@ -14,6 +14,8 @@ updated: 2026-10-18
 ## Problem
 
 "also we need history tab/tracking so u could see what u read before" (IN-0072). The server already records reading progress and answers `GET /me/history` ("Chapters you read, newest first"), but the web app has no page for it.
+
+Layout reference (IN-0073): the reference app's History: a "History" top bar, groups by day, rows with a small cover, the series title, "Chapter 224 — 01:05 PM", read ones dimmed, a download icon; bottom nav Library, Updates, History, Browse, More.
 
 ## Outcome
 
