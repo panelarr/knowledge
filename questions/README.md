@@ -17,7 +17,7 @@ Everything we don't know yet. IDs are stable and never reused. When a question i
 | Q-0016 | Legal and ToS stance and wording: no bundled extensions or plugins; hosters add indexes; disclaimers; DMCA contact. | legal | P2 | [principles](../product/principles.md) |
 | Q-0018 | When to support PDF and EPUB in source-local (PDF needs a rasterizer, which may require cgo)? | source-local | P3 | [source-local](../modules/source-local/overview.md) |
 | Q-0019 | Rules for inferring series, volume and chapter from file and folder names when there is no ComicInfo. | source-local | P2 | [formats](../research/comic-archive-formats.md) |
-| Q-0021 | Should trackers become a plugin kind (like sources and metadata), or stay built into server? | trackers | P3 | [trackers](../architecture/trackers.md) |
+| Q-0021 | Should trackers become a plugin kind (like sources and metadata), or stay built into server? *Owner (IN-0074): tracker syncing is wanted, later.* | trackers | P3 | [trackers](../architecture/trackers.md) |
 | Q-0022 | Search backends: Typesense first (author's suggestion) then Meilisearch? Is embedded Bleve worth adding? Benchmark CJK title search.  *The optional engine integrations belong to meta; the library uses built-in Postgres search (IN-0017, IN-0018). OpenSearch/Algolia: Q-0033.* | search | P2 | [search](../architecture/search.md) |
 | Q-0023 | Where does character data come from (AniList, ComicVine)? Is it stored in meta and indexed for search? | meta, search | P3 | [search](../architecture/search.md) |
 | Q-0024 | Plugin signing: key format (minisign vs cosign/sigstore), official key management, the trust UI for third-party indexes. | plugins, security | P2 | [plugin index](../contracts/plugin-index.md) |

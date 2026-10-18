@@ -77,3 +77,4 @@ The owner's raw words: messages, answers, idea dumps, transcripts, pasted conver
 | [IN-0071](IN-0071-chapter-list-wastes-space-compare-the-reference-app.md) | [IN-0071](IN-0071-chapter-list-wastes-space-compare-the-reference-app.md) | 2026-10-18 | — |
 | [IN-0072](IN-0072-history-tab-to-see-what-you-read.md) | [IN-0072](IN-0072-history-tab-to-see-what-you-read.md) | 2026-10-18 | — |
 | [IN-0073](IN-0073-history-and-updates-tabs-like-the-reference-app.md) | [IN-0073](IN-0073-history-and-updates-tabs-like-the-reference-app.md) | 2026-10-18 | — |
+| [IN-0074](IN-0074-tracker-syncing-later.md) | [IN-0074](IN-0074-tracker-syncing-later.md) | 2026-10-18 | — |

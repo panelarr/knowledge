@@ -48,4 +48,4 @@ Each user has a **History** tab: what they read, newest first, grouped by day, o
 
 ## Open questions
 
-- Should "tracking" also mean syncing with external trackers (AniList, MyAnimeList)? Kept out until the owner says (Q-0021).
+- Answered (IN-0074): syncing with external trackers is on the to-do list for later, not part of this feature (Q-0021 stays open for how).
