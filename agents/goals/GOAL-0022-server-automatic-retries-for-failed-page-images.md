@@ -16,7 +16,7 @@ The brief a coding session works from. Read this file and follow it.
 
 ## Status
 
-`accepted`. The owner accepted [FEAT-0016](../../planning/features/FEAT-0016-automatic-retries-for-failed-page-images.md) (IN-0080).
+`accepted`, **Done 2026-10-18** (verified, pass; [test report](../../qa/reports/goal-0022-server-image-retries-done-verification.md)). The owner accepted [FEAT-0016](../../planning/features/FEAT-0016-automatic-retries-for-failed-page-images.md) (IN-0080).
 
 ## Context
 
@@ -31,11 +31,11 @@ In the server's image fetch (reader pages and downloads): retry a failed image f
 
 ## Definition of Done
 
-- [ ] Retries for reader images and downloads, with the resolution order (retries done in S1; resolution in S2)
-- [ ] Admin API for extension and source, with `effective` and its origin; OpenAPI updated
-- [ ] Tests: fail-once-then-succeed, not-found not retried, override wins, rate limit respected
-- [ ] Docs; checks green; leak-check clean
-- [ ] `DONE:` with evidence per box
+- [x] Retries for reader images and downloads, with the resolution order
+- [x] Admin API for extension and source, with `effective` and its origin; OpenAPI updated
+- [x] Tests: fail-once-then-succeed, not-found not retried, override wins, rate limit respected
+- [x] Docs; checks green; leak-check clean
+- [x] `DONE:` with evidence per box
 
 ## History
 
@@ -49,3 +49,4 @@ In the server's image fetch (reader pages and downloads): retry a failed image f
   - Slices: S1 the retries, S2 the setting and API.
   - Keeper answers: the 30 s retry_after cap is fine; a challenge stays out of the retry list.
 - 2026-10-18: REPORT: **S1 done** (`0913f34`, merge `9d3ddaa`): `Host.PageImage` (internal/plugins/retry.go) for reader pages and downloads; default [1 s, 3 s] paced by the source's image limiter, stopped by cancellation; the agreed error classes (a stream broken off at any point is retried, since the image is buffered); downloads keep their task back-off afterwards; a metric by outcome; debug logs with the error class only. Tests per case with call and wait counts, plus an API test (reader page 200 and a download with the real default; 502 with retries off). Docs in reader.md and downloads.md.
+- 2026-10-18: REPORT: **S2 done** (`1217f9d`, merge `6ff0878`): migration 00018 `image_retry_settings`; source → package → default, cached a minute and dropped on writes; the six admin operations with `own` / `effective` / `level` / `from_target_id` ([] = off, absent = inherits); audit-logged. DONE received and verified on a clean clone (`make check`, gen-check, api-breaking). Goal closed.

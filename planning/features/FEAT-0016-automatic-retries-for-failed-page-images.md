@@ -36,11 +36,11 @@ A failed page image is tried again a few times by itself before the reader shows
 
 ## Acceptance criteria
 
-- [ ] AC1: With a source whose images fail once and then succeed, the page shows without the user tapping anything.
+- [x] AC1: With a source whose images fail once and then succeed, the page shows without the user tapping anything.
 - [ ] AC2: An admin sets attempts on an extension and all its sources use them; an override on one source wins for that source; sources without either use the default (2 attempts, 1 s then 3 s).
-- [ ] AC3: A 404 image isn't retried; the reader shows **Try again** at once.
-- [ ] AC4: Retries respect the source's rate limit and retry-after.
-- [ ] AC5: Downloads get the same retries.
+- [x] AC3: A 404 image isn't retried; the reader shows **Try again** at once.
+- [x] AC4: Retries respect the source's rate limit and retry-after.
+- [x] AC5: Downloads get the same retries.
 
 ## Design notes
 
@@ -50,7 +50,7 @@ In the server's image fetch, which already knows each source's limits and serves
 
 | Repo | Goal | PR/MR | State |
 |---|---|---|---|
-| server | [GOAL-0022](../../agents/goals/GOAL-0022-server-automatic-retries-for-failed-page-images.md) | | S1 retries done (`9d3ddaa`); S2 settings next |
+| server | [GOAL-0022](../../agents/goals/GOAL-0022-server-automatic-retries-for-failed-page-images.md) | | done (`9d3ddaa`, `6ff0878`; [test report](../../qa/reports/goal-0022-server-image-retries-done-verification.md)) |
 | web | [GOAL-0023](../../agents/goals/GOAL-0023-web-image-retry-settings-in-the-extension-admin.md) | | not started |
 
 ## Decisions

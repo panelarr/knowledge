@@ -27,3 +27,4 @@ Results of test runs, including verification of a session's `REPORT:`/`DONE:` an
 | [feat-0012-reader-series-library-verification.md](feat-0012-reader-series-library-verification.md) | FEAT-0012 reader, series page and library polish verification | draft |
 | [goal-0021-web-connected-services-done-verification.md](goal-0021-web-connected-services-done-verification.md) | GOAL-0021 web connected services' admin sections DONE verification | draft |
 | [feat-0014-0015-history-updates-mobile-verification.md](feat-0014-0015-history-updates-mobile-verification.md) | FEAT-0014 history, FEAT-0015 updates and the mobile fixes verification | draft |
+| [goal-0022-server-image-retries-done-verification.md](goal-0022-server-image-retries-done-verification.md) | GOAL-0022 server image retries DONE verification | draft |
