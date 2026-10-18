@@ -34,17 +34,17 @@ Each user has a **History** tab: what they read, newest first, grouped by day, o
 
 ## Acceptance criteria
 
-- [ ] AC1: After reading, the series appears at the top of History with the chapter and page and the time; tapping it resumes there.
-- [ ] AC2: History is grouped by day and paged; it works on a phone with the compact layout.
-- [ ] AC3: Removing an entry hides that series from history without changing its read marks; clearing removes all, after confirmation.
-- [ ] AC4: One user's history is never visible to another.
+- [x] AC1: After reading, the series appears at the top of History with the chapter and page and the time; tapping it resumes there.
+- [x] AC2: History is grouped by day and paged; it works on a phone with the compact layout.
+- [x] AC3: Removing an entry hides that series from history without changing its read marks; clearing removes all, after confirmation.
+- [x] AC4: One user's history is never visible to another.
 
 ## Delivery
 
 | Repo | Goal | PR/MR | State |
 |---|---|---|---|
 | server | — | — | done (`65872f1`): `per=series` (default stays `per=chapter` for compatibility), `work_id` and `q` filters, resume chapter and display title on entries, `DELETE /me/history/{work_id}` and `DELETE /me/history` (hide what was read so far; read marks stay) |
-| web | — | — | History tab, after the mobile fixes (IN-0068..IN-0071) |
+| web | — | — | done (`6c860b8`): History main tab (bottom bar Library, History, Browse, More; Downloads under More), by day, Resume, every chapter, search icon, remove and clear |
 
 ## Open questions
 
