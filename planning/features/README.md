@@ -19,4 +19,4 @@ Scoped units of product value, each with **acceptance criteria** that QA tests a
 | [FEAT-0013](FEAT-0013-connected-services-admin-inside-panelarr.md) | Connected services' admin inside Panelarr (mihon-source and meta admin pages; network chosen from Panelarr) | — | accepted |
 | [FEAT-0014](FEAT-0014-reading-history.md) | Reading history (a History tab, resume, remove, clear) | — | accepted |
 | [FEAT-0015](FEAT-0015-updates-feed.md) | Updates feed (new chapters across the library, grouped by day and series) | — | accepted |
-| [FEAT-0016](FEAT-0016-automatic-retries-for-failed-page-images.md) | Automatic retries for failed page images (a per-source setting, then Try again) | — | proposed |
+| [FEAT-0016](FEAT-0016-automatic-retries-for-failed-page-images.md) | Automatic retries for failed page images (in the server; per extension, overridable per source) | — | accepted |

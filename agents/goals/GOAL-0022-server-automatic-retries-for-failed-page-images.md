@@ -1,0 +1,42 @@
+---
+title: "GOAL-0022: server: automatic retries for failed page images"
+status: accepted
+tags: [goal, agents, server]
+related: [planning/features/FEAT-0016-automatic-retries-for-failed-page-images.md, planning/features/FEAT-0010-shared-network-services-and-plugin-admin-settings-in-panelar.md, contracts/source-plugin.md]
+inputs: [IN-0079, IN-0080]
+repos: [server]
+session: "panelarr-server"
+features: [FEAT-0016]
+updated: 2026-10-18
+---
+
+# GOAL-0022: server: automatic retries for failed page images
+
+The brief a coding session works from. Read this file and follow it.
+
+## Status
+
+`accepted`. The owner accepted [FEAT-0016](../../planning/features/FEAT-0016-automatic-retries-for-failed-page-images.md) (IN-0080).
+
+## Context
+
+- Read [FEAT-0016](../../planning/features/FEAT-0016-automatic-retries-for-failed-page-images.md) and [contracts/source-plugin.md](../../contracts/source-plugin.md).
+- **Decided (IN-0080):** retries live in the server; the default is 2 more attempts, after 1 s then 3 s; set on an extension (package, all its sources) with an optional override on one of its sources.
+- Today a failed image reaches the reader at once (web shows "Try again"); source-mihon retries only while mihon-source is unreachable.
+- Same working rules as before: slices, gated checks, merge to local main, never push, `REPORT:` per slice; every merge is redeployed for the owner (IN-0056). Live checks on the owner's stack never change the owner's settings or progress: use a throwaway user and put back anything you change.
+
+## Objective
+
+In the server's image fetch (reader pages and downloads): retry a failed image fetch for errors worth retrying (timeouts, unavailable, 5xx-like, dropped streams before any bytes), never for not found or a rejected key; honour retry-after and the per-source limits; resolve the attempts and delays from source override → extension → default. An admin API to read and set it for an extension and for a source (with the effective value and where it came from), shaped like the network assignments. PROPOSE the shape (storage, API, error classes) before building.
+
+## Definition of Done
+
+- [ ] Retries for reader images and downloads, with the resolution order
+- [ ] Admin API for extension and source, with `effective` and its origin; OpenAPI updated
+- [ ] Tests: fail-once-then-succeed, not-found not retried, override wins, rate limit respected
+- [ ] Docs; checks green; leak-check clean
+- [ ] `DONE:` with evidence per box
+
+## History
+
+- 2026-10-18: brief written from the accepted FEAT-0016.

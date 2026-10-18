@@ -1,0 +1,40 @@
+---
+title: "GOAL-0023: web: image retry settings in the extension admin"
+status: accepted
+tags: [goal, agents, web]
+related: [planning/features/FEAT-0016-automatic-retries-for-failed-page-images.md, agents/goals/GOAL-0022-server-automatic-retries-for-failed-page-images.md]
+inputs: [IN-0079, IN-0080]
+repos: [web]
+session: "panelarr-web"
+features: [FEAT-0016]
+updated: 2026-10-18
+---
+
+# GOAL-0023: web: image retry settings in the extension admin
+
+The brief a coding session works from. Read this file and follow it.
+
+## Status
+
+`accepted`. The owner accepted [FEAT-0016](../../planning/features/FEAT-0016-automatic-retries-for-failed-page-images.md) (IN-0080). Starts once GOAL-0022's API is merged.
+
+## Context
+
+- Read [FEAT-0016](../../planning/features/FEAT-0016-automatic-retries-for-failed-page-images.md) and [GOAL-0022](GOAL-0022-server-automatic-retries-for-failed-page-images.md).
+- **Decided (IN-0080):** the setting is on an extension (all its sources), with an optional override on one of its sources; default 2 more attempts, 1 s then 3 s.
+- Same working rules as before: slices, gated checks, merge to local main, never push, `REPORT:` per slice; every merge is redeployed for the owner (IN-0056). Live checks on the owner's stack never change the owner's settings or progress: use a throwaway user and put back anything you change.
+
+## Objective
+
+In the plugin page's extension details: an "Image retries" setting (attempts and delays) for the extension, showing the default when unset. On a source of that extension: an override, showing the inherited value and where it comes from, with reset to inherit. The reader keeps its manual "Try again" for when the attempts run out.
+
+## Definition of Done
+
+- [ ] Extension setting and per-source override, with inherited values shown and reset
+- [ ] Tests incl. phone, layout and axe
+- [ ] Checks green; leak-check clean
+- [ ] `DONE:` with evidence per box
+
+## History
+
+- 2026-10-18: brief written from the accepted FEAT-0016.

@@ -25,3 +25,5 @@ Briefs for coding sessions: objective, context to read, how to work, constraints
 | [GOAL-0019](GOAL-0019-server-connected-services-admin.md) | server: connected services' admin | `panelarr-server` | accepted |
 | [GOAL-0020](GOAL-0020-source-plugins-jobs-package-origins-and-details.md) | source plugins: jobs, package origins and details | `panelarr-mihon-source` | accepted |
 | [GOAL-0021](GOAL-0021-web-connected-services-admin-sections.md) | web: connected services' admin sections | `panelarr-web` | accepted |
+| [GOAL-0022](GOAL-0022-server-automatic-retries-for-failed-page-images.md) | server: automatic retries for failed page images | `panelarr-server` | accepted |
+| [GOAL-0023](GOAL-0023-web-image-retry-settings-in-the-extension-admin.md) | web: image retry settings in the extension admin | `panelarr-web` | accepted |
