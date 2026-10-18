@@ -40,3 +40,11 @@ In the server's image fetch (reader pages and downloads): retry a failed image f
 ## History
 
 - 2026-10-18: brief written from the accepted FEAT-0016.
+- 2026-10-18: plan PROPOSEd and accepted by the keeper.
+  - One helper `Host.PageImage`, used by the reader's page images and by downloads (covers, icons and browsing stay as they are). Every attempt waits on the per-source image limiter; cancel stops the retries. The image is buffered, so a stream that drops part-way is safe to retry.
+  - Retried: Unavailable, DeadlineExceeded, Aborted, Internal, Unknown, SOURCE_DOWN; RATE_LIMITED waits max(next delay, retry_after), and gives up when retry_after is over 30 s (downloads then retry later as a task, as today).
+  - Never retried: not found, rejected key or login, bad input or precondition, unsupported, a site challenge (the plugin's solver handles it), too large or not an image, and the server's own errors.
+  - The setting is `delays_ms` (default [1000, 3000]; [] means off; at most 5 entries of 0–30000 ms), stored in `image_retry_settings` by target (package `plugin:package` or source) and resolved source → its package → default, cached in memory.
+  - API: GET/PUT/DELETE `/plugins/{plugin_id}/packages/{package_id}/image-retries` and `/sources/{source_id}/image-retries`, answering `own`, `effective`, `level` and `from_target_id`; changes are audit-logged; a metric `panelarr_image_retries_total{outcome}`.
+  - Slices: S1 the retries, S2 the setting and API.
+  - Keeper answers: the 30 s retry_after cap is fine; a challenge stays out of the retry list.
