@@ -27,4 +27,4 @@ updated: 2026-10-18
 ## Risks and untested areas
 
 - The UI was tested against the mock only; the server API answered live with the default (redeploy #33). The owner's real check is reading on SITE_A.
-- A console error "<li> cannot be a descendant of <li>" shows in e2e runs (older than this slice); a fix is with `panelarr-web`.
+- A console error "<li> cannot be a descendant of <li>" shows in e2e runs (older than this slice); fixed in web `2271320` (an attached series rendered as an `<li>` inside its source row's `<li>`, on a work's Sources tab); unit tests now fail on invalid nesting.
