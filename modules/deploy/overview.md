@@ -82,3 +82,5 @@ Until the `deploy` repo exists, the owner has a local Compose setup in `~/Projec
 **Redeploy #24 (2026-10-18):** web `4ce796b` (reader errors). Server-only with `up -d --no-build --no-deps server`, which keeps Compose 5.6 from recreating postgres; use `--no-deps` for single-service redeploys from now on. Chapter 199 opens (48 pages); no zstd errors.
 
 **Redeploy #25 (2026-10-18):** server `8a13bb6` with web `4654cc3` (no app header on phones, Home Screen app bands fixed). Healthy; no warnings.
+
+**Redeploy #26–#29 (2026-10-18):** web `b753025` (compact series page), `ff7d11f` (library search icon, back to the series), `3f7b93f` (reader seams and scroll-up), then `6bedb02` (History tab and a reader regression fix). The keeper's request named the commits in the wrong order, so `6c860b8` (History without the fix) was live for about 79 s before `6bedb02`. Redeploy requests now name the branch head to deploy, and the deploy script stops when the requested commit doesn't contain the expected ones.
