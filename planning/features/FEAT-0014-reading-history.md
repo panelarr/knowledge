@@ -43,7 +43,7 @@ Each user has a **History** tab: what they read, newest first, grouped by day, o
 
 | Repo | Goal | PR/MR | State |
 |---|---|---|---|
-| server | — | — | check `/me/history` covers grouping per series, removal and clearing |
+| server | — | — | done (`65872f1`): `per=series` (default stays `per=chapter` for compatibility), `work_id` and `q` filters, resume chapter and display title on entries, `DELETE /me/history/{work_id}` and `DELETE /me/history` (hide what was read so far; read marks stay) |
 | web | — | — | History tab, after the mobile fixes (IN-0068..IN-0071) |
 
 ## Open questions
