@@ -3,7 +3,7 @@ title: "FEAT-0012: Reader, series page and library polish"
 status: accepted
 tags: [feature, web, reader, library, ux]
 related: [planning/features/FEAT-0006-mobile-first-reader.md, planning/features/FEAT-0005-unified-chapters-and-update-checks.md, modules/web/overview.md]
-inputs: [IN-0081, IN-0060, IN-0061]
+inputs: [IN-0083, IN-0081, IN-0060, IN-0061]
 milestone: ""
 priority: P1
 updated: 2026-10-12
@@ -74,3 +74,4 @@ Reading feels like a reader, not an app: the page fills the screen, the chrome i
 - 2026-10-18: **R5 asked** (IN-0081): (a) a Browse item already in the library opens its library page, and **Add to library** moves to the new library page; (b) in the long strip, opening a chapter in the middle (e.g. 45) and scrolling up should bring in the previous chapter more smoothly. Handed to `panelarr-web`.
 - 2026-10-18: **R5 (a) done** (web `621c97a`): a Browse card for a work in the library opens its series page; Add to library moves to the new series page (replacing the catalogue page, so Back returns to Browse). The catalogue page itself doesn't redirect, because it is the series' Details view (Details on desktop, ⋯ on phones); it keeps its "In your library" link.
 - 2026-10-18: **R5 (b) done** (web `6a8b95f`): the previous chapter is fetched as soon as the reader is within the first 5 pages of the first loaded chapter, and added above only while the strip is still (adding it mid-fling would stop the fling on iOS); scrolling to the very top still asks for it. iOS Simulator, Chapter 12 opened at its start: before, the first fling up stopped dead after 108 px and Chapter 11 came 1.7 s later; after, Chapter 11 was already above and the fling ran through the band in one motion, no jumps or blank frames over about 600 frames. Strip specs 30/30 on phone and desktop. Known limit: with page heights far from the guesses, a long fling may still stop briefly at the top.
+- 2026-10-22: **Bug** (IN-0083): in a long strip, "Pages to load ahead" has no effect: the strip loads a fixed 2 pages past the first one still loading (`AHEAD = 2`, `strip-viewer.tsx`); only the paged reader honours the setting. Handed to `panelarr-web`.
